@@ -1,0 +1,146 @@
+---
+title: Serie di Funzioni
+description: "Serie di funzioni: convergenza puntuale e convergenza uniforme"
+---
+
+## Definizione di serie di funzioni
+
+Consideriamo una successione di funzioni di variabile reale:
+
+$$
+f_1(x), \; f_2(x), \; f_3(x), \; \dots, \; f_n(x), \; \dots
+$$
+
+<Statement type="definition" title="Serie di Funzioni">
+
+Data una successione di funzioni $\{f_n\}_{n \in \mathbb{N}}$ con
+$f_n: A \subseteq \mathbb{R} \to \mathbb{R}$, si definisce **serie di funzioni**
+la somma formale
+
+$$
+\sum_{n=1}^{\infty} f_n(x) = f_1(x) + f_2(x) + f_3(x) + \dots
+$$
+
+Si definisce **ridotta ennesima** (o **somma parziale**) la somma dei primi $n$
+termini:
+
+$$
+S_n(x) = \sum_{k=1}^{n} f_k(x) = f_1(x) + f_2(x) + \dots + f_n(x)
+$$
+
+Se la successione delle ridotte $\{S_n(x)\}$ converge, la serie converge ad una
+funzione $F(x)$, detta **funzione somma**.
+
+</Statement>
+
+### Il resto ennesimo
+
+Se la serie converge, possiamo scomporre la funzione somma in ridotta e resto:
+
+$$
+F(x) = \underbrace{f_1(x) + f_2(x) + \dots + f_n(x)}_{S_n(x)} + \underbrace{f_{n+1}(x) + f_{n+2}(x) + \dots}_{R_n(x)}
+$$
+
+Il termine $R_n(x) = F(x) - S_n(x)$ è detto **resto ennesimo**. Poiché la serie
+converge, il resto è infinitesimo:
+
+$$
+\lim_{n \to \infty} R_n(x) = 0
+$$
+
+Il modo in cui $R_n(x)$ tende a zero --- se in maniera dipendente o indipendente
+dal punto $x$ --- è ciò che distingue la convergenza puntuale da quella
+uniforme.
+
+## Convergenza puntuale
+
+Fissato un valore numerico di $x$ (ad esempio $x = 8$), la variabile scompare e
+si ottiene una serie numerica. Se questa serie numerica converge, la serie di
+funzioni è convergente in quel punto; altrimenti potrebbe divergere o essere
+indeterminata. L'insieme di tutti i punti in cui la serie converge è detto
+**insieme di convergenza puntuale**.
+
+<Statement type="definition" title="Convergenza Puntuale">
+
+La serie $\sum f_n(x)$ converge **puntualmente** in un insieme
+$A \subseteq \mathbb{R}$ alla funzione $F(x)$ se, per ogni $x_0 \in A$ fissato,
+la serie numerica $\sum f_n(x_0)$ è convergente:
+
+$$
+\forall x_0 \in A: \quad \lim_{n \to \infty} S_n(x_0) = F(x_0)
+$$
+
+In termini di $\varepsilon$-$\delta$:
+
+$$
+\forall x_0 \in A, \; \forall \varepsilon > 0, \quad \exists \, p_{\varepsilon, x_0} \in \mathbb{N} \mid n > p_{\varepsilon, x_0} \implies |R_n(x_0)| < \varepsilon
+$$
+
+Si noti che l'indice $p$ dipende sia da $\varepsilon$ sia dal punto $x_0$. Si
+scrive:
+
+$$
+\sum f_n \underset{A}{\longrightarrow} F
+$$
+
+</Statement>
+
+## Convergenza uniforme
+
+Sapere che una serie converge puntualmente non è sufficiente per molte
+applicazioni: occorre capire se la convergenza è anche **uniforme**.
+
+Nella convergenza puntuale, l'indice $p$ può variare da punto a punto: per un
+dato $\varepsilon$, scegliendo un punto diverso $x_1 \in A$, l'indice necessario
+potrebbe cambiare.
+
+<Callout type="warn" title="Il punto chiave">
+
+Se l'indice $p$ dipende **solo** da $\varepsilon$ e **non** dal punto $x$
+scelto, la convergenza è **uniforme**. Se invece $p$ dipende anche da $x$, la
+convergenza è soltanto puntuale.
+
+</Callout>
+
+<Statement type="definition" title="Convergenza Uniforme">
+
+La serie $\sum f_n(x)$ converge **uniformemente** in un insieme
+$A \subseteq \mathbb{R}$ alla funzione $F(x)$ se:
+
+$$
+\forall \varepsilon > 0, \quad \exists \, p_{\varepsilon} \in \mathbb{N} \mid n > p_{\varepsilon} \implies \forall x \in A: \quad |R_n(x)| < \varepsilon
+$$
+
+Si noti che l'indice $p$ dipende **unicamente** da $\varepsilon$, non dalla
+scelta del punto $x \in A$. Si scrive:
+
+$$
+\sum f_n \underset{A}{\rightrightarrows} F
+$$
+
+</Statement>
+
+## Esempio: Serie geometrica di funzioni
+
+Consideriamo la serie
+
+$$
+\sum_{n=0}^{\infty} (e^x)^n
+$$
+
+Si tratta di una **serie geometrica** di ragione $q = e^x$. Una serie geometrica
+converge se e solo se $|q| < 1$. Poiché $e^x > 0$ per ogni $x$, la condizione si
+riduce a $e^x < 1$, ovvero $x < 0$.
+
+<Callout type="info" title="Insieme di convergenza puntuale">
+
+L'insieme di convergenza puntuale è $A = ]-\infty, 0[ \;$. Per $x \ge 0$ la
+serie diverge.
+
+</Callout>
+
+Essendo una serie geometrica, la funzione somma è nota:
+
+$$
+F(x) = \frac{1}{1 - e^x} \qquad \text{per } x \in \; ]-\infty, 0[
+$$

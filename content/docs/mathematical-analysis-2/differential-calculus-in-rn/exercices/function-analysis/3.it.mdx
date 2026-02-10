@@ -1,0 +1,185 @@
+---
+title: "Esercizio 3"
+description:
+  "Studio completo di una funzione definita a tratti con limite all'infinito"
+exercise:
+  difficulty: 2
+  exam: true
+---
+
+## Testo dell'esercizio
+
+Sia data la funzione $f : \mathbb{R}^2 \to \mathbb{R}$ definita da
+
+$$
+f(x,y) = \begin{cases}
+y & x < 0 \\
+x^2y^2 + x^3 + y^2 + y & x \geq 0
+\end{cases}
+$$
+
+1. Studiare continuità, derivabilità e differenziabilità di $f$ in
+   $\mathbb{R}^2$.
+
+2. **(Facoltativo)** Calcolare, se esiste,
+   $\lim_{(x,y)\to\infty} \dfrac{f(x,y)}{x^4 + y^6}$.
+
+## Soluzione [toc]
+
+<Solution>
+
+### 1. Continuità, derivabilità e differenziabilità
+
+La funzione è definita a tratti:
+
+$$
+f(x,y) = \begin{cases}
+y & x < 0 \\
+x^2y^2 + x^3 + y^2 + y & x \geq 0
+\end{cases}
+$$
+
+#### Studio della Continuità
+
+Analizziamo il dominio di continuità:
+
+1. **Per $x \neq 0$:**
+   - Se $x < 0$, $f(x,y) = y$ è un polinomio, quindi continuo.
+   - Se $x > 0$, $f(x,y) = x^2y^2 + x^3 + y^2 + y$ è un polinomio, quindi
+     continuo.
+
+2. **Sull'asse $y$ (cioè per $x = 0$):** Affinché $f$ sia continua in un punto
+   $(0, y_0)$, deve valere:
+
+   $$
+   \begin{align*}
+   \lim_{x \to 0^-} f(x,y_0) &= \lim_{x \to 0^+} f(x,y_0)\\
+   y_0 &= y_0^2+y_0\\
+   y_0 &= 0
+   \end{align*}
+   $$
+
+$\implies$ La funzione è continua in tutto $\mathbb{R}^2$ tranne che sull'asse
+$y$ privato dell'origine, ovvero è continua in:
+
+$$
+\mathbb{R}^2 \setminus \{(0, y) : y \neq 0\}
+$$
+
+---
+
+#### Studio della Derivabilità
+
+- Per $x \neq 0$, la funzione è derivabile (polinomi).
+- Per $x = 0$, ha senso studiare la derivabilità solo dove la funzione è
+  continua, ovvero in $(0,0)$.
+
+Calcoliamo le derivate parziali in $(0,0)$ tramite definizione:
+
+1.  **Derivata rispetto a $x$:**
+
+    $$
+    \begin{align*}
+    \frac{\partial f}{\partial x}(0,0) &= \lim_{h \to 0} \frac{f(h,0) - f(0,0)}{h}\\
+    & \lim_{h \to 0^-} \frac{f(h,0) - 0}{h} = 0\\
+    & \lim_{h \to 0^+} \frac{f(h,0) - 0}{h} = \lim_{h \to 0^+} h^2 = 0
+    \end{align*}
+    $$
+
+    I limiti coincidono, quindi $\frac{\partial f}{\partial x}(0,0) = 0$.
+
+2.  **Derivata rispetto a $y$:**
+
+    $$
+    \begin{align*}
+    \frac{\partial f}{\partial y}(0,0) &= \lim_{k \to 0} \frac{f(0,k) - f(0,0)}{k}\\
+    & \lim_{k \to 0^-} \frac{f(0,k) - 0}{k} = \lim_{k \to 0^-} \frac{k^2 + k}{k} = \lim_{k \to 0^-} (k + 1) = 1\\
+    & \lim_{k \to 0^+} \frac{f(0,k) - 0}{k} = \lim_{k \to 0^+} \frac{k^2 + k}{k} = \lim_{k \to 0^+} (k + 1) = 1
+    \end{align*}
+    $$
+
+    I limiti coincidono, quindi $\frac{\partial f}{\partial y}(0,0) = 1$.
+
+$\implies$ La funzione è **derivabile** in $(0,0)$ con:
+
+$$
+\nabla f(0,0) = \left(0, 1\right)
+$$
+
+---
+
+#### Studio della Differenziabilità
+
+Verifichiamo la differenziabilità in $(0,0)$ usando la definizione:
+
+$$
+\lim_{(h,k) \to (0,0)} \frac{f(h,k) - f(0,0) - \nabla f(0,0) \cdot (h,k)}{\sqrt{h^2+k^2}} = 0
+$$
+
+Sostituendo i valori ($f(0,0)=0, \nabla f=(0,1)$):
+
+$$
+\text{Num} = f(h,k) - k
+$$
+
+Distinguiamo i casi per $h$:
+
+1.  **Se $h < 0$:** $f(h,k) = k \implies \text{Num} = k - k = 0$. Il limite è
+    $0$.
+
+2.  **Se $h \geq 0$:** $f(h,k) = h^2k^2 + h^3 + k^2 + k$.
+    $$
+    \text{Num} = (h^2k^2 + h^3 + k^2 + k) - k = h^2k^2 + h^3 + k^2
+    $$
+    Il limite diventa:
+    $$
+    \lim_{(h,k) \to (0,0)^+} \frac{h^2k^2 + h^3 + k^2}{\sqrt{h^2+k^2}}
+    $$
+    Passando in coordinate polari ($h=\rho\cos\theta, k=\rho\sin\theta$):
+    $$
+    \frac{\rho^4 \cos^2\theta \sin^2\theta + \rho^3 \cos^3\theta + \rho^2 \sin^2\theta}{\rho} = \rho^3(\dots) + \rho^2(\dots) + \rho \sin^2\theta
+    $$
+    Tutti i termini tendono a $0$ per $\rho \to 0$.
+
+**Conclusione:** La funzione è **differenziabile** in $(0,0)$.
+
+---
+
+### 2. (Facoltativo) Calcolo del limite
+
+Calcoliamo $L = \lim_{(x,y)\to\infty} \frac{f(x,y)}{x^4 + y^6}$.
+
+1.  **Zona $x < 0$:**
+
+    $$
+    \left| \frac{y}{x^4 + y^6} \right| \leq \frac{|y|}{y^6} = \frac{1}{|y|^5} \xrightarrow{|y|\to\infty} 0
+    $$
+
+    (Se $y$ è limitato e $x \to -\infty$, il denominatore esplode e la frazione
+    va comunque a 0).
+
+2.  **Zona $x \geq 0$:**
+
+    $$
+    \frac{x^2y^2 + x^3 + y^2 + y}{x^4 + y^6}
+    $$
+
+    Usiamo le **coordinate polari generalizzate** per rispettare i pesi del
+    denominatore ($x^4$ e $y^6$). Poniamo $x = \rho^3 \cos\theta$ e
+    $y = \rho^2 \sin\theta$ (così $x^4 \sim \rho^{12}$ e $y^6 \sim \rho^{12}$).
+
+    Analizziamo gli ordini di grandezza del numeratore rispetto a $\rho$:
+    - $x^2y^2 \sim (\rho^3)^2 (\rho^2)^2 = \rho^{10}$
+    - $x^3 \sim (\rho^3)^3 = \rho^9$
+    - $y^2 \sim (\rho^2)^2 = \rho^4$
+
+    Il termine dominante al numeratore è $\rho^{10}$, mentre al denominatore è
+    $\rho^{12}$.
+
+    $$
+    \lim_{\rho \to \infty} \frac{\rho^{10}(\dots)}{\rho^{12}(\cos^4\theta + \sin^6\theta)} = 0
+    $$
+
+**Risultato:** Il limite esiste e vale **0**.
+
+</Solution>

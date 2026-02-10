@@ -1,0 +1,66 @@
+---
+title: Cos'è MDX
+description: Una breve introduzione a MDX per chi non è programmatore
+---
+
+Se hai mai scritto su un forum, su Jupyter Notebook o usato Notion o Obsidian,
+probabilmente conosci già il **Markdown**. MDX è semplicemente Markdown "con i
+superpoteri".
+
+## Markdown vs MDX
+
+Il **Markdown** standard permette di formattare il testo facilmente:
+
+- `**grassetto**` diventa **grassetto**
+- `# Titolo` diventa un titolo
+- `- Elenco` diventa una lista puntata
+
+**MDX** prende tutto questo e ci permette di inserire **Componenti Interattivi**
+(scritti in React/JavaScript) direttamente dentro il testo.
+
+Ad esempio, in un normale file di testo non potresti inserire un grafico
+interattivo o un blocco "Callout" colorato. Con MDX, puoi farlo scrivendo un
+semplice "tag".
+
+## Esempio Pratico
+
+Ecco come appare un file MDX tipico su Open Physica:
+
+```mdx
+# Elettrostatica
+
+Il campo elettrico è definito come...
+
+<Callout type="info">
+  Questa è una nota importante che apparirà in un box colorato!
+</Callout>
+
+Possiamo anche scrivere formule matematiche:
+
+$$
+\nabla \cdot \mathbf{E} = \frac{\rho}{\varepsilon_0}
+$$
+```
+
+## Cosa devi sapere (e cosa ignorare)
+
+Se non sei un programmatore, non preoccuparti!
+
+- ✅ **Devi sapere**: Come scrivere in Markdown (testo, titoli, liste) e come
+  usare i "tag" dei componenti che abbiamo preparato per te (come `<Solution>`,
+  `<Callout>`, ecc.).
+- ❌ **NON devi sapere**: Come programmare in JavaScript, React o CSS. Non devi
+  preoccuparti di come funzionano i componenti "dietro le quinte".
+
+### Regola d'oro
+
+MDX è molto potente ma anche un po' più permaloso del semplice testo. Se apri un
+tag (come `<Callout>`), ricordati sempre di chiuderlo (con `</Callout>`)!
+
+Se vedi errori strani durante la compilazione, il 90% delle volte è perché hai
+dimenticato di chiudere un tag o hai lasciato una riga vuota dove non doveva
+esserci. Il terminale e la pagina web ti diranno in cosa consiste l'errore, e
+puoi chiedere aiuto ad un LLM.
+
+Nel prossimo capitolo, vedremo come preparare il tuo computer per scrivere tutto
+questo comodamente.

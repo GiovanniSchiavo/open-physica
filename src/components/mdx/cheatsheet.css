@@ -1,0 +1,192 @@
+/* === Counters (no Tailwind equivalent) === */
+
+.cheatsheet-grid {
+  counter-reset: cheatsheet-section;
+}
+
+.cheatsheet-section {
+  counter-increment: cheatsheet-section;
+}
+
+.cheatsheet-title::before {
+  content: counter(cheatsheet-section, decimal-leading-zero);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  flex-shrink: 0;
+  border-radius: 50%;
+  border: 1.5px solid color-mix(in srgb, var(--primary) 50%, var(--border));
+  color: color-mix(in srgb, var(--primary) 70%, var(--foreground));
+  font-size: 0.7rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  background: color-mix(in srgb, var(--background) 70%, transparent);
+}
+
+/* === Header gradient (too verbose for inline Tailwind) === */
+
+.cheatsheet-header {
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--primary) 12%, var(--muted) 18%),
+    color-mix(in srgb, var(--muted) 35%, var(--background) 65%)
+  );
+}
+
+/* === MDX content descendant selectors === */
+
+.cheatsheet-body .katex-display {
+  margin: 0.125rem 0 !important;
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.cheatsheet-body .katex-display .katex {
+  font-size: 0.925em !important;
+  padding: 0 !important;
+}
+
+.cheatsheet-body p {
+  margin: 0.125rem 0 !important;
+  line-height: 1.4;
+  break-inside: avoid;
+}
+
+.cheatsheet-body ul {
+  margin: 0.125rem 0 !important;
+  padding-left: 1rem !important;
+}
+
+.cheatsheet-body li {
+  margin: 0 !important;
+  break-inside: avoid;
+}
+
+.cheatsheet-body strong {
+  color: color-mix(in srgb, var(--primary) 80%, var(--foreground) 20%);
+}
+
+.cheatsheet-body em {
+  font-size: 0.85em;
+  opacity: 0.8;
+}
+
+/* === Table (descendant selectors + color-mix) === */
+
+.cheatsheet-body table {
+  font-size: 1.05em;
+  width: 100%;
+  max-width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  background: color-mix(in srgb, var(--background) 70%, var(--muted) 30%);
+}
+
+.cheatsheet-body th,
+.cheatsheet-body td {
+  padding: 0.2rem 0.4rem;
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+
+.cheatsheet-body th:last-child,
+.cheatsheet-body td:last-child {
+  border-right: 0;
+}
+
+.cheatsheet-body tr:last-child td {
+  border-bottom: 0;
+}
+
+.cheatsheet-body th {
+  font-weight: 600;
+  background: color-mix(in srgb, var(--muted) 50%, transparent);
+}
+
+/* === Print (descendant selectors + @page) === */
+
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 4mm;
+  }
+
+  /* Force B&W and remove colors */
+  .cheatsheet-container,
+  .cheatsheet-container * {
+    color: #000 !important;
+    background: #fff !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .cheatsheet-header {
+    background: #eee !important;
+    border-left-color: #333 !important;
+  }
+
+  .cheatsheet-title::before {
+    width: 1.1rem;
+    height: 1.1rem;
+    font-size: 6px;
+    border: 1px solid #444 !important;
+    color: #111 !important;
+    background: #fff !important;
+  }
+
+  .cheatsheet-body .katex-display {
+    margin: 0.05rem 0 !important;
+    overflow: visible;
+  }
+
+  .cheatsheet-body .katex-display .katex {
+    font-size: 0.8em !important;
+  }
+
+  .cheatsheet-body p {
+    margin: 0.05rem 0 !important;
+    line-height: 1.15;
+  }
+
+  .cheatsheet-body ul {
+    padding-left: 0.5rem !important;
+    margin: 0.05rem 0 !important;
+  }
+
+  .cheatsheet-body li {
+    line-height: 1.2;
+  }
+
+  .cheatsheet-body strong {
+    color: #000 !important;
+  }
+
+  .cheatsheet-body em {
+    color: #333 !important;
+    opacity: 1;
+  }
+
+  .cheatsheet-body table {
+    font-size: 0.7em;
+    background: #fff !important;
+    border-radius: 0;
+    border-color: #999 !important;
+  }
+
+  .cheatsheet-body th {
+    background: #eee !important;
+  }
+
+  .cheatsheet-body th,
+  .cheatsheet-body td {
+    padding: 0.1rem 0.15rem;
+    border-color: #999 !important;
+  }
+}

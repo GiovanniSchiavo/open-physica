@@ -1,0 +1,13 @@
+{
+  "title": "Mathematical Analysis 2",
+  "pages": [
+    "index",
+    "topology",
+    "numerical-series",
+    "differential-calculus-in-rn",
+    "sequences-of-functions",
+    "series-of-functions",
+    "exercises"
+  ],
+  "root": true
+}

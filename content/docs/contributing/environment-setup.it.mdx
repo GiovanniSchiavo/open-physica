@@ -1,0 +1,151 @@
+---
+title: Setup Ambiente
+description: Prepara il tuo computer per contribuire a Open Physica
+---
+
+Per contribuire in modo completo, è necessario installare alcuni strumenti sul
+tuo computer. Non ti preoccupare, è una procedura che si fa una volta sola!
+
+## 1. Installare i Prerequisiti
+
+Hai bisogno di **Bun** (runtime + package manager) e **git** (per gestire le
+versioni).
+
+<Tabs items={['macOS', 'Windows', 'Linux']}>
+  <Tab value="macOS">
+    Il modo migliore per installare tutto su macOS è usare **Homebrew**.
+    Se non lo hai, installalo dal sito [brew.sh](https://brew.sh).
+
+    Apri il terminale e scrivi:
+
+    ```bash
+    # 1. Installa Bun
+    brew install oven-sh/bun/bun
+
+    # 2. Installa Git (se non presente)
+    brew install git
+
+    # 3. Verifica le installazioni
+    bun --version
+    git --version
+    ```
+
+  </Tab>
+  <Tab value="Windows">
+    Su Windows raccomandiamo di usare **Winget** (incluso in Windows 11) o scaricare gli installer.
+
+    Apri PowerShell o il Terminale di Windows:
+
+    ```powershell
+    # 1. Installa Bun
+    winget install Oven-sh.Bun
+
+    # 2. Installa Git (se non presente)
+    winget install Git.Git
+    ```
+
+    Dopo l'installazione, chiudi e riapri il terminale e verifica:
+
+    ```powershell
+    bun --version
+    git --version
+    ```
+
+  </Tab>
+  <Tab value="Linux">
+    Su Linux i comandi dipendono dalla tua distribuzione. Ecco alcuni esempi.
+
+    **Ubuntu/Debian (script ufficiale + APT):**
+    ```bash
+    # 1. Installa curl se manca
+    sudo apt update && sudo apt install -y curl git
+
+    # 2. Installa Bun
+    curl -fsSL https://bun.sh/install | bash
+
+    # 3. Ricarica la shell (oppure riapri il terminale)
+    source ~/.bashrc  # o ~/.zshrc
+
+    # 4. Verifica
+    bun --version
+    git --version
+    ```
+
+    **Arch Linux (Pacman):**
+    ```bash
+    sudo pacman -S bun git
+
+    # Verifica
+    bun --version
+    git --version
+    ```
+
+  </Tab>
+</Tabs>
+
+## 2. Editor di Codice (IDE)
+
+Per scrivere codice e MDX comodamente, hai bisogno di un buon editor.
+[Visual Studio Code](https://code.visualstudio.com/) è il più diffuso. È
+potente, gratuito e ha estensioni fantastiche.
+
+**Estensioni Raccomandate:** Quando aprirai il progetto Open Physica con VSCode,
+ti verrà suggerito di installare alcune estensioni (definite nel file
+`.vscode/extensions.json`). Accetta il suggerimento!
+
+Le più importanti sono:
+
+- **MDX**: Per evidenziare la sintassi MDX.
+- **Prettier**: Per formattare il codice automaticamente.
+- **ESLint**: Per individuare errori nel codice.
+- **Tailwind CSS**: Per l'autocompletamento delle classi CSS.
+
+## 3. Fork e Clone del Progetto
+
+Per contribuire, devi lavorare sulla **tua copia** del progetto (Fork).
+
+<Tabs items={['GitHub CLI', 'VS Code', 'Terminale']}>
+  <Tab value="GitHub CLI">
+    Il modo più veloce (fa fork e clone insieme):
+
+    ```bash
+    gh repo fork GiovanniSchiavo/open-physica --clone
+    cd open-physica
+    ```
+
+  </Tab>
+  <Tab value="VS Code">
+    1.  Vai su [GitHub](https://github.com/GiovanniSchiavo/open-physica) e clicca **Fork** (in alto a destra).
+    2.  Apri VS Code.
+    3.  Premi `F1` > **Git: Clone**.
+    4.  Seleziona **Clone from GitHub** e cerca il **TUO** fork (`TuoUtente/open-physica`).
+  </Tab>
+  <Tab value="Terminale">
+    1.  Vai su [GitHub](https://github.com/GiovanniSchiavo/open-physica) e clicca **Fork**.
+    2.  Clona il **TUO** repository:
+
+    ```bash
+    # Sostituisci TUO_USERNAME con il tuo nome utente GitHub
+    git clone https://github.com/TUO_USERNAME/open-physica.git
+    cd open-physica
+    ```
+
+  </Tab>
+</Tabs>
+
+Una volta scaricato il progetto:
+
+<Steps>
+  <Step>**Apri la cartella del progetto nel terminale**</Step>
+  <Step>**Installa le dipendenze**: `bun install{:bash}`</Step>
+  <Step>**Avvia il server di sviluppo**: `bun dev{:bash}`</Step>
+  <Step>
+    **Apri il browser**: Vai su `http://localhost:3000`. Dovresti vedere il sito
+    funzionante!
+  </Step>
+</Steps>
+
+<Callout type="tip">
+  Il server supporta il **Fast Refresh**: ogni volta che salvi un file `.mdx`,
+  il browser si aggiornerà istantaneamente senza dover ricaricare la pagina.
+</Callout>

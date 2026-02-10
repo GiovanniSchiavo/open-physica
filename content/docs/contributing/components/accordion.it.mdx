@@ -1,0 +1,87 @@
+---
+title: Accordion
+description: Contenuti espandibili/collassabili
+---
+
+Utilizza `<Accordions>` e `<Accordion>` per nascondere dettagli secondari,
+approfondimenti o soluzioni.
+
+## Esempio
+
+<Tabs items={["Risultato", "Codice"]}>
+  <Tab value="Risultato">
+    <Accordions>
+      <Accordion title="Approfondimento Storico">
+        Newton pubblicò i *Principia* nel 1687, rivoluzionando la fisica
+        classica.
+      </Accordion>
+      <Accordion title="Dimostrazione Alternativa">
+        Si può arrivare allo stesso risultato usando il principio dei lavori
+        virtuali...
+      </Accordion>
+    </Accordions>
+  </Tab>
+  <Tab value="Codice">
+    ```mdx
+    <Accordions>
+      <Accordion title="Approfondimento Storico">
+        Newton pubblicò i *Principia* nel 1687, rivoluzionando la fisica
+        classica.
+      </Accordion>
+      <Accordion title="Dimostrazione Alternativa">
+        Si può arrivare allo stesso risultato usando il principio dei lavori
+        virtuali...
+      </Accordion>
+    </Accordions>
+    ```
+  </Tab>
+</Tabs>
+
+## Proprietà (Props)
+
+### `<Accordions>`
+
+<TypeTable
+  type={{
+    type: {
+      description: "Comportamento di apertura",
+      type: "'single' | 'multiple'",
+      default: "'single'",
+    },
+    defaultValue: {
+      description: "Valore/i aperto/i di default",
+      type: "string | string[]",
+    },
+    children: {
+      description: "Contenuto (lista di Accordion)",
+      type: "ReactNode",
+    },
+  }}
+/>
+
+### `<Accordion>`
+
+<TypeTable
+  type={{
+    title: {
+      description: "Titolo cliccabile",
+      type: "string | ReactNode",
+      required: true,
+    },
+    id: {
+      description:
+        "ID univoco. Se presente, mostra un link copiabile a destra.",
+      type: "string",
+    },
+    value: {
+      description:
+        "Identificativo univoco (opzionale, altrimenti usa il titolo)",
+      type: "string",
+      default: "title",
+    },
+    children: {
+      description: "Contenuto espandibile",
+      type: "ReactNode",
+    },
+  }}
+/>

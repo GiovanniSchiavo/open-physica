@@ -1,0 +1,463 @@
+---
+title: Serie a termini positivi
+description:
+  Proprietà fondamentali e criteri di convergenza per serie a termini non
+  negativi
+---
+
+## Proprietà fondamentale
+
+Le serie a termini positivi (o non negativi) godono di una proprietà molto
+importante: non possono essere indeterminate.
+
+<section id="regolarità-termini-positivi">
+
+<Statement type="proposition" title="Regolarità delle serie a termini positivi">
+
+Sia $\sum_{k=0}^{\infty} a_k$ una serie a termini non negativi, ovvero
+$a_k \geq 0$ per ogni $k$ (o almeno definitivamente).
+
+Allora la serie **converge** o **diverge a $+\infty$**. Non può essere
+irregolare.
+
+</Statement>
+
+</section>
+
+### Dimostrazione
+
+Consideriamo la successione delle somme parziali $\{S_n\}$. Poiché i termini
+sono non negativi:
+
+$$
+S_{n+1} = S_n + a_{n+1} \geq S_n
+$$
+
+La successione $\{S_n\}$ è **monotona crescente**. Per il teorema sul limite
+delle successioni monotone, il limite $\lim_{n \to \infty} S_n$ esiste sempre:
+
+- Se la successione è limitata superiormente, il limite è finito (la serie
+  converge).
+- Se la successione non è limitata, il limite è $+\infty$ (la serie diverge).
+
+Non è possibile il caso oscillante (irregolare).
+
+## Criterio del Confronto
+
+Il metodo più immediato per stabilire il carattere di una serie è confrontarla
+con una serie di cui si conosce già il comportamento (come la serie geometrica o
+armonica).
+
+<section id="criterio-confronto">
+
+<Statement type="theorem" title="Criterio del Confronto">
+
+Siano $\sum a_n$ e $\sum b_n$ due serie a termini non negativi tali che:
+
+$$
+0 \leq a_n \leq b_n
+$$
+
+definitivamente (cioè per ogni $n \geq n_0$). Allora:
+
+1. Se la serie **maggiorante** $\sum b_n$ **converge**, allora converge anche la
+   serie **minorante** $\sum a_n$.
+2. Se la serie **minorante** $\sum a_n$ **diverge**, allora diverge anche la
+   serie **maggiorante** $\sum b_n$.
+
+</Statement>
+
+</section>
+
+### Dimostrazione
+
+Siano $S_n^a$ e $S_n^b$ le rispettive somme parziali. Poiché definitivamente
+$a_k \leq b_k$, allora definitivamente vale la disuguaglianza tra le somme
+parziali (a meno di una costante finita). Per semplicità, supponiamo
+$a_n \leq b_n$ per ogni $n$:
+
+$$
+S_n^a \leq S_n^b
+$$
+
+Passando al limite per $n \to \infty$ (i limiti esistono per la proprietà di
+regolarità):
+
+- Se $\sum b_n$ converge ($S^b$ finito), allora $S^a$ è limitata superiormente,
+  quindi $\sum a_n$ converge.
+- Se $\sum a_n$ diverge ($S^a = +\infty$), allora $S^b$ deve essere
+  necessariamente $+\infty$, quindi $\sum b_n$ diverge.
+
+## Criterio del Confronto Asintotico
+
+Una variante molto potente del criterio del confronto si basa sul calcolo dei
+limiti.
+
+<section id="criterio-confronto-asintotico">
+
+<Statement type="theorem" title="Criterio Asintotico del Confronto">
+
+Siano $\sum a_n$ e $\sum b_n$ due serie a termini positivi. Consideriamo il
+limite del rapporto dei termini generali:
+
+$$
+l = \lim_{n \to \infty} \frac{a_n}{b_n}
+$$
+
+Si distinguono tre casi:
+
+1. **$l \in (0, +\infty)$** (finito e diverso da zero): Le due serie hanno lo
+   **stesso carattere**.
+   $$
+   \sum a_n \text{ converge} \iff \sum b_n \text{ converge}
+   $$
+2. **$l = 0$**: Se la serie $\sum b_n$ **converge**, allora converge anche
+   $\sum a_n$. (Intuitivamente $a_n$ è "più piccolo" di $b_n$).
+3. **$l = +\infty$**: Se la serie $\sum b_n$ **diverge**, allora diverge anche
+   $\sum a_n$. (Intuitivamente $a_n$ è "più grande" di $b_n$).
+
+</Statement>
+
+</section>
+
+### Dimostrazione
+
+Analizziamo il caso principale $l \in (0, +\infty)$. Per definizione di limite,
+fissato $\varepsilon > 0$, definitivamente il rapporto $a_n/b_n$ cade
+nell'intervallo $(l-\varepsilon, l+\varepsilon)$. Scegliendo $\varepsilon$
+abbastanza piccolo (es. $\varepsilon = l/2$), si ha:
+
+$$
+\frac{l}{2} < \frac{a_n}{b_n} < \frac{3l}{2}
+$$
+
+Ovvero:
+
+$$
+\frac{l}{2} b_n < a_n < \frac{3l}{2} b_n
+$$
+
+Applicando il criterio del confronto "classico":
+
+- Se $\sum b_n$ converge, allora converge anche $\sum \frac{3l}{2} b_n$, e
+  quindi $\sum a_n$.
+- Se $\sum b_n$ diverge, allora diverge anche $\sum \frac{l}{2} b_n$, e quindi
+  $\sum a_n$.
+
+I casi $l=0$ e $l=+\infty$ si dimostrano analogamente usando solo una delle due
+disuguaglianze.
+
+## Criterio di Condensazione (di Cauchy)
+
+Un criterio molto utile, specialmente in presenza di logaritmi o potenze, che
+permette di "diradare" i termini di una serie.
+
+<section id="criterio-condensazione">
+
+<Statement type="theorem" title="Criterio di Condensazione">
+
+Sia $\{a_n\}_{n \in \mathbb{N}}$ una successione a termini positivi e
+**decrescente** ($0 < a_{n+1} \leq a_n$ definitivamente). Allora la serie
+$\sum a_n$ ha lo stesso carattere della serie condensata:
+
+$$
+\sum_{k=0}^{\infty} a_k \text{ converge} \iff \sum_{k=0}^{\infty} 2^k a_{2^k} \text{ converge}
+$$
+
+</Statement>
+
+</section>
+
+### Applicazione 1: Serie Armonica Generalizzata
+
+Studiamo il carattere della serie armonica generalizzata per
+$\alpha \in \mathbb{R}$:
+
+$$
+\sum_{k=1}^{\infty} \frac{1}{k^{\alpha}}
+$$
+
+Il termine generale è positivo e decrescente per $\alpha > 0$.
+
+1.  **Caso $\alpha \leq 1$**: La serie diverge (per confronto con la serie
+    armonica o perché il termine non tende a 0 se $\alpha \leq 0$).
+
+2.  **Caso $\alpha > 1$**: Usiamo la condensazione. Serie condensata:
+    $$
+    \sum 2^k \frac{1}{(2^k)^{\alpha}} = \sum (2^{1-\alpha})^k
+    $$
+    È una geometrica con ragione $2^{1-\alpha} < 1$, quindi converge.
+
+**Conclusione:**
+
+<section id="carattere-armonica-generalizzata">
+
+<Statement type="corollary" title="Carattere della serie armonica generalizzata">
+
+$$
+\sum_{k=1}^{\infty} \frac{1}{k^{\alpha}} = \begin{cases}
+  \text{Converge} & \text{se } \alpha > 1 \\
+  \text{Diverge} & \text{se } \alpha \leq 1
+\end{cases}
+$$
+
+</Statement>
+
+</section>
+
+### Applicazione 2: Serie di Abel (con logaritmi)
+
+Studiamo la serie:
+
+$$
+\sum_{n=2}^{\infty} \frac{1}{n^{\alpha} (\ln n)^{\beta}}
+$$
+
+Usando il criterio di condensazione (quando $\alpha > 0$ il termine decresce),
+si ottiene una serie che si comporta come:
+
+$$
+\frac{1}{(\ln 2)^\beta} \sum_{k=1}^{\infty} \frac{(2^{1-\alpha})^k}{k^\beta}
+$$
+
+Analizzando la convergenza di questa nuova serie:
+
+<Statement type="corollary" title="Criterio per la serie di Abel">
+
+La serie $\sum \frac{1}{n^{\alpha} (\ln n)^{\beta}}$:
+
+- Se **$\alpha > 1$**: **Converge** per ogni $\beta$.
+- Se **$\alpha < 1$**: **Diverge** per ogni $\beta$.
+- Se **$\alpha = 1$**:
+  - **Converge** se $\beta > 1$.
+  - **Diverge** se $\beta \leq 1$.
+
+</Statement>
+
+## Criterio del Rapporto (di d'Alembert)
+
+Un criterio molto efficace che si basa sul confronto con la serie geometrica.
+
+<section id="criterio-rapporto">
+
+<Statement type="theorem" title="Criterio del Rapporto">
+
+Sia $\sum_{n=0}^{\infty} a_n$ una serie a termini positivi ($a_n > 0$).
+
+1.  Se esiste una costante $r$ tale che $0 < r < 1$ e definitivamente:
+
+    $$
+    \frac{a_{n+1}}{a_n} \leq r
+    $$
+
+    allora la serie **converge**.
+
+2.  Se definitivamente:
+    $$
+    \frac{a_{n+1}}{a_n} \geq 1
+    $$
+    allora la serie **diverge**.
+
+</Statement>
+
+</section>
+
+### Dimostrazione
+
+1.  **Convergenza**: Se $a_{k+1} \leq r a_k$, iterando la disuguaglianza si
+    ottiene $a_k \leq a_0 r^k$ (supponendo valga da subito). Essendo $r < 1$, la
+    serie $\sum r^k$ converge (geometrica), quindi per confronto converge anche
+    $\sum a_k$.
+
+2.  **Divergenza**: Se $a_{k+1} \geq a_k$, la successione è crescente. Essendo
+    $a_0 > 0$, il limite è positivo (non nullo). Manca la condizione necessaria,
+    quindi la serie diverge.
+
+### Criterio Asintotico del Rapporto
+
+Nella pratica si usa quasi sempre la versione basata sui limiti.
+
+<section id="criterio-rapporto-asintotico">
+
+<Statement type="corollary" title="Criterio Asintotico del Rapporto">
+
+Sia $\sum a_n$ una serie a termini positivi e esista il limite:
+
+$$
+l = \lim_{n \to \infty} \frac{a_{n+1}}{a_n}
+$$
+
+Allora:
+
+1.  Se $l < 1$, la serie **converge**.
+2.  Se $l > 1$, la serie **diverge**.
+3.  Se $l = 1$, il criterio **non dà informazioni** (il caso è dubbio).
+
+</Statement>
+
+</section>
+
+**Dimostrazione:**
+
+1.  Se $l < 1$, possiamo scegliere un $\varepsilon$ tale che
+    $r = l + \varepsilon < 1$ (ad esempio $r = \frac{l+1}{2}$). Per definizione
+    di limite, definitivamente $\frac{a_{n+1}}{a_n} < r$. Ricadiamo nel caso 1
+    del criterio rigoroso.
+2.  Se $l > 1$, definitivamente il rapporto è maggiore di 1. Ricadiamo nel
+    caso 2.
+
+<Callout type="warn" title="Caso limite $l = 1$">
+
+Nel caso $l = 1$ tutto può succedere. Ad esempio, per la serie armonica
+generalizzata $\sum 1/n^\alpha$ il limite del rapporto è sempre $1$ per ogni
+$\alpha$, ma la serie converge per $\alpha > 1$ e diverge per $\alpha \leq 1$.
+
+</Callout>
+
+### Esempio: La Serie Esponenziale
+
+Studiamo la convergenza della serie per ogni $x \in \mathbb{R}$:
+
+$$
+\sum_{k=0}^{\infty} \frac{x^k}{k!}
+$$
+
+Poiché $x$ può essere negativo, studiamo la **convergenza assoluta**, applicando
+il criterio del rapporto asintotico alla serie dei moduli
+$\sum \frac{|x|^k}{k!}$. Il termine generale è $a_k = \frac{|x|^k}{k!}$.
+
+$$
+l = \lim_{k \to \infty} \frac{a_{k+1}}{a_k} = \lim_{k \to \infty} \frac{|x|^{k+1}}{(k+1)!} \cdot \frac{k!}{|x|^k}
+$$
+
+Semplificando le potenze e i fattoriali ($(k+1)! = (k+1) k!$):
+
+$$
+l = \lim_{k \to \infty} \frac{|x|}{k+1} = 0
+$$
+
+Poiché il limite è $0 < 1$ per qualunque valore finito di $x$, la serie converge
+assolutamente (e quindi semplicemente) **per ogni $x \in \mathbb{R}$**.
+
+<Callout type="info" title="Funzione esponenziale reale">
+  Questa serie definisce la funzione esponenziale reale:
+  $\sum_{k=0}^{\infty} \frac{x^k}{k!} = e^x$.
+</Callout>
+
+## Criterio della Radice (di Cauchy)
+
+Un altro criterio fondamentale basato sul confronto con la serie geometrica.
+
+<section id="criterio-radice">
+
+<Statement type="theorem" title="Criterio della Radice">
+
+Sia $\sum_{n=0}^{\infty} a_n$ una serie a termini non negativi.
+
+1.  Se esiste una costante $r$ tale che $0 < r < 1$ e definitivamente:
+
+    $$
+    \sqrt[n]{a_n} \leq r
+    $$
+
+    allora la serie **converge**.
+
+2.  Se definitivamente:
+    $$
+    \sqrt[n]{a_n} \geq 1
+    $$
+    allora la serie **diverge**.
+
+</Statement>
+
+</section>
+
+### Dimostrazione
+
+1.  **Convergenza**: Se $\sqrt[n]{a_n} \leq r$, elevando alla potenza $n$ si ha
+    $a_n \leq r^n$. La serie è maggiorata dalla serie geometrica $\sum r^n$ che
+    converge (essendo $r < 1$).
+
+2.  **Divergenza**: Se $\sqrt[n]{a_n} \geq 1$, allora $a_n \geq 1$. Il termine
+    generale non è infinitesimo, quindi la serie diverge.
+
+### Criterio Asintotico della Radice
+
+<section id="criterio-radice-asintotico">
+
+<Statement type="corollary" title="Criterio Asintotico della Radice">
+
+Sia $\sum a_n$ una serie a termini non negativi e esista il limite:
+
+$$
+l = \lim_{n \to \infty} \sqrt[n]{a_n}
+$$
+
+Allora:
+
+1.  Se $l < 1$, la serie **converge**.
+2.  Se $l > 1$, la serie **diverge**.
+3.  Se $l = 1$, il criterio **non da informazioni**.
+
+</Statement>
+
+</section>
+
+La dimostrazione è analoga a quella del rapporto asintotico, sfruttando il fatto
+che definitivamente $\sqrt[n]{a_n}$ si avvicina a $l$, permettendo di scegliere
+un $r < 1$ (se $l<1$) o di mostrare che è $>1$.
+
+### Relazione tra Rapporto e Radice
+
+Esiste un legame importante tra i limiti del rapporto e della radice.
+
+<Statement type="proposition" title="Teorema del Rapporto-Radice">
+
+Se esiste il limite del rapporto $l = \lim_{n \to \infty} \frac{a_{n+1}}{a_n}$,
+allora esiste anche il limite della radice e coincide con $l$:
+
+$$
+\lim_{n \to \infty} \frac{a_{n+1}}{a_n} = l \implies \lim_{n \to \infty} \sqrt[n]{a_n} = l
+$$
+
+</Statement>
+
+Questo significa che il criterio della radice è **più forte** (o più generale)
+di quello del rapporto: se il rapporto ha limite, la radice ha lo stesso limite.
+Tuttavia, esistono casi in cui il limite del rapporto non esiste, ma quello
+della radice sì.
+
+### Esempio: Serie Logaritmica
+
+Studiamo la convergenza della serie di potenze:
+
+$$
+\sum_{k=1}^{\infty} (-1)^{k+1} \frac{x^k}{k}
+$$
+
+Studiamo la **convergenza assoluta** applicando il criterio asintotico della
+radice alla serie dei moduli $\sum \frac{|x|^k}{k}$:
+
+$$
+l = \lim_{k \to \infty} \sqrt[k]{\frac{|x|^k}{k}} = \lim_{k \to \infty} \frac{|x|}{\sqrt[k]{k}}
+$$
+
+Sapendo che $\lim_{k \to \infty} \sqrt[k]{k} = 1$:
+
+$$
+l = |x|
+$$
+
+Quindi:
+
+1.  Se $|x| < 1$, la serie converge assolutamente (e quindi semplicemente).
+2.  Se $|x| > 1$, la serie non converge assolutamente. Inoltre il termine
+    generale non è infinitesimo ($\lim |a_k| = +\infty$), quindi diverge.
+
+**Casi di frontiera $|x|=1$:**
+
+- Se $x=1$, la serie diventa $\sum (-1)^{k+1} \frac{1}{k}$ (serie armonica a
+  segni alterni), che **converge** semplicemente (criterio di Leibniz), ma non
+  assolutamente.
+- Se $x=-1$, la serie diventa $\sum -\frac{1}{k}$ (serie armonica cambiata di
+  segno), che **diverge**.

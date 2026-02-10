@@ -1,0 +1,425 @@
+---
+title: Elettrostatica
+description:
+  La carica elettrica, legge di Coulomb, campo elettrico, teorema di Gauss,
+  potenziale elettrostatico.
+---
+
+Iniziamo lo studio dell'elettromagnetismo con un esperimento. Immaginiamo di
+appendere una pallina da ping-pong ad un filo abbastanza lungo, cospargere
+questa pallina con della grafite.
+
+Prendiamo ora una bacchetta in Plexiglas e strofiniamola con della carta
+energeticamente. A questo punto avviciniamo la bacchetta alla pallina senza
+metterle a contatto, osserviamo che la pallina è attratta, anche se di
+pochissimo, dalla bacchetta.
+
+L'effetto più eclatante si ottiene invece mettendo la pallina e bacchetta a
+contatto. A questo punto si osserva una forte repulsione tra bacchetta e
+pallina, tanto che riusciamo tranquillamente a mettere in moto il pendolo, anche
+con grande ampiezza semplicemente agitando con intelligenza la bacchetta.
+
+A questo punto prendiamo un'altra bacchetta in PVC, e ripetiamo su questa
+l'operazione di strofinio. Osserviamo che a questo punto si verifica invece il
+fenomeno di attrazione. La pallina viene attratta dalla bacchetta fin quando non
+vi entra in contatto.
+
+Se a questo punto riprendiamo la bacchetta in plexiglas si nota che la pallina è
+attratta di nuovo, anziché essere respinta. Da questo bizzarro esperimento
+possiamo dedurre alcune delle proprietà fondamentali dell'elettrostatica.
+
+## La carica elettrica
+
+Per spiegare il comportamento della pallina nell'esperimento mostrato bisogna
+teorizzare un modello. Sembra che la bacchetta di plexiglas, una volta
+strofinata, acquisisca una proprietà, che trasferisce alla pallina per contatto.
+E che due corpi che possiedono la stessa proprietà sono soggetti ad una forza di
+tipo repulsivo.
+
+Chiamiamo **carica elettrica** questa proprietà, e assegnamo il segno $$+$$ a
+quella del plexiglas, per convenzione.
+
+Il PVC, sottoposto allo strofinio, acquisisce una carica differente a quella del
+plexiglas (che chiamiamo di segno $$-$$, sempre per convenzione), supponiamo
+dunque che due corpi di carica differente si attraggono.
+
+<Statement type="principle" title="Conservazione della carica">
+
+La somma algebrica delle cariche è una quantità conservata.
+
+</Statement>
+
+Per misurare la carica inventiamo uno strumento detto **elettroscopio a
+foglie**: collegando alla nostra pallina due lembi di alluminio, una volta che
+la pallina si carica, per contatto con i lembi di alluminio trasferirà la sua
+carica anche ai due lembi. Poiché i due lembi si caricano dello stesso segno, si
+respingeranno, aprendosi in un angolo $$\alpha$$, che può essere misurato con
+una scala graduata.
+
+## La legge di Coulomb
+
+Uno strumento efficace per misurare la forza attrattiva o repulsiva è il pendolo
+di torsione. Studiando il moto rotativo del pendolo quando viene accostata al
+sistema una carica nota, il fisico Coulomb ha potuto studiare l'andamento della
+forza.
+
+Coulomb ha osservato che il modulo della forza è proporzionale al prodotto delle
+cariche:
+
+$$
+F \propto Qq
+$$
+
+E che nel limite di cariche puntiformi:
+
+$$
+F \propto \frac{1}{r^2}
+$$
+
+<Statement type="law" title="Legge di Coulomb">
+
+Usando una costante di proporzionalità $$k$$:
+
+$$
+\vec{F}_q = -k \frac{Qq}{r^2} \hat{r}_{Q \to q}
+$$
+
+Dove $$\hat{r}_{Q \to q}$$ è il versore che parte dalla carica attiva $$Q$$ e
+termina sulla carica passiva $$q$$.
+
+</Statement>
+
+### Istantaneità della forza elettrostatica
+
+Classicamente si pensava che l'azione della forza elettrostatica fosse
+immediata. In realtà questo non può essere vero, perché violerebbe la relatività
+ristretta di Einstein. Per risolvere questo paradosso si è supposto che nel
+momento in cui mettiamo una carica in $$P_1$$ essa genera un **campo elettrico**
+che inizia a modificare lo spazio, partendo da $$P_1$$ e diffondendosi in tutte
+le direzioni con velocità $$c$$ (se ci troviamo nel vuoto).
+
+### Il coulomb e la costante dielettrica nel vuoto
+
+La costante $$k$$ nel sistema internazionale vale:
+
+$$
+k = 8.99 \cdot 10^9 \, \frac{\text{N} \cdot \text{m}^2}{\text{C}^2}
+$$
+
+Molto spesso si preferisce esprimere $$k$$ in funzione della **costante
+dielettrica del vuoto** $$\varepsilon_0$$:
+
+$$
+k = \frac{1}{4\pi\varepsilon_0}
+$$
+
+Con:
+
+$$
+\varepsilon_0 = 8.85 \cdot 10^{-12} \, \frac{\text{C}^2}{\text{N} \cdot \text{m}^2}
+$$
+
+## Il campo elettrico
+
+<Statement type="definition" title="Campo Elettrico">
+
+Definisco **campo elettrico** la funzione vettoriale dello spazio $$\vec{E}_0$$
+come la forza che subisce una carica di prova $$q^+$$ (scelta per convenzione
+positiva) posta in un punto dello spazio diviso la carica di prova stessa:
+
+$$
+\vec{E}_0(x, y, z) = \frac{\vec{F}(x, y, z, q)}{q^+}
+$$
+
+Il campo elettrico si misura in N/C.
+
+</Statement>
+
+Nel caso di un campo elettrico generato da una carica $$Q$$ puntiforme:
+
+$$
+\vec{E}_0 = \frac{1}{4\pi\varepsilon_0} \frac{Q}{r^2} \hat{r}
+$$
+
+Il campo elettrico generato da due (o più) cariche è la **somma vettoriale** dei
+campi generati dalle singole cariche:
+
+$$
+\vec{E}_{0t} = \vec{E}_1 + \vec{E}_2
+$$
+
+### Campo elettrico di un dipolo
+
+Consideriamo due cariche $$+q$$ e $$-q$$ poste a distanza $$d$$. Per calcolare
+il campo in un punto $$P$$ nel piano perpendicolare all'asse del dipolo, a
+distanza $$R$$ dal centro:
+
+$$
+\vec{E}_{0t} = \frac{1}{4\pi\varepsilon_0} \frac{-Qd}{\left( R^2 + \frac{d^2}{4} \right)^{3/2}} \hat{k}
+$$
+
+<Statement type="definition" title="Momento del dipolo elettrico">
+
+Definiamo **momento del dipolo elettrico** la grandezza vettoriale $$\vec{p}$$
+data dal prodotto tra il valore assoluto di una delle due cariche $$q$$ del
+dipolo e la distanza $$\vec{d}$$ tra le due cariche:
+
+$$
+\vec{p} = Q\vec{d}
+$$
+
+La direzione del momento è per convenzione quella che va dalla carica negativa a
+quella positiva.
+
+</Statement>
+
+Nell'ipotesi in cui $$d \ll R$$:
+
+$$
+E_{0t} = \frac{1}{4\pi\varepsilon_0} \frac{p}{R^3}
+$$
+
+### Distribuzioni di cariche nel continuo
+
+Per un sistema di $$n$$ cariche discrete:
+
+$$
+\vec{E}_{0t} = \sum_{i=1}^{n} \vec{E}_0^{(i)} = \frac{1}{4\pi\varepsilon_0} \sum_{i=1}^{n} \frac{Q_i}{|\vec{r} - \vec{r}_i|^3} (\vec{r} - \vec{r}_i)
+$$
+
+Per distribuzioni continue definiamo le **funzioni di densità di carica**:
+
+- $$\rho = \frac{dQ}{d\tau}$$ - densità volumica
+- $$\sigma = \frac{dQ}{dS}$$ - densità superficiale
+- $$\lambda = \frac{dQ}{dl}$$ - densità lineare
+
+Da cui:
+
+$$
+\vec{E}_{0t} = \frac{1}{4\pi\varepsilon_0} \int_\tau \frac{\rho(x', y', z')}{|\vec{r} - \vec{r}'|^3} (\vec{r} - \vec{r}') \, dx' dy' dz'
+$$
+
+### Campo elettrico di un filo infinito
+
+Per un filo infinito con distribuzione di carica lineare $$\lambda$$ uniforme,
+sfruttando le simmetrie del sistema:
+
+$$
+E_{0t} = \frac{\lambda}{2\pi\varepsilon_0 R}
+$$
+
+Dove $$R$$ è la distanza dal filo.
+
+<Callout type="info">
+  Questo andamento come $$R^{-1}$$ è valido solo per distanze molto minori della
+  lunghezza del filo. A distanze molto grandi ritorna l'andamento $$R^{-2}$$
+  della legge di Coulomb.
+</Callout>
+
+### Campo elettrico di un piano uniforme
+
+Per un piano infinito con distribuzione di carica superficiale $$\sigma$$
+uniforme:
+
+$$
+E_0 = \frac{\sigma}{2\varepsilon_0}
+$$
+
+Il campo elettrico è **uniforme** e non dipende dalla distanza dal piano!
+
+<Callout type="warn">
+  Da una parte all'altra del piano, per simmetria, il verso del campo deve
+  cambiare: c'è una **discontinuità** del campo sopra e sotto il piano.
+</Callout>
+
+## Il teorema di Gauss
+
+<Statement type="theorem" title="Teorema di Gauss">
+
+Il flusso totale uscente di un campo elettrico $$\vec{E}_0$$ da una superficie
+chiusa dipende solo dalle cariche interne alla superficie e vale:
+
+$$
+\Phi(\vec{E}_0) = \frac{Q_{int}^{tot}}{\varepsilon_0}
+$$
+
+</Statement>
+
+<Accordions>
+<Accordion id="proof-gauss" title="Dimostrazione">
+
+Per dimostrare il teorema prendiamo una superficie chiusa avente al suo interno
+una carica puntiforme $$q$$ e consideriamo un angolo solido infinitesimo
+$$d\Omega$$ con vertice in $$q$$ che interseca un infinitesimo $$dS$$ della
+superficie chiusa.
+
+Il flusso infinitesimo attraverso $$dS$$ sarà:
+
+$$
+d\Phi(\vec{E}_0) = \vec{E}_0 \cdot \hat{n} \, dS = E_0 \cos\theta \, dS
+$$
+
+Tenendo presente che $$E_0 = \frac{q}{4\pi\varepsilon_0 r^2}$$ e
+$$dS' = r^2 d\Omega$$, sostituendo si ottiene:
+
+$$
+d\Phi(\vec{E}_0) = \frac{q}{4\pi\varepsilon_0} d\Omega
+$$
+
+Integrando su tutto l'angolo solido:
+
+$$
+\Phi(\vec{E}_0) = \frac{q}{\varepsilon_0}
+$$
+
+Il risultato si generalizza per $$n$$ cariche. Per le cariche esterne il flusso
+è nullo perché tante linee di flusso "entrano" quante ne escono.
+
+</Accordion>
+</Accordions>
+
+## Prima equazione di Maxwell
+
+Applicando il teorema della divergenza al teorema di Gauss, otteniamo la **prima
+equazione di Maxwell**:
+
+<Statement type="law" title="Prima equazione di Maxwell">
+
+$$
+\nabla \cdot \vec{E}_0 = \frac{\rho}{\varepsilon_0}
+$$
+
+Questa è una proprietà intrinseca del campo elettrico.
+
+</Statement>
+
+### Calcolo del campo elettrico - Sfera uniforme
+
+**Caso 1: $$r > R$$ (esterno)**
+
+Costruendo una superficie sferica $$S_1$$ di raggio $$r$$ centrata nella sfera,
+e applicando simmetria + teorema di Gauss:
+
+$$
+E_0 = \frac{1}{4\pi\varepsilon_0} \frac{Q_{tot}}{r^2}
+$$
+
+Il campo elettrico di una sfera uniformemente carica è uguale a quello di una
+carica puntiforme!
+
+**Caso 2: $$r < R$$ (interno)**
+
+Per una sfera uniformemente carica con densità $$\rho$$:
+
+$$
+E_0 = \frac{\rho}{3\varepsilon_0} r
+$$
+
+Il campo elettrico aumenta **linearmente** con $$r$$ all'interno!
+
+## Il potenziale elettrostatico
+
+Il campo elettrico è conservativo (tutti i campi centrali lo sono), quindi ha
+senso cercare un potenziale.
+
+<Statement type="definition" title="Potenziale elettrostatico">
+
+Si definisce **potenziale elettrostatico** e si indica con $$V_0(\vec{r})$$ la
+quantità:
+
+$$
+V_0(\vec{r}) = \frac{Q}{4\pi\varepsilon_0} \frac{1}{r} + C
+$$
+
+In particolare se in $$A$$ è assegnato un potenziale $$V_0(A)$$ allora:
+
+$$
+V_0(P) = -\int_A^P \vec{E}_0 \cdot d\vec{l} + V_0(A)
+$$
+
+L'unità di misura del potenziale è il **Volt**: $$V = \frac{J}{C}$$
+
+</Statement>
+
+La relazione fondamentale tra campo e potenziale:
+
+$$
+\vec{E}_0 = -\nabla V_0
+$$
+
+### Potenziale del dipolo elettrico
+
+Per un dipolo a distanze $$r \gg d$$:
+
+$$
+V_0^{tot}(P) = \frac{1}{4\pi\varepsilon_0} \frac{\vec{p} \cdot \hat{r}}{r^2} = \frac{1}{4\pi\varepsilon_0} \frac{\vec{p} \cdot \vec{r}}{r^3}
+$$
+
+Il campo elettrico in coordinate sferiche:
+
+$$
+E_r = \frac{2p\cos\theta}{4\pi\varepsilon_0 r^3} \qquad E_\theta = \frac{p\sin\theta}{4\pi\varepsilon_0 r^3} \qquad E_\phi = 0
+$$
+
+## Sistema di N cariche
+
+Per un sistema di $$N$$ cariche globalmente neutro ($$Q_{tot} = 0$$), a distanze
+$$R \gg r_i$$:
+
+<Statement type="definition" title="Momento di dipolo generalizzato">
+
+Il momento del dipolo di un sistema di $$n$$ cariche elettriche $$\vec{p}$$ è
+dato dalla quantità:
+
+$$
+\vec{p} = \sum_{i=1}^{n} q_i \vec{r}_i
+$$
+
+</Statement>
+
+Il potenziale diventa:
+
+$$
+V_0(P) = \frac{1}{4\pi\varepsilon_0} \frac{\vec{p} \cdot \vec{R}}{R^3}
+$$
+
+<Callout type="tip">
+
+A distanze sufficientemente grandi, un qualunque sistema di cariche globalmente
+neutro si comporta fisicamente esattamente come se si trattasse di un dipolo
+elettrico!
+
+</Callout>
+
+Questa è la ragione per cui in chimica alcune molecole come l'acqua si dicono
+dotate di un momento di dipolo non nullo.
+
+## Dipolo sottoposto a campo elettrico
+
+L'energia potenziale di un dipolo in un campo elettrico $$\vec{E}_0$$:
+
+$$
+U = -\vec{E}_0 \cdot \vec{p}
+$$
+
+Questo ci dice che il dipolo si posizionerà in modo che $$\vec{p}$$ e
+$$\vec{E}$$ siano paralleli.
+
+La **coppia** che si applica al dipolo:
+
+$$
+\vec{M} = \vec{p} \times \vec{E}_0
+$$
+
+La **forza** sul dipolo:
+
+$$
+\vec{F} = \nabla(\vec{E}_0 \cdot \vec{p})
+$$
+
+<Callout type="info">
+  Ciascuna delle componenti della forza dipende dal gradiente del campo
+  elettrico lungo quella direzione: il campo elettrico deve essere **non
+  uniforme** per avere una forza diversa da zero e quindi operare una
+  traslazione.
+</Callout>

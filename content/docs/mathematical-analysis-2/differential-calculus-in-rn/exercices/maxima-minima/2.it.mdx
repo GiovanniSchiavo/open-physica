@@ -1,0 +1,88 @@
+---
+title: Esercizio 2
+description: Esercizio 2 sui massimi e minimi di funzioni a due variabili
+exercise:
+  difficulty: 1
+---
+
+## Testo dell'esercizio
+
+Determina i punti stazionari e la loro natura per la funzione:
+
+$$
+f(x,y): \mathbb{R}^2 \to \mathbb{R}\\
+f(x,y) = x^3 + 2y^3 - 3x - 3y^2
+$$
+
+## Soluzione [toc]
+
+<Solution>
+
+Andiamo prima di tutto a determinare i punti stazionari, annullando il gradiente
+della funzione.
+
+$$
+\nabla f(x,y) = (f_x^\prime, f_y^\prime) = (0,0)
+$$
+
+Calcoliamo le derivate parziali prime:
+
+$$
+f_x^\prime(x,y) = 3x^2 - 3\\
+f_y^\prime(x,y) = 6y^2 - 6y
+$$
+
+Quindi il sistema da risolvere è:
+
+$$
+\begin{cases}
+3x^2 - 3 = 0 \\
+6y^2 - 6y = 0
+\end{cases} \implies \begin{cases}
+x^2 - 1 = 0 \\
+y(y - 1) = 0
+\end{cases}\\
+\implies \begin{cases}
+x = \pm 1 \\
+y = 0 \lor y = 1
+\end{cases}
+$$
+
+Otteniamo quindi 4 punti stazionari:
+
+$$
+P_1 = (1,0), \; P_2 = (1,1) \\
+P_3 = (-1,0), \; P_4 = (-1,1)
+$$
+
+Scriviamo ora la matrice Hessiana della funzione:
+
+$$
+H_f(x,y) = \begin{bmatrix}
+6x & 0 \\
+0 & 12y - 6
+\end{bmatrix}
+$$
+
+Valutiamo ora il determinante della matrice Hessiana nei punti stazionari:
+
+$$
+\Big|H_f(P_1)\Big| = \begin{vmatrix}
+6 & 0 \\
+0 & -6
+\end{vmatrix} < 0 \implies P_1 \text{ punto di sella}\\
+\Big|H_f(P_2)\Big| = \begin{vmatrix}
+6 & 0 \\
+0 & 6
+\end{vmatrix} > 0 \implies P_2 \text{ minimo relativo}\\
+\Big|H_f(P_3)\Big| = \begin{vmatrix}
+-6 & 0 \\
+0 & -6
+\end{vmatrix} > 0 \implies P_3 \text{ massimo relativo}\\
+\Big|H_f(P_4)\Big| = \begin{vmatrix}
+-6 & 0 \\
+0 & 6
+\end{vmatrix} < 0 \implies P_4 \text{ punto di sella}\\
+$$
+
+</Solution>

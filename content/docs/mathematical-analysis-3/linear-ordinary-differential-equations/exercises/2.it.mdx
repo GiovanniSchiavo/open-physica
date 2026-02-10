@@ -1,0 +1,135 @@
+---
+title: "Esercizio 2"
+description:
+  "Equazione differenziale non lineare e trasformazione di dipendente"
+badges:
+  - Equazioni differenziali non lineari
+  - Esistenza e unicità
+  - Cambio di variabile
+exercise:
+  difficulty: 4
+---
+
+## Testo dell'esercizio
+
+Si consideri l'equazione differenziale
+$y'' = -4y + 2e^x \sqrt{y} + y'\left(2 + \frac{y'}{2y}\right)$ nell'incognita
+$y(x) > 0$.
+
+1. Cosa si può dire a priori riguardo a esistenza e unicità delle soluzioni?
+
+2. Vi sono soluzioni del tipo $y(x) = e^{\lambda x}$ per qualche
+   $\lambda \in \mathbb{C}$?
+
+3. Usando il cambio $u(x) = \sqrt{y(x)}$, trovare le soluzioni $y(x)$ tali che
+   $y(0) = 1$ e $|y'(0)| = 2$?
+
+<Formulae>
+
+Teorema di esistenza e unicità locale (Cauchy-Lipschitz): se
+$f \in \mathcal{C}^1$ in un aperto, esiste un'unica soluzione locale.
+
+Teorema di esistenza globale: se $f$ è globalmente lipschitziana, o se le
+soluzioni non esplodono in tempo finito (fuga dai compatti), la soluzione esiste
+per tutto $\mathbb{R}$.
+
+</Formulae>
+
+## Soluzione [toc]
+
+<Solution>
+
+### Punto 1
+
+Posto $p = y'$, l'equazione differenziale corrisponde al sistema:
+
+$$
+(y, p)' = f(x, (y,p)) = \left(p, -4y + 2e^x\sqrt{y} + p\left(2 + \frac{p}{2y}\right)\right)
+$$
+
+Poiché $f$ è una funzione $\mathcal{C}^1$ su tutto
+$\mathbb{R} \times ]0,+\infty[ \times \mathbb{R}$, si può senz'altro affermare
+che ci sarà **esistenza e unicità locale** per ogni dato iniziale
+$(x_0, y_0, p_0)$ con $y_0 > 0$.
+
+D'altra parte il dominio di $(y,p)$ non è tutto $\mathbb{R}^2$ (per applicare il
+teorema di Cauchy-Lipschitz globale), né $f$ è limitata in $(y,p)$ (per
+ragionare con la fuga dai compatti), dunque **non si può affermare nulla a
+priori su esistenza globale**.
+
+### Punto 2
+
+Imponendo che $y(x) = e^{\lambda x}$ soddisfi l'equazione si trova che:
+
+$$
+\lambda^2 e^{\lambda x} = -4e^{\lambda x} + 2e^{\left(1+\frac{\lambda}{2}\right)x} + \lambda e^{\lambda x}\left(2 + \frac{\lambda}{2}\right)
+$$
+
+per ogni $x$: questo implica che deve essere
+$e^{\left(1+\frac{\lambda}{2}\right)x} = e^{\lambda x}$, ovvero:
+
+$$
+\lambda = 2
+$$
+
+e in tal caso semplificando per $e^{2x}$ si ottiene:
+
+$$
+4 = -4 + 2 + 2\left(2 + \frac{2}{2}\right) = -4 + 2 + 6 = 4
+$$
+
+che effettivamente è vera. Dunque l'unica soluzione di questo tipo è:
+
+$$
+\boxed{y(x) = e^{2x}}
+$$
+
+### Soluzione del punto 3
+
+Da $u(x) = \sqrt{y(x)}$, ovvero $y = u^2$ con $u > 0$, si ricava:
+
+$$
+y' = 2uu' \quad \text{e} \quad y'' = 2(u')^2 + 2uu''
+$$
+
+dunque sostituendo si ottiene:
+
+$$
+2(u')^2 + 2uu'' = -4u^2 + 2e^x u + 2uu'\left(2 + \frac{2uu'}{2u^2}\right)
+$$
+
+ovvero, moltiplicando e semplificando:
+
+$$
+u'' - 2u' + 2u = e^x
+$$
+
+equazione a coefficienti costanti. Le soluzioni sono:
+
+$$
+u(x) = e^x(A\cos x + B\sin x + 1)
+$$
+
+al variare di $A, B \in \mathbb{R}$ (valide fintanto che $u > 0$), da cui:
+
+$$
+y(x) = e^{2x}(A\cos x + B\sin x + 1)^2
+$$
+
+Imponendo che $y(0) = 1$ si trova $1 = (A+1)^2$, da cui:
+
+1. $A = -2$ (soluzione spuria: $u(0) = -1 < 0$, impossibile)
+2. $A = 0$ (accettabile)
+
+Dunque $y(x) = e^{2x}(B\sin x + 1)^2$.
+
+Derivando si ha
+$y' = e^{2x}\left(2(B\sin x + 1)^2 + 2B\cos x(B\sin x + 1)\right)$, e la
+condizione $|y'(0)| = 2$ equivale a:
+
+1. $y'(0) = 2$: $2 = 2 + 2B \implies B = 0$, ovvero la già nota
+   $\boxed{y(x) = e^{2x}}$
+2. $y'(0) = -2$: $-2 = 2 + 2B \implies B = -2$, e la soluzione è
+   $\boxed{y(x) = e^{2x}(1 - 2\sin x)^2}$
+
+</Solution>

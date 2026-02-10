@@ -1,0 +1,76 @@
+---
+title: "Esercizio 5"
+description: "Esercizio 5 sulla convergenza di una serie di potenze"
+badges:
+  - Serie di potenze
+  - Raggio di convergenza
+exercise:
+  difficulty: 3
+---
+
+## Testo dell'esercizio
+
+Determinare il raggio di convergenza, l'intervallo di convergenza e la
+convergenza uniforme della serie di potenze
+
+$$
+\sum_{n=1}^{\infty} (3^n + 2^n) \, x^n
+$$
+
+## Soluzione [toc]
+
+<Solution>
+
+### Centro e coefficienti
+
+La serie ha centro $x_0 = 0$ e coefficienti $a_n = 3^n + 2^n$.
+
+### Raggio di convergenza
+
+Applichiamo il criterio del rapporto:
+
+$$
+L = \lim_{n \to \infty} \left| \frac{a_{n+1}}{a_n} \right| = \lim_{n \to \infty} \frac{3^{n+1} + 2^{n+1}}{3^n + 2^n}
+$$
+
+Raccogliamo $3^n$ (l'infinito di ordine superiore) a numeratore e denominatore:
+
+$$
+L = \lim_{n \to \infty} \frac{3^n \left(3 + 2 \cdot \left(\frac{2}{3}\right)^n\right)}{3^n \left(1 + \left(\frac{2}{3}\right)^n\right)} = \frac{3 + 0}{1 + 0} = 3
+$$
+
+Quindi $R = \dfrac{1}{L} = \dfrac{1}{3}$. L'intervallo provvisorio è
+$\left]-\dfrac{1}{3}, \; \dfrac{1}{3}\right[$.
+
+### Studio agli estremi
+
+**Estremo destro ($x = \frac{1}{3}$):**
+
+$$
+\sum_{n=1}^{\infty} (3^n + 2^n) \left(\frac{1}{3}\right)^n = \sum_{n=1}^{\infty} \left(1 + \left(\frac{2}{3}\right)^n\right)
+$$
+
+Il termine generale tende a $1 \neq 0$, quindi non è soddisfatta la condizione
+necessaria per la convergenza. La serie **diverge**.
+
+**Estremo sinistro ($x = -\frac{1}{3}$):**
+
+$$
+\sum_{n=1}^{\infty} (3^n + 2^n) \left(-\frac{1}{3}\right)^n = \sum_{n=1}^{\infty} (-1)^n \left(1 + \left(\frac{2}{3}\right)^n\right)
+$$
+
+Il termine generale in valore assoluto tende a $1 \neq 0$. Non è soddisfatta la
+condizione necessaria. La serie **non converge**.
+
+### Conclusione
+
+L'intervallo di convergenza è **aperto**:
+$\left]-\dfrac{1}{3}, \; \dfrac{1}{3}\right[$.
+
+### Convergenza uniforme
+
+Per il teorema sulle serie di potenze, la serie converge **totalmente** (e
+quindi **uniformemente**) in ogni intervallo chiuso
+$[h, \; k] \subset \left]-\dfrac{1}{3}, \; \dfrac{1}{3}\right[$.
+
+</Solution>

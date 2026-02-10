@@ -1,0 +1,107 @@
+---
+title: "Esercizio 2"
+description:
+  "Esercizio 2 sulla convergenza puntuale e non uniforme di una serie di
+  funzioni"
+badges:
+  - Convergenza non uniforme
+  - Serie telescopica
+exercise:
+  difficulty: 2
+---
+
+## Testo dell'esercizio
+
+Considerata la serie
+
+$$
+\sum_{n=1}^{\infty} (x^{n-1} - x^n)
+$$
+
+determinare l'insieme di convergenza puntuale e la funzione somma
+nell'intervallo $[0, \; 1]$. Verificare poi che la serie **non** converge
+uniformemente in $[0, \; 1[$.
+
+## Soluzione [toc]
+
+<Solution>
+
+### Convergenza puntuale
+
+La serie è **telescopica**. Calcoliamo la ridotta ennesima sviluppando la somma:
+
+$$
+S_n(x) = (1 - x) + (x - x^2) + (x^2 - x^3) + \dots + (x^{n-1} - x^n)
+$$
+
+I termini intermedi si elidono a coppie e rimane:
+
+$$
+S_n(x) = 1 - x^n
+$$
+
+Calcoliamo il limite per $n \to \infty$:
+
+$$
+\lim_{n \to \infty} S_n(x) = \lim_{n \to \infty} (1 - x^n) = \begin{cases}
+1 & \text{se } 0 \le x < 1 \\
+0 & \text{se } x = 1
+\end{cases}
+$$
+
+La funzione somma è quindi:
+
+$$
+F(x) = \begin{cases}
+1 & \text{se } x \in [0, \; 1[ \\
+0 & \text{se } x = 1
+\end{cases}
+$$
+
+<Callout type="warn" title="Osservazione importante">
+
+La funzione somma $F(x)$ è **discontinua** in $x = 1$, nonostante ogni termine
+$f_n(x) = x^{n-1} - x^n$ sia una funzione continua in $[0, \; 1]$. Questo è già
+un indizio che la convergenza non può essere uniforme sull'intero intervallo
+$[0, \; 1]$.
+
+</Callout>
+
+### La serie non converge uniformemente in $[0, \; 1[$
+
+Verifichiamo applicando la definizione nell'intervallo $[0, \; 1[$, dove
+$F(x) = 1$. Il resto vale:
+
+$$
+|F(x) - S_n(x)| = |1 - (1 - x^n)| = |x^n| = x^n
+$$
+
+Dobbiamo imporre $x^n < \varepsilon$ e verificare se l'indice $p$ può dipendere
+solo da $\varepsilon$. Applicando i logaritmi per $x \in ]0, \; 1[$:
+
+$$
+n \cdot \ln(x) < \ln(\varepsilon)
+$$
+
+Poiché $\ln(x) < 0$ per $x \in ]0, \; 1[$, dividendo si inverte il verso della
+disuguaglianza:
+
+$$
+n > \frac{\ln(\varepsilon)}{\ln(x)}
+$$
+
+L'indice $p$ dipende da $\varepsilon$ **ma anche da** $x$. Quando $x \to 1^-$,
+si ha $\ln(x) \to 0^-$ e quindi:
+
+$$
+\frac{\ln(\varepsilon)}{\ln(x)} \to +\infty
+$$
+
+Non esiste dunque un indice $p$ finito che funzioni **simultaneamente** per
+tutti i punti $x \in [0, \; 1[$: qualunque $p$ si scelga, esiste un punto
+sufficientemente vicino a 1 per cui la condizione $|R_n(x)| < \varepsilon$ è
+violata.
+
+La serie **non** converge uniformemente in $[0, \; 1[$.
+
+</Solution>

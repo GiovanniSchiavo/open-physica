@@ -1,0 +1,86 @@
+---
+title: Filo infinito
+description:
+  Campo e potenziale elettrostatico di un filo infinito con carica uniforme
+---
+
+## Filo infinito con carica uniforme
+
+Consideriamo un filo rettilineo infinito con densità di carica lineare uniforme
+$\lambda$.
+
+### Campo Elettrico
+
+Per simmetria cilindrica, il campo elettrico è radiale (perpendicolare al filo)
+e dipende solo dalla distanza $r$ dal filo. Usiamo il Teorema di Gauss con una
+superficie cilindrica di raggio $r$ e altezza $h$, coassiale col filo.
+
+I flussi attraverso le basi del cilindro sono nulli perché il campo è parallelo
+alle basi (perpendicolare alle normali). Il flusso è non nullo solo attraverso
+la superficie laterale.
+
+Carica interna racchiusa:
+
+$$
+Q_{int} = \lambda h
+$$
+
+Applicando Gauss:
+
+$$
+\Phi(\vec{E}) = E(r) 2\pi r h = \frac{\lambda h}{\varepsilon_0}
+$$
+
+$$
+E(r) 2\pi r = \frac{\lambda}{\varepsilon_0} \implies E(r) = \frac{\lambda}{2\pi\varepsilon_0 r}
+$$
+
+In forma vettoriale:
+
+$$
+\vec{E}(r) = \frac{\lambda}{2\pi\varepsilon_0 r} \hat{u}_r
+$$
+
+### Potenziale Elettrostatico
+
+Calcoliamo la differenza di potenziale rispetto a un punto di riferimento $r_0$.
+Non possiamo porre il potenziale a zero all'infinito perché la distribuzione è
+infinita.
+
+$$
+V(r) - V(r_0) = - \int_{r_0}^r \vec{E} \cdot d\vec{l} = - \int_{r_0}^r \frac{\lambda}{2\pi\varepsilon_0 r'} dr'
+$$
+
+$$
+V(r) - V(r_0) = - \frac{\lambda}{2\pi\varepsilon_0} [\ln r']_{r_0}^r = - \frac{\lambda}{2\pi\varepsilon_0} \ln\left(\frac{r}{r_0}\right) = \frac{\lambda}{2\pi\varepsilon_0} \ln\left(\frac{r_0}{r}\right)
+$$
+
+Ponendo $V(r_0) = 0$ (o includendolo nella costante arbitraria):
+
+$$
+V(r) = \frac{\lambda}{2\pi\varepsilon_0} \ln \biggl(\frac{r_0}{r}\biggr)
+$$
+
+### Capacità
+
+Un filo infinito isolato ha capacità indefinita (divergente). Tuttavia, il filo
+è spesso l'armatura interna di un **condensatore cilindrico** (o cavo
+coassiale).
+
+Consideriamo un conduttore esterno cilindrico coassiale di raggio $R > r_{filo}$
+(dove $r_{filo}$ è il raggio del filo, che qui approssimiamo a $0$ o $a$).
+
+La differenza di potenziale tra il filo (raggio $a$) e il cilindro esterno
+(raggio $b$) è:
+
+$$
+|\Delta V| = \frac{\lambda}{2\pi\varepsilon_0} \ln\left(\frac{b}{a}\right)
+$$
+
+La capacità per unità di lunghezza
+$C_l = \frac{C}{h} = \frac{\lambda h}{|\Delta V| h} = \frac{\lambda}{|\Delta V|}$
+è:
+
+$$
+C_l = \frac{2\pi\varepsilon_0}{\ln(b/a)}
+$$

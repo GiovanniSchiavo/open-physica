@@ -1,0 +1,98 @@
+---
+title: "Esercizio 2"
+description: "Esercizio 2 sulla convergenza delle successioni di funzioni"
+exercise:
+  difficulty: 1
+---
+
+## Testo dell'esercizio
+
+Studiare la convergenza puntuale e uniforme della successione di funzioni
+
+$$
+\Big\{ \dfrac{n^2x}{n^2x^2+1} \Big\}_n \quad n \in \mathbb{N}^\star \\
+$$
+
+Verificare poi la convergenza uniforme nell'intervallo $[1, +\infty[$
+
+## Soluzione [toc]
+
+<Solution>
+
+### Convergenza puntuale
+
+Notiamo subito che se $x=0$ allora si ha
+
+$$
+f_n(0) = \dfrac{n^2 \cdot 0}{n^2 \cdot 0^2 + 1} = 0
+$$
+
+per ogni $n \in \mathbb{N}^\star$. Quindi la successione di funzioni converge
+puntualmente a $0$ in $x=0$.
+
+Se $x \neq 0$ allora
+
+$$
+\lim_{n \to \infty} f_n(x) = \lim_{n \to \infty} \dfrac{n^2x}{n^2x^2+1} = \dfrac{1}{x}
+$$
+
+Quindi la successione di funzioni converge puntualmente a $\dfrac{1}{x}$ in
+$x \neq 0$.
+
+La successione di funzioni converge puntualmente in tutto $\mathbb{R}$ e la
+funzione limite $F$ non è continua, infatti
+
+$$
+\Big\{ \dfrac{n^2x}{n^2x^2+1} \Big\}_n \underset{\mathbb{R}}{\longrightarrow} F  = \begin{cases}
+0 & \text{se } x = 0 \\
+\dfrac{1}{x} & \text{se } x \neq 0
+\end{cases}
+$$
+
+### Convergenza uniforme
+
+La funzione limite $F$ non è continua in $x=0$, quindi non può esserci
+convergenza uniforme in $\mathbb{R}$.
+
+Verifichiamo la convergenza uniforme nell'intervallo $[1, +\infty[$ applicando
+la definizione di convergenza uniforme:
+
+$$
+g_n(x) = |f_n(x) - F(x)| \\
+S_n = \sup_{x \in [1, +\infty[} g_n(x) \\
+\lim_{n \to \infty} S_n = 0
+$$
+
+iniziamo calcolando $g_n(x)$:
+
+$$
+g_n(x) = \left| \dfrac{n^2x}{n^2x^2+1} - \dfrac{1}{x} \right| = \left| \dfrac{n^2x^2 - (n^2x^2+1)}{x(n^2x^2+1)} \right| = \dfrac{1}{x(n^2x^2+1)}
+$$
+
+e calcoliamone la derivata prima per trovare il massimo:
+
+$$
+g_n^\prime (x) = \dfrac{-(3n^2x^2 + 1)}{x^2(n^2x^2+1)^2} < 0 \quad \forall x \in [1, +\infty[ \\
+$$
+
+essendo la derivata sempre negativa, la funzione $g_n(x)$ è decrescente, quindi
+il massimo si ha in $x=1$:
+
+$$
+S_n = g_n(1) = \dfrac{1}{n^2+1}
+$$
+
+infine, calcoliamo il limite di $S_n$ per $n \to +\infty$:
+
+$$
+\lim_{n \to +\infty} S_n = \lim_{n \to +\infty} \dfrac{1}{n^2+1} = 0
+$$
+
+Dunque la successione di funzioni converge uniformemente a $F$ in
+$[1, +\infty[$,
+
+$$
+\Big\{ \dfrac{n^2x}{n^2x^2+1} \Big\}_n \underset{[1, +\infty[}{\rightrightarrows} \dfrac{1}{x}
+$$
+
+</Solution>

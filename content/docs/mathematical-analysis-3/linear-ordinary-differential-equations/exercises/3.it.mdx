@@ -1,0 +1,128 @@
+---
+title: "Esercizio 3"
+description: "Sistema lineare dipendente da parametro e condizione integrale"
+badges:
+  - Sistemi lineari
+  - Autovalori e autovettori
+  - Caso generico e caso critico
+exercise:
+  difficulty: 3
+---
+
+## Testo dell'esercizio
+
+È dato il sistema differenziale:
+
+$$
+\begin{cases}
+\dot{x} = (\alpha + 1)x + (\alpha - 1)y \\
+\dot{y} = (\alpha - 2)x + \alpha y
+\end{cases}
+$$
+
+ove $\alpha \in \mathbb{R}$.
+
+1. Determinarne l'integrale generale al variare di $\alpha$.
+
+2. Per quale $\alpha \in \mathbb{R}$ la soluzione tale che
+   $(x(0), y(0)) = (1,0)$ soddisfa $\int_0^1 (x(t) + y(t)) \, dt = 1$?
+
+<Formulae>
+
+Per sistemi lineari $\dot{\mathbf{x}} = A\mathbf{x}$:
+
+1. Se autovalori distinti $\lambda_1 \neq \lambda_2$:
+   $\mathbf{x}(t) = c_1 e^{\lambda_1 t}\mathbf{v}_1 + c_2 e^{\lambda_2 t}\mathbf{v}_2$
+2. Se autovalore doppio con difetto: $e^{tA} = e^{\lambda t}(I + tN)$ dove
+   $N = A - \lambda I$ è nilpotente
+
+Integrale di soluzioni esponenziali:
+$\int_0^T e^{\lambda t} dt = \frac{e^{\lambda T} - 1}{\lambda}$ (per
+$\lambda \neq 0$)
+
+</Formulae>
+
+## Soluzione [toc]
+
+<Solution>
+
+### Punto 1
+
+La matrice dei coefficienti
+$A = \begin{pmatrix} \alpha + 1 & \alpha - 1 \\ \alpha - 2 & \alpha \end{pmatrix}$
+ha autovalori $2$ e $2\alpha - 1$: vanno dunque distinti i casi.
+
+**Caso $\alpha \neq \frac{3}{2}$** (autovalori distinti):
+
+Autovettori relativi a $2$ e $2\alpha - 1$ sono rispettivamente
+$\begin{pmatrix} 1 \\ -1 \end{pmatrix}$ e
+$\begin{pmatrix} \alpha - 1 \\ \alpha - 2 \end{pmatrix}$.
+
+Una risolvente è:
+
+$$
+\Phi(t) = \begin{pmatrix} e^{2t} & (\alpha - 1)e^{(2\alpha-1)t} \\ -e^{2t} & (\alpha - 2)e^{(2\alpha-1)t} \end{pmatrix}
+$$
+
+da cui le soluzioni:
+
+$$
+\begin{cases}
+x(t) = k_1 e^{2t} + k_2(\alpha - 1)e^{(2\alpha-1)t} \\
+y(t) = -k_1 e^{2t} + k_2(\alpha - 2)e^{(2\alpha-1)t}
+\end{cases}
+$$
+
+al variare di $k_1, k_2 \in \mathbb{C}$.
+
+**Caso $\alpha = \frac{3}{2}$** (autovalore doppio):
+
+L'autovalore $2$ è doppio, dunque
+$N = A - 2\mathbf{1}_2 = \begin{pmatrix} \frac{1}{2} & \frac{1}{2} \\ -\frac{1}{2} & -\frac{1}{2} \end{pmatrix}$
+è nilpotente.
+
+La matrice esponenziale è:
+
+$$
+e^{tA} = e^{2t}\left(\mathbf{1}_2 + tN\right) = \begin{pmatrix} \left(1 + \frac{t}{2}\right)e^{2t} & \frac{t}{2}e^{2t} \\ -\frac{t}{2}e^{2t} & \left(1 - \frac{t}{2}\right)e^{2t} \end{pmatrix}
+$$
+
+Le soluzioni sono:
+
+$$
+\begin{cases}
+x(t) = \left(2k_1 + (k_1 + k_2)t\right)e^{2t} \\
+y(t) = \left(2k_2 - (k_1 + k_2)t\right)e^{2t}
+\end{cases}
+$$
+
+al variare di $k_1, k_2 \in \mathbb{C}$.
+
+### Punto 2
+
+Cerchiamo la soluzione tale che $(x(0), y(0)) = (1,0)$ e calcoliamo
+$\int_0^1 (x(t) + y(t)) \, dt$.
+
+**Se $\alpha \neq \frac{3}{2}$**: la soluzione è:
+
+$$
+\Phi(t)\Phi(0)^{-1} \begin{pmatrix} 1 \\ 0 \end{pmatrix} = \frac{1}{2\alpha-3} \begin{pmatrix} (\alpha - 2)e^{2t} + (\alpha - 1)e^{(2\alpha-1)t} \\ -(\alpha - 2)e^{2t} + (\alpha - 2)e^{(2\alpha-1)t} \end{pmatrix}
+$$
+
+Perciò $x(t) + y(t) = e^{(2\alpha-1)t}$, e l'integrale vale:
+
+1. $\frac{e^{2\alpha-1}-1}{2\alpha-1}$ quando $\alpha \neq \frac{1}{2}$ (sempre
+   diverso da $1$)
+2. $1$ quando $\alpha = \frac{1}{2}$
+
+**Se $\alpha = \frac{3}{2}$**: la soluzione è
+$e^{tA} \begin{pmatrix} 1 \\ 0 \end{pmatrix} = \begin{pmatrix} \left(1 + \frac{t}{2}\right)e^{2t} \\ -\frac{t}{2}e^{2t} \end{pmatrix}$,
+perciò $x(t) + y(t) = e^{2t}$, e l'integrale vale $\frac{e^2 - 1}{2} \neq 1$.
+
+Pertanto l'unico valore è:
+
+$$
+\boxed{\alpha = \frac{1}{2}}
+$$
+
+</Solution>

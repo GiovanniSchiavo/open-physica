@@ -1,0 +1,206 @@
+---
+title: "Esercizio 4"
+description:
+  "Convergenza puntuale, uniforme e integrale improprio di una successione di
+  funzioni definita a tratti"
+badges:
+  - Convergenza puntuale
+  - Convergenza uniforme
+  - Integrale improprio
+exercise:
+  difficulty: 3
+  exam: true
+---
+
+## Testo dell'esercizio
+
+Si consideri la successione di funzioni $\{f_n\}_{n \geq 1}$ definita da
+
+$$
+f_n(x) = \begin{cases}
+\dfrac{n - x}{n^2 + x^2} & x < n \\[8pt]
+-e^{-nx + n^2} & x \geq n
+\end{cases}
+$$
+
+1. Si calcoli il limite puntuale della successione e se ne determini l'insieme
+   di convergenza puntuale.
+2. Si stabilisca in quali intervalli di $\mathbb{R}$ la successione converge
+   uniformemente.
+3. Studiare, al variare di $n \geq 1$, la convergenza dell'integrale improprio
+   $\displaystyle\int_{-\infty}^{+\infty} \big(f_n(x)\big)^2 \, dx$.
+4. **(Facoltativo)** Sia $\varphi_n : \mathbb{R} \to \mathbb{R}$, $n \geq 1$,
+   definita da
+
+   $$
+   \varphi_n(x) = \begin{cases}
+   \big(f_n(x)\big)^2 & \text{se } x < n \\
+   0 & \text{se } x \geq n
+   \end{cases}
+   $$
+
+   Calcolare, se esiste,
+   $\displaystyle\int_0^{+\infty} \sum_{n=1}^{\infty} \varphi_n(x) \, dx$.
+
+## Soluzione [toc]
+
+<Solution>
+
+### 1: Convergenza puntuale
+
+Per ogni $x \in \mathbb{R}$ fissato, definitivamente (cioè per ogni $n > x$)
+vale
+
+$$
+f_n(x) = \frac{n - x}{n^2 + x^2}
+$$
+
+<Callout type="info">
+<CalloutTitle>Osservazione</CalloutTitle>
+Non ha senso guardare il limite di $-e^{-nx+n^2}$: per $x$ fissato, quando $n > x$ la
+funzione si trova nel primo ramo. Poichè prima viene fissato $x$ e poi
+si fa tendere $n$ a infinito, il punto $x$ rimane sempre minore di $n$.
+</Callout>
+
+Calcoliamo quindi il limite puntuale:
+
+$$
+F(x) = \lim_{n \to \infty} f_n(x) = \lim_{n \to \infty} \frac{n - x}{n^2 + x^2} = 0
+$$
+
+Il limite puntuale è $F(x) = 0$ su tutto $\mathbb{R}$ e l'insieme di convergenza
+puntuale è $\mathbb{R}$.
+
+### 2: Convergenza uniforme
+
+Valutiamo $f_n$ nel punto $x = n$:
+
+$$
+f_n(n) = -e^{-n \cdot n + n^2} = -e^{0} = -1
+$$
+
+Affinchè ci sia convergenza uniforme su $\mathbb{R}$, deve valere
+
+$$
+\lim_{n \to +\infty} \sup_{x \in \mathbb{R}} |f_n(x) - F(x)| = 0
+$$
+
+chiamo
+
+$$
+S_n = \sup_{x \in \mathbb{R}} |f_n(x) - F(x)|
+= \sup_{x \in \mathbb{R}} |f_n(x) - 0| = \sup_{x \in \mathbb{R}} |f_n(x)|
+$$
+
+E notiamo che, per definizione:
+
+$$
+S_n \geq |f_n(n)| = 1 \neq 0
+$$
+
+quindi la successione **non converge uniformemente** su $\mathbb{R}$.
+
+Cerchiamo ora gli intervalli in cui la successione converge uniformemente.
+
+Fissato $a \in \mathbb{R}$ qualsiasi, $\forall \ n > a$ si ha:
+
+$$
+\sup_{]-\infty, a]} \Big|f_n(x)\Big| = \sup_{]-\infty, a]} \frac{n - x}{n^2 + x^2}
+$$
+
+(possiamo togliere il valore assoluto perché per $x < n$ si ha $f_n(x) > 0$)
+
+Studiamo la funzione
+
+$$
+g_n(x) = \dfrac{n - x}{n^2 + x^2} \\
+\lim_{x \to \infty} g_n(x) = 0 \\
+g_n^\prime(x) = \frac{-(n^2 + x^2) - (n - x) \cdot 2x}{(n^2 + x^2)^2} = \frac{x^2 -2nx - n^2}{(n^2 + x^2)^2}
+$$
+
+Ponendo il numeratore uguale a zero:
+
+$$
+
+x^2 - 2nx - n^2 = 0 \implies x = n(1 \pm \sqrt{2})
+
+
+$$
+
+Il massimo di $g$ si trova in $x_{\max} = n(1 - \sqrt{2})$:
+
+$$
+
+g\big(n(1-\sqrt{2})\big) = \frac{n - n(1-\sqrt{2})}{n^2 + n^2(1-\sqrt{2})^2} =
+\frac{\sqrt{2}\,n}{n^2\big(1 + (1-\sqrt{2})^2\big)} = \frac{\sqrt{2}}{n(4 -
+2\sqrt{2})}
+
+
+$$
+
+Per $n$ sufficientemente grande, $n(1-\sqrt{2}) < a$, quindi il massimo cade
+nell'intervallo $]-\infty, a]$ e si ha
+
+$$
+
+\sup\_{]-\infty, a]} |f_n(x)| = \frac{\sqrt{2}}{n(4-2\sqrt{2})} \xrightarrow{n
+\to +\infty} 0
+
+
+$$
+
+Pertanto la successione **converge uniformemente** su $]-\infty, a]$ per ogni
+$a \in \mathbb{R}$:
+
+$$
+
+\{f_n\}\_n \underset{]-\infty, a]}{\rightrightarrows} 0
+
+
+$$
+
+<Callout type="warn">
+  <CalloutTitle>Attenzione</CalloutTitle>
+  Insiemi di convergenza o limiti puntuali che dipendono da $n$ non hanno senso.
+</Callout>
+
+### 3: Convergenza dell'integrale improprio
+
+Per $n$ fissato, spezziamo l'integrale nei due rami di $f_n$:
+
+$$
+
+\int*{-\infty}^{+\infty} \big(f_n(x)\big)^2 \, dx =
+\underbrace{\int*{-\infty}^{n} \left(\frac{n-x}{n^2+x^2}\right)^2 dx}\_{I_1}
+
+- \underbrace{\int*{n}^{+\infty} e^{2(n^2-nx)} \, dx}*{I_2}
+$$
+
+**Integrale $I_2$ (per $x \geq n$):**
+
+$$
+I_2 = \int_n^{+\infty} e^{2n^2 - 2nx} \, dx
+= e^{2n^2} \int_n^{+\infty} e^{-2nx} \, dx
+= e^{2n^2} \left[ -\frac{1}{2n} e^{-2nx} \right]_n^{+\infty}
+= e^{2n^2} \cdot \frac{e^{-2n^2}}{2n}
+= \frac{1}{2n}
+$$
+
+L'integrale $I_2$ **converge** per ogni $n \geq 1$.
+
+**Integrale $I_1$ (per $x < n$):**
+
+Per $x \to -\infty$ si ha
+
+$$
+\left(\frac{n-x}{n^2+x^2}\right)^2 \sim \frac{x^2}{x^4} = \frac{1}{x^2}
+$$
+
+Poiché $\displaystyle\int_{-\infty}^{c} \frac{dx}{x^2}$ converge (per ogni
+$c < 0$), per il criterio del confronto asintotico anche $I_1$ **converge**.
+
+Dunque l'integrale improprio
+$\displaystyle\int_{-\infty}^{+\infty} \big(f_n(x)\big)^2 \, dx$ **converge per
+ogni** $n \geq 1$.
+
+</Solution>

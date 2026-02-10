@@ -1,0 +1,144 @@
+---
+title: "Esercizio 5"
+description:
+  "Sistema non omogeneo con integrale primo e riduzione a sistema piano"
+badges:
+  - Forme differenziali esatte
+  - Integrali primi
+  - Sistemi disaccoppiati
+exercise:
+  difficulty: 4
+---
+
+## Testo dell'esercizio
+
+Si consideri il sistema:
+
+$$
+\begin{cases}
+\dot{x} = x - y + e^{2t} \\
+\dot{y} = 5x - y + 1 - e^{2t}
+\end{cases}
+$$
+
+1. Trovare un integrale primo per il sistema omogeneo associato, e descriverne
+   le orbite.
+
+2. Risolvere il sistema non omogeneo.
+
+3. Usando i risultati precedenti con $(y,z)$ in luogo di $(x,y)$, risolvere:
+
+$$
+\begin{cases}
+\dot{x} = 2(x-1) \\
+\dot{y} = x + y - z - 1 \\
+\dot{z} = -x + 5y - z + 2
+\end{cases}
+$$
+
+<Formulae>
+
+Forma differenziale $\omega = P\,dx + Q\,dy$ è esatta se
+$\frac{\partial P}{\partial y} = \frac{\partial Q}{\partial x}$ in un dominio
+semplicemente connesso.
+
+Per sistema piano $\dot{\mathbf{x}} = A\mathbf{x} + \mathbf{b}(t)$ con
+autovalori immaginari puri $\pm i\omega$:
+
+1. Risolvente reale: combinazioni lineari di $\cos(\omega t)$ e $\sin(\omega t)$
+2. Integrale primo: curve di livello dell'energia generalizzata
+
+</Formulae>
+
+## Soluzione [toc]
+
+<Solution>
+
+### Punto 1
+
+La forma differenziale lineare associata al sistema omogeneo è:
+
+$$
+\omega = (5x - y)\,dx - (x - y)\,dy
+$$
+
+che è **esatta**
+($\frac{\partial(5x-y)}{\partial y} = -1 = \frac{\partial(-(x-y))}{\partial x}$)
+nel dominio $\mathbb{R}^2$, semplicemente connesso.
+
+La sua primitiva:
+
+$$
+F(x,y) = \frac{5}{2}x^2 - xy + \frac{1}{2}y^2
+$$
+
+è l'integrale primo cercato.
+
+Le orbite sono le curve di livello $5x^2 - 2xy + y^2 = k$:
+
+1. Per $k = 0$: solo il punto $(0,0)$ (equilibrio)
+2. Per $k > 0$: ellissi di centro $(0,0)$, con assi ruotati di
+   $\arctan(\sqrt{5}-2)$ in senso orario
+
+### Punto 2
+
+La matrice $A = \begin{pmatrix} 1 & -1 \\ 5 & -1 \end{pmatrix}$ ha autovalori
+$\pm 2i$, con autovettori $\begin{pmatrix} 1 \\ 1 \mp 2i \end{pmatrix}$.
+
+La risolvente reale è:
+
+$$
+\Phi(t) = \begin{pmatrix} \cos 2t & \sin 2t \\ \cos 2t + 2\sin 2t & \sin 2t - 2\cos 2t \end{pmatrix}
+$$
+
+Per il termine noto separiamo
+$\mathbf{b}(t) = \begin{pmatrix} 0 \\ 1 \end{pmatrix} + \begin{pmatrix} 1 \\ -1 \end{pmatrix}e^{2t}$:
+
+1. Per $\mathbf{b}_1$: soluzione costante $\begin{pmatrix} a \\ b \end{pmatrix}$
+   con $a = b = -\frac{1}{4}$
+2. Per $\mathbf{b}_2$: soluzione del tipo
+   $\begin{pmatrix} a \\ b \end{pmatrix}e^{2t}$ con
+   $(a,b) = \left(\frac{1}{2}, \frac{1}{2}\right)$
+
+La soluzione generale:
+
+$$
+\begin{cases}
+x(t) = k_1 \cos 2t + k_2 \sin 2t - \frac{1}{4} + \frac{1}{2}e^{2t} \\
+y(t) = (k_1 - 2k_2)\cos 2t + (2k_1 + k_2)\sin 2t - \frac{1}{4} + \frac{1}{2}e^{2t}
+\end{cases}
+$$
+
+al variare di $k_1, k_2 \in \mathbb{C}$.
+
+### Punto 3
+
+L'equazione $\dot{x} = 2(x-1)$ è disaccoppiata e si risolve:
+
+$$
+x(t) = k e^{2t} + 1
+$$
+
+Sostituendo nelle altre due equazioni:
+
+$$
+\begin{cases}
+\dot{y} = y - z + k e^{2t} \\
+\dot{z} = 5y - z + 1 - k e^{2t}
+\end{cases}
+$$
+
+Questo è esattamente il sistema dell'esercizio 5(b) con $(y,z)$ al posto di
+$(x,y)$ e il termine esponenziale moltiplicato per $k$. La soluzione è:
+
+$$
+\begin{cases}
+x(t) = k e^{2t} + 1 \\
+y(t) = k_1 \cos 2t + k_2 \sin 2t - \frac{1}{4} + \frac{k}{2} e^{2t} \\
+z(t) = (k_1 - 2k_2)\cos 2t + (2k_1 + k_2)\sin 2t - \frac{1}{4} + \frac{k}{2} e^{2t}
+\end{cases}
+$$
+
+al variare di $k, k_1, k_2 \in \mathbb{C}$.
+
+</Solution>

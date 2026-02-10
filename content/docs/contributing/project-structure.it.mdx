@@ -1,0 +1,134 @@
+---
+title: Struttura Progetto
+description: Capire l'organizzazione dei file e l'internazionalizzazione
+---
+
+Capire come sono organizzati i file ti aiuterà a non perderti. La struttura è
+pensata per separare chiaramente i contenuti (`content/`) dal codice (`src/`).
+
+## Cartelle Principali
+
+```
+open-physica/
+├── content/              # 📝 QUI ci sono tutti gli appunti!
+│   └── docs/             # Cartella principale della documentazione
+│       ├── physics-2/    # Es. Corso di Fisica 2
+│       └── ...
+├── src/                  # 💻 Codice sorgente del sito (React/Next.js)
+│   ├── app/              # Pagine e routing
+│   └── components/       # Componenti riutilizzabili (es. Exercise)
+├── public/               # Asset statici
+└── package.json          # Configurazione dipendenze
+```
+
+## Dove aggiungere i contenuti?
+
+Lavorerai quasi esclusivamente dentro `content/docs/`. Ogni corso ha la sua
+cartella (es. `content/docs/physics-2/`).
+
+All'interno di ogni cartella di corso, i file sono organizzati per capitoli o
+argomenti.
+
+### Convenzioni sui Nomi dei File
+
+Segui queste regole ferree per mantenere il progetto ordinato:
+
+1.  **Inglese nei nomi dei file**: Usa sempre l'inglese per i nomi dei file e
+    delle cartelle.
+    - ✅ `electrostatics.it.mdx`
+    - ❌ `elettrostatica.it.mdx`
+2.  **Kebab-case**: Usa trattini per separare le parole, tutto minuscolo.
+    - ✅ `magnetic-field.it.mdx`
+    - ❌ `magneticField.it.mdx`
+3.  **Suffisso lingua**: Ogni file di contenuto DEVE avere il suffisso della
+    lingua.
+    - `.it.mdx` per i contenuti in italiano
+    - `.en.mdx` per i contenuti in inglese
+
+## Internazionalizzazione (i18n)
+
+Il sito è progettato per supportare più lingue. Se crei un file `page.it.mdx`,
+questo sarà visibile all'indirizzo `/it/docs/page`.
+
+Se un giorno vorrai tradurre quella pagina, ti basterà creare `page.en.mdx`
+nella stessa cartella. Il sito collegherà automaticamente le due versioni!
+
+## File Meta (meta.json)
+
+In ogni cartella può esserci un file `meta.it.json` che serve a personalizzare
+la cartella e **ordinare la sidebar**.
+
+### Opzioni Disponibili
+
+Puoi usare queste proprietà nel file JSON:
+
+<TypeTable
+  type={{
+    title: {
+      description: "Il nome visualizzato della cartella nella sidebar.",
+      type: "string",
+    },
+    description: {
+      description: "Descrizione della cartella (utile per le root folder).",
+      type: "string",
+    },
+    icon: {
+      description: "Nome dell'icona da mostrare (es. Book, Atom).",
+      type: "string",
+    },
+    defaultOpen: {
+      description: "Se true, la cartella sarà aperta di default nella sidebar.",
+      type: "boolean",
+    },
+    collapsible: {
+      description:
+        "Se false, la cartella non potrà essere chiusa (default: true).",
+      type: "boolean",
+    },
+    root: {
+      description:
+        "Se true, segna la cartella come radice. Solo gli elementi nella root aperta saranno visibili.",
+      type: "boolean",
+    },
+    pages: {
+      description: "Una lista per definire l'ordine degli elementi.",
+      type: "string[]",
+    },
+  }}
+/>
+
+### Configurare `pages`
+
+L'array `pages` è lo strumento principale per ordinare i file. Se non presente,
+i file sono ordinati alfabeticamente.
+
+Sintassi supportate:
+
+- **Nome file**: `"index"`, `"getting-started"` (senza estensione).
+- **Separatori**: `"---Titolo---"` crea un divisore.
+- **Link**: `"[Testo](url)"` o `"[Icona][Testo](url)"`.
+- **Resto**: `...` inserisce tutti i file non elencati (ordine alfabetico).
+- **Resto Inverso**: `"z...a"` inserisce il resto in ordine inverso.
+- **Estrazione**: `"...cartella"` estrae gli elementi di una sottocartella.
+- **Esclusione**: `"!file"` nasconde un elemento.
+
+### Esempio Completo
+
+```json title="meta.it.json"
+{
+  "title": "Fisica 2",
+  "icon": "Atom",
+  "root": true,
+  "defaultOpen": true,
+  "pages": [
+    "index",
+    "---Elettrostatica---",
+    "campi-elettrici",
+    "legge-gauss",
+    "---Link Utili---",
+    "[Simulazioni](https://phet.colorado.edu/it/)",
+    "...",
+    "!file-nascosto"
+  ]
+}
+```

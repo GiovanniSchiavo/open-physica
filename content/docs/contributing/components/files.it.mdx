@@ -1,0 +1,93 @@
+---
+title: Files (File Tree)
+description: Visualizzazione struttura directory
+---
+
+Il componente `<Files>` permette di visualizzare la struttura di file e cartelle
+in modo grafico. Utile per spiegare l'organizzazione di un progetto o dove
+salvare file.
+
+## Esempio
+
+<Tabs items={["Risultato", "Codice"]}>
+  <Tab value="Risultato">
+    <Files>
+      <Folder name="content" defaultOpen>
+        <Folder name="docs">
+          <File name="index.mdx" />
+          <File name="guide.mdx" />
+        </Folder>
+        <File name="meta.json" />
+      </Folder>
+      <File name="package.json" />
+    </Files>
+  </Tab>
+  <Tab value="Codice">
+    ```mdx
+    <Files>
+      <Folder name="content" defaultOpen>
+        <Folder name="docs">
+          <File name="index.mdx" />
+          <File name="guide.mdx" />
+        </Folder>
+        <File name="meta.json" />
+      </Folder>
+      <File name="package.json" />
+    </Files>
+    ```
+  </Tab>
+</Tabs>
+
+## Proprietà (Props)
+
+### `<Files>`
+
+<TypeTable
+  type={{
+    className: {
+      description: "Classi CSS aggiuntive",
+      type: "string",
+    },
+    children: {
+      description: "Lista di componenti <Folder> o <File>",
+      type: "ReactNode",
+    },
+  }}
+/>
+
+### `<Folder>`
+
+<TypeTable
+  type={{
+    name: {
+      description: "Il nome della cartella",
+      type: "string",
+      required: true,
+    },
+    defaultOpen: {
+      description: "Se vero, la cartella appare aperta di default",
+      type: "boolean",
+      default: "false",
+    },
+    children: {
+      description: "Contenuto della cartella (Files o Folders)",
+      type: "ReactNode",
+    },
+  }}
+/>
+
+### `<File>`
+
+<TypeTable
+  type={{
+    name: {
+      description: "Il nome del file",
+      type: "string",
+      required: true,
+    },
+    icon: {
+      description: "Icona personalizzata (opzionale)",
+      type: "ReactNode",
+    },
+  }}
+/>

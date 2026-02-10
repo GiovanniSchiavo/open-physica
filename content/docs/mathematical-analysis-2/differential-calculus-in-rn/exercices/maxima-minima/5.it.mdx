@@ -1,0 +1,95 @@
+---
+title: "Esercizio 5"
+description: "Esercizio 5 sui massimi e minimi di funzioni a due variabili"
+exercise:
+  difficulty: 2
+---
+
+## Testo dell'esercizio
+
+Determina i punti stazionari e la loro natura per la funzione:
+
+$$
+f(x,y): X \subseteq \mathbb{R}^2 \to \mathbb{R}\\
+f(x,y) = -(x^2+y^2-3)^2 \; e^{x^2+y^2-3}
+$$
+
+## Soluzione [toc]
+
+<Solution>
+Notiamo che la funzione può essere scritta come:
+
+$$
+t = h(x,y) = x^2+y^2-3 \\
+\varphi(t) = -t^2 e^t
+$$
+
+La derivata prima di $\varphi(t)$ è:
+
+$$
+\varphi^\prime(t) = -2t e^t - t^2 e^t = -t(t+2)e^t
+$$
+
+E risolviamo la disequazione $\varphi^\prime(t) > 0$:
+
+|      $t$      | $]-\infty, -2[$ | $-2$ | $]-2, 0[$  | $0$ | $]0, +\infty[$ |
+| :-----------: | :-------------: | :--: | :--------: | :-: | :------------: |
+|     $-t$      |       $+$       | $+$  |    $+$     | $0$ |      $-$       |
+|     $t+2$     |       $-$       | $0$  |    $+$     | $+$ |      $+$       |
+|     $e^t$     |       $+$       | $+$  |    $+$     | $+$ |      $+$       |
+| $\varphi'(t)$ |       $-$       | $0$  |    $+$     | $0$ |      $-$       |
+| $\varphi(t)$  |   $\searrow$    | min  | $\nearrow$ | max |   $\searrow$   |
+
+(d'altronde $-t(t+2)$ è una parabola con concavità verso il basso e radici $-2$
+e $0$)
+
+La funzione $\varphi(t)$ ha quindi minimo relativo in $t=-2$ e massimo relativo
+in $t=0$.
+
+Ricordiamo che $t = x^2+y^2-3$, quindi:
+
+$$
+t = -2 \implies x^2+y^2-3 = -2 \implies x^2+y^2 = 1 \\
+t = 0 \implies x^2+y^2-3 = 0 \implies x^2+y^2 = 3
+$$
+
+Che sono due **circonferenze** di raggio 1 e 3, centrate nell'origine. Nel luogo
+geometrico descritto da $x^2+y^2=1$ la funzione assume il suo **minimo
+relativo**, mentre nel luogo geometrico descritto da $x^2+y^2=3$ la funzione
+assume il suo **massimo relativo**.
+
+Dobbiamo ora annullare il gradiente di $h(x,y)$ per trovare ulteriori punti
+stazionari.
+
+$$
+\nabla h(x,y) = (2x, 2y) = (0,0) \\
+\implies \begin{cases} 2x = 0 \\ 2y = 0 \end{cases} \implies (x,y) = (0,0)
+$$
+
+Quindi $(0,0)$ è un punto stazionario per la funzione $h(x,y)$. Andiamo a
+studiarne la natura calcolando l'Hessiano.
+
+$$
+H_h(0,0) = \begin{bmatrix}
+2 & 0 \\
+0 & 2
+\end{bmatrix}
+$$
+
+Che ha determinante positivo e primo elemento positivo, quindi $(0,0)$ è un
+**minimo relativo** per la funzione $h(x,y)$.
+
+Vale
+
+$$
+h(0,0) = 0^2+0^2-3 = -3 = t_{min}\\
+\varphi(t_{min}) = -(-3)^2 e^{-3} = -9e^{-3}
+$$
+
+Si noti che in $t=-3$ la funzione $\varphi(t)$ è decrescente, quindi il punto
+$(0,0)$, che è un minimo relativo per $h(x,y)$, è un **massimo relativo** per la
+funzione $f(x,y)$.
+
+<Video id="MEE-3tbpVDM" startTime="8:03" />
+
+</Solution>

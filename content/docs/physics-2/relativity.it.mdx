@@ -1,0 +1,207 @@
+---
+title: Relatività ristretta nell'elettromagnetismo
+description:
+  Potenziali ritardati, trasformazioni di Lorentz, effetto Doppler
+  relativistico, quadrivettori, tensore elettromagnetico.
+---
+
+Il formalismo dell'elettromagnetismo è naturalmente compatibile con la
+relatività ristretta. Le equazioni di Maxwell non sono invarianti alle
+trasformazioni di Galileo, ma lo sono alle trasformazioni di Lorentz.
+
+## Potenziali ritardati
+
+Dalle equazioni di Maxwell in gauge di Lorentz:
+
+$$
+\Box \vec{A} = -\mu_0 \vec{J} \qquad \Box \phi = -\frac{\rho}{\varepsilon_0}
+$$
+
+<Statement type="definition" title="Gauge di Lorentz">
+
+$$
+\nabla \cdot \vec{A} = -\frac{1}{c^2}\frac{\partial \phi}{\partial t}
+$$
+
+</Statement>
+
+Soluzione ai **potenziali ritardati**:
+
+$$
+\phi(r,t) = \frac{1}{4\pi\varepsilon_0}\int_\tau \frac{\rho(r', t - \frac{\Delta r}{c})}{\Delta r} d\tau
+$$
+
+L'effetto di una carica arriva con ritardo $$\Delta r / c$$.
+
+### Antenna a dipolo oscillante
+
+Dipolo con momento
+$$\vec{p}(t) = \frac{\delta i_0}{\omega}\sin(\omega t)\hat{k}$$
+
+Il vettore di Poynting:
+
+$$
+\vec{s} \propto \frac{\omega^4 p^2 \sin^2\theta}{r^2}\hat{r}
+$$
+
+<Callout type="info">
+  Nessuna emissione sull'asse del dipolo. I cellulari non prendono sotto le
+  antenne!
+</Callout>
+
+## Trasformazioni di Lorentz
+
+<Statement type="law" title="Trasformazioni di Lorentz">
+
+$$
+\begin{cases}
+x' = x \\
+y' = y \\
+z' = \gamma(z - vt) \\
+t' = \gamma\left(t - \frac{v}{c^2}z\right)
+\end{cases}
+$$
+
+Con $$\gamma = \frac{1}{\sqrt{1 - v^2/c^2}}$$
+
+</Statement>
+
+**Effetti relativistici**:
+
+- **Contrazione delle lunghezze**: $$\Delta z = l/\gamma$$
+- **Dilatazione dei tempi**: $$\Delta t = \gamma \Delta t_0$$
+
+### Invarianti
+
+- Velocità della luce $$c$$
+- Metrica di Minkowski: $$||v|| = x^2 + y^2 + z^2 - c^2t^2$$
+- Elemento di volume: $$d\tau = dxdydz \cdot cdt$$
+
+### Notazione covariante/controvariante
+
+**Controvariante**: $$(x^1, x^2, x^3, x^4) = (x, y, z, ct)$$
+
+**Covariante**: $$(x_1, x_2, x_3, x_4) = (x, y, z, -ct)$$
+
+Norma: $$||x|| = x^i x_i$$
+
+## Effetto Doppler relativistico
+
+$$
+\nu = \nu_0 \frac{1 + \frac{v}{c}\cos\theta'}{\sqrt{1 - v^2/c^2}}
+$$
+
+**Effetto Doppler trasverso** ($$\theta = \pi/2$$):
+
+$$
+\nu = \frac{\nu_0}{\sqrt{1 - v^2/c^2}}
+$$
+
+**Effetto Doppler longitudinale** ($$\theta = 0$$):
+
+$$
+\nu = \nu_0 \sqrt{\frac{1 + v/c}{1 - v/c}}
+$$
+
+**Redshift**: $$Z = \frac{\lambda_0 - \lambda}{\lambda}$$
+
+## Quadrivettori
+
+<Statement type="definition" title="Quadrivelocità">
+
+$$
+\vec{U} = \frac{ds}{d\tau} = (\gamma\vec{v}, \gamma c)
+$$
+
+</Statement>
+
+<Statement type="definition" title="Quadrimpulso">
+
+$$
+\vec{P} = m_0\vec{U} = (m_0\gamma\vec{v}, \gamma m_0 c)
+$$
+
+La quarta componente: $$p^4 = E/c$$
+
+</Statement>
+
+Relazione energia-massa:
+
+$$
+E \approx mc^2 + \frac{1}{2}mv^2 + ...
+$$
+
+### Geometria tensoriale
+
+Quadrigradiente:
+
+$$
+\nabla^k = \left(\frac{\partial}{\partial x}, \frac{\partial}{\partial y}, \frac{\partial}{\partial z}, -\frac{1}{c}\frac{\partial}{\partial t}\right)
+$$
+
+**Risultato fondamentale**: $$\nabla^k\nabla_k = \Box$$ (D'Alembert =
+invariante)
+
+## Equazione generale dell'elettromagnetismo
+
+<Statement type="definition" title="Quadricarica">
+
+$$
+\vec{Q} = \left(\frac{\vec{J}}{c}, \rho\right)
+$$
+
+</Statement>
+
+<Statement type="definition" title="Quadripotenziale">
+
+$$
+\phi^k = (c\vec{A}, \phi)
+$$
+
+</Statement>
+
+<Statement type="law" title="Equazione unificata di Maxwell">
+
+$$
+\Box \phi^k = -\frac{1}{\varepsilon_0}Q^k
+$$
+
+Invariante alle trasformazioni di Lorentz!
+
+</Statement>
+
+<Callout type="tip">
+  Campi elettrici e magnetici sono due punti di vista diversi della stessa cosa!
+</Callout>
+
+## Tensore elettromagnetico
+
+<Statement type="definition" title="Tensore elettromagnetico">
+
+$$
+F_{ik} = \frac{\partial\phi_k}{\partial x^i} - \frac{\partial\phi_i}{\partial x^k}
+$$
+
+$$
+F_{ik} = \begin{pmatrix}
+0 & cB_z & -cB_y & E_x \\
+-cB_z & 0 & cB_x & E_y \\
+cB_y & -cB_x & 0 & E_z \\
+-E_x & -E_y & -E_z & 0
+\end{pmatrix}
+$$
+
+</Statement>
+
+**Trasformazioni dei campi**:
+
+- Componenti parallele al moto: invariate
+- Componenti perpendicolari:
+
+$$
+\vec{E}'_\perp = \gamma(\vec{E}_\perp + \vec{v} \times \vec{B}_\perp)
+$$
+
+$$
+\vec{B}'_\perp = \gamma\left(\vec{B}_\perp - \frac{\vec{v} \times \vec{E}_\perp}{c^2}\right)
+$$

@@ -1,0 +1,132 @@
+---
+title: Serie di Potenze
+description:
+  "Serie di potenze: raggio di convergenza, convergenza totale e uniforme."
+---
+
+Le serie di potenze sono un caso particolare di serie di funzioni con una
+struttura più regolare: l'insieme di convergenza è sempre un **intervallo
+centrato in un punto**, a differenza delle serie di funzioni generiche il cui
+insieme di convergenza può avere forma arbitraria (unioni di intervalli
+disgiunti, punti isolati, ecc.).
+
+## Definizione
+
+<Statement type="definition" title="Serie di Potenze">
+
+Si definisce **serie di potenze** centrata in $x_0 \in \mathbb{R}$ una serie di
+funzioni della forma
+
+$$
+\sum_{n=0}^{\infty} a_n (x - x_0)^n = a_0 + a_1(x - x_0) + a_2(x - x_0)^2 + \dots + a_n(x - x_0)^n + \dots
+$$
+
+dove $\{a_n\}$ è una successione di numeri reali detti **coefficienti** della
+serie e $x_0$ è il **centro**.
+
+</Statement>
+
+## Raggio di convergenza
+
+L'insieme di convergenza di una serie di potenze è sempre un intervallo centrato
+in $x_0$ (eventualmente aperto, chiuso o semiaperto agli estremi). La distanza
+dal centro all'estremo dell'intervallo è detta **raggio di convergenza**.
+
+<Statement type="definition" title="Raggio di Convergenza">
+
+Data una serie di potenze $\sum a_n (x - x_0)^n$, si definisce **raggio di
+convergenza** $R \in [0, +\infty]$ il valore tale che:
+
+- Per $|x - x_0| < R$: la serie converge **assolutamente** (e quindi
+  puntualmente).
+- Per $|x - x_0| > R$: la serie **diverge**.
+- Per $|x - x_0| = R$ (gli estremi $x_0 \pm R$): occorre uno studio caso per
+  caso.
+
+L'intervallo aperto $(x_0 - R, \; x_0 + R)$ è detto **intervallo di
+convergenza**.
+
+</Statement>
+
+<Callout type="warn" title="Attenzione agli estremi">
+
+Due serie di potenze con lo stesso centro $x_0$ e lo stesso raggio $R$ possono
+avere intervalli di convergenza diversi. Il raggio determina solo l'intervallo
+aperto; il comportamento agli estremi $x_0 \pm R$ va sempre verificato
+singolarmente.
+
+</Callout>
+
+### Calcolo del raggio di convergenza
+
+Il raggio si calcola a partire dai coefficienti $a_n$ tramite due metodi
+equivalenti.
+
+<Statement type="theorem" title="Criterio del Rapporto">
+
+Se esiste il limite
+
+$$
+L = \lim_{n \to \infty} \left| \frac{a_{n+1}}{a_n} \right|
+$$
+
+allora il raggio di convergenza vale:
+
+$$
+R = \begin{cases}
+\dfrac{1}{L} & \text{se } L \in (0, +\infty) \\[8pt]
++\infty & \text{se } L = 0 \quad \text{(converge } \forall x \in \mathbb{R}\text{)} \\[8pt]
+0 & \text{se } L = +\infty \quad \text{(converge solo in } x_0\text{)}
+\end{cases}
+$$
+
+</Statement>
+
+<Statement type="theorem" title="Criterio della Radice">
+
+Se esiste il limite
+
+$$
+L = \lim_{n \to \infty} \sqrt[n]{|a_n|}
+$$
+
+valgono le stesse relazioni del criterio del rapporto per determinare $R$.
+
+</Statement>
+
+## Convergenza totale e uniforme
+
+Per le serie di potenze la questione della convergenza uniforme si risolve in
+modo molto diretto grazie al concetto di **convergenza totale**.
+
+<Statement type="definition" title="Convergenza Totale">
+
+Una serie di funzioni $\sum f_n(x)$ converge **totalmente** in un insieme $A$ se
+esiste una serie numerica convergente $\sum M_n$ (con $M_n \ge 0$) tale che
+
+$$
+|f_n(x)| \le M_n \qquad \forall x \in A, \; \forall n \in \mathbb{N}
+$$
+
+La convergenza totale implica la convergenza uniforme (e quindi anche quella
+puntuale).
+
+</Statement>
+
+<Statement type="theorem" title="Convergenza uniforme delle serie di potenze">
+
+Sia $\sum a_n(x - x_0)^n$ una serie di potenze con raggio di convergenza
+$R > 0$. In ogni intervallo chiuso e limitato $[h, \; k]$ strettamente contenuto
+nell'intervallo di convergenza $(x_0 - R, \; x_0 + R)$, la serie converge
+**totalmente** e quindi **uniformemente**.
+
+</Statement>
+
+<Callout type="info" title="Esempio">
+
+La serie geometrica $\sum x^n$ ha raggio $R = 1$ e converge in $(-1, \; 1)$. Non
+c'è convergenza uniforme in tutto $(-1, \; 1)$, ma c'è convergenza uniforme
+(anzi totale) in ogni sotto-intervallo chiuso $[a, \; b] \subset (-1, \; 1)$,
+come ad esempio $\left[-\frac{1}{2}, \; \frac{1}{2}\right]$.
+
+</Callout>

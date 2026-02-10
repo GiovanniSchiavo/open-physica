@@ -1,0 +1,87 @@
+---
+title: "Esercizio 4"
+description:
+  "Matrice esponenziale per matrice nilpotente e problema di Cauchy completo"
+badges:
+  - Matrice esponenziale
+  - Matrici nilpotenti
+  - Formula di variazione delle costanti
+exercise:
+  difficulty: 3
+---
+
+## Testo dell'esercizio
+
+Si considerino:
+
+$$
+A = \begin{pmatrix} -1 & -1 & 0 \\ 0 & -1 & -1 \\ 0 & 0 & -1 \end{pmatrix} \quad \text{e} \quad b(t) = \begin{pmatrix} t \\ 1 \\ 0 \end{pmatrix}
+$$
+
+1. Calcolare $e^{tA}$, e usarla per risolvere il problema di Cauchy dato da
+   $y' = Ay$ e $y(0) = \begin{pmatrix} 6 \\ -2 \\ 1 \end{pmatrix}$.
+
+2. Risolvere il problema di Cauchy dato da $y' = Ay + b(t)$ e
+   $y(0) = \begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix}$.
+
+## Soluzione [toc]
+
+<Formulae>
+
+Per matrice $A = \lambda I + N$ con $N$ nilpotente di indice $k$:
+
+$$
+e^{tA} = e^{\lambda t} \sum_{j=0}^{k-1} \frac{t^j}{j!} N^j
+$$
+
+Formula di variazione delle costanti per sistemi non omogenei:
+
+$$
+\mathbf{y}(t) = e^{(t-t_0)A}\mathbf{y}_0 + \int_{t_0}^t e^{(t-\tau)A} \mathbf{b}(\tau) \, d\tau
+$$
+
+</Formulae>
+
+<Solution>
+
+### Punto 1
+
+Si ha $A = -\mathbf{1}_3 + N$, ove:
+
+$$
+N = \begin{pmatrix} 0 & -1 & 0 \\ 0 & 0 & -1 \\ 0 & 0 & 0 \end{pmatrix}
+$$
+
+è nilpotente (con $N^3 = 0$). Si ottiene dunque:
+
+$$
+e^{tA} = e^{-t}\left(\mathbf{1}_3 + tN + \frac{1}{2}t^2N^2\right) = \begin{pmatrix} e^{-t} & -t e^{-t} & \frac{1}{2}t^2 e^{-t} \\ 0 & e^{-t} & -t e^{-t} \\ 0 & 0 & e^{-t} \end{pmatrix}
+$$
+
+La soluzione cercata è:
+
+$$
+e^{tA} \begin{pmatrix} 6 \\ -2 \\ 1 \end{pmatrix} = \begin{pmatrix} \left(6 + 2t + \frac{1}{2}t^2\right)e^{-t} \\ -(2+t)e^{-t} \\ e^{-t} \end{pmatrix}
+$$
+
+### Punto 2
+
+In generale, la soluzione con $y(t_0) = y_0$ è data da:
+
+$$
+\mathbf{y}(t) = e^{(t-t_0)A}\mathbf{y}_0 + \int_{t_0}^t e^{(t-\tau)A} \mathbf{b}(\tau) \, d\tau
+$$
+
+Nel nostro caso:
+
+$$
+\mathbf{y}(t) = \int_0^t e^{(t-\tau)A} \begin{pmatrix} \tau \\ 1 \\ 0 \end{pmatrix} d\tau = \int_0^t \begin{pmatrix} (2\tau - t)e^{-(t-\tau)} \\ e^{-(t-\tau)} \\ 0 \end{pmatrix} d\tau
+$$
+
+Calcolando l'integrale:
+
+$$
+\mathbf{y}(t) = \begin{pmatrix} (t+2)e^{-t} + t - 2 \\ 1 - e^{-t} \\ 0 \end{pmatrix}
+$$
+
+</Solution>

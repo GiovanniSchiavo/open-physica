@@ -1,0 +1,180 @@
+---
+title: Campi vettoriali
+description: Campi conservativi, flusso, divergenza e teorema della divergenza.
+---
+
+## Campi gradienti
+
+Abbiamo appena definito l'operatore di gradiente, adesso proviamo ad applicare
+il gradiente ad ogni punto di un campo scalare. Otteniamo un altro campo, ma
+questa volta vettoriale, con la caratteristica di essere un campo gradiente.
+Questo particolare tipo di campo viene detto **conservativo**.
+
+<Statement type="definition" title="Campo conservativo">
+
+Un campo vettoriale si dice **conservativo** se, e solo se, è generato
+attraverso l'operatore gradiente da un qualsiasi campo scalare.
+
+</Statement>
+
+I campi conservativi hanno la notevole proprietà di avere **circuitazione
+nulla**, ovvero preso un qualunque percorso per cui mi muovo da un punto $$P_1$$
+ad un punto $$P_2$$, e poi torno da $$P_2$$ a $$P_1$$, il lavoro fatto dal campo
+è nullo!
+
+$$$
+\oint \nabla U \cdot d\vec{l} = 0
+$$$
+
+Questa proprietà si verifica immediatamente:
+
+$$$
+\oint \nabla U \cdot d\vec{l} = \oint dU = \int_{P_1}^{P_2} dU + \int_{P_2}^{P_1} dU = U(P_2) - U(P_1) + U(P_1) - U(P_2) = 0
+$$$
+
+## Rappresentazione dei campi vettoriali
+
+Rappresentare i campi vettoriali è molto più complesso della rappresentazione
+dei campi scalari, un metodo molto efficiente per rappresentarli fu introdotto
+nell'ottocento dal grande fisico Faraday, a cui dobbiamo molti dei successi
+ottenuti dalla teoria dell'elettromagnetismo.
+
+Per parlare di questa rappresentazione dobbiamo partire dal concetto di
+**Flusso**.
+
+<Statement type="definition" title="Flusso">
+
+Si definisce il **Flusso** di un campo $$\vec{v}$$ lungo la superficie $$S$$ il
+valore:
+
+$$$
+\Phi_S(\vec{v}) = \int_S \vec{v} \cdot \hat{n} \, dS
+$$$
+
+Dove il versore $$\hat{n}$$ è sempre il versore normale alla superficie.
+
+</Statement>
+
+$$S$$ può essere infatti aperta o chiusa:
+
+- Se $$S$$ è **aperta**, è dotata di bordo. Allora si stabilisce per convenzione
+  che il verso di $$\hat{n}$$ sia quello che va verso l'osservatore del bordo
+  che vede la percorrenza in senso antiorario.
+- Se $$S$$ è una **superficie chiusa**, non è dotata di bordo, in questo caso si
+  sceglie per convenzione il verso di $$\hat{n}$$ come quello uscente dalla
+  superficie chiusa.
+
+Torniamo alla rappresentazione di Faraday. Immaginiamo di prendere molte
+superfici e in ognuna di queste disegnamo un numero di frecce che indicano la
+direzione, modulo e verso del campo proporzionalmente al flusso del campo lungo
+quella superficie, otteniamo così un diagramma che ci permette di avere un'idea
+chiara del flusso, e mette in evidenza alcuni punti critici del flusso, come
+**sorgenti positive** (da cui le linee di flusso divergono) e le **sorgenti
+negative** (a cui le linee di flusso convergono).
+
+Un metodo alternativo per rappresentare graficamente i campi vettoriali avviene
+attraverso il tracciato delle cosiddette **linee di forza**, che sono linee
+rispetto alle quali i vettori del campo sono sempre tangenti.
+
+## Divergenza
+
+<Statement type="definition" title="Divergenza">
+
+Definiamo la **divergenza** di un campo vettoriale $$\vec{v}(x, y, z)$$ come la
+quantità:
+
+$$$
+\text{div } \vec{v} = \frac{\partial v_x}{\partial x} + \frac{\partial v_y}{\partial y} + \frac{\partial v_z}{\partial z}
+$$$
+
+Può essere scritta sintatticamente come:
+
+$$$
+\text{div } \vec{v} = \nabla \cdot \vec{v}
+$$$
+
+</Statement>
+
+<Statement type="theorem" title="Teorema della divergenza">
+
+Dato comunque una superficie chiusa $$S_c$$ il flusso del campo vettoriale lungo
+questa superficie chiusa può essere calcolato attraverso l'integrale di volume
+della divergenza del campo, all'interno del volume rinchiuso dalla superficie:
+
+$$$
+\Phi_{S_c}(\vec{v}) = \int_{S_c} \vec{v} \cdot \hat{n} \, dS = \int_{V_c} \nabla \cdot \vec{v} \, dV
+$$$
+
+</Statement>
+
+<Statement type="definition" title="Tubo di flusso">
+
+Si definisce **tubo di flusso** tutte le linee di forza di un campo vettoriale
+che passano attraverso i punti di una qualsiasi curva chiusa.
+
+</Statement>
+
+È facile accorgersi che il flusso del campo calcolato attraverso la superficie
+di un qualunque tubo di flusso è sempre nulla, poiché il campo è diretto
+parallelamente alle linee di forza, e quindi parallelamente alle pareti del
+tubo.
+
+Se un campo vettoriale ha la caratteristica di avere divergenza nulla
+($$\nabla \cdot \vec{v} = 0$$) il flusso lungo qualunque superficie chiusa sarà
+zero.
+
+<Statement type="definition" title="Campo Solenoidale">
+
+Un campo vettoriale si dice **Solenoidale** quando la divergenza è nulla in ogni
+punto, ossia il flusso calcolato lungo qualunque superficie chiusa è nullo.
+
+</Statement>
+
+Si nota immediatamente l'analogia con i campi conservativi.
+
+### Proprietà della divergenza
+
+Analizziamo subito alcuni calcoli sulla divergenza che verranno utilizzati nel
+corso di queste dispense.
+
+<Statement type="theorem" title="Divergenza del prodotto vettoriale">
+
+$$$
+\nabla \cdot (\vec{a} \times \vec{b}) = (\nabla \times \vec{a}) \cdot \vec{b} - \vec{a} \cdot (\nabla \times \vec{b})
+$$$
+
+</Statement>
+
+<Accordions type="single">
+<Accordion id="proof-div-prod-vett" title="Dimostrazione">
+Sia $$\vec{c} = \vec{a} \times \vec{b}$$, calcoliamo la divergenza di $$\vec{c}$$:
+
+$$$
+\nabla \cdot \vec{c} = \frac{\partial c_x}{\partial x} + \frac{\partial c_y}{\partial y} + \frac{\partial c_z}{\partial z}
+$$$
+
+Ricordiamo la definizione di prodotto vettoriale:
+
+$$$
+\vec{c} = \det \begin{pmatrix} \hat{i} & \hat{j} & \hat{k} \\ a_x & a_y & a_z \\ b_x & b_y & b_z \end{pmatrix}
+$$$
+
+Con:
+
+- $$c_x = a_y b_z - b_y a_z$$
+- $$c_y = a_z b_x - a_x b_z$$
+- $$c_z = a_x b_y - b_x a_y$$
+
+Per semplicità isoliamo dal calcolo della divergenza solo il contributo delle
+derivate fatte rispetto a $$x$$:
+
+$$$
+\frac{\partial c_x}{\partial x} = \frac{\partial a_y}{\partial x} b_z + \frac{\partial b_z}{\partial x} a_y - \frac{\partial a_z}{\partial x} b_y - \frac{\partial b_y}{\partial x} a_z
+$$$
+
+Le altre componenti della divergenza di $$\vec{c}$$ sono analogamente
+calcolabili. Procedendo con il calcolo del membro di destra e confrontando, si
+ottiene l'uguaglianza.
+
+</Accordion>
+</Accordions>

@@ -1,0 +1,101 @@
+---
+title: "Esercizio 2"
+description:
+  "Studio di continuità, derivabilità e differenziabilità con coordinate polari"
+exercise:
+  difficulty: 2
+---
+
+## Testo dell'esercizio
+
+Studia la continuità, la derivabilità e la differenziabilità della funzione
+$f : \mathbb{R}^2 \to \mathbb{R}$ definita come
+
+$$
+f(x,y) = \begin{cases}
+\dfrac{x^3 + y^3}{|x| + |y|} & (x,y) \neq (0,0) \\
+0 & (x,y) = (0,0)
+\end{cases}
+$$
+
+## Soluzione [toc]
+
+<Solution>
+
+### Continuità
+
+Per studiare la continuità di $f$ in $(0,0)$, calcoliamo il limite
+
+$$
+\lim_{(x,y) \to (0,0)} \dfrac{x^3 + y^3}{|x| + |y|}
+$$
+
+Utilizziamo le coordinate polari:
+
+$$
+x = \rho \cos{\theta} \; y = \rho \sin{\theta}
+$$
+
+Sapendo che $\rho \geq 0$ per definizione, e che
+$|\cos{\theta}| + |\sin{\theta}| \geq 0$ per ogni $\theta$, possiamo riscrivere
+il limite come
+
+$$
+\lim_{\rho \to 0} \frac{\rho^3 \cos^3{\theta} + \rho^3 \sin^3{\theta}}{|\rho \cos{\theta}| + |\rho \sin{\theta}|} = \lim_{\rho \to 0} \rho^2 \frac{\cos^3{\theta} + \sin^3{\theta}}{|\cos{\theta}| + |\sin{\theta}|} = 0 = f(0,0)
+$$
+
+Quindi la funzione è continua in $(0,0)$ e, di conseguenza, in tutto
+$\mathbb{R}^2$.
+
+### Derivabilità
+
+Per calcolare le derivate parziali in $(0,0)$, utilizziamo la definizione di
+derivata direzzionale lungo un generico versore $\vec{u} = (a,b)$:
+
+$$
+\lim_{h \to 0} \frac{f(0 + ha, 0 + hb) - f(0,0)}{h} = \lim_{h \to 0} \frac{h^3 (a^3 + b^3)}{|h| (|a| + |b|)} = 0
+$$
+
+Quindi, indipendentemente dal versore scelto, la derivata direzionale in $(0,0)$
+è sempre nulla. In particolare, le derivate parziali (quindi le derivate
+direzionali lungo gli assi) sono entrambe nulle:
+
+$$
+f_x^\prime(0,0) = 0 \; f_y^\prime(0,0) = 0
+$$
+
+### Differenziabilità
+
+Per verificare la differenziabilità, potremmo verificare che le derivate
+direzionali non solo esistano in $(0,0)$, ma siano anche continue in un intorno
+di $(0,0)$. Tuttavia, in questo caso, è più semplice applicare direttamente la
+definizione di differenziabilità.
+
+Definiamo la funzione lineare
+
+$$
+H(h,k) : \mathbb{R}^2 \to \mathbb{R}\\
+H(h,k) = f_x^\prime(0,0) \cdot h + f_y^\prime(0,0) \cdot k = 0
+$$
+
+Dobbiamo quindi calcolare il seguente limite:
+
+$$
+\lim_{(h,k) \to (0,0)} \frac{f(0 + h, 0 + k) - f(0,0) - H(h,k)}{\sqrt{h^2 + k^2}} = \lim_{(h,k) \to (0,0)} \frac{h^3 + k^3}{|h| + |k|} \cdot \frac{1}{\sqrt{h^2 + k^2}}
+$$
+
+Utilizzando nuovamente le coordinate polari, poniamo:
+
+$$
+h = \rho \cos{\theta} \; k = \rho \sin{\theta}
+$$
+
+e otteniamo
+
+$$
+\lim_{\rho \to 0} \frac{\rho^3 \cos^3{\theta} + \rho^3 \sin^3{\theta}}{|\rho \cos{\theta}| + |\rho \sin{\theta}|} \cdot \frac{1}{\rho} = \lim_{\rho \to 0} \rho \frac{\cos^3{\theta} + \sin^3{\theta}}{|\cos{\theta}| + |\sin{\theta}|} = 0
+$$
+
+Il limite è uguale a zero, quindi la funzione è differenziabile in $(0,0)$.
+
+</Solution>

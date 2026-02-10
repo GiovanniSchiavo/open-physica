@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 80 400 200" width="100%">
+  <!-- Definitions -->
+  <defs>
+    <!-- Arrow Marker -->
+    <marker id="arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 L1,3 z" fill="var(--svg-black)" />
+    </marker>
+    <marker id="arrow-blue" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 L1,3 z" fill="var(--svg-blue)" />
+    </marker>
+    <!-- Sphere Gradient -->
+    <radialGradient id="sphereGradient" cx="30%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="var(--svg-blue)" />
+    </radialGradient>
+  </defs>
+
+  <!-- Style -->
+  <style>
+    text {
+      font-family: sans-serif;
+      fill: var(--svg-black);
+      font-size: 14px;
+      dominant-baseline: middle;
+      text-anchor: middle;
+    }
+    .label-italic {
+      font-style: italic;
+    }
+  </style>
+
+  <!-- Sphere -->
+  <!-- Center at (300, 150), radius 60 -->
+  <circle cx="300" cy="150" r="60" fill="url(#sphereGradient)" stroke="none" />
+  
+  <!-- Sphere Radius R0 -->
+  <line x1="300" y1="150" x2="342.4" y2="107.6" stroke="var(--svg-black)" stroke-width="1.5" marker-end="url(#arrow)" />
+  <text x="315" y="125" class="label-italic">r<tspan baseline-shift="sub" font-size="10">0</tspan></text>
+  <circle cx="300" cy="150" r="2" fill="var(--svg-black)" />
+
+  <!-- Ground Connection (V0) -->
+  <line x1="300" y1="210" x2="300" y2="230" stroke="var(--svg-black)" stroke-width="1.5" />
+  <!-- Battery Symbol -->
+  <line x1="285" y1="230" x2="315" y2="230" stroke="var(--svg-black)" stroke-width="1.5" /> <!-- Long line -->
+  <line x1="292" y1="238" x2="308" y2="238" stroke="var(--svg-black)" stroke-width="1.5" /> <!-- Short line -->
+  <text x="275" y="234" text-anchor="end" font-size="12">V<tspan baseline-shift="sub" font-size="9">0</tspan></text>
+  <!-- Ground Symbol -->
+  <line x1="300" y1="238" x2="300" y2="248" stroke="var(--svg-black)" stroke-width="1.5" />
+  <line x1="290" y1="248" x2="310" y2="248" stroke="var(--svg-black)" stroke-width="1.5" />
+  <line x1="294" y1="253" x2="306" y2="253" stroke="var(--svg-black)" stroke-width="1.5" />
+  <line x1="298" y1="258" x2="302" y2="258" stroke="var(--svg-black)" stroke-width="1.5" />
+
+  <!-- Source -->
+  <circle cx="50" cy="150" r="3" fill="var(--svg-blue)" stroke="var(--svg-black)" stroke-width="1" />
+
+  <!-- Distance Line (d) -->
+  <line x1="50" y1="150" x2="240" y2="150" stroke="var(--svg-blue)" stroke-width="1" stroke-dasharray="5,3" />
+  <text x="175" y="165" class="label-italic">d</text>
+
+  <!-- Velocity Vector (Initial) -->
+  <!-- Angle -45 degrees -->
+  <line x1="50" y1="150" x2="85" y2="115" stroke="var(--svg-black)" stroke-width="1.5" marker-end="url(#arrow)" />
+  
+  <!-- Angle Arc (Theta) -->
+  <path d="M 80 150 A 30 30 0 0 0 71.2 128.8" fill="none" stroke="var(--svg-black)" stroke-width="1.5" />
+  <text x="92" y="140" class="label-italic">θ</text>
+
+</svg>

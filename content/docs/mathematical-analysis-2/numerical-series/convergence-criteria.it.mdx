@@ -1,0 +1,254 @@
+---
+title: Criteri di convergenza
+description: Condizione necessaria per la convergenza e primi criteri
+---
+
+## Condizione necessaria per la convergenza
+
+Un risultato fondamentale lega la convergenza di una serie al comportamento del
+suo termine generale per $n \to \infty$.
+
+<section id="condizione-necessaria">
+
+<Statement type="proposition" title="Condizione Necessaria">
+
+Se una serie $\sum_{n=0}^{\infty} a_n$ è convergente, allora il suo termine
+generale è infinitesimo:
+
+$$
+\sum_{n=0}^{\infty} a_n \text{ converge} \implies \lim_{n \to \infty} a_n = 0
+$$
+
+</Statement>
+
+</section>
+
+### Dimostrazione
+
+Sia $S_n = \sum_{k=0}^{n} a_k$ la successione delle somme parziali. Possiamo
+scrivere il termine generale come differenza di due ridotte consecutive:
+
+$$
+a_n = S_n - S_{n-1}
+$$
+
+Se la serie converge alla somma $S \in \mathbb{R}$, allora per definizione:
+
+$$
+\lim_{n \to \infty} S_n = S
+$$
+
+Poiché anche $\lim_{n \to \infty} S_{n-1} = S$, passando al limite
+nell'espressione di $a_n$ otteniamo:
+
+$$
+\lim_{n \to \infty} a_n = \lim_{n \to \infty} (S_n - S_{n-1}) = S - S = 0
+$$
+
+### Osservazioni importanti
+
+<Callout type="info" title="Condizione non sufficiente">
+
+Il teorema afferma che se la serie converge, il limite è zero. **Non vale il
+viceversa!**
+
+Se $\lim_{n \to \infty} a_n = 0$, la serie **potrebbe non convergere**.
+
+Un esempio classico è la **serie armonica** $\sum \frac{1}{n}$, che diverge pur
+avendo termine generale infinitesimo.
+
+</Callout>
+
+<Callout type="info" title="Test di divergenza">
+
+La condizione necessaria è molto utile nella sua forma contronominale per
+dimostrare che una serie **non** converge.
+
+Se $\lim_{n \to \infty} a_n \neq 0$ (oppure non esiste), allora la serie **non
+può convergere**.
+
+Se inoltre i termini sono a segno costante, la serie divergerà sicuramente. Se i
+termini non sono a segno costante, potrebbe essere irregolare.
+
+</Callout>
+
+## Esempio fondamentale: La Serie Armonica
+
+La serie armonica è il controesempio più citato per mostrare che la condizione
+necessaria non è sufficiente.
+
+$$
+\sum_{k=1}^{\infty} \frac{1}{k} = 1 + \frac{1}{2} + \frac{1}{3} + \dots
+$$
+
+Anche se il termine generale $\frac{1}{k}$ tende a 0, la serie **diverge** a
+$+\infty$.
+
+### Dimostrazione (Confronto integrale)
+
+Consideriamo la funzione $f(x) = \frac{1}{x}$, che è decrescente per $x > 0$.
+Nell'intervallo $[k, k+1]$, per ogni $x$ vale la disuguaglianza:
+
+$$
+\frac{1}{k+1} \leq \frac{1}{x} \leq \frac{1}{k}
+$$
+
+Integrando sull'intervallo $[k, k+1]$:
+
+$$
+\int_{k}^{k+1} \frac{1}{k+1} dx \leq \int_{k}^{k+1} \frac{1}{x} dx \leq \int_{k}^{k+1} \frac{1}{k} dx
+$$
+
+$$
+\frac{1}{k+1} \leq [\ln x]_{k}^{k+1} \leq \frac{1}{k}
+$$
+
+Consideriamo la somma parziale $S_n = \sum_{k=1}^{n} \frac{1}{k}$. Sommando le
+disuguaglianze otteniamo una relazione con una somma telescopica di logaritmi:
+
+$$
+S_n = \sum_{k=1}^{n} \frac{1}{k} \geq \sum_{k=1}^{n} (\ln(k+1) - \ln k)
+$$
+
+La somma a destra è telescopica:
+
+$$
+\sum_{k=1}^{n} (\ln(k+1) - \ln k) = \ln(n+1) - \ln 1 = \ln(n+1)
+$$
+
+Quindi:
+
+$$
+S_n \geq \ln(n+1)
+$$
+
+Passando al limite per $n \to \infty$:
+
+$$
+\lim_{n \to \infty} S_n \geq \lim_{n \to \infty} \ln(n+1) = +\infty
+$$
+
+Pertanto, la serie armonica diverge positivamente.
+
+## Criterio di Cauchy
+
+Esiste una condizione necessaria e sufficiente per la convergenza di una serie
+che non richiede la conoscenza della somma.
+
+<section id="criterio-cauchy">
+
+<Statement type="theorem" title="Criterio di Cauchy per le serie">
+
+Una serie $\sum_{k=0}^{\infty} a_k$ (a termini reali o complessi) converge se e
+solo se per ogni $\varepsilon > 0$ esiste un indice $N$ tale che per ogni
+$n > N$ e per ogni $p \geq 1$:
+
+$$
+\left| \sum_{k=n+1}^{n+p} a_k \right| < \varepsilon
+$$
+
+ovvero:
+
+$$
+|S_{n+p} - S_n| < \varepsilon
+$$
+
+</Statement>
+
+</section>
+
+Questa è semplicemente la riscrittura del Criterio di Cauchy per la successione
+delle somme parziali.
+
+### Il resto $n$-esimo
+
+Se una serie converge alla somma $S$, si definisce **resto $n$-esimo** la
+differenza tra la somma totale e la ridotta $n$-esima:
+
+$$
+R_n = S - S_n = \sum_{k=n+1}^{\infty} a_k
+$$
+
+<Statement type="proposition" title="Limite del resto">
+
+Se una serie converge, allora la successione dei resti è infinitesima:
+
+$$
+\sum_{k=0}^{\infty} a_k \text{ converge} \implies \lim_{n \to \infty} R_n = 0
+$$
+
+</Statement>
+
+## Convergenza Assoluta
+
+Un concetto fondamentale nello studio delle serie è quello di convergenza
+assoluta.
+
+<section id="convergenza-assoluta">
+
+<Statement type="definition" title="Convergenza Assoluta">
+
+Una serie $\sum a_k$ si dice **assolutamente convergente** se converge la serie
+dei moduli (o dei valori assoluti):
+
+$$
+\sum_{k=0}^{\infty} |a_k| < +\infty
+$$
+
+</Statement>
+
+</section>
+
+<section id="criterio-convergenza-assoluta">
+
+<Statement type="theorem" title="Criterio della convergenza assoluta">
+
+Se una serie converge assolutamente, allora converge anche semplicemente.
+
+$$
+\sum_{k=0}^{\infty} |a_k| \text{ converge} \implies \sum_{k=0}^{\infty} a_k \text{ converge}
+$$
+
+Inoltre vale la disuguaglianza:
+
+$$
+\left| \sum_{k=0}^{\infty} a_k \right| \leq \sum_{k=0}^{\infty} |a_k|
+$$
+
+</Statement>
+
+</section>
+
+### Osservazione
+
+Il viceversa **non è vero**. Una serie può convergere semplicemente ma non
+assolutamente. Tali serie sono dette **condizionatamente convergenti**.
+
+L'esempio classico è la serie armonica a segni alterni:
+
+$$
+\sum_{k=1}^{\infty} \frac{(-1)^k}{k}
+$$
+
+che converge (per il criterio di Leibniz), ma non converge assolutamente poiché
+la serie dei valori assoluti è la serie armonica $\sum \frac{1}{k}$, che
+diverge.
+
+### Dimostrazione
+
+La dimostrazione sfrutta il Criterio di Cauchy. Poiché $\sum |a_k|$ converge,
+soddisfa la condizione di Cauchy. Fissato $\varepsilon > 0$, esiste $N$ tale che
+per ogni $n > N$ e $p \geq 1$:
+
+$$
+\sum_{k=n+1}^{n+p} |a_k| < \varepsilon
+$$
+
+Per la disuguaglianza triangolare generalizzata:
+
+$$
+\left| \sum_{k=n+1}^{n+p} a_k \right| \leq \sum_{k=n+1}^{n+p} |a_k| < \varepsilon
+$$
+
+Quindi anche la serie originale $\sum a_k$ soddisfa la condizione di Cauchy, e
+pertanto converge.

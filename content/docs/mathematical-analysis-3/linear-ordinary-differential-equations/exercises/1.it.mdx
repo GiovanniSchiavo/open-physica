@@ -1,0 +1,318 @@
+---
+title: "Esercizio 1"
+description:
+  "Equazione differenziale lineare del secondo ordine con radice doppia e
+  risolvente"
+badges:
+  - Equazioni differenziali lineari
+  - Risolvente
+  - Matrice esponenziale
+exercise:
+  difficulty: 1
+---
+
+## Testo dell'esercizio
+
+È data l'equazione differenziale
+
+$$
+y'' - 2a y' + a^2 y = e^{at}
+$$
+
+ove $a \in \mathbb{R}$.
+
+1. Determinarne le soluzioni.
+
+2. Scrivere il sistema equivalente del primo ordine, e trovarne una risolvente.
+
+3. Trovare per quale $a \in \mathbb{R}$ la soluzione tale che
+   $$
+   (y(0), y'(0)) = (0,0)
+   $$
+   soddisfa
+   $$
+   \int_0^{+\infty} y(t) \, dt = 1
+   $$
+
+<Formulae>
+
+Per equazioni lineari del secondo ordine $y'' + py' + qy = f(t)$ con radice
+doppia $r$:
+
+1. Soluzione omogenea: $y_o(t) = (c_1 + c_2 t)e^{rt}$
+2. Soluzione particolare: metodo della variazione delle costanti o ansatz
+   polinomiale
+
+Per il sistema equivalente $\mathbf{y}' = A\mathbf{y} + \mathbf{b}(t)$:
+
+1. Matrice risolvente: $\Phi(t) = W(t)W(0)^{-1}$ dove $W$ è la matrice
+   wronskiana
+2. $e^{tA} = e^{\lambda t}\sum_{k=0}^{n-1} \frac{t^k}{k!}N^k$ se
+   $A = \lambda I + N$ con $N$ nilpotente
+
+</Formulae>
+
+## Soluzione [toc]
+
+<Solution>
+
+### Punto 1
+
+<Callout type="info" title="Approccio generale">
+Le equazioni differenziali lineari del secondo ordine a coefficienti costanti
+hanno la forma $y'' + py' + qy = f(t)$. La strategia risolutiva prevede sempre
+due passaggi:
+
+1. Trovare tutte le soluzioni dell'**equazione omogenea** ($f(t) = 0$)
+2. Trovare **una** soluzione particolare dell'equazione completa
+
+La soluzione generale è poi la somma delle due.
+
+</Callout>
+
+L'equazione caratteristica dell'equazione omogenea associata a
+$y'' - 2a y' + a^2 y = e^{at}$ è:
+
+$$
+\tau^2 - 2a\tau + a^2 = 0
+$$
+
+Questo è un semplice quadrato di binomio:
+
+$$
+(\tau - a)^2 = 0
+$$
+
+che ha **radice doppia** $\tau = a$.
+
+<Callout type="tip" title="Perché serve il fattore t quando l'autovalore è doppio?">
+
+Quando l'equazione caratteristica ha radici distinte $\tau_1 \neq \tau_2$,
+otteniamo due soluzioni naturali $e^{\tau_1 t}$ e $e^{\tau_2 t}$ che sono
+linearmente indipendenti (perché funzioni esponenziali con esponenti diversi non
+sono proporzionali).
+
+Quando c'è una **radice doppia** $\tau$, entrambe "portano" alla stessa funzione
+$e^{\tau t}$. Se provassimo a scrivere la soluzione generale come
+$y(t) = c_1 e^{\tau t} + c_2 e^{\tau t} = (c_1 + c_2)e^{\tau t}$, avremmo solo
+**una costante arbitraria effettiva** — insufficiente per soddisfare due
+condizioni iniziali (posizione e velocità).
+
+**Il problema:** Abbiamo bisogno di una seconda soluzione linearmente
+indipendente da $e^{\tau t}$, ma l'equazione caratteristica non ne fornisce una
+seconda.
+
+**La soluzione (metodo di riduzione dell'ordine):** Cerchiamo una seconda
+soluzione della forma $y_2(t) = v(t) \cdot e^{\tau t}$ dove $v(t)$ non è
+costante. Sostituendo nell'equazione omogenea e semplificando, si scopre che
+$v''(t) = 0$, quindi $v(t) = C_1 t + C_2$.
+
+Scegliendo $v(t) = t$ (trascurando la parte costante che ridà la prima
+soluzione), otteniamo: $$y_2(t) = t e^{\tau t}$$
+
+**Verifica dell'indipendenza:** Il Wronskiano è
+
+$$
+W(e^{\tau t}, t e^{\tau t}) = \begin{vmatrix} e^{\tau t} & t e^{\tau t} \\ \tau e^{\tau t} & (1+\tau t)e^{\tau t} \end{vmatrix} = e^{2\tau t} \neq 0
+$$
+
+Quindi $e^{\tau t}$ e $t e^{\tau t}$ sono linearmente indipendenti e formano una
+base per lo spazio delle soluzioni.
+
+</Callout>
+
+Dunque le soluzioni dell'omogenea sono:
+
+$$
+y(t) := (k_1 + k_2 t) e^{at}
+$$
+
+al variare di $k_1, k_2 \in \mathbb{C}$.
+
+<Callout type="warn" title="Scelta dell'ansatz per la soluzione particolare">
+  Il termine noto è $e^{at}$. Normalmente proveremmo con $\tilde{y} = ke^{at}$,
+  ma questa è già soluzione dell'omogenea! Quando il termine noto è soluzione
+  dell'omogenea, moltiplichiamo per $t$. Qui però anche $t e^{at}$ è soluzione
+  dell'omogenea (caso della radice doppia), quindi dobbiamo moltiplicare per
+  $t^2$: $\tilde{y} = k t^2 e^{at}$.
+</Callout>
+
+Una soluzione particolare dell'equazione completa avrà la forma
+$\tilde{y} := k t^2 e^{at}$ con $k \in \mathbb{R}$ da determinare. Essendo:
+
+$$
+\tilde{y}' = k(at^2 + 2t)e^{at} \quad \text{e} \quad \tilde{y}'' = k(a^2t^2 + 4at + 2)e^{at}
+$$
+
+Sostituiamo nell'equazione completa:
+
+$$
+k(a^2t^2 + 4at + 2)e^{at} - 2ak(at^2 + 2t)e^{at} + a^2k t^2 e^{at} = e^{at}
+$$
+
+Raccogliendo $e^{at}$ e semplificando i termini in $t^2$ e $t$:
+
+$$
+k[\underbrace{(a^2 - 2a^2 + a^2)}_{0}t^2 + \underbrace{(4a - 4a)}_{0}t + 2] = 1
+$$
+
+Quindi $2k = 1$, da cui $k = \frac{1}{2}$.
+
+**Le soluzioni sono dunque:**
+
+$$
+y(t) = \left(k_1 + k_2 t + \frac{1}{2}t^2\right) e^{at}
+$$
+
+al variare di $k_1, k_2 \in \mathbb{C}$.
+
+### Punto 2
+
+<Callout type="info" title="Riduzione di ordine">
+Ogni equazione differenziale di ordine $n$ può essere trasformata in un sistema
+di $n$ equazioni del primo ordine. Per una equazione del secondo ordine
+$y'' = F(t, y, y')$, poniamo:
+
+1. $y_1 = y$ (la funzione incognita)
+2. $y_2 = y'$ (la sua derivata)
+
+Allora $y_1' = y_2$ e $y_2' = y'' = F(t, y_1, y_2)$.
+
+</Callout>
+
+Posto $p = y'$ si ha il sistema equivalente:
+
+$$
+\begin{cases}
+y' = p \\
+p' = 2ap - a^2 y + e^{at}
+\end{cases}
+$$
+
+che si può esprimere in forma matriciale:
+
+$$
+\begin{pmatrix} y' \\ p' \end{pmatrix} = \underbrace{\begin{pmatrix} 0 & 1 \\ -a^2 & 2a \end{pmatrix}}_{A} \begin{pmatrix} y \\ p \end{pmatrix} + \underbrace{\begin{pmatrix} 0 \\ e^{at} \end{pmatrix}}_{b(t)}
+$$
+
+<Callout type="info" title="Matrice risolvente">
+La matrice risolvente $\Phi(t)$ del sistema omogeneo $\mathbf{y}' = A\mathbf{y}$
+è una matrice le cui colonne sono soluzioni linearmente indipendenti. Ha la
+proprietà fondamentale che ogni soluzione si scrive come
+$\mathbf{y}(t) = \Phi(t)\mathbf{c}$ per qualche vettore costante $\mathbf{c}$.
+
+Per le equazioni lineari scalari, la matrice wronskiana delle soluzioni
+fondamentali costituisce una risolvente naturale.
+
+</Callout>
+
+In questo caso una risolvente è la **matrice wronskiana** di due soluzioni
+indipendenti dell'equazione omogenea originale, ad esempio le due generatrici
+$y_1(t) = e^{at}$ e $y_2(t) = t e^{at}$:
+
+$$
+W(t) = \begin{pmatrix} y_1(t) & y_2(t) \\ y_1'(t) & y_2'(t) \end{pmatrix} = \begin{pmatrix} e^{at} & t e^{at} \\ a e^{at} & (1+at)e^{at} \end{pmatrix}
+$$
+
+Si può verificare che vale la relazione fondamentale $A = W'(t)W(t)^{-1}$.
+
+<Callout type="tip" title="Matrice esponenziale dalla risolvente">
+La matrice esponenziale $e^{tA}$ si ottiene normalizzando la risolvente:
+$e^{tA} = \Phi(t)\Phi(0)^{-1}$. Questo garantisce che $e^{0A} = I$.
+</Callout>
+
+La matrice esponenziale risulta:
+
+$$
+e^{tA} = W(t)W(0)^{-1} = \begin{pmatrix} e^{at} & t e^{at} \\ a e^{at} & (1+at)e^{at} \end{pmatrix} \begin{pmatrix} 1 & 0 \\ a & 1 \end{pmatrix}^{-1} = \begin{pmatrix} (1-at)e^{at} & t e^{at} \\ -a^2 t e^{at} & (1+at)e^{at} \end{pmatrix}
+$$
+
+<Callout type="info" title="Calcolo alternativo via matrice nilpotente">
+Osserviamo che $A$ ha autovalore doppio $a$. Scriviamo $A = aI + N$ dove:
+
+$$
+N = A - a\mathbf{1}_2 = \begin{pmatrix} -a & 1 \\ -a^2 & a \end{pmatrix}
+$$
+
+Si verifica facilmente che $N^2 = 0$ (nilpotente di indice 2). Quindi:
+
+$$
+e^{tA} = e^{at(I + N/a)} = e^{at}e^{tN} = e^{at}\left(I + tN + \frac{t^2N^2}{2!} + \cdots\right) = e^{at}(I + tN)
+$$
+
+da cui si ottiene lo stesso risultato.
+
+</Callout>
+
+### Punto 3
+
+<Callout type="info" title="Condizioni iniziali omogenee">
+Le condizioni $(y(0), y'(0)) = (0,0)$ sono dette "omogenee" perché annullano
+la parte della soluzione generale che proviene dall'omogenea (i termini con
+$k_1$ e $k_2$). Infatti, sostituendo $t=0$ nella soluzione generale:
+
+1. $y(0) = k_1 = 0$
+2. $y'(0) = ak_1 + k_2 = 0 \implies k_2 = 0$
+
+Quindi resta solo la soluzione particolare.
+
+</Callout>
+
+La soluzione dell'equazione tale che $(y(0), y'(0)) = (0,0)$ è:
+
+$$
+\hat{y}_a(t) := \frac{1}{2}t^2 e^{at}
+$$
+
+Dobbiamo studiare l'integrale generalizzato:
+
+$$
+I(a) = \int_0^{+\infty} \frac{1}{2}t^2 e^{at} \, dt
+$$
+
+<Callout type="warn" title="Convergenza dell'integrale">
+
+L'integrale $\int_0^{+\infty} t^n e^{at} dt$ converge se e solo se $a < 0$.
+
+Infatti:
+
+1. Se $a > 0$: l'esponenziale cresce troppo velocemente, l'integrale diverge
+2. Se $a = 0$: diventa $\int_0^{+\infty} t^2 dt = +\infty$
+3. Se $a < 0$: l'esponenziale decresce e "vince" sul polinomio
+
+</Callout>
+
+L'integrale **converge se e solo se** $a < 0$. In tale ipotesi, calcoliamo una
+primitiva per parti ripetute (o usando la formula generale per
+$\int t^n e^{at}dt$):
+
+$$
+\int t^2 e^{at} \, dt = \frac{e^{at}}{a}\left(t^2 - \frac{2t}{a} + \frac{2}{a^2}\right) = \frac{a^2t^2 - 2at + 2}{a^3}e^{at}
+$$
+
+Quindi:
+
+$$
+\int_0^{+\infty} \frac{1}{2}t^2 e^{at} \, dt = \frac{1}{2}\left[\frac{a^2t^2 - 2at + 2}{a^3}e^{at}\right]_0^{+\infty}
+$$
+
+Per $t \to +\infty$, poiché $a < 0$, il termine $e^{at} \to 0$ più velocemente
+di quanto cresca il polinomio, quindi:
+
+$$
+= \frac{1}{2}\left[0 - \frac{2}{a^3}\right] = -\frac{1}{a^3}
+$$
+
+Imponiamo che valga 1:
+
+$$
+-\frac{1}{a^3} = 1 \implies a^3 = -1 \implies \boxed{a = -1}
+$$
+
+<Callout type="tip" title="Verifica">
+Per $a = -1$, la soluzione è $\hat{y}_{-1}(t) = \frac{1}{2}t^2 e^{-t}$. Si può
+verificare che $\int_0^{+\infty} \frac{1}{2}t^2 e^{-t} dt = \frac{1}{2} \cdot 2! = 1$,
+usando la funzione gamma $\Gamma(n+1) = n!$.
+</Callout>
+
+</Solution>

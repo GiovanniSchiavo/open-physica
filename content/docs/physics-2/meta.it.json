@@ -1,0 +1,16 @@
+{
+  "title": "Fisica 2",
+  "root": true,
+  "pages": [
+    "index",
+    "field-theory-review",
+    "electrostatics",
+    "electrodynamics",
+    "magnetism",
+    "magnetism-materials",
+    "induction",
+    "maxwell-equations",
+    "relativity",
+    "cheatsheet/index"
+  ]
+}

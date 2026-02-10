@@ -1,0 +1,78 @@
+---
+title: "Esercizio 1"
+description: "Studio di continuità, derivabilità e differenziabilità"
+badges:
+  - Continuità
+  - Derivabilità
+exercise:
+  difficulty: 2
+---
+
+## Testo dell'esercizio
+
+Studiare la continuità, la derivabilità e la differenziabilità della funzione
+$f : \mathbb{R}^2 \to \mathbb{R}$ definita come
+
+$$
+f(x,y) = \begin{cases}
+\dfrac{x^2 y}{x^4 + y^2} & (x,y) \neq (0,0) \\
+0 & (x,y) = (0,0)
+\end{cases}
+$$
+
+<Formulae>
+
+**Definizioni chiave:**
+
+- **Continuità**:
+  $$
+  \lim_{(x,y) \to (x_0,y_0)} f(x,y) = f(x_0,y_0)
+  $$
+- **Derivate parziali**: $\frac{\partial f}{\partial x}$,
+  $\frac{\partial f}{\partial y}$
+- **Differenziabilità**:
+  $f(x_0+h, y_0+k) - f(x_0,y_0) = \nabla f \cdot (h,k) + o(\|(h,k)\|)$
+
+</Formulae>
+
+## Soluzione [toc]
+
+<Solution>
+
+### Continuità
+
+Si dimostra facilmente che la funzione non è continua in $(0,0)$, poiché
+esistono due percorsi che portano a limiti differenti:
+
+1.  Percorso lungo l'asse $x$ (ovvero poniamo $y = 0$):
+
+    $$
+    \lim_{x \to 0} f(x,0) = \lim_{x \to 0} \frac{x^2 \cdot 0}{x^4 + 0^2} = 0
+    $$
+
+2.  Percorso lungo la curva $y = x^2$:
+
+    $$
+    \lim_{x \to 0} f(x,x^2) = \lim_{x \to 0} \frac{x^2 \cdot x^2}{x^4 + (x^2)^2} = \lim_{x \to 0} \frac{x^4}{2x^4} = \frac{1}{2}
+    $$
+
+La funzione è quindi continua in $\mathbb{R}^2 \setminus \{(0,0)\}$.
+
+### Derivabilità
+
+Andiamo a calcolare le derivate parziali in $(0,0)$:
+
+$$
+f_x^\prime(0,0) = \lim_{h \to 0} \frac{f(h,0) - f(0,0)}{h} = \lim_{h \to 0} \frac{0 - 0}{h^3} = 0\\
+f_y^\prime(0,0) = \lim_{k \to 0} \frac{f(0,k) - f(0,0)}{k} = \lim_{k \to 0} \frac{0 - 0}{k^2} = 0
+$$
+
+Le due derivate parziali esistono e sono entrambe nulle. Dunque, in $(0,0)$, la
+funzione è derivabile **nonostante non sia continua**.
+
+### Differenziabilità
+
+$f$ è derivabile in $(0,0)$, ma non continua in $(0,0)$, quindi non è
+differenziabile in $(0,0)$.
+
+</Solution>

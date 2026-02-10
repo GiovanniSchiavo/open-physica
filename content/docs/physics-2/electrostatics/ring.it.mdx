@@ -1,0 +1,73 @@
+---
+title: Anello
+description:
+  Campo e potenziale elettrostatico di un anello con carica uniforme sull'asse
+---
+
+## Anello con carica uniforme (sull'asse)
+
+Consideriamo un anello di raggio $R$ con carica totale $Q$ distribuita
+uniformemente ($\lambda = Q / 2\pi R$). Calcoliamo campo e potenziale sull'asse
+dell'anello (asse $x$), passante per il centro.
+
+### Campo Elettrico
+
+Prendiamo un elemento infinitesimo di carica $dq = \lambda dl$ sull'anello. La
+distanza di questo elemento da un punto $P$ sull'asse a distanza $x$ dal centro
+è $r = \sqrt{x^2 + R^2}$.
+
+Il campo $d\vec{E}$ generato da $dq$ ha modulo:
+
+$$
+dE = \frac{dq}{4\pi\varepsilon_0 r^2} = \frac{\lambda dl}{4\pi\varepsilon_0 (x^2 + R^2)}
+$$
+
+Per simmetria, la componente perpendicolare all'asse si annulla integrando su
+tutto l'anello. Resta solo la componente parallela all'asse $x$:
+
+$$
+dE_x = dE \cos\theta
+$$
+
+Dove $\theta$ è l'angolo tra l'asse $x$ e il vettore distanza $r$.
+$\cos\theta = \frac{x}{r} = \frac{x}{\sqrt{x^2+R^2}}$.
+
+$$
+dE_x = \frac{\lambda dl}{4\pi\varepsilon_0 (x^2 + R^2)} \frac{x}{\sqrt{x^2 + R^2}} = \frac{\lambda x dl}{4\pi\varepsilon_0 (x^2 + R^2)^{3/2}}
+$$
+
+Integrando su tutto l'anello ($\int dl = 2\pi R$):
+
+$$
+E_x = \int_{anello} dE_x = \frac{\lambda x}{4\pi\varepsilon_0 (x^2 + R^2)^{3/2}} \int dl = \frac{\lambda x (2\pi R)}{4\pi\varepsilon_0 (x^2 + R^2)^{3/2}}
+$$
+
+Usando $Q = \lambda 2\pi R$ e $\lambda$ come richiesto dalla formula:
+
+$$
+\vec{E}(x) = \frac{\lambda R x}{2\varepsilon_0(x^2+R^2)^{3/2}} \hat{u}_x
+$$
+
+(Notare:
+$Q = \lambda 2\pi R \implies \frac{Q x}{4\pi\varepsilon_0(x^2+R^2)^{3/2}}$, la
+formula richiesta usa $\lambda$).
+
+### Potenziale Elettrostatico
+
+Il potenziale è uno scalare, quindi sommiamo semplicemente i contributi $dV$. La
+distanza di ogni elemento di carica dell'anello dal punto $P$ sull'asse è
+costante e vale $\sqrt{x^2 + R^2}$.
+
+$$
+V(x) = \int \frac{dq}{4\pi\varepsilon_0 \sqrt{x^2+R^2}} = \frac{1}{4\pi\varepsilon_0 \sqrt{x^2+R^2}} \int dq
+$$
+
+$$
+V(x) = \frac{Q}{4\pi\varepsilon_0 \sqrt{x^2+R^2}}
+$$
+
+Sostituendo $Q = \lambda 2\pi R$:
+
+$$
+V(x) = \frac{\lambda 2\pi R}{4\pi\varepsilon_0 \sqrt{x^2+R^2}} = \frac{\lambda R}{2\varepsilon_0\sqrt{x^2+R^2}}
+$$
