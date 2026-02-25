@@ -1,0 +1,71 @@
+---
+title: Tabs (Schede)
+description: Contenuti organizzati in schede commutabili
+---
+
+Usa `<Tabs>` per mostrare contenuti alternativi nello stesso spazio, come
+istruzioni per diversi sistemi operativi o varianti di codice.
+
+## Esempio
+
+<Tabs items={["Risultato", "Codice"]}>
+  <Tab value="Risultato">
+    <Tabs items={["Metodo A", "Metodo B"]}>
+      <Tab value="Metodo A">Ecco come fare con il primo metodo.</Tab>
+      <Tab value="Metodo B">Questo è il secondo metodo alternativo.</Tab>
+    </Tabs>
+  </Tab>
+  <Tab value="Codice">
+    ```mdx
+    <Tabs items={["Metodo A", "Metodo B"]}>
+      <Tab value="Metodo A">Ecco come fare con il primo metodo.</Tab>
+      <Tab value="Metodo B">Questo è il secondo metodo alternativo.</Tab>
+    </Tabs>
+    ```
+  </Tab>
+</Tabs>
+
+## Regole Importanti
+
+1.  La prop `items` deve contenere un array di stringhe ESATTAMENTE uguali ai
+    valori `value` dei `<Tab>` figli.
+2.  I `<Tab>` devono essere figli diretti di `<Tabs>`.
+
+## Proprietà (Props)
+
+### `<Tabs>`
+
+<TypeTable
+  type={{
+    items: {
+      description: "Lista delle etichette delle schede",
+      type: "string[]",
+      required: true,
+    },
+    defaultValue: {
+      description: "Quale scheda aprire inizialmente",
+      type: "string",
+      default: "Primo item",
+    },
+    children: {
+      description: "Lista di componenti <Tab>",
+      type: "ReactNode",
+    },
+  }}
+/>
+
+### `<Tab>`
+
+<TypeTable
+  type={{
+    value: {
+      description: "Deve corrispondere a una stringa in items",
+      type: "string",
+      required: true,
+    },
+    children: {
+      description: "Contenuto della scheda",
+      type: "ReactNode",
+    },
+  }}
+/>

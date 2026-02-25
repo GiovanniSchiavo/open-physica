@@ -1,0 +1,139 @@
+---
+title: Git Workflow
+description: Come inviare le tue modifiche con Git e Pull Request
+---
+
+Se hai deciso di lavorare in locale (metodo completo), ecco i passaggi per
+inviare le tue modifiche al progetto ufficiale.
+
+<Callout type="tip" title="Non ami il terminale?">
+
+Se non hai familiarità con la riga di comando, ti consigliamo vivamente di usare
+strumenti grafici che semplificano questi passaggi:
+
+- **[GitHub Desktop](https://desktop.github.com/)**: L'app ufficiale
+- **VS Code Source Control**: Già integrato nel tuo editor (icona del "ramo"
+  sulla sinistra).
+
+</Callout>
+
+## 1. Fork e Clone (Una tantum)
+
+Se hai seguito la guida al [setup ambiente](./environment-setup), dovresti aver
+già fatto tutto! In sintesi, devi avere:
+
+1.  Un **Fork** del progetto sul tuo account GitHub.
+2.  Il repository **clonato** sul tuo computer.
+3.  Il remote `upstream` configurato (se non usi GitHub CLI):
+    ```bash
+    git remote add upstream https://github.com/GiovanniSchiavo/open-physica.git
+    ```
+
+## 2. Iniziare un nuovo task
+
+Prima di modificare qualsiasi cosa, assicurati di essere aggiornato e crea un
+"branch" (ramo) separato. Non lavorare mai direttamente sul branch `main`!
+
+<Tabs items={['VS Code', 'Terminale']}>
+  <Tab value="VS Code">
+    1.  Assicurati di essere sul branch `main` e premi l'icona **Synchronize** (le due frecce circolari) in basso a sinistra.
+    2.  Clicca sull'icona del ramo in basso a sinistra (o `Ctrl+Shift+P` > **Git: Create Branch**).
+    3.  Inserisci un nome descrittivo (es. `content/nuovo-argomento`) e premi Invio.
+  </Tab>
+  <Tab value="Terminale">
+    ```bash
+    # 1. Scarica gli ultimi aggiornamenti dal progetto ufficiale
+    git checkout main
+    git pull upstream main
+
+    # 2. Crea un nuovo branch con un nome descrittivo
+    # Esempio: git checkout -b add-gauss-law
+    git checkout -b content/nuovo-argomento
+    ```
+
+  </Tab>
+</Tabs>
+
+## 3. Lavorare e Committare
+
+Fai le tue modifiche ai file. Quando sei soddisfatto:
+
+Prima del commit, esegui i controlli principali del progetto:
+
+```bash
+bun run lint
+bun run types:check
+```
+
+<Tabs items={['VS Code', 'Terminale']}>
+  <Tab value="VS Code">
+    1.  Apri la scheda **Source Control** (icona del "ramo" sulla sinistra).
+    2.  Clicca sul **+** accanto ai file che vuoi aggiungere (Stage).
+    3.  Scrivi un messaggio chiaro nella casella "Message" (es. "Add Gauss Law chapter").
+    4.  Clicca su **Commit**.
+  </Tab>
+  <Tab value="Terminale">
+    ```bash
+    # 1. Aggiungi solo i file che vuoi includere nel commit
+    git add path/del-file.mdx
+    # ripeti git add per ogni file rilevante
+
+    # 2. Controlla rapidamente lo stato
+    git status --short
+
+    # 3. Salva le modifiche (Commit)
+    # Scrivi un messaggio chiaro usa l'imperativo presente (es. "Add", "Fix", "Update")
+    git commit -m "Add new chapter on Gauss Law"
+    ```
+
+  </Tab>
+</Tabs>
+
+<Callout type="tip" title="Commit Atomici">
+  Cerca di fare commit piccoli che fanno una cosa sola. È più facile trovare
+  errori!
+</Callout>
+
+## 4. Inviare e Aprire la Pull Request
+
+<Tabs items={["VS Code", "Terminale"]}>
+  <Tab value="VS Code">
+    1. Clicca su **Sync Changes** (o "Publish Branch") nel pannello Source
+    Control. 
+    2. Vai su GitHub e vedrai il banner per aprire la Pull Request. 
+    3. In alternativa, se hai le estensioni GitHub, puoi fare tutto dalla scheda
+    "GitHub" in VS Code.
+  </Tab>
+  <Tab value="Terminale">
+
+    ```bash
+    # Invia il tuo branch al TUO fork su GitHub
+    git push origin content/nuovo-argomento
+    ```
+
+  </Tab>
+</Tabs>
+
+Troverai un link nel terminale per aprire automaticamente la **Pull Request
+(PR)**. Cliccalo, oppure vai sul repository GitHub originale dove vedrai un
+banner giallo "Compare & pull request".
+
+### Checklist per una PR perfetta
+
+1.  **Titolo Chiaro**: Es. "Aggiunto esercizio sul Dipolo Elettrico" (non
+    "update file").
+2.  **Descrizione**: Spiega brevemente cosa hai fatto.
+3.  **Controlla i file**: Verifica di non aver caricato file inutili `.DS_Store`
+    o output generati automaticamente (es. `.next/`, `.source/`).
+
+## 5. Review e Merge
+
+Un amministratore controllerà la tua PR. Potrebbe chiederti delle modifiche
+("Request changes"). Se succede:
+
+1.  Modifica i file in locale.
+2.  Rifai `git add <file>` e `git commit`.
+3.  Rifai `git push`. La PR si aggiornerà automaticamente!
+
+Una volta approvata, le tue modifiche saranno unite al progetto (`Merged`) e
+diventeranno pubbliche. Complimenti! 🥳

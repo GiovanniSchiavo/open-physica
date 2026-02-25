@@ -1,0 +1,27 @@
+{
+  "name": "open-physica",
+  "image": "oven/bun:latest",
+  "features": {
+    "ghcr.io/devcontainers/features/common-utils:2": {
+      "installZsh": true,
+      "configureZshAsDefaultShell": true,
+      "installOhMyZsh": true,
+      "installOhMyZshConfig": true,
+      "upgradePackages": true
+    }
+  },
+  "forwardPorts": [3000],
+  "shutdownAction": "stopContainer",
+  "postCreateCommand": "bun install",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "bradlc.vscode-tailwindcss",
+        "unifiedjs.vscode-mdx",
+        "oven.bun-vscode"
+      ]
+    }
+  }
+}

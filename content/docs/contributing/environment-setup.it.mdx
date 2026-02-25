@@ -1,0 +1,238 @@
+---
+title: Setup Ambiente
+description: Prepara il tuo computer per contribuire a Open Physica
+---
+
+Per contribuire in modo completo, è necessario un ambiente di sviluppo locale.
+Puoi scegliere tra due approcci: il **Dev Container** (consigliato, zero
+configurazione) oppure l'**installazione manuale** sul tuo computer.
+
+## Dev Container (Raccomandato)
+
+Il Dev Container è un ambiente di sviluppo preconfigurato che gira dentro
+**Docker**. Non devi installare Bun, Git o le estensioni manualmente: tutto è
+già pronto.
+
+**Cosa ti serve:**
+
+- [Visual Studio Code](https://code.visualstudio.com/) con l'estensione
+  [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
+- **Docker Desktop** — puoi installarlo direttamente da VS Code: premi `F1` e
+  cerca **"Dev Containers: Install Docker"**.
+
+**Come usarlo:**
+
+<Steps>
+  <Step>
+    Clona il repository (o il tuo fork) e aprilo in VS Code.
+  </Step>
+  <Step>
+    VS Code rileverà il file `.devcontainer.json` e mostrerà una notifica in
+    basso a destra: clicca **"Reopen in Container"**. In alternativa, premi
+    `F1` e cerca **"Dev Containers: Reopen in Container"**.
+  </Step>
+  <Step>
+    Aspetta che il container venga costruito (solo la prima volta). VS Code si
+    riconnetterà automaticamente all'ambiente containerizzato con tutte le
+    dipendenze già installate.
+  </Step>
+  <Step>
+    Apri il terminale integrato (`Ctrl+J` o `Cmd+J`) e avvia il server
+    di sviluppo:
+
+    ```bash
+    bun dev
+    ```
+
+  </Step>
+  <Step>
+    Apri il tuo browser (preferibilmente Chrome o Firefox) e vai su `http://localhost:3000`. Il container espone automaticamente la porta.
+  </Step>
+</Steps>
+
+<Callout type="tip" title="Spegnimento automatico">
+  Il container si ferma automaticamente quando chiudi la finestra di VS Code.
+  Per riprenderlo, basta riaprire la cartella del progetto in VS Code e
+  selezionare **"Reopen in Container"**.
+</Callout>
+
+<Callout type="warn" title="Il server di sviluppo è esigente in termini di RAM">
+  Il dev server (`bun dev`) usa **Turbopack**, che è molto veloce ma può
+  consumare molta memoria — specialmente quando compila molte pagine MDX per la
+  prima volta. Se il server si blocca o restituisce un errore `500`, è un
+  comportamento normale:
+
+1.  Premi `Ctrl+C` nel terminale per fermarlo.
+2.  Riesegui `bun dev`.
+
+Se il problema persiste dopo il riavvio, cancella la cartella `.next` e riprova:
+
+```bash
+rm -rf .next && bun dev
+```
+
+Dopo la prima compilazione completa, il server diventa molto più stabile grazie
+alla cache.
+
+</Callout>
+
+In alternativa al Dev Container, puoi configurare manualmente l'ambiente di
+sviluppo sul tuo computer. Questa opzione richiede più passaggi, ma è utile se
+preferisci lavorare direttamente sul tuo sistema operativo senza
+virtualizzazione.
+
+## 1. Installare i Prerequisiti
+
+Hai bisogno di **Bun** (runtime + package manager) e **git** (per gestire le
+versioni).
+
+<Tabs items={['macOS', 'Windows', 'Linux']}>
+  <Tab value="macOS">
+    Il modo migliore per installare tutto su macOS è usare **Homebrew**.
+    Se non lo hai, installalo dal sito [brew.sh](https://brew.sh).
+
+    Apri il terminale e scrivi:
+
+    ```bash
+    # 1. Installa Bun
+    brew install oven-sh/bun/bun
+
+    # 2. Installa Git (se non presente)
+    brew install git
+
+    # 3. Verifica le installazioni
+    bun --version
+    git --version
+    ```
+
+  </Tab>
+  <Tab value="Windows">
+    Su Windows raccomandiamo di usare **Winget** (incluso in Windows 11) o scaricare gli installer.
+
+    Apri PowerShell o il Terminale di Windows:
+
+    ```powershell
+    # 1. Installa Bun
+    winget install Oven-sh.Bun
+
+    # 2. Installa Git (se non presente)
+    winget install Git.Git
+    ```
+
+    Dopo l'installazione, chiudi e riapri il terminale e verifica:
+
+    ```powershell
+    bun --version
+    git --version
+    ```
+
+  </Tab>
+  <Tab value="Linux">
+    Su Linux i comandi dipendono dalla tua distribuzione. Ecco alcuni esempi.
+
+    **Ubuntu/Debian (script ufficiale + APT):**
+    ```bash
+    # 1. Installa curl se manca
+    sudo apt update && sudo apt install -y curl git
+
+    # 2. Installa Bun
+    curl -fsSL https://bun.sh/install | bash
+
+    # 3. Ricarica la shell (oppure riapri il terminale)
+    source ~/.bashrc  # o ~/.zshrc
+
+    # 4. Verifica
+    bun --version
+    git --version
+    ```
+
+    **Arch Linux (Pacman):**
+    ```bash
+    sudo pacman -S bun git
+
+    # Verifica
+    bun --version
+    git --version
+    ```
+
+  </Tab>
+</Tabs>
+
+## 2. Editor di Codice (IDE)
+
+Per scrivere codice e MDX comodamente, hai bisogno di un buon editor.
+[Visual Studio Code](https://code.visualstudio.com/) è il più diffuso. È
+potente, gratuito e ha estensioni fantastiche.
+
+**Estensioni Raccomandate:** Quando aprirai il progetto Open Physica con VSCode,
+ti verrà suggerito di installare alcune estensioni (definite nel file
+`.vscode/extensions.json`). Accetta il suggerimento!
+
+Le più importanti sono:
+
+- **MDX**: Per evidenziare la sintassi MDX.
+- **Prettier**: Per formattare il codice automaticamente.
+- **ESLint**: Per individuare errori nel codice.
+- **Tailwind CSS**: Per l'autocompletamento delle classi CSS.
+
+## 3. Fork e Clone del Progetto
+
+Per contribuire, devi lavorare sulla **tua copia** del progetto (Fork).
+
+<Tabs items={['GitHub CLI', 'VS Code', 'Terminale']}>
+  <Tab value="GitHub CLI">
+    Il modo più veloce (fa fork e clone insieme):
+
+    ```bash
+    gh repo fork GiovanniSchiavo/open-physica --clone
+    cd open-physica
+    ```
+
+  </Tab>
+  <Tab value="VS Code">
+    1.  Vai su [GitHub](https://github.com/GiovanniSchiavo/open-physica) e clicca **Fork** (in alto a destra).
+    2.  Apri VS Code.
+    3.  Premi `F1` > **Git: Clone**.
+    4.  Seleziona **Clone from GitHub** e cerca il **TUO** fork (`TuoUtente/open-physica`).
+  </Tab>
+  <Tab value="Terminale">
+    1.  Vai su [GitHub](https://github.com/GiovanniSchiavo/open-physica) e clicca **Fork**.
+    2.  Clona il **TUO** repository:
+
+    ```bash
+    # Sostituisci TUO_USERNAME con il tuo nome utente GitHub
+    git clone https://github.com/TUO_USERNAME/open-physica.git
+    cd open-physica
+    ```
+
+  </Tab>
+</Tabs>
+
+Una volta scaricato il progetto:
+
+<Steps>
+  <Step>**Apri la cartella del progetto nel terminale**</Step>
+  <Step>**Installa le dipendenze**: `bun install{:bash}`</Step>
+  <Step>**Avvia il server di sviluppo**: `bun dev{:bash}`</Step>
+  <Step>
+    **Apri il browser**: Vai su `http://localhost:3000`. Dovresti vedere il sito
+    funzionante!
+  </Step>
+</Steps>
+
+<Callout type="tip">
+  Il server supporta il **Fast Refresh**: ogni volta che salvi un file `.mdx`,
+  il browser si aggiornerà istantaneamente senza dover ricaricare la pagina.
+</Callout>
+
+<Callout type="warn" title="Il server di sviluppo è esigente in termini di RAM">
+  Il dev server usa **Turbopack**, che può consumare molta memoria durante la
+  prima compilazione. Se il server si blocca o restituisce un errore `500`,
+  premi `Ctrl+C` e riesegui `bun dev`. Se il problema persiste, cancella la
+  cache e riprova:
+
+```bash
+rm -rf .next && bun dev
+```
+
+</Callout>

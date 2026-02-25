@@ -1,0 +1,65 @@
+---
+title: Cards
+description: Griglie di schede per navigazione
+---
+
+Il componente `<Cards>` crea una griglia di schede cliccabili (`<Card>`). È
+molto utile per creare indici visivi o collegamenti a sezioni correlate.
+
+## Esempio
+
+<Tabs items={["Risultato", "Codice"]}>
+  <Tab value="Risultato">
+    <Cards>
+      <Card title="Cinematica" href="#">
+        Studio del moto dei corpi senza considerarne le cause.
+      </Card>
+      <Card title="Dinamica" href="#">
+        Studio delle forze e delle cause del moto.
+      </Card>
+    </Cards>
+  </Tab>
+  <Tab value="Codice">
+    ```mdx
+    <Cards>
+      <Card title="Cinematica" href="#">
+        Studio del moto dei corpi senza considerarne le cause.
+      </Card>
+      <Card title="Dinamica" href="#">
+        Studio delle forze e delle cause del moto.
+      </Card>
+    </Cards>
+    ```
+  </Tab>
+</Tabs>
+
+## Proprietà (Props)
+
+### `<Card>`
+
+<TypeTable
+  type={{
+    title: {
+      description: "Il titolo della scheda",
+      type: "string",
+      required: true,
+    },
+    href: {
+      description: "Link di destinazione (interno o esterno)",
+      type: "string",
+      required: true,
+    },
+    icon: {
+      description: "Icona opzionale (es. da Lucide React)",
+      type: "ReactNode",
+    },
+    description: {
+      description: "Descrizione breve (opzionale)",
+      type: "string",
+    },
+    children: {
+      description: "Contenuto della scheda (alternativa a description)",
+      type: "ReactNode",
+    },
+  }}
+/>

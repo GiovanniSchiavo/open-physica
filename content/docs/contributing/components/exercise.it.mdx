@@ -1,0 +1,198 @@
+---
+title: Esercizi
+description: Come creare pagine di esercizi con metadati frontmatter
+---
+
+Gli esercizi in Open Physica utilizzano un sistema basato su **metadati
+frontmatter**. Ogni esercizio è una pagina separata con i propri metadati
+(difficoltà, badge, ecc.) e il componente `<Solution>` per la soluzione
+nascosta.
+
+## Struttura delle Cartelle
+
+Gli esercizi sono organizzati per categoria in cartelle dedicate:
+
+```
+content/docs/mathematical-analysis-2/exercises/
+├── two-variable-functions/
+│   ├── index.it.mdx        # Pagina indice con <ExerciseCards />
+│   ├── 1.it.mdx            # Esercizio 1
+│   ├── 2.it.mdx            # Esercizio 2
+│   └── 3.it.mdx            # Esercizio 3
+└── two-variable-limits/
+    ├── index.it.mdx
+    └── 1.it.mdx
+```
+
+## Creare un Esercizio
+
+### Frontmatter
+
+Ogni esercizio deve avere un frontmatter con i metadati:
+
+```mdx
+---
+title: "Esercizio 1"
+description: "Studio di continuità e derivabilità"
+badges:
+  - Continuità
+  - Derivabilità
+exercise:
+  difficulty: 2
+  exam: false
+---
+```
+
+### Proprietà del Frontmatter
+
+<TypeTable
+  type={{
+    title: {
+      description:
+        "Titolo dell'esercizio visualizzato nella pagina e nelle card",
+      type: "string",
+      required: true,
+    },
+    description: {
+      description: "Breve descrizione mostrata nelle card dell'elenco",
+      type: "string",
+    },
+    badges: {
+      description: "Array di etichette per categorizzare l'esercizio",
+      type: "string[]",
+    },
+    "exercise.difficulty": {
+      description:
+        "Livello di difficoltà (1-4). Il livello 4 rende le stelle rosse.",
+      type: "1 | 2 | 3 | 4",
+      required: true,
+    },
+    "exercise.exam": {
+      description: "Se true, mostra il badge 'Esame' evidenziato in rosso",
+      type: "boolean",
+      default: "false",
+    },
+  }}
+/>
+
+## Esempio Completo
+
+<Tabs items={["Risultato", "Codice"]}>
+  <Tab value="Risultato">
+    <Callout>
+      Vedi l'esempio "Esercizio 1 - Funzioni a due variabili" per una
+      dimostrazione reale.
+    </Callout>
+  </Tab>
+  <Tab value="Codice">
+    ```mdx
+    ---
+    title: "Esercizio 1"
+    description: "Studio di continuità, derivabilità e differenziabilità"
+    badges:
+      - Continuità
+      - Derivabilità
+    exercise:
+      difficulty: 2
+    ---
+
+    Studiare la continuità, la derivabilità e la differenziabilità della funzione
+    $f : \mathbb{R}^2 \to \mathbb{R}$ definita come
+
+    $$
+    f(x,y) = \begin{cases}
+    \dfrac{x^2 y}{x^4 + y^2} & (x,y) \neq (0,0) \\
+    0 & (x,y) = (0,0)
+    \end{cases}
+    $$
+
+    <Solution>
+
+    ## Continuità
+
+    Si dimostra facilmente che la funzione non è continua in $(0,0)$...
+
+    </Solution>
+    ```
+
+  </Tab>
+</Tabs>
+
+## Il Componente `<Solution>`
+
+Il componente `<Solution>` crea un accordion espandibile per nascondere la
+soluzione dell'esercizio.
+
+```mdx
+<Solution>
+
+La soluzione va qui...
+
+Puoi usare **Markdown**, formule $\LaTeX$, e qualsiasi altro componente.
+
+</Solution>
+```
+
+<TypeTable
+  type={{
+    children: {
+      description: "Il contenuto della soluzione nascosta",
+      type: "ReactNode",
+      required: true,
+    },
+  }}
+/>
+
+## Il Componente `<ExerciseCards />`
+
+Nella pagina `index.it.mdx` di ogni categoria, usa il componente
+`<ExerciseCards />` per generare automaticamente l'elenco degli esercizi:
+
+```mdx
+---
+title: Funzioni a due variabili
+---
+
+Esercizi sulle funzioni a due variabili.
+
+<ExerciseCards />
+```
+
+Questo componente:
+
+- Rileva automaticamente tutti gli esercizi nella stessa cartella
+- Mostra una card per ogni esercizio con titolo, descrizione, stelle di
+  difficoltà e badge
+- Ordina gli esercizi per numero
+
+## Il Componente `<Formulae>`
+
+Puoi aggiungere un pulsante popover con le formule utili per risolvere
+l'esercizio. Posiziona il componente all'inizio del testo dell'esercizio:
+
+```mdx
+<Formulae>
+
+$$T = 2\pi \sqrt{\frac{L}{g}}$$
+
+(Valido per piccole oscillazioni)
+
+</Formulae>
+
+Calcolare il periodo del pendolo...
+```
+
+<TypeTable
+  type={{
+    children: {
+      description: "Le formule da mostrare nel popover",
+      type: "ReactNode",
+      required: true,
+    },
+    title: {
+      description: "Titolo personalizzato per il popover",
+      type: "string",
+      default: '"Formule utili"',
+    },
+  }}
+/>

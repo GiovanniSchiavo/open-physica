@@ -1,0 +1,73 @@
+---
+title: Blocchi di Codice
+description: Evidenziazione della sintassi, titoli e righe
+---
+
+Open Physica utilizza un sistema avanzato di evidenziazione della sintassi che
+supporta titoli, evidenziazione di righe e parole.
+
+## Sintassi Base
+
+Usa tre backtick (\`\`\`) seguiti dal nome del linguaggio.
+
+````mdx
+```python
+def fibonacci(n):
+    if n <= 1:
+        return n
+    return fibonacci(n-1) + fibonacci(n-2)
+```
+````
+
+```python
+def fibonacci(n):
+    if n <= 1:
+        return n
+    return fibonacci(n-1) + fibonacci(n-2)
+```
+
+## Titolo del File
+
+Puoi aggiungere un titolo al blocco di codice usando l'attributo `title`. È
+molto utile per mostrare il nome del file.
+
+````md
+```python title="calculations/physics.py"
+import numpy as np
+
+def calculate_energy(mass, velocity):
+    return 0.5 * mass * velocity**2
+```
+````
+
+```python title="calculations/physics.py"
+import numpy as np
+
+def calculate_energy(mass, velocity):
+    return 0.5 * mass * velocity**2
+```
+
+## Evidenziazione delle Righe
+
+Puoi evidenziare righe specifiche aggiungendo `[!code highlight]` commentato a
+fine della riga.
+
+```python
+import math # Riga evidenziata [!code highlight]
+
+def area_circle(radius):
+    if radius < 0:
+        raise ValueError("Il raggio non può essere negativo")
+    return math.pi * radius**2 # Riga evidenziata [!code highlight]
+```
+
+## Codice Inline
+
+Puoi evidenziare il codice inline specificando il linguaggio con la sintassi
+`{:language}`, ad esempio
+
+```mdx
+`print("Hello World"){:python}`
+```
+
+che produce `print("Hello World"){:python}`.

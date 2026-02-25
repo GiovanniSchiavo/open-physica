@@ -1,0 +1,62 @@
+---
+title: Steps (Passaggi)
+description: Liste numerate per procedure e tutorial
+---
+
+Il componente `<Steps>` serve a creare liste di istruzioni numerate visualmente
+distinte. È perfetto per procedure, guide passo-passo o dimostrazioni.
+
+## Esempio
+
+<Tabs items={["Risultato", "Codice"]}>
+  <Tab value="Risultato">
+    <Steps>
+      <Step>
+        **Primo Passaggio** Identifica le forze che agiscono sul corpo.
+      </Step>
+      <Step>**Secondo Passaggio** Disegna il diagramma di corpo libero.</Step>
+      <Step>
+        **Terzo Passaggio** Applica la seconda legge di Newton: $\sum \vec{F} =
+        m\vec{a}$.
+      </Step>
+    </Steps>
+  </Tab>
+  <Tab value="Codice">
+    ```mdx
+    <Steps>
+      <Step>
+        **Primo Passaggio** Identifica le forze che agiscono sul corpo.
+      </Step>
+      <Step>**Secondo Passaggio** Disegna il diagramma di corpo libero.</Step>
+      <Step>
+        **Terzo Passaggio** Applica la seconda legge di Newton: $\sum \vec{F} =
+        m\vec{a}$.
+      </Step>
+    </Steps>
+    ```
+  </Tab>
+</Tabs>
+
+## Proprietà (Props)
+
+### `<Steps>`
+
+<TypeTable
+  type={{
+    children: {
+      description: "Lista di componenti <Step>",
+      type: "ReactNode",
+    },
+  }}
+/>
+
+### `<Step>`
+
+<TypeTable
+  type={{
+    children: {
+      description: "Contenuto del passaggio",
+      type: "ReactNode",
+    },
+  }}
+/>

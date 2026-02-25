@@ -1,0 +1,18 @@
+{
+  "title": "Contribuire",
+  "root": true,
+  "pages": [
+    "index",
+    "introduction",
+    "how-to-contribute",
+    "what-is-mdx",
+    "environment-setup",
+    "project-structure",
+    "writing-content",
+    "ai-prompt",
+    "adding-a-course",
+    "flashcard-guide",
+    "git-workflow",
+    "components"
+  ]
+}

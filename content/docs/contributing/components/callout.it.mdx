@@ -1,0 +1,147 @@
+---
+title: Callout
+description: Box informativi per evidenziare contenuti
+---
+
+I Callouts sono blocchi colorati utili per attirare l'attenzione del lettore su
+note, avvisi, suggerimenti o errori comuni.
+
+## Tipi Disponibili
+
+- `info` (Default, Blu): Informazioni generali.
+- `warn` (Arancione): Avvisi, eccezioni, cose a cui prestare attenzione.
+- `error` (Rosso): Errori comuni, cose da non fare.
+- `tip` (Verde/Teal): Suggerimenti, trucchi, scorciatoie.
+
+## Esempi
+
+### Info (Default)
+
+<Tabs items={["Risultato", "Codice"]}>
+  <Tab value="Risultato">
+    <Callout title="Nota Storica">
+      La costante $c$ fu misurata con precisione per la prima volta da
+      Michelson.
+    </Callout>
+  </Tab>
+  <Tab value="Codice">
+    ```mdx
+    <Callout title="Nota Storica">
+      La costante $c$ fu misurata con precisione per la prima volta da
+      Michelson.
+    </Callout>
+    ```
+  </Tab>
+</Tabs>
+
+### Warning
+
+<Tabs items={["Risultato", "Codice"]}>
+  <Tab value="Risultato">
+    <Callout type="warn" title="Approssimazione">
+      Questa formula è valida solo per angoli piccoli ($\sin \theta \approx
+      \theta$). Non usarla per grandi oscillazioni!
+    </Callout>
+  </Tab>
+  <Tab value="Codice">
+    ```mdx
+    <Callout type="warn" title="Approssimazione">
+      Questa formula è valida solo per angoli piccoli ($\sin \theta \approx
+      \theta$). Non usarla per grandi oscillazioni!
+    </Callout>
+    ```
+  </Tab>
+</Tabs>
+
+### Error
+
+<Tabs items={["Risultato", "Codice"]}>
+  <Tab value="Risultato">
+    <Callout type="error" title="Errore Comune">
+      Non confondere la massa inerziale con il peso! Il peso è una forza
+      ($P=mg$), la massa è una proprietà scalare.
+    </Callout>
+  </Tab>
+  <Tab value="Codice">
+    ```mdx
+    <Callout type="error" title="Errore Comune">
+      Non confondere la massa inerziale con il peso! Il peso è una forza
+      ($P=mg$), la massa è una proprietà scalare.
+    </Callout>
+    ```
+  </Tab>
+</Tabs>
+
+### Tip
+
+<Tabs items={["Risultato", "Codice"]}>
+  <Tab value="Risultato">
+    <Callout type="tip" title="Suggerimento">
+      Per risolvere questo integrale, prova a passare in coordinate polari.
+    </Callout>
+  </Tab>
+  <Tab value="Codice">
+    ```mdx
+    <Callout type="tip" title="Suggerimento">
+      Per risolvere questo integrale, prova a passare in coordinate polari.
+    </Callout>
+    ```
+  </Tab>
+</Tabs>
+
+### Titoli con Formule Matematiche (ExerciseTitle)
+
+Se hai bisogno di inserire formule matematiche nel titolo (es. LaTeX), usa il
+componente `CalloutTitle`.
+
+<Tabs items={["Risultato", "Codice"]}>
+  <Tab value="Risultato">
+    <Callout>
+      <CalloutTitle>Il valore di $\pi$</CalloutTitle>
+      Il valore di $\pi$ è approssimativamente 3.14159
+    </Callout>
+  </Tab>
+  <Tab value="Codice">
+    ```mdx
+    <Callout>
+      <CalloutTitle>Il valore di $\pi$</CalloutTitle>
+      Il valore di $\pi$ è approssimativamente 3.14159
+    </Callout>
+    ```
+  </Tab>
+</Tabs>
+
+## Proprietà (Props)
+
+### `<Callout>`
+
+<TypeTable
+  type={{
+    title: {
+      description:
+        "Titolo del box. Se omesso, viene mostrato solo il contenuto",
+      type: "string",
+    },
+    type: {
+      description: "Determina colore e icona del callout",
+      type: '"info" | "warn" | "error" | "tip"',
+      default: '"info"',
+    },
+    children: {
+      description: "Il contenuto (testo, formule, etc.)",
+      type: "ReactNode",
+    },
+  }}
+/>
+
+### `<CalloutTitle>`
+
+<TypeTable
+  type={{
+    children: {
+      description: "Il contenuto del titolo (supporta LaTeX)",
+      type: "ReactNode",
+      required: true,
+    },
+  }}
+/>

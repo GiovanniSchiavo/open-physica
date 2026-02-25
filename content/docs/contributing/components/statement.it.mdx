@@ -1,0 +1,154 @@
+---
+title: Statement
+description: Definizioni, Teoremi, Leggi e Assiomi
+---
+
+Utilizza il componente `<Statement>` per evidenziare definizioni formali,
+teoremi matematici, leggi fisiche o assiomi.
+
+Il colore e l'icona cambiano automaticamente in base al `type` specificato.
+
+## Tipi Disponibili
+
+I tipi sono raggruppati per "tono" semantico:
+
+- **Fondamentali (Blu)**: `definition`, `notation`
+- **Assiomatici (Viola)**: `axiom`, `postulate`
+- **Deduttivi (Verde)**: `theorem`, `lemma`, `proposition`, `corollary`
+- **Euristici / Fisici (Arancione)**: `law`, `principle`, `ansatz`, `conjecture`
+
+## Esempi
+
+<Tabs items={["Risultato", "Codice"]}>
+  <Tab value="Risultato">
+    <Statement type="law" title="Legge di Coulomb">
+      La forza elettrostatica tra due cariche puntiformi è direttamente proporzionale
+      al prodotto delle cariche e inversamente proporzionale al quadrato della
+      distanza.
+      $$
+      F = k_e \frac{|q_1 q_2|}{r^2}
+      $$
+    </Statement>
+  </Tab>
+  <Tab value="Codice">
+    ```mdx
+    <Statement type="law" title="Legge di Coulomb">
+      La forza elettrostatica tra due cariche puntiformi è direttamente proporzionale
+      al prodotto delle cariche e inversamente proporzionale al quadrato della
+      distanza.
+      $$
+      F = k_e \frac{|q_1 q_2|}{r^2}
+      $$
+    </Statement>
+    ```
+  </Tab>
+</Tabs>
+
+### Teorema Matematico
+
+<Tabs items={["Risultato", "Codice"]}>
+  <Tab value="Risultato">
+    <Statement type="theorem" title="Teorema della Divergenza">
+      Il flusso di un campo vettoriale attraverso una superficie chiusa è uguale
+      all'integrale di volume della divergenza del campo.
+    </Statement>
+  </Tab>
+  <Tab value="Codice">
+    ```mdx
+    <Statement type="theorem" title="Teorema della Divergenza">
+      Il flusso di un campo vettoriale attraverso una superficie chiusa è uguale
+      all'integrale di volume della divergenza del campo.
+    </Statement>
+    ```
+  </Tab>
+</Tabs>
+
+### Definizione
+
+<Tabs items={["Risultato", "Codice"]}>
+  <Tab value="Risultato">
+    <Statement type="definition" title="Velocità Media">
+      La velocità media è il rapporto tra lo spostamento $\Delta x$ e
+      l'intervallo di tempo $\Delta t$.
+    </Statement>
+  </Tab>
+  <Tab value="Codice">
+    ```mdx
+    <Statement type="definition" title="Velocità Media">
+      La velocità media è il rapporto tra lo spostamento $\Delta x$ e
+      l'intervallo di tempo $\Delta t$.
+    </Statement>
+    ```
+  </Tab>
+</Tabs>
+
+### Titoli con Formule Matematiche (ExerciseTitle)
+
+Se hai bisogno di inserire formule matematiche nel titolo (es. LaTeX), usa il
+componente `StatementTitle`.
+
+<Tabs items={["Risultato", "Codice"]}>
+  <Tab value="Risultato">
+    <Statement type="theorem">
+      <StatementTitle>Teorema di Gauss $\nabla \cdot E = \frac{\rho}{\epsilon_0}$</StatementTitle>
+      Il flusso del campo elettrico attraverso una superficie chiusa è
+      proporzionale alla carica totale racchiusa al suo interno.
+    </Statement>
+  </Tab>
+  <Tab value="Codice">
+    ```mdx
+    <Statement type="theorem">
+      <StatementTitle>Teorema di Gauss $\nabla \cdot E = \frac{\rho}{\epsilon_0}$</StatementTitle>
+      Il flusso del campo elettrico attraverso una superficie chiusa è
+      proporzionale alla carica totale racchiusa al suo interno.
+    </Statement>
+    ```
+  </Tab>
+</Tabs>
+
+## Proprietà (Props)
+
+### `<Statement>`
+
+<TypeTable
+  type={{
+    type: {
+      description:
+        "Il tipo di statement (es. definition, theorem). Vedi elenco sotto.",
+      type: "string",
+      required: true,
+    },
+    title: {
+      description: "Titolo visualizzato",
+      type: "string",
+    },
+    label: {
+      description: 'Sovrascrive etichetta del tipo (es. "Mio Teorema")',
+      type: "string",
+      default: "(Automatico)",
+    },
+    children: {
+      description: "Contenuto del blocco",
+      type: "ReactNode",
+    },
+  }}
+/>
+
+**Valori validi per `type`:**
+
+- **Fondamentali**: `definition`, `notation`
+- **Assiomatici**: `axiom`, `postulate`
+- **Deduttivi**: `theorem`, `lemma`, `proposition`, `corollary`
+- **Euristici**: `law`, `principle`, `ansatz`, `conjecture`
+
+### `<StatementTitle>`
+
+<TypeTable
+  type={{
+    children: {
+      description: "Il contenuto del titolo (supporta LaTeX)",
+      type: "ReactNode",
+      required: true,
+    },
+  }}
+/>

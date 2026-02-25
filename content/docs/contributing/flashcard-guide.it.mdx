@@ -1,0 +1,144 @@
+---
+title: Aggiungere flashcards
+description: Come creare e organizzare le flashcards di ripasso per un topic
+---
+
+Questa guida spiega come aggiungere flashcards di ripasso ai contenuti del
+corso. Le flashcard permettono agli studenti di ripassare le definizioni, le
+leggi e i concetti chiave in modo interattivo.
+
+## Come Funzionano
+
+Le flashcard non sono pagine della documentazione: sono **file di dati MDX** che
+il sito raccoglie automaticamente e rende disponibili nell'explorer delle
+flashcard. Ogni file contiene una lista di carte, ciascuna con una domanda e una
+risposta.
+
+## 1. Creare il File
+
+Crea un file `flashcards.it.mdx` (o `flashcards.en.mdx` per la versione inglese)
+nella cartella del topic a cui appartengono le carte:
+
+```
+content/docs/<corso>/<topic>/flashcards.it.mdx
+```
+
+Ad esempio, per il topic `gauss-law` del corso `electrostatics`:
+
+```
+content/docs/electrostatics/gauss-law/flashcards.it.mdx
+```
+
+<Callout type="warn" title="Nome file riservato">
+  Il file deve chiamarsi esattamente `flashcards.it.mdx` (o `.en.mdx`). Non
+  appare come pagina nella sidebar, ma viene raccolto automaticamente dal
+  sistema.
+</Callout>
+
+## 2. Frontmatter
+
+Il file deve iniziare con il frontmatter con la proprietà `flashcards: true`.
+Questa proprietà segnala al sito che il file è una raccolta di flashcards e non
+una pagina normale:
+
+```yaml
+---
+flashcards: true
+---
+```
+
+## 3. Scrivere le Flashcard
+
+Usa i componenti `<Flashcard>`, `<FlashcardQuestion>` e `<FlashcardAnswer>` per
+definire ogni carta. Puoi inserire quante carte vuoi nello stesso file.
+
+```mdx
+---
+flashcards: true
+---
+
+<Flashcard>
+  <FlashcardQuestion>
+    Cosa afferma la legge di Gauss?
+  </FlashcardQuestion>
+  <FlashcardAnswer>
+    Il flusso del campo elettrico attraverso una superficie chiusa è
+    proporzionale alla carica totale racchiusa al suo interno:
+
+    $$
+    \oint_{\partial V} \mathbf{E} \cdot d\mathbf{A} = \frac{Q_{int}}{\varepsilon_0}
+    $$
+
+  </FlashcardAnswer>
+</Flashcard>
+
+<Flashcard>
+  <FlashcardQuestion>
+    Cosa si intende per superficie gaussiana?
+  </FlashcardQuestion>
+  <FlashcardAnswer>
+    Una superficie chiusa immaginaria scelta per applicare la legge di Gauss.
+    Non deve essere una superficie fisica: la si sceglie in modo che il calcolo
+    del flusso sia il più semplice possibile.
+  </FlashcardAnswer>
+</Flashcard>
+```
+
+## 4. Formule Matematiche
+
+Domande e risposte supportano la sintassi **KaTeX**, proprio come le pagine
+normali. Usa `$...$` per le formule inline e `$$...$$` per i blocchi centrati.
+
+```mdx
+<Flashcard>
+  <FlashcardQuestion>
+    Qual è l'espressione del campo elettrico $\mathbf{E}$ di una carica
+    puntiforme $q$?
+  </FlashcardQuestion>
+  <FlashcardAnswer>
+    $$
+    \mathbf{E} = \frac{q}{4\pi\varepsilon_0} \frac{\hat{r}}{r^2}
+    $$
+  </FlashcardAnswer>
+</Flashcard>
+```
+
+## 5. Scope dei Mazzi
+
+L'explorer delle flashcards permette di studiare le carte per **topic** o per
+**corso**:
+
+- **Scope `topic`** — mostra solo le carte del topic selezionato e di tutti i
+  suoi sotto-topic.
+- **Scope `corso`** — raccoglie tutte le carte di ogni topic del corso attivo.
+
+Non devi configurare nulla: lo scope viene gestito automaticamente in base alla
+posizione del file nella struttura delle cartelle.
+
+## Riepilogo
+
+<Steps>
+  <Step>
+    Crea `content/docs/<corso>/<topic>/flashcards.it.mdx`
+  </Step>
+  <Step>
+    Aggiungi `flashcards: true` nel frontmatter
+  </Step>
+  <Step>
+    Scrivi le carte usando `<Flashcard>`, `<FlashcardQuestion>` e
+    `<FlashcardAnswer>`
+  </Step>
+  <Step>
+    Verifica che le carte appaiano nell'explorer delle flashcard avviando il
+    sito in locale
+  </Step>
+</Steps>
+
+<Callout type="tip" title="Consigli per domande efficaci">
+
+- Preferisci domande brevi e precise: una sola idea per carta.
+- Nelle risposte puoi usare formule, elenchi puntati e testo formattato.
+- Evita domande con risposta "sì/no": punta a far richiamare un concetto dalla
+  memoria.
+
+</Callout>

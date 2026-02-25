@@ -1,0 +1,63 @@
+---
+title: Video
+description: Componente per incorporare video da YouTube
+---
+
+Il componente `<Video>` permette di incorporare facilmente video da YouTube
+nelle pagine di documentazione. Utilizza automaticamente il dominio
+`youtube-nocookie.com` per una maggiore privacy.
+
+## Esempio
+
+<Tabs items={["Risultato", "Codice"]}>
+  <Tab value="Risultato">
+    <Video id="dQw4w9WgXcQ" title="Rick Astley - Never Gonna Give You Up" />
+  </Tab>
+  <Tab value="Codice">
+    ```mdx
+    <Video id="dQw4w9WgXcQ" title="Rick Astley - Never Gonna Give You Up" />
+    ```
+  </Tab>
+</Tabs>
+
+### Con minutaggio iniziale
+
+È possibile specificare un tempo di inizio (in secondi) usando la prop
+`startTime`.
+
+<Tabs items={["Risultato", "Codice"]}>
+  <Tab value="Risultato">
+    <Video id="dQw4w9WgXcQ" startTime={43} title="Rick Astley - Start at 43s" />
+  </Tab>
+  <Tab value="Codice">
+    ```mdx
+    <Video id="dQw4w9WgXcQ" startTime={43} title="Rick Astley - Start at 43s" />
+    ```
+  </Tab>
+</Tabs>
+
+## Proprietà (Props)
+
+<TypeTable
+  type={{
+    id: {
+      description: "L'ID del video di YouTube (es. 'dQw4w9WgXcQ')",
+      type: "string",
+      required: true,
+    },
+    title: {
+      description:
+        "Titolo del video per l'accessibilità (attributo title dell'iframe)",
+      type: "string",
+      default: "'YouTube video player'",
+    },
+    startTime: {
+      description: "Tempo di inizio in secondi",
+      type: "number",
+    },
+    className: {
+      description: "Classi CSS aggiuntive",
+      type: "string",
+    },
+  }}
+/>

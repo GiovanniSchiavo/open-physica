@@ -1,0 +1,13 @@
+{
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "always"
+  },
+  "tailwindCSS.experimental.configFile": "src/app/global.css",
+  "tailwindCSS.classFunctions": ["tw", "clsx", "tw\\.[a-z-]+", "cn", "cva"],
+  "files.associations": {
+    "*.css": "tailwindcss",
+    "*.mdx": "mdx"
+  }
+}

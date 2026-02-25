@@ -1,0 +1,130 @@
+---
+title: Aggiungere un Nuovo Corso
+description:
+  Come creare la struttura di un nuovo corso e collegarlo alla navigazione
+---
+
+Questa guida ti accompagna passo dopo passo nell'aggiunta di un nuovo corso al
+sito — dalla cartella dei contenuti fino al link nell'header.
+
+## 1. Creare la Cartella del Corso
+
+Crea una nuova cartella dentro `content/docs/` usando un nome in inglese,
+kebab-case:
+
+```
+content/docs/
+└── electrodynamics/      ← nome in inglese, kebab-case
+```
+
+## 2. Creare la Pagina Indice
+
+Ogni corso deve avere una pagina `index.it.mdx` (e opzionalmente `index.en.mdx`
+per la versione inglese). Questa è la pagina di atterraggio del corso.
+
+```yaml title="content/docs/electrodynamics/index.it.mdx"
+---
+title: Elettrodinamica
+description: Appunti del corso di Elettrodinamica
+icon: Zap
+---
+Benvenuto negli appunti di Elettrodinamica.
+```
+
+## 3. Creare il File Meta del Corso
+
+Crea un file `meta.it.json` nella cartella del corso per definire il titolo
+nella sidebar, l'icona e l'ordine delle pagine:
+
+```json title="content/docs/electrodynamics/meta.it.json"
+{
+  "title": "Elettrodinamica",
+  "icon": "Zap",
+  "root": true,
+  "defaultOpen": true,
+  "pages": ["index", "---Argomenti---", "..."]
+}
+```
+
+<Callout type="tip" title="Icone">
+  I nomi delle icone vengono risolti dalla libreria
+  [Lucide](https://lucide.dev/icons/). Scegli un'icona pertinente e usa il suo
+  nome esatto in PascalCase (es. `Atom`, `BookOpen`, `FlaskConical`).
+</Callout>
+
+Per la lingua inglese, crea un file `meta.en.json` analogo nella stessa
+cartella.
+
+## 4. Registrare il Corso in `meta.json`
+
+Apri `content/docs/meta.json` e aggiungi la nuova cartella all'array `pages`:
+
+```json title="content/docs/meta.json"
+{
+  "pages": ["contributing", "electrodynamics"]
+}
+```
+
+<Callout type="warn" title="Importante">
+  Questo file controlla l'ordine delle sezioni principali nella sidebar.
+  Aggiungere la cartella qui è **obbligatorio**: il sito genera automaticamente
+  i tag di ricerca per sezione leggendo questo file.
+</Callout>
+
+## 5. Aggiungere il Link nell'Header
+
+Per rendere il corso raggiungibile dall'header di navigazione, modifica
+`src/lib/open-physica.config.ts`.
+
+Aggiungi un elemento all'array `links`. Puoi usare un link diretto o un menu a
+tendina se il corso ha più sotto-sezioni rilevanti:
+
+### Link semplice
+
+```ts title="src/lib/open-physica.config.ts"
+links: [
+  // ... link esistenti
+  {
+    text: {
+      en: "Electrodynamics",
+      it: "Elettrodinamica",
+    },
+    url: "/docs/electrodynamics",
+    active: "nested-url",
+  },
+],
+```
+
+### Menu a tendina (più corsi sotto un'unica voce)
+
+```ts title="src/lib/open-physica.config.ts"
+links: [
+  // ... link esistenti
+  {
+    type: "menu",
+    text: {
+      en: "Courses",
+      it: "Corsi",
+    },
+    items: [
+      {
+        text: { en: "Electrodynamics", it: "Elettrodinamica" },
+        url: "/docs/electrodynamics",
+        active: "nested-url",
+      },
+    ],
+  },
+],
+```
+
+## Riepilogo
+
+Ecco la checklist completa per aggiungere un nuovo corso:
+
+<Steps>
+  <Step>Creare `content/docs/<nome-corso>/`</Step>
+  <Step>Creare `content/docs/<nome-corso>/index.it.mdx` (e `.en.mdx` se bilingue)</Step>
+  <Step>Creare `content/docs/<nome-corso>/meta.it.json` (e `meta.en.json`)</Step>
+  <Step>Aggiungere `"<nome-corso>"` a `content/docs/meta.json`</Step>
+  <Step>Aggiungere un link in `src/lib/open-physica.config.ts`</Step>
+</Steps>

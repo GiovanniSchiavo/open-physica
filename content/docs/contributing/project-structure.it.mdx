@@ -1,0 +1,143 @@
+---
+title: Struttura Progetto
+description: Capire l'organizzazione dei file e l'internazionalizzazione
+---
+
+Capire come sono organizzati i file ti aiuterà a non perderti. La struttura è
+pensata per separare chiaramente i contenuti (`content/`) dal codice (`src/`).
+
+## Cartelle Principali
+
+```
+open-physica/
+├── content/
+│   └── docs/
+│       ├── meta.json           # Ordine delle sezioni docs
+│       └── contributing/       # Guida contributori (stato attuale)
+├── src/
+│   ├── app/                    # Next.js App Router (pagine e API)
+│   │   ├── [lang]/(home)/
+│   │   ├── [lang]/(docs)/
+│   │   ├── [lang]/flashcards/
+│   │   └── api/
+│   ├── components/             # Componenti UI/MDX riutilizzabili
+│   └── lib/                    # i18n, source loader, utility condivise
+├── public/                     # Asset statici
+├── source.config.ts            # Configurazione Fumadocs/MDX
+├── next.config.ts              # Configurazione Next.js
+└── package.json                # Script e dipendenze
+```
+
+## Dove aggiungere i contenuti?
+
+Lavorerai quasi esclusivamente dentro `content/docs/`.
+
+Nello stato attuale del repository, la sezione pubblicata è:
+
+- `content/docs/contributing/`
+
+Se vuoi aggiungere una nuova macro-sezione (es. un corso), crea una nuova
+cartella in `content/docs/` e poi aggiornala in `content/docs/meta.json`.
+
+### Convenzioni sui Nomi dei File
+
+Segui queste regole ferree per mantenere il progetto ordinato:
+
+1.  **Inglese nei nomi dei file**: Usa sempre l'inglese per i nomi dei file e
+    delle cartelle.
+    - ✅ `electrostatics.it.mdx`
+    - ❌ `elettrostatica.it.mdx`
+2.  **Kebab-case**: Usa trattini per separare le parole, tutto minuscolo.
+    - ✅ `magnetic-field.it.mdx`
+    - ❌ `magneticField.it.mdx`
+3.  **Suffisso lingua**: Ogni file di contenuto DEVE avere il suffisso della
+    lingua.
+    - `.it.mdx` per i contenuti in italiano
+    - `.en.mdx` per i contenuti in inglese
+
+## Internazionalizzazione (i18n)
+
+Le lingue attive nel codice sono `it` (default) e `en` (vedi `src/lib/i18n.ts`).
+
+Se crei un file `page.it.mdx`, questo sarà visibile all'indirizzo
+`/it/docs/page`.
+
+Per la versione inglese della stessa pagina, crea `page.en.mdx` nella stessa
+cartella: sarà disponibile su `/en/docs/page`.
+
+## File Meta (`meta.json` e `meta.<lang>.json`)
+
+- `content/docs/meta.json` definisce l'ordine delle sezioni principali.
+- In ogni sottocartella puoi usare `meta.it.json` e/o `meta.en.json` per
+  personalizzare titolo e ordine nella sidebar per lingua.
+
+### Opzioni Disponibili
+
+Puoi usare queste proprietà nel file JSON:
+
+<TypeTable
+  type={{
+    title: {
+      description: "Il nome visualizzato della cartella nella sidebar.",
+      type: "string",
+    },
+    description: {
+      description: "Descrizione della cartella (utile per le root folder).",
+      type: "string",
+    },
+    icon: {
+      description: "Nome dell'icona da mostrare (es. Book, Atom).",
+      type: "string",
+    },
+    defaultOpen: {
+      description: "Se true, la cartella sarà aperta di default nella sidebar.",
+      type: "boolean",
+    },
+    collapsible: {
+      description:
+        "Se false, la cartella non potrà essere chiusa (default: true).",
+      type: "boolean",
+    },
+    root: {
+      description:
+        "Se true, segna la cartella come radice. Solo gli elementi nella root aperta saranno visibili.",
+      type: "boolean",
+    },
+    pages: {
+      description: "Una lista per definire l'ordine degli elementi.",
+      type: "string[]",
+    },
+  }}
+/>
+
+### Configurare `pages`
+
+L'array `pages` è lo strumento principale per ordinare i file. Se non presente,
+i file sono ordinati alfabeticamente.
+
+Sintassi supportate:
+
+- **Nome file**: `"index"`, `"getting-started"` (senza estensione).
+- **Separatori**: `"---Titolo---"` crea un divisore.
+- **Link**: `"[Testo](url)"` o `"[Icona][Testo](url)"`.
+- **Resto**: `...` inserisce tutti i file non elencati (ordine alfabetico).
+- **Resto Inverso**: `"z...a"` inserisce il resto in ordine inverso.
+- **Estrazione**: `"...cartella"` estrae gli elementi di una sottocartella.
+- **Esclusione**: `"!file"` nasconde un elemento.
+
+### Esempio Completo
+
+```json title="meta.it.json"
+{
+  "title": "Contribuire",
+  "root": true,
+  "pages": [
+    "index",
+    "introduction",
+    "how-to-contribute",
+    "writing-content",
+    "...",
+    "!bozza-privata"
+  ]
+}
+```

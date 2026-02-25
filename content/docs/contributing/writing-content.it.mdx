@@ -1,0 +1,180 @@
+---
+title: Scrivere Contenuti
+description: Guida alla sintassi Markdown, Frontmatter e Formule
+---
+
+Questa guida rapida ti insegnerà le basi per scrivere appunti belli e
+funzionali.
+
+## Frontmatter
+
+Ogni file `.mdx` deve iniziare con il "frontmatter", un blocco delimitato da
+`---` che contiene i metadati della pagina.
+
+```yaml
+---
+title: Legge di Gauss
+description:
+  Spiegazione del flusso del campo elettrico e prima equazione di Maxwell
+---
+```
+
+- **title**: Il titolo principale della pagina.
+- **description**: Una breve descrizione per la SEO e le anteprime.
+- **icon**: L'icona da usare per la pagina nella sidebar (opzionale).
+
+## Markdown Cheatsheet
+
+Ecco la sintassi base che userai il 90% delle volte:
+
+| Elemento       | Sintassi                  | Risultato                    |
+| :------------- | :------------------------ | :--------------------------- |
+| **Grassetto**  | `**testo**`               | **testo**                    |
+| _Corsivo_      | `*testo*` o `_testo_`     | _testo_                      |
+| Titoli         | `# H1`, `## H2`, `### H3` | Titoli                       |
+| Liste          | `- item` o `1. item`      | Liste puntate/numerate       |
+| Link           | `[Testo](URL)`            | [Testo](https://example.com) |
+| Codice         | `` `code` ``              | `code`                       |
+| Blocchi Codice | ` ```python `             | (Vedi sotto)                 |
+
+Per una guida completa, consulta la
+[GitHub Flavored Markdown Spec](https://github.github.com/gfm/).
+
+Un cheat sheet è disponibile qui:
+[Markdown Cheat Sheet](https://www.markdownguide.org/cheat-sheet/).
+
+## Indice dei Contenuti (TOC)
+
+Il sito genera automaticamente una "Table of Contents" (TOC) sulla destra della
+pagina basandosi sulle intestazioni (`##`, `###`, ...).
+
+Se vuoi inserire un titolo ma **non** vuoi che appaia nell'indice a destra,
+aggiungi `[!toc]` alla fine dell'heading:
+
+```mdx
+## Titolo [!toc]
+```
+
+## Formule Matematiche (KaTeX)
+
+La fisica senza formule non esiste! Usiamo **KaTeX** per renderizzare la
+matematica. La sintassi è praticamente identica a LaTeX.
+
+### Inline (nel testo)
+
+Usa il simbolo del dollaro singolo `$`.
+
+```latex
+La forza è data da $F = ma$.
+
+```
+
+Resa: La forza è data da $F = ma$.
+
+### Block (centrato)
+
+Usa il doppio dollaro `$$`.
+
+```latex
+$$
+\oint_{\partial V} \mathbf{E} \cdot d\mathbf{A} = \frac{Q_{int}}{\varepsilon_0}
+$$
+```
+
+$$
+\oint_{\partial V} \mathbf{E} \cdot d\mathbf{A} = \frac{Q_{int}}{\varepsilon_0}
+$$
+
+### Consigli per LaTeX
+
+- Usa `\mathbf{E}` o `\vec{E}` per i vettori.
+- Usa `\text{...}` per inserire testo normale nelle formule (es.
+  `v_{\text{finale}}`).
+
+## Callouts e Componenti
+
+Non limitarti al testo piatto! Usa i componenti per evidenziare concetti.
+
+```mdx
+<Callout type="warn" title="Attenzione">
+  Il potenziale elettrico è definito a meno di una costante arbitraria!
+</Callout>
+```
+
+<Callout type="warn" title="Attenzione">
+  Il potenziale elettrico è definito a meno di una costante arbitraria!
+</Callout>
+
+Vai alla sezione **[Componenti MDX](./components)** per vedere tutti gli
+strumenti a tua disposizione.
+
+## Riutilizzo Contenuti con `<include>`
+
+Per evitare duplicazioni, puoi riutilizzare contenuti da altri file Markdown/MDX
+usando il tag `<include>`.
+
+### Includere un intero file
+
+Specifica il percorso relativo del file da includere:
+
+```mdx
+<include>./snippets/spiegazione-comune.mdx</include>
+```
+
+<Callout type="tip" title="Consiglio">
+  Crea una cartella dedicata ai frammenti riutilizzabili (es. `snippets/`) e usa
+  naming chiaro per i file da includere in più pagine.
+</Callout>
+
+### Includere una sezione specifica
+
+Puoi includere solo una parte di un file facendo riferimento a un ID di sezione
+o di titolo.
+
+**Metodo 1: Intestazione** Se vuoi includere contenuto sotto un titolo
+specifico:
+
+```mdx
+<include>./pagina.mdx#titolo-sezione</include>
+```
+
+**Metodo 2: Tag Section** Puoi avvolgere il contenuto che vuoi rendere
+includibile in un tag `<section>`:
+
+```mdx
+{/* In resource.mdx */}
+
+<section id="mio-snippet">Questo contenuto sarà incluso altrove.</section>
+
+{/* In page.mdx */}
+
+<include>./resource.mdx#mio-snippet</include>
+```
+
+### Importazione di Codice e Metadati
+
+Quando includi file di codice, puoi usare l'attributo `meta` per passare
+proprietà al blocco di codice generato (come il titolo).
+
+```mdx
+<include lang="ts" meta='title="esempio.ts"'>
+  ./esempio.ts
+</include>
+```
+
+Puoi anche usare l'attributo `cwd` per risolvere i percorsi relativi alla
+"Current Working Directory" invece che al file corrente, utile se hai snippet
+condivisi.
+
+```mdx
+<include cwd>./content/snippets/code.ts</include>
+```
+
+---
+
+<Callout title="Documentazione Fumadocs">
+  Questo sito utilizza **Fumadocs**. Puoi trovare ulteriori informazioni e
+  scoprire nel dettaglio le funzionalità e l'architettura del framework nella
+  [Documentazione](https://www.fumadocs.dev/docs) e su
+  [GitHub](https://github.com/fuma-nama/fumadocs).
+</Callout>
