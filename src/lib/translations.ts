@@ -76,6 +76,7 @@ const translations = {
     flashcardsRetakeAll: "Retake all cards",
     flashcardsRetakePassedOnly: "Retake discarded cards",
     // Write
+    writeNavLink: "Write a new page",
     writePagesTitle: "Pages in Progress",
     writeAddPage: "Add page",
     writeNoPages: "No pages found",
@@ -154,6 +155,7 @@ const translations = {
     flashcardsRetakeAll: "Riprova tutte le card",
     flashcardsRetakePassedOnly: "Riprova solo le card scartate",
     // Write
+    writeNavLink: "Scrivi una nuova pagina",
     writePagesTitle: "Pagine in Lavorazione",
     writeAddPage: "Aggiungi pagina",
     writeNoPages: "Nessuna pagina trovata",
