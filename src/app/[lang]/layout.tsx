@@ -1,6 +1,8 @@
 import { Provider } from "@/components/provider";
 import { i18n } from "@/lib/i18n";
 import { isSupportedLocale } from "@/lib/locale";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import "../global.css";
@@ -32,6 +34,8 @@ export default async function LangLayout({
     <html lang={lang} suppressHydrationWarning>
       <body>
         <Provider lang={lang}>{children}</Provider>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
