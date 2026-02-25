@@ -10,6 +10,9 @@
       "upgradePackages": true
     }
   },
+  "hostRequirements": {
+    "memory": "8gb"
+  },
   "forwardPorts": [3000],
   "shutdownAction": "stopContainer",
   "postCreateCommand": "bun install",
