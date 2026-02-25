@@ -128,3 +128,24 @@ export const source = loader({
     }),
   ],
 });
+
+import { sectionTagValues, toDisplayName } from "@/lib/search-tags";
+import type { TagItem } from "fumadocs-ui/contexts/search";
+
+export function getLocalizedSectionTags(lang: string): TagItem[] {
+  const tree = source.pageTree[lang];
+  if (!tree) {
+    return sectionTagValues.map((value) => ({
+      value,
+      name: toDisplayName(value),
+    }));
+  }
+
+  return sectionTagValues.map((value, idx) => {
+    const node = tree.children[idx];
+    return {
+      value,
+      name: node?.name ?? toDisplayName(value),
+    };
+  });
+}

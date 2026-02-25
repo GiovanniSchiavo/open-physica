@@ -8,6 +8,7 @@ import { useMemo } from "react";
 import type { ReactNode } from "react";
 import { i18n } from "@/lib/i18n";
 import { resolveSectionTagFromPath, sectionTags } from "@/lib/search-tags";
+import type { TagItem } from "fumadocs-ui/contexts/search";
 
 const { provider } = defineI18nUI(i18n, {
   translations: {
@@ -28,9 +29,11 @@ const { provider } = defineI18nUI(i18n, {
 
 export function Provider({
   lang,
+  tags,
   children,
 }: {
   lang: string;
+  tags?: TagItem[];
   children: ReactNode;
 }) {
   const pathname = usePathname();
@@ -46,7 +49,7 @@ export function Provider({
         SearchDialog: DocsSearchDialog,
         options: {
           defaultTag,
-          tags: sectionTags,
+          tags: tags ?? sectionTags,
           allowClear: true,
         },
       }}

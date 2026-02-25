@@ -5,7 +5,7 @@ const allSectionTags = (docsMeta.pages ?? []).filter(
   (page): page is string => typeof page === "string" && page.length > 0,
 );
 
-function toDisplayName(value: string) {
+export function toDisplayName(value: string) {
   return value
     .split("-")
     .map((part) => {
