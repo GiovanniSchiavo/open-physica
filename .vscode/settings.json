@@ -9,5 +9,6 @@
   "files.associations": {
     "*.css": "tailwindcss",
     "*.mdx": "mdx"
-  }
+  },
+  "terminal.integrated.defaultProfile.linux": "zsh"
 }
