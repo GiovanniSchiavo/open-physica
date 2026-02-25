@@ -51,9 +51,5 @@ const server = createFromSource(source, {
 });
 
 export async function GET(request: Request) {
-  if (process.env.NODE_ENV === "production") {
-    return server.staticGET();
-  }
-
   return server.GET(request);
 }
