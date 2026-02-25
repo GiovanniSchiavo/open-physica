@@ -1,0 +1,69 @@
+---
+title: Reti elettriche e leggi di Kirchhoff
+description:
+  "Metodo sistematico per nodi e maglie: prima e seconda legge di Kirchhoff,
+  riduzioni serie/parallelo, ponte di Wheatstone e resistenza interna"
+---
+
+## Prima legge di Kirchhoff (KCL)
+
+In ogni nodo:
+
+$$
+\sum_k i_k=0
+$$
+
+espressione diretta della conservazione della carica.
+
+## Seconda legge di Kirchhoff (KVL)
+
+Su una maglia chiusa:
+
+$$
+\sum_h \mathcal{E}_h-\sum_j R_j i_j=0
+$$
+
+dove $\mathcal{E}_h$ sono le fem dei generatori.
+
+## Procedura generale di risoluzione
+
+1. assegna versi arbitrari a correnti di ramo;
+2. scrivi KCL su nodi indipendenti;
+3. scrivi KVL su maglie indipendenti;
+4. risolvi il sistema lineare;
+5. interpreta segni fisici delle correnti.
+
+## Riduzioni equivalenti utili
+
+- serie: $R_{eq}=\sum_i R_i$
+- parallelo: $1/R_{eq}=\sum_i 1/R_i$
+
+Queste riduzioni riducono il numero di equazioni prima di applicare il metodo
+completo.
+
+## Ponte di Wheatstone
+
+Condizione di equilibrio (corrente nulla nel ramo centrale):
+
+$$
+\frac{R_1}{R_2}=\frac{R_3}{R_4}
+$$
+
+Applicazione tipica: misura di resistenze incognite ad alta precisione.
+
+## Generatore reale e resistenza interna
+
+Un generatore reale è modellato con fem $\mathcal{E}$ in serie a resistenza
+interna $r$:
+
+$$
+V_{morsetti}=\mathcal{E}-ri
+$$
+
+- a vuoto: $V\approx\mathcal{E}$;
+- sotto carico: tensione ridotta dalle cadute interne.
+
+<Callout type="warn" title="Errore frequente">
+  Cambiare i versi delle correnti durante i passaggi porta a sistemi incoerenti.
+  Mantieni i versi iniziali fino al termine e interpreta i segni solo alla fine.
+</Callout>

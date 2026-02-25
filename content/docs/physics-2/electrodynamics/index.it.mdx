@@ -1,0 +1,268 @@
+---
+title: Elettrodinamica
+description:
+  Corrente elettrica, equazione di continuità, leggi di Kirchhoff, leggi di Ohm,
+  effetto Joule, conduzione nei materiali
+---
+
+È giunto il momento di abbandonare l'ipotesi di staticità delle cariche e
+studiare l'**elettrodinamica**, ossia i fenomeni legati allo spostamento delle
+cariche elettriche.
+
+Per mettere in moto una carica basta sottoporla ad un campo elettrico. I
+materiali più adatti sono i **conduttori**, dove gli elettroni liberi delle
+orbite atomiche più esterne si muovono come in un gas quantistico.
+
+## Velocità degli elettroni
+
+Da un modello classico (gas ideale):
+$v = \sqrt{\frac{kT}{m}} \approx 10^5 \, \text{m/s}$
+
+In realtà gli elettroni seguono la meccanica quantistica e la distribuzione di
+**Fermi-Dirac**. L'energia rilevante è l'**energia di Fermi** $$E_f$$ (ordine
+dell'eV), da cui: $$v \approx 10^6 \, \text{m/s}$$
+
+<Statement type="definition" title="Elettronvolt">
+
+L'**elettronvolt** è l'energia di un elettrone sottoposto a $$1 \, V$$:
+
+$$
+E = 1 \, eV = 1.6 \cdot 10^{-19} \, J
+$$
+
+</Statement>
+
+Questa velocità è diretta in tutte le direzioni, quindi la velocità media è
+nulla. Con un campo elettrico, si sovrappone un moto ordinato con **velocità di
+drift** $$v_d$$ (diversi ordini di grandezza inferiore).
+
+<Statement type="definition" title="Corrente elettrica">
+
+La **corrente elettrica** $$i$$ è la carica che attraversa una sezione per unità
+di tempo:
+
+$$
+i = \frac{dQ}{dt}
+$$
+
+Si misura in **Ampere** $$[A]$$, da cui: $$[C] = [A \cdot s]$$
+
+</Statement>
+
+<Statement type="definition" title="Intensità di corrente">
+
+L'**intensità di corrente** $$\vec{J}$$ è un campo vettoriale che dà localmente
+modulo, direzione e verso del moto delle cariche:
+
+$$
+i = \int_S \vec{J} \cdot \hat{n} \, dS
+$$
+
+$$
+\vec{J} = nq\vec{v}_d
+$$
+
+</Statement>
+
+<Callout type="info">
+  Nei metalli, dove sono gli elettroni a muoversi, $$\vec{J}$$ è antiparallela a
+  $$\vec{v}_d$$ (carica negativa) e parallela al campo elettrico.
+</Callout>
+
+## Equazione di continuità delle cariche elettriche
+
+<Statement type="law" title="Equazione di continuità">
+
+$$
+\nabla \cdot \vec{J} = -\frac{\partial \rho}{\partial t}
+$$
+
+</Statement>
+
+Questa equazione esprime la **conservazione della carica** ed è sempre valida.
+
+Se il campo elettrico non varia nel tempo ($$\rho$$ costante):
+
+$$
+\nabla \cdot \vec{J} = 0 \qquad \text{(condizioni di corrente stazionaria)}
+$$
+
+## Fisica delle correnti continue
+
+### Prima legge di Kirchhoff
+
+In un nodo a cui convergono $$n$$ cavi elettrici:
+
+<Statement type="law" title="Prima legge di Kirchhoff">
+
+La somma algebrica delle correnti in un nodo è nulla:
+
+$$
+\sum_{k=1}^{n} i_k = 0
+$$
+
+(correnti entranti negative, uscenti positive)
+
+</Statement>
+
+### Campo elettromotore
+
+Il campo elettrostatico è conservativo: $$\oint \vec{E} \cdot d\vec{l} = 0$$.
+Per mantenere corrente in un circuito occorre un **generatore** che produca una
+forza elettromotrice (fem).
+
+<Statement type="definition" title="Forza elettromotrice">
+
+$$
+\text{fem} = \int_A^B \vec{E}_{em} \cdot d\vec{l}
+$$
+
+Il **campo elettromotore** $$\vec{E}_{em}$$ è di natura non conservativa.
+
+</Statement>
+
+<Statement type="law" title="Seconda legge di Kirchhoff">
+
+La somma delle cadute di potenziale è pari alla somma delle fem:
+
+$$
+\sum_{k=1}^{n} \Delta V_k = \sum_{h=1}^{m} \text{fem}_h
+$$
+
+</Statement>
+
+### Conduttori Ohmici, leggi di Ohm
+
+<Statement type="definition" title="Resistenza">
+
+Per i **conduttori ohmici**, la costante di proporzionalità tra $$\Delta V$$ e
+$$i$$ è la **resistenza**:
+
+$$
+R = \frac{\Delta V}{i} \qquad \text{(Prima legge di Ohm)}
+$$
+
+Si misura in **Ohm** $$[\Omega]$$.
+
+</Statement>
+
+<Statement type="law" title="Seconda legge di Ohm">
+
+Per un filo di sezione $$S$$ e lunghezza $$l$$:
+
+$$
+R = \rho_r \frac{l}{S}
+$$
+
+$$\rho_r$$ è la **resistività** (funzione della temperatura):
+$$\rho_r(t) = \rho_r^0 (1 + \alpha \Delta t)$$
+
+</Statement>
+
+La forma puntuale delle leggi di Ohm:
+
+$$
+\vec{E} = \rho_r \vec{J} \qquad \vec{J} = \sigma_c \vec{E}
+$$
+
+dove $$\sigma_c = \rho_r^{-1}$$ è la **conducibilità**.
+
+<Callout type="info">
+  La densità di carica superficiale $$\sigma$$ di un conduttore ohmico in regime
+  stazionario è **nulla**.
+</Callout>
+
+### Resistenze in serie e parallelo
+
+<Statement type="definition" title="Resistenze in serie">
+
+Due resistenze sono in **serie** quando vi scorre la stessa corrente:
+
+$$
+R_{eq} = \sum_{i=1}^{n} R_i
+$$
+
+</Statement>
+
+<Statement type="definition" title="Resistenze in parallelo">
+
+Resistenze sono in **parallelo** quando hanno la stessa $$\Delta V$$:
+
+$$
+\frac{1}{R_{eq}} = \sum_{i=1}^{n} \frac{1}{R_i}
+$$
+
+</Statement>
+
+## Legge di Joule
+
+L'energia dissipata per effetto Joule in una resistenza:
+
+$$
+dE = i \cdot \Delta V \cdot dt
+$$
+
+<Statement type="law" title="Legge di Joule">
+
+La potenza dissipata:
+
+$$
+W = i \Delta V = R i^2 = \frac{\Delta V^2}{R}
+$$
+
+</Statement>
+
+## Conduzione nei liquidi
+
+I liquidi possono essere conduttori se contengono **ioni** mobili. L'acqua
+distillata conduce debolmente per la dissociazione naturale di $$H^+$$ e
+$$OH^-$$ ($$10^{-7}$$ mol/L).
+
+La capacità di conduzione aumenta sciogliendo sali, grazie all'alta costante
+dielettrica dell'acqua ($$\varepsilon_r \approx 80$$).
+
+Sperimentalmente i liquidi elettrolitici seguono la **legge di Ohm**.
+
+## Conduzione nei gas
+
+Per i gas la conduzione è più complessa:
+
+1. **Scarica oscura**: legge di Ohm per piccole correnti (ionizzazione da
+   radioattività naturale)
+2. **Scarica di Townsend**: ionizzazione a catena autosufficiente, $$\Delta V$$
+   quasi costante
+3. **Scarica a bagliore**: molecole eccitate emettono luce
+4. **Scarica ad arco**: **plasma** (materia completamente ionizzata)
+
+Il parametro critico è $$\beta = E/P$$.
+
+## Regime quasi-stazionario
+
+Se le sollecitazioni elettriche sono molto più lente della velocità della luce
+nel mezzo ($$\sim 10^8$$ m/s), valgono le stesse leggi del regime stazionario
+con grandezze **istantanee**.
+
+### Circuito RC
+
+**Carica del condensatore** (condensatore inizialmente scarico):
+
+$$
+\frac{dV}{dt} + \frac{V}{\tau} = \frac{f}{\tau} \qquad \text{con } \tau = RC
+$$
+
+Soluzione:
+
+$$
+V(t) = f \left( 1 - e^{-t/\tau} \right)
+$$
+
+**Scarica del condensatore** (da $$V_0$$):
+
+$$
+V(t) = V_0 \, e^{-t/\tau}
+$$
+
+<Callout type="tip">
+  La costante di tempo $$\tau = RC$$ determina la scala temporale di
+  carica/scarica. Dopo $$t = 5\tau$$, il processo è praticamente completo.
+</Callout>

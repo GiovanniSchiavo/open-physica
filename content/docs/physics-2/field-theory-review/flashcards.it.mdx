@@ -1,0 +1,469 @@
+---
+flashcards: true
+---
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Qual è la differenza tra campo scalare e campo vettoriale? Fai un esempio fisico
+per ciascuno.
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+Un **campo scalare** associa a ogni punto dello spazio (e del tempo) un numero:
+
+$$
+f:\mathbb{R}^3\to\mathbb{R}
+$$
+
+Esempi: temperatura $T(\vec{r})$, potenziale elettrico $V(\vec{r})$.
+
+Un **campo vettoriale** associa invece un vettore:
+
+$$
+\vec{F}:\mathbb{R}^3\to\mathbb{R}^3
+$$
+
+Esempi: campo elettrico $\vec{E}(\vec{r})$, campo magnetico $\vec{B}(\vec{r})$,
+velocità di un fluido $\vec{v}(\vec{r})$.
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Che cos'è il gradiente di un campo scalare e qual è il suo significato
+geometrico?
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+Il gradiente di $f(x,y,z)$ è:
+
+$$
+\nabla f=\left(\frac{\partial f}{\partial x},\frac{\partial f}{\partial y},\frac{\partial f}{\partial z}\right)
+$$
+
+Significato geometrico:
+
+- punta nella direzione di massima crescita di $f$;
+- il suo modulo è il massimo tasso di variazione locale.
+
+In elettrostatica:
+
+$$
+\vec{E}=-\nabla V
+$$
+
+quindi il campo elettrico punta verso la massima diminuzione del potenziale.
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Cos'è la divergenza di un campo vettoriale e come si collega al flusso?
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+La divergenza misura quanta "sorgente" o "pozzo" locale è presente in un campo:
+
+$$
+\nabla\cdot\vec{F}=
+\frac{\partial F_x}{\partial x}+\frac{\partial F_y}{\partial y}+\frac{\partial F_z}{\partial z}
+$$
+
+Il legame integrale è il teorema della divergenza (Gauss):
+
+$$
+\int_V \nabla\cdot\vec{F}\,d\tau=
+\oint_{\partial V}\vec{F}\cdot d\vec{A}
+$$
+
+In elettrostatica:
+
+$$
+\nabla\cdot\vec{E}=\frac{\rho}{\varepsilon_0}
+$$
+
+quindi la carica volumica è sorgente del campo elettrico.
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Cos'è il rotore (curl) e quale informazione fisica fornisce?
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+Il rotore di $\vec{F}$ è:
+
+$$
+\nabla\times\vec{F}
+$$
+
+e misura la tendenza locale del campo a far ruotare una piccola "paletta"
+orientata nel fluido/campo.
+
+È legato alla circuitazione tramite il teorema di Stokes:
+
+$$
+\int_S (\nabla\times\vec{F})\cdot d\vec{S}
+=
+\oint_{\partial S}\vec{F}\cdot d\vec{l}
+$$
+
+In elettrostatica:
+
+$$
+\nabla\times\vec{E}=0
+$$
+
+quindi il campo è conservativo.
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Quali sono gli elementi differenziali in coordinate sferiche utili in fisica 2?
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+Con coordinate $(r,\theta,\phi)$:
+
+- elemento di volume:
+
+$$
+d\tau=r^2\sin\theta\,dr\,d\theta\,d\phi
+$$
+
+- elemento di superficie su sfera $r=\text{costante}$:
+
+$$
+dS=r^2\sin\theta\,d\theta\,d\phi
+$$
+
+- elemento di linea radiale:
+
+$$
+d\vec{l}=dr\,\hat{r}
+$$
+
+Questi fattori geometrici sono essenziali per applicare correttamente integrali
+di flusso e di volume (Gauss, cariche distribuite, potenziali).
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Cosa sono le curve di livello di un campo scalare e qual è la loro relazione con
+il gradiente?
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+Le curve di livello (o isosuperfici) di un campo scalare $f(\vec{r})$ sono
+insiemi di punti dove la funzione mantiene un valore costante:
+
+$$
+f(\vec{r})=c \quad (c \text{ costante})
+$$
+
+**Relazione con il gradiente:**
+
+- Il gradiente è **perpendicolare alle curve di livello** in ogni punto
+- Il gradiente punta nella direzione di **massima crescita** (perpendiculare
+  alle curve)
+- Su una curva di livello, lo spostamento è perpendiculare al gradiente:
+  $\nabla f \cdot d\vec{l}=0$
+
+**Esempi pratici:**
+
+- Mappe topografiche: curve di livello = curve di uguale altitudine
+- Mappe meteorologiche: curve di livello = isobare (pressione costante)
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Cos'è la derivata direzionale e come si calcola?
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+La **derivata direzionale** è la variazione di un campo scalare $f$ nella
+direzione di un versore $\hat{u}$ unitario:
+
+$$
+\frac{\partial f}{\partial \hat{u}}=\nabla f \cdot \hat{u}=|\nabla f|\cos\theta
+$$
+
+dove $\theta$ è l'angolo tra il gradiente e la direzione $\hat{u}$.
+
+**Proprietà importanti:**
+
+- **Massima:** la derivata è massima quando $\theta=0$ (direzione del
+  gradiente): $\max = |\nabla f|$
+- **Minima:** è minima quando $\theta=\pi$ (direzione opposta al gradiente):
+  $\min = -|\nabla f|$
+- **Nulla:** è nulla sulle curve di livello (dove $\theta=90°$)
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Cos'è un campo conservativo e quali sono le sue proprietà fondamentali?
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+Un campo vettoriale $\vec{F}$ è **conservativo** in un dominio $\Omega$ se
+esiste un potenziale scalare $U$ tale che:
+
+$$
+\vec{F}=\nabla U \quad \text{o anche} \quad \vec{F}=-\nabla U
+$$
+
+(il segno dipende dalla convenzione fisica).
+
+**Proprietà fondamentali:**
+
+- L'integrale di linea dipende **solo dagli estremi, non dal percorso**:
+  $$\int_A^B \vec{F}\cdot d\vec{l}=U(B)-U(A)$$
+- La **circuitazione è nulla** su qualunque curva chiusa:
+  $$\oint \vec{F}\cdot d\vec{l}=0$$
+- Il campo è **irrotazionale**: $\nabla\times\vec{F}=0$
+
+**Esempio:** Campo elettrico $\vec{E}=-\nabla V$ è conservativo.
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Cos'è il flusso di un campo vettoriale e come si calcola?
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+Il **flusso** $\Phi_S(\vec{F})$ di un campo vettoriale attraverso una superficie
+$S$ è:
+
+$$
+\Phi_S(\vec{F})=\int_S \vec{F}\cdot\hat{n}\,dS
+$$
+
+dove $\hat{n}$ è la normale unitaria (orientata) alla superficie.
+
+**Interpretazione fisica:**
+
+- Il prodotto scalare $\vec{F}\cdot\hat{n}$ proietta il campo lungo la normale
+- Solo la componente **normale** del campo contribuisce al flusso
+- **Flusso positivo:** il campo esce dalla superficie
+- **Flusso negativo:** il campo entra nella superficie
+
+**Teorema della divergenza (Gauss):**
+$$\oint_{\partial V}\vec{F}\cdot\hat{n}\,dS=\int_V\nabla\cdot\vec{F}\,d\tau$$
+
+Il flusso uscente uguaglia la divergenza totale all'interno.
+
+Il flusso uscente uguaglia la divergenza totale all'interno.
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Cosa sono i campi solenoidali e quali proprietà li caratterizzano?
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+Un campo $\vec{F}$ è **solenoidale** in una regione se ha divergenza nulla
+ovunque:
+
+$$
+\nabla\cdot\vec{F}=0
+$$
+
+**Proprietà fisiche e matematiche:**
+
+- Il flusso totale attraverso qualsiasi **superficie chiusa è zero**:
+  $$\oint_{\partial V}\vec{F}\cdot d\vec{A}=0$$
+- Non esiste nessuna sorgente o pozzo netto nel volume
+- In fluidodinamica: rappresenta fluidi **incomprimibili**
+- In elettromagnetismo: il campo magnetico è **sempre solenoidale**
+  ($\nabla\cdot\vec{B}=0$), il che implica **inesistenza di monopoli magnetici**
+- Un campo solenoidale ammette un **potenziale vettore** $\vec{A}$ tale che:
+  $$\vec{F}=\nabla\times\vec{A}$$
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Cos'è l'angolo solido e come si esprime in coordinate sferiche?
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+L'**angolo solido** $\Omega$ (steradianti) generalizza il concetto di angolo dal
+piano allo spazio 3D. È definito come:
+
+$$
+\Omega=\frac{S}{r^2}
+$$
+
+dove $S$ è l'area della superficie sferica e $r$ è il raggio.
+
+**Elemento infinitesimo:**
+
+$$
+d\Omega=\frac{dS}{r^2}=\sin\theta\,d\theta\,d\phi
+$$
+
+**Integrando su tutto lo spazio:**
+
+$$
+\int_0^{2\pi}d\phi\int_0^{\pi}\sin\theta\,d\theta=4\pi \text{ steradianti}
+$$
+
+**Utilità:**
+
+- Essenziale per calcoli di flussi radianti (legge di Gauss)
+- Consente di esprimere integrali di superficie come integrali di angolo solido
+- Semplifica il calcolo di campi con simmetria sferica
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Come si esprimono il gradiente e la divergenza in coordinate sferiche?
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+In coordinate sferiche $(r,\theta,\phi)$:
+
+**Gradiente di un campo scalare** $V(r,\theta,\phi)$:
+
+$$
+\nabla V=\frac{\partial V}{\partial r}\hat{r}
++\frac{1}{r}\frac{\partial V}{\partial \theta}\hat{\theta} \\
++\frac{1}{r\sin\theta}\frac{\partial V}{\partial \phi}\hat{\phi}
+$$
+
+**Divergenza di un campo vettoriale**
+$\vec{F}=F_r\hat{r}+F_\theta\hat{\theta}+F_\phi\hat{\phi}$:
+
+$$
+\nabla\cdot\vec{F}=\frac{1}{r^2}\frac{\partial}{\partial r}\left(r^2 F_r\right) \\
++\frac{1}{r\sin\theta}\frac{\partial}{\partial \theta}\left(\sin\theta\, F_\theta\right) \\
++\frac{1}{r\sin\theta}\frac{\partial F_\phi}{\partial \phi}
+$$
+
+**Nota:** I fattori aggiuntivi ($r^2$, $r$, $r\sin\theta$) emergono dalla
+metrica curvilinea dello spazio sferico.
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Cos'è il Laplaciano e come si esprime in coordinate sferiche?
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+Il **Laplaciano** $\nabla^2 f$ (o $\Delta f$) è l'operatore differenziale:
+
+$$
+\nabla^2 f=\nabla\cdot(\nabla f)
+$$
+
+che misura la concavità media di una funzione.
+
+**In coordinate cartesiane:**
+
+$$
+\nabla^2 f=\frac{\partial^2 f}{\partial x^2} \\
++\frac{\partial^2 f}{\partial y^2}+\frac{\partial^2 f}{\partial z^2}
+$$
+
+**In coordinate sferiche:**
+
+$$
+\nabla^2 f=\frac{1}{r^2}\frac{\partial}{\partial r}\left(r^2\frac{\partial f}{\partial r}\right) \\
++\frac{1}{r^2\sin\theta}\frac{\partial}{\partial \theta}\left(\sin\theta\frac{\partial f}{\partial \theta}\right) \\
++\frac{1}{r^2\sin^2\theta}\frac{\partial^2 f}{\partial \phi^2}
+$$
+
+**Applicazioni fisiche:**
+
+- Equazione di Laplace: $\nabla^2 f=0$ (potenziali in regioni senza sorgenti)
+- Equazione di Poisson: $\nabla^2 f=-\rho/\varepsilon_0$ (con sorgenti)
+- Equazione di diffusione e onde
+
+</FlashcardAnswer>
+
+</Flashcard>

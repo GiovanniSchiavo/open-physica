@@ -1,0 +1,84 @@
+---
+title: Serie Telescopiche
+description: Definizione e proprietà delle serie telescopiche
+---
+
+Le **serie telescopiche** sono una classe di serie particolari la cui somma può
+essere calcolata esplicitamente grazie ad una semplificazione a catena dei
+termini intermedi.
+
+<section id="def-serie-telescopica">
+
+<Statement type="definition" title="Serie Telescopica">
+
+Una serie si dice **telescopica** se il suo termine generale $a_k$ può essere
+scritto come la differenza di due termini consecutivi di una successione
+$\{b_k\}$:
+
+$$
+a_k = b_k - b_{k+1} \quad (\text{oppure } a_k = b_{k+1} - b_k)
+$$
+
+</Statement>
+
+</section>
+
+## Calcolo della ridotta
+
+Consideriamo una serie della forma $\sum_{k=0}^{\infty} (b_k - b_{k+1})$.
+Scriviamo esplicitamente la somma parziale $n$-esima $S_n$:
+
+$$
+S_n = \sum_{k=0}^{n} (b_k - b_{k+1}) = (b_0 - b_1) + (b_1 - b_2) + (b_2 - b_3) + \dots + (b_n - b_{n+1})
+$$
+
+Notiamo che i termini intermedi si cancellano a vicenda (l'ultimo termine di una
+parentesi cancella il primo della successiva):
+
+$$
+S_n = b_0 - \cancel{b_1} + \cancel{b_1} - \cancel{b_2} + \cancel{b_2} - \dots - \cancel{b_n} + \cancel{b_n} - b_{n+1} = b_0 - b_{n+1}
+$$
+
+Quindi, la ridotta $S_n$ dipende solo dal primo termine della successione
+$\{b_k\}$ e dall'ultimo generato.
+
+## Carattere della serie
+
+Il carattere della serie telescopica dipende esclusivamente dall'esistenza e dal
+valore del limite della successione $\{b_n\}$:
+
+$$
+\sum_{k=0}^{\infty} (b_k - b_{k+1}) = \lim_{n \to \infty} S_n = b_0 - \lim_{n \to \infty} b_{n+1}
+$$
+
+Se il limite $\lim_{n \to \infty} b_n$ esiste ed è finito, la serie
+**converge**.
+
+## Esempio classico: La serie di Mengoli
+
+Un esempio fondamentale è la serie:
+
+$$
+\sum_{k=1}^{\infty} \frac{1}{k(k+1)}
+$$
+
+Definiamo $f(k) = \frac{1}{k}$. Utilizzando la scomposizione in fratti semplici,
+possiamo scrivere il termine generale come:
+
+$$
+\frac{1}{k(k+1)} = \frac{1}{k} - \frac{1}{k+1} = f(k) - f(k+1)
+$$
+
+Questa è esattamente la forma telescopica! Calcoliamo la somma parziale:
+
+$$
+S_n = \sum_{k=1}^{n} \left( \frac{1}{k} - \frac{1}{k+1} \right) = f(1) - f(n+1) = 1 - \frac{1}{n+1}
+$$
+
+Passando al limite per $n \to \infty$:
+
+$$
+\sum_{k=1}^{\infty} \frac{1}{k(k+1)} = \lim_{n \to \infty} \left( 1 - \frac{1}{n+1} \right) = 1
+$$
+
+La serie di Mengoli è dunque convergente e la sua somma è 1.

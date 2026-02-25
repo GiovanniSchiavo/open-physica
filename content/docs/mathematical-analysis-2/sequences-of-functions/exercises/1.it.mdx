@@ -1,0 +1,134 @@
+---
+title: "Esercizio 1"
+description: "Esercizio 1 sulla convergenza delle successioni di funzioni"
+exercise:
+  difficulty: 1
+---
+
+## Testo dell'esercizio
+
+Studiare la convergenza puntuale e uniforme della successione di funzioni
+
+$$
+\Big\{e^{nx}\Big\}_n \quad n \in \mathbb{N}^\star \\
+$$
+
+Verificare poi la convergenza uniforme nell'intervallo $]-\infty, -1]$
+
+## Soluzione [toc]
+
+<Solution>
+
+### Convergenza puntuale
+
+La scrittura $\Big\{e^{nx}\Big\}_n$ indica che la successione di funzioni è
+
+$$
+f_1 = e^x, f_2 = e^{2x}, \dots, f_n = e^{nx}, \dots
+$$
+
+Fissato un valore di $x$, si ottiene una **successione numerica**:
+
+$$
+x=1 \quad e^1, e^2, e^3, \dots, e^n, \dots = \{e^n\}_n \\
+x=2 \quad e^2, e^4, e^6, \dots, e^{2n}, \dots = \{e^{2n}\}_n \\
+x=5 \quad e^5, e^{10}, e^{15}, \dots, e^{5n}, \dots = \{e^{5n}\}_n
+$$
+
+Studiamo la convergenza delle successioni numeriche:
+
+- $x=1$: la successione numerica $\Big\{e^{n}\Big\}_n$ **non converge** perché
+
+  $$
+  \lim_{n \to \infty} e^n = \infty
+  $$
+
+- $x=0$: la successione numerica $\Big\{e^0\Big\}$ **converge** perché
+
+  $$
+    \lim_{n \to \infty} e^0 = 1
+  $$
+
+- $x=-1$: la successione numerica $\Big\{e^{-n}\Big\}_n$ **converge** perché
+
+  $$
+  \lim_{n \to \infty} e^{-n} = 0
+  $$
+
+Nei valori di $x$ per cui la successione numerica converge, la successione di
+funzioni **converge puntualmente**.
+
+Invece di verificare punto per punto, possiamo invece utilizzare la definizione
+di convergenza puntuale per la successione di funzioni. Sia la nostra
+successione
+
+$$
+{e^{nx}} \quad f_1=e^x, f_2=e^{2x}, \dots, f_n=e^{nx}
+$$
+
+notiamo che tutte le funzioni sono definite in $\mathbb{R} \to ]0, +\infty[$, ci
+chiediamo in che intervallo $I \subseteq \mathbb{R}$ la successione converge
+puntualmente. Consideriamo quindi il limite:
+
+$$
+\lim_{n \to \infty} e^{nx} = \begin{cases}
+0 & \text{se } x < 0 \\
+1 & \text{se } x = 0 \\
+\infty & \text{se } x > 0
+\end{cases}
+$$
+
+Possiamo dire che la successione di funzioni converge puntualmente
+nell'intervallo $I = ]-\infty, 0]$, ovvero
+
+$$
+f_n \underset{]-\infty, 0]}{\longrightarrow} F
+$$
+
+Si noti che la funzione limite $F$ NON è continua.
+
+### Convergenza uniforme
+
+La funzione limite $F$ non è continua in $x=0$, quindi non converge
+uniformemente in $]-\infty, 0]$.
+
+Verifichiamo la convergenza uniforme nell'intervallo $]-\infty, -1]$ applicando
+la definizione di convergenza uniforme:
+
+$$
+\lim_{n \to \infty} \sup_{x \in ]-\infty, -1]} | f_n(x) - F(x) | = 0
+$$
+
+Definiamo quindi
+
+$$
+g_n(x) = | f_n(x) - F(x) | = | e^{nx} - 0 | = e^{nx} \\
+S_n = \sup_{x \in ]-\infty, -1]} g_n(x)
+$$
+
+Per trovare $S_n$ studiamo quindi la monotonia di $g_n(x)$
+
+$$
+g_n^\prime (x) = n e^{nx} > 0 \quad \forall x \in ]-\infty, -1]
+$$
+
+$g_n(x)$ è strettamente crescente in $]-\infty, -1]$. Quindi
+
+$$
+S_n = \sup_{x \in ]-\infty, -1]} g_n(x) = g_n(-1) = e^{-n}
+$$
+
+Andiamo quindi a calcolare il limite:
+
+$$
+\lim_{n \to \infty} S_n = \lim_{n \to \infty} e^{-n} = 0
+$$
+
+Quindi la successione di funzioni converge uniformemente nell'intervallo
+$]-\infty, -1]$
+
+$$
+\Big\{e^{nx}\Big\}_n \underset{]-\infty, -1]}{\longrightarrow} F
+$$
+
+</Solution>

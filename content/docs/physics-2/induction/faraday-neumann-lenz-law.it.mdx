@@ -1,0 +1,75 @@
+---
+title: Legge di Faraday-Neumann-Lenz
+description:
+  Fem indotta da variazioni di flusso magnetico, segno di Lenz, fem di movimento
+  e interpretazione energetica
+---
+
+## Legge fondamentale dell'induzione
+
+<Statement type="law" title="Faraday-Neumann-Lenz">
+
+$$
+\mathcal{E}=-\frac{d\Phi_B}{dt}
+$$
+
+</Statement>
+
+Il segno meno codifica la regola di Lenz: l'effetto indotto si oppone alla causa
+(variazione di flusso).
+
+## Flusso e convenzioni di segno
+
+Il flusso magnetico concatenato con una superficie $S$ e:
+
+$$
+\Phi_B=\int_S \mathbf{B}\cdot d\mathbf{A}
+$$
+
+Il segno dipende dall'orientazione scelta per $d\mathbf{A}$ e dal verso positivo
+di percorrenza del bordo $\partial S$ (regola della mano destra). Nei problemi
+di esame, fissare subito questa convenzione evita errori di segno.
+
+## Due meccanismi fisici equivalenti
+
+- variazione temporale di $\mathbf{B}$ su circuito fisso;
+- moto del circuito in campo magnetico statico (fem motrice).
+
+Per sbarretta di lunghezza $\ell$ che scorre con velocità $v$ in campo uniforme:
+
+$$
+\mathcal{E}=B\ell v
+$$
+
+<Callout type="info" title="Fem di movimento (intuizione)">
+
+In forma qualitativa, la carica in moto "sente" la forza di Lorentz
+$q\,\mathbf{v}\times\mathbf{B}$ e si separa lungo la sbarretta: nasce una
+differenza di potenziale equivalente a una fem distribuita.
+
+</Callout>
+
+## Forma locale (Maxwell-Faraday)
+
+$$
+\nabla\times\mathbf{E}=-\frac{\partial\mathbf{B}}{\partial t}
+$$
+
+Questa equazione mostra che in presenza di $\partial_t\mathbf{B}\neq0$ il campo
+elettrico non è conservativo.
+
+## Bilancio energetico
+
+Nei problemi con barretta mobile, la potenza meccanica esterna fornita per
+mantenere il moto si trasforma in dissipazione elettrica nel circuito.
+
+Questo rende Lenz una legge di coerenza energetica, non solo una regola di
+segno.
+
+<Callout type="tip" title="Procedura robusta per il segno">
+
+1. determina come varia il flusso concatenato;
+2. imponi che la corrente indotta produca un campo opposto a tale variazione;
+3. deduci verso della corrente e segno della fem.
+
+</Callout>

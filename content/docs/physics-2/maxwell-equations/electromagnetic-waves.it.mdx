@@ -1,0 +1,63 @@
+---
+title: Onde elettromagnetiche
+description:
+  Derivazione dell'equazione d'onda da Maxwell, struttura trasversa delle onde
+  EM, relazione tra E e B, impedenza del mezzo e polarizzazione
+---
+
+## Equazione d'onda da Maxwell
+
+In mezzo lineare omogeneo, privo di sorgenti:
+
+$$
+\nabla^2\mathbf{E}-\mu\varepsilon\frac{\partial^2\mathbf{E}}{\partial t^2}=0,
+\qquad
+\nabla^2\mathbf{B}-\mu\varepsilon\frac{\partial^2\mathbf{B}}{\partial t^2}=0
+$$
+
+Velocità di propagazione:
+
+$$
+v=\frac{1}{\sqrt{\mu\varepsilon}}
+$$
+
+Nel vuoto: $v=c$.
+
+## Struttura dell'onda piana
+
+Per propagazione lungo $\hat{\mathbf{k}}$:
+
+- $\mathbf{E}\perp\hat{\mathbf{k}}$
+- $\mathbf{B}\perp\hat{\mathbf{k}}$
+- $\mathbf{E}\perp\mathbf{B}$
+
+Relazione di ampiezza:
+
+$$
+E=vB
+$$
+
+## Impedenza del mezzo
+
+$$
+Z=\frac{E}{H}=\sqrt{\frac{\mu}{\varepsilon}}
+$$
+
+Nel vuoto $Z_0\approx377\,\Omega$.
+
+## Polarizzazione
+
+La direzione di oscillazione di $\mathbf{E}$ definisce lo stato di
+polarizzazione:
+
+- lineare;
+- circolare;
+- ellittica.
+
+I mezzi anisotropi e le interfacce modificano ampiezza e fase delle componenti,
+portando ai coefficienti di Fresnel studiati in ottica.
+
+<Callout type="tip" title="Verifica di coerenza">
+  In una soluzione d'onda piana, controlla sempre le ortogonalità e la relazione
+  $E=vB$: se non sono soddisfatte, la soluzione non è fisicamente corretta.
+</Callout>

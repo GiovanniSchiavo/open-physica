@@ -1,0 +1,217 @@
+---
+title: Equazioni di Maxwell
+description:
+  Le quattro equazioni di Maxwell, correnti di spostamento, onde
+  elettromagnetiche, vettore di Poynting, impulso del campo EM
+---
+
+Siamo giunti al termine dello studio dei fenomeni elettromagnetici. Riassumiamo
+tutto in 4 equazioni.
+
+## Le quattro equazioni di Maxwell
+
+<Statement type="law" title="Equazioni di Maxwell">
+
+$$
+\begin{cases}
+\nabla \cdot \vec{D} = \rho \\
+\nabla \cdot \vec{B} = 0 \\
+\nabla \times \vec{E} = -\frac{\partial \vec{B}}{\partial t} \\
+\nabla \times \vec{H} = \vec{J} + \frac{\partial \vec{D}}{\partial t}
+\end{cases}
+$$
+
+</Statement>
+
+Insieme alla conservazione della carica:
+
+$$
+\nabla \cdot \vec{J} = -\frac{\partial \rho}{\partial t}
+$$
+
+E le relazioni costitutive:
+
+$$
+\vec{B} = \mu_0(\vec{H} + \vec{M}) \qquad \vec{D} = \varepsilon_0\vec{E} + \vec{P}
+$$
+
+## Correnti di spostamento
+
+La quarta equazione (Ampère) in forma stazionaria
+($$\nabla \times \vec{H} = \vec{J}$$) è contraddittoria: la divergenza di un
+rotore dovrebbe essere nulla, ma
+$$\nabla \cdot \vec{J} = -\frac{\partial \rho}{\partial t} \neq 0$$.
+
+<Statement type="definition" title="Corrente di spostamento">
+
+$$
+\vec{J}_s = \frac{\partial \vec{D}}{\partial t}
+$$
+
+</Statement>
+
+Questa corrente "virtuale" (non è movimento di cariche) risolve la
+contraddizione e spiega come nel condensatore ci sia continuità del campo
+magnetico.
+
+## Problema generale in mezzi omogenei isotropi
+
+Nel vuoto o in mezzi lineari, senza cariche né correnti:
+
+$$
+\begin{cases}
+\nabla \cdot \vec{E} = 0 \\
+\nabla \cdot \vec{B} = 0 \\
+\nabla \times \vec{E} = -\frac{\partial \vec{B}}{\partial t} \\
+\nabla \times \vec{B} = \mu\varepsilon\frac{\partial \vec{E}}{\partial t}
+\end{cases}
+$$
+
+Calcolando il rotore del rotore si ottiene l'**equazione delle onde**:
+
+<Statement type="law" title="Equazione di D'Alembert">
+
+$$
+\nabla^2 \vec{E} - \mu\varepsilon\frac{\partial^2 \vec{E}}{\partial t^2} = 0 \qquad \Box\vec{E} = 0
+$$
+
+Dove $$v = \frac{1}{\sqrt{\varepsilon\mu}}$$ è la **velocità di propagazione**.
+
+</Statement>
+
+Nel vuoto: $$c = \frac{1}{\sqrt{\varepsilon_0\mu_0}} = 3 \cdot 10^8 \, m/s$$
+
+<Callout type="info">La luce è un fenomeno elettromagnetico!</Callout>
+
+## Onde piane
+
+Soluzione: $$\vec{E} = f(x - vt) + g(x + vt)$$
+
+- **Onda progressiva**: $$f(x - vt)$$
+- **Onda regressiva**: $$g(x + vt)$$
+
+### Analisi di Fourier
+
+Onde periodiche sviluppabili in serie:
+
+$$
+f(t) = a_0 + \sum_{n=1}^{\infty} a_n \cos\left(\frac{2\pi}{T}nt\right) + \sum_{n=1}^{\infty} b_n \sin\left(\frac{2\pi}{T}nt\right)
+$$
+
+Lo studio dello **spettro** dà informazioni sulla composizione dell'onda.
+
+### Onde monocromatiche
+
+$$
+E_x = E_0 \sin(kx - \omega t)
+$$
+
+<Statement type="definition" title="Vettore d'onda">
+
+$$
+|\vec{k}| = \frac{2\pi}{\lambda}
+$$
+
+Diretto lungo la propagazione.
+
+</Statement>
+
+**Relazione di dispersione**: $$v = \lambda\nu$$
+
+### Proprietà delle onde EM
+
+Le onde elettromagnetiche sono **trasversali**: $$E_x = B_x = 0$$ (lungo la
+propagazione).
+
+$$\vec{E}$$ e $$\vec{B}$$ sono **perpendicolari** tra loro:
+
+$$
+\vec{E} = \vec{B} \times \vec{v} \qquad vB = E
+$$
+
+<Statement type="definition" title="Impedenza caratteristica">
+
+$$
+Z = \frac{E}{H} = \sqrt{\frac{\mu}{\varepsilon}}
+$$
+
+Nel vuoto: $$Z_0 \approx 377 \, \Omega$$
+
+</Statement>
+
+### Energia del campo EM
+
+$$
+E_e = \frac{1}{2}\varepsilon E^2 \qquad E_m = \frac{B^2}{2\mu}
+$$
+
+Per le onde: $$E_e = E_m$$ — l'energia è trasportata equamente!
+
+### Onde stazionarie
+
+Riflessione su metallo (es. forno a microonde):
+
+$$
+E_{tot} = 2E_0 \sin(\omega t)\sin(kx)
+$$
+
+Condizione: $$\lambda = \frac{2L}{n}$$
+
+## Onde sferiche
+
+Soluzione a simmetria sferica:
+
+$$
+E(r,t) = \frac{A_0}{r}\sin\left(2\pi\frac{r \mp vt}{\lambda}\right)
+$$
+
+L'ampiezza diminuisce come $$1/r$$, l'energia come $$1/r^2$$.
+
+## Vettore di Poynting
+
+<Statement type="definition" title="Vettore di Poynting">
+
+Potenza per unità di superficie:
+
+$$
+\vec{s} = \vec{E} \times \vec{H}
+$$
+
+</Statement>
+
+Direzione: propagazione dell'onda. Modulo:
+
+$$
+s = \frac{E^2}{Z} = \frac{E_{eff}^2}{Z}
+$$
+
+Per onde sferiche:
+
+$$
+s = \frac{A^2}{2Zr^2}
+$$
+
+## Impulso del campo EM
+
+La radiazione EM trasporta **quantità di moto**:
+
+$$
+\vec{g} = \vec{D} \times \vec{B} = \frac{\vec{s}}{v^2}
+$$
+
+### Pressione elettromagnetica
+
+$$
+P = \frac{|\vec{s}|}{v}
+$$
+
+- Corpo assorbente: $$P = s/v$$
+- Specchio: $$P = 2s/v$$
+
+### Tensore degli sforzi di Maxwell
+
+$$
+T_{ij} = \varepsilon E_i E_j + v^2 B_i B_j - \frac{1}{2}\delta_{ij}(E^2 + v^2 B^2)
+$$
+
+Per onde polarizzate: $$T_{xx} = -s/v$$ (solo componente lungo la propagazione).

@@ -1,0 +1,87 @@
+---
+title: Corrente, conduzione ed effetto Joule
+description:
+  Corrente elettrica, densità di corrente, equazione di continuità, leggi di Ohm
+  locali e globali, potenza dissipata e velocità di deriva
+---
+
+## Corrente e densità di corrente
+
+La corrente attraverso una superficie $S$ è:
+
+$$
+i=\int_S\mathbf{J}\cdot\hat{\mathbf{n}}\,dS
+$$
+
+Per portatori con densità $n$, carica $q$ e velocità media di deriva
+$\mathbf{v}_d$:
+
+$$
+\mathbf{J}=nq\mathbf{v}_d
+$$
+
+## Conservazione della carica
+
+<Statement type="law" title="Equazione di continuità">
+
+$$
+\nabla\cdot\mathbf{J}=-\frac{\partial\rho}{\partial t}
+$$
+
+</Statement>
+
+In regime stazionario $\partial\rho/\partial t=0$ e quindi
+$\nabla\cdot\mathbf{J}=0$.
+
+## Leggi di Ohm
+
+### Forma globale
+
+$$
+\Delta V=Ri
+$$
+
+### Forma locale
+
+$$
+\mathbf{J}=\sigma\mathbf{E}\qquad\Leftrightarrow\qquad\mathbf{E}=\rho_r\mathbf{J}
+$$
+
+con $\sigma$ conducibilità e $\rho_r=1/\sigma$ resistività.
+
+### Geometria del conduttore
+
+Per conduttore uniforme:
+
+$$
+R=\rho_r\frac{\ell}{S}
+$$
+
+## Effetto Joule
+
+La potenza dissipata è:
+
+$$
+P=i\Delta V=Ri^2=\frac{(\Delta V)^2}{R}
+$$
+
+Forma volumica:
+
+$$
+p_v=\mathbf{J}\cdot\mathbf{E}=\sigma E^2=\frac{J^2}{\sigma}
+$$
+
+Interpretazione microscopica: l'energia del campo elettrico viene trasferita al
+reticolo cristallino tramite urti dei portatori.
+
+## Velocità di deriva e ordini di grandezza
+
+Anche per correnti di ampere, $v_d$ nei metalli è tipicamente molto piccola
+(mm/s o meno). L'informazione elettromagnetica si propaga invece a velocità
+vicine a quella della luce nel mezzo.
+
+<Callout type="tip" title="Checklist per esercizi di conduzione">
+  - definisci sezione e lunghezza efficaci del conduttore; - usa la resistività
+  coerente con temperatura/materiale; - verifica unità di misura in ogni
+  passaggio; - controlla la potenza dissipata come verifica energetica finale.
+</Callout>

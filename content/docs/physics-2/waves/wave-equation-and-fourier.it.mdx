@@ -1,0 +1,112 @@
+---
+title: Equazione d'onda e analisi di Fourier
+description:
+  "Formalismo delle onde: soluzioni progressive e stazionarie, armoniche,
+  relazione di dispersione, velocità di fase e di gruppo"
+---
+
+## Equazione d'onda in una dimensione
+
+La forma canonica è:
+
+$$
+\frac{\partial^2 \psi}{\partial x^2} - \frac{1}{v^2}\frac{\partial^2 \psi}{\partial t^2} = 0
+$$
+
+dove $\psi$ rappresenta la grandezza che oscilla (spostamento, pressione,
+componente di campo elettrico, ...).
+
+<Statement type="theorem" title="Soluzione generale di D'Alembert">
+
+$$
+\psi(x,t) = f(x-vt) + g(x+vt)
+$$
+
+- $f$: onda progressiva (verso +x)
+- $g$: onda regressiva (verso -x)
+
+</Statement>
+
+## Soluzioni armoniche
+
+Una soluzione monocromatica si scrive:
+
+$$
+\psi(x,t)=A\cos(kx-\omega t+\varphi)
+$$
+
+con:
+
+$$
+k=\frac{2\pi}{\lambda},\qquad \omega=2\pi\nu,\qquad v=\frac{\omega}{k}=\lambda\nu
+$$
+
+### Relazione di dispersione
+
+- **mezzo non dispersivo**: $\omega=vk$ (v costante)
+- **mezzo dispersivo**: $\omega=\omega(k)$ non lineare
+
+Da qui seguono:
+
+$$
+v_f=\frac{\omega}{k} \quad \text{(velocità di fase)},\qquad
+v_g=\frac{d\omega}{dk} \quad \text{(velocità di gruppo)}
+$$
+
+## Onde stazionarie
+
+Sovrapponendo due onde armoniche opposte con stessa ampiezza:
+
+$$
+\psi(x,t)=2A\sin(kx)\cos(\omega t)
+$$
+
+- nodi: $\sin(kx)=0$
+- ventri: $|\sin(kx)|=1$
+
+Per una corda fissata a entrambe le estremità (lunghezza $L$):
+
+$$
+\lambda_n=\frac{2L}{n},\qquad f_n=\frac{nv}{2L},\qquad n=1,2,3,\ldots
+$$
+
+## Fourier: dal dominio temporale al dominio frequenziale
+
+Un segnale periodico può essere scomposto in armoniche:
+
+$$
+\psi(t)=a_0+\sum_{n=1}^{\infty}\left[a_n\cos(n\omega_0 t)+b_n\sin(n\omega_0 t)\right]
+$$
+
+Per segnali non periodici si usa la trasformata di Fourier:
+
+$$
+\Psi(\omega)=\int_{-\infty}^{+\infty}\psi(t)e^{-i\omega t}\,dt
+$$
+
+Interpretazione fisica:
+
+- modulo di $\Psi$: contenuto spettrale;
+- fase di $\Psi$: informazione di allineamento temporale tra componenti.
+
+<Callout type="info" title="Principio di incertezza tempo-frequenza">
+  Pacchetti temporali stretti richiedono bande in frequenza ampie: $\Delta
+  t\,\Delta\omega \gtrsim \text{costante}$.
+</Callout>
+
+## Potenza e intensità
+
+Per molte onde l'intensità media è proporzionale al quadrato dell'ampiezza:
+
+$$
+I \propto A^2
+$$
+
+Per onde sferiche emesse isotropicamente da una sorgente di potenza $P$:
+
+$$
+I(r)=\frac{P}{4\pi r^2}
+$$
+
+Questo spiega la legge dell'inverso del quadrato nelle misure radiometriche e
+acustiche in campo libero.

@@ -1,0 +1,71 @@
+---
+title: Esercizio 1
+description: Esercizio 1 sui massimi e minimi di funzioni a due variabili
+exercise:
+  difficulty: 1
+---
+
+## Testo dell'esercizio
+
+Determina i punti stazionari e la loro natura per la funzione:
+
+$$
+f(x,y): \mathbb{R}^2 \to \mathbb{R}\\
+f(x,y) = x^2 + y^2 - 2x - 2y + 2
+$$
+
+## Soluzione [toc]
+
+<Solution>
+
+Andiamo prima di tutto a determinare i punti stazionari, annullando il gradiente
+della funzione.
+
+$$
+\nabla f(x,y) = (f_x^\prime, f_y^\prime) = (0,0)
+$$
+
+Calcoliamo le derivate parziali prime:
+
+$$
+f_x^\prime(x,y) = 2x - 2\\
+f_y^\prime(x,y) = 2y - 2
+$$
+
+Quindi il sistema da risolvere è:
+
+$$
+\begin{cases}
+2x - 2 = 0 \\
+2y - 2 = 0
+\end{cases} \implies \begin{cases}
+x = 1 \\
+y = 1
+\end{cases}
+$$
+
+Otteniamo quindi 1 punto stazionario:
+
+$$
+P_1 = (1,1)
+$$
+
+Scriviamo ora la matrice Hessiana della funzione:
+
+$$
+H_f(x,y) = \begin{bmatrix}
+2 & 0 \\
+0 & 2
+\end{bmatrix}
+$$
+
+Valutiamo ora il determinante della matrice Hessiana nei punti stazionari:
+
+$$
+\Big|H_f(P_1)\Big| = \begin{vmatrix}
+2 & 0 \\
+0 & 2
+\end{vmatrix} > 0 \implies P_1 \text{ minimo relativo}
+$$
+
+</Solution>

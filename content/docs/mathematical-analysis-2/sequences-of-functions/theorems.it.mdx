@@ -1,0 +1,52 @@
+---
+title: Teoremi di Convergenza
+description:
+  Relazione tra convergenza uniforme e continuità, integrazione, derivazione.
+---
+
+## Continuità
+
+<Statement type="theorem" title="Teorema di Continuità">
+
+Sia $\{f_n\}$ una successione di funzioni **continue** su un intervallo
+$I
+\subseteq \mathbb{R}$. Allora
+
+$$
+f_n \underset{I}\rightrightarrows F \implies F \text{ continua su } I
+$$
+
+</Statement>
+
+## Integrazione
+
+<Statement type="theorem" title="Passaggio al limite sotto integrale">
+
+Sia $\{f_n\}$ una successione di funzioni Riemann-integrabili su $[a,b]$ tale
+che $f_n \rightrightarrows F$ su $[a,b]$. Allora $F$ è Riemann-integrabile su
+$[a,b]$ e
+
+$$
+\int_a^b F(x)\, dx = \lim_{n \to +\infty} \int_a^b f_n(x)\, dx
+$$
+
+</Statement>
+
+## Derivazione
+
+Per la derivazione la convergenza uniforme delle $f_n$ non è sufficiente: si
+richiede la convergenza uniforme delle **derivate**.
+
+<Statement type="theorem" title="Passaggio al limite sotto derivata">
+
+Sia $\{f_n\}$ una successione di funzioni derivabili su $[a,b]$ con derivate
+continue. Supponiamo che:
+
+1. Esista $x_0 \in [a,b]$ tale che $\{f_n(x_0)\}$ converge.
+2. La successione $\{f_n'\}$ converga **uniformemente** su $[a,b]$ a una
+   funzione $g$.
+
+Allora $\{f_n\}$ converge uniformemente su $[a,b]$ a una funzione derivabile
+$F$, e si ha $F'(x) = g(x)$ per ogni $x \in [a,b]$.
+
+</Statement>

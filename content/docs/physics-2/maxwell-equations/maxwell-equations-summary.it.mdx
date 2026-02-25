@@ -1,0 +1,106 @@
+---
+title: Sintesi delle equazioni di Maxwell
+description:
+  Le quattro equazioni in forma locale, continuità della carica, corrente di
+  spostamento e chiusura del sistema elettromagnetico
+---
+
+Le equazioni di Maxwell sono il punto di arrivo del corso: riassumono in modo
+compatto l'elettrostatica, il magnetismo stazionario e l'induzione in un unico
+sistema dinamico.
+
+Nel programma compaiono in due ruoli complementari:
+
+- come **riassunto** delle leggi gia viste (Gauss, Faraday, Ampere);
+- come **motore** per capire la propagazione ondosa e il trasporto di energia e
+  impulso nel campo elettromagnetico.
+
+## Forma differenziale in SI
+
+<Statement type="law" title="Sistema di Maxwell">
+
+$$
+\begin{aligned}
+\nabla\cdot\mathbf{D}&=\rho_f \\
+\nabla\cdot\mathbf{B}&=0 \\
+\nabla\times\mathbf{E}&=-\frac{\partial\mathbf{B}}{\partial t} \\
+\nabla\times\mathbf{H}&=\mathbf{J}_f+\frac{\partial\mathbf{D}}{\partial t}
+\end{aligned}
+$$
+
+</Statement>
+
+## Come leggere le grandezze (E/B vs D/H)
+
+- $\mathbf{E}$ e $\mathbf{B}$ sono i campi "fondamentali" che agiscono su
+  cariche e correnti (forza di Lorentz).
+- $\mathbf{D}$ e $\mathbf{H}$ sono campi "ausiliari" utili nei mezzi materiali:
+  separano in modo comodo cariche/correnti **libere** da quelle di
+  polarizzazione/magnetizzazione.
+
+Con relazioni costitutive in mezzi lineari isotropi:
+
+$$
+\mathbf{D}=\varepsilon\mathbf{E},\qquad \mathbf{B}=\mu\mathbf{H}
+$$
+
+<Callout type="info" title="Notazione">
+
+Qui usiamo il grassetto per vettori ($\mathbf{E}$). In altre parti degli appunti
+puoi trovare la notazione $\vec{E}$: il contenuto fisico non cambia.
+
+</Callout>
+
+## Continuità della carica
+
+Divergenza della quarta equazione:
+
+$$
+\nabla\cdot\mathbf{J}_f=-\frac{\partial\rho_f}{\partial t}
+$$
+
+La presenza di $\partial_t\mathbf{D}$ (corrente di spostamento) è essenziale per
+coerenza con la conservazione della carica.
+
+## Esempio concettuale: condensatore in carica
+
+In un circuito con condensatore:
+
+- tra i fili scorre corrente conduttrice;
+- nel dielettrico tra le armature compare corrente di spostamento.
+
+Questo "chiude" la circuitazione di Ampere-Maxwell senza introdurre correnti
+materiali nel dielettrico ideale.
+
+## Forma integrale (promemoria operativo)
+
+La forma differenziale e spesso quella piu elegante, ma negli esercizi la forma
+integrale e quella che si applica direttamente a simmetrie e circuitazioni:
+
+- Gauss:
+  $\displaystyle \oint_{\partial V}\mathbf{D}\cdot d\mathbf{A}=Q_{f,\text{int}}$
+- Faraday:
+  $\displaystyle \oint_{\partial S}\mathbf{E}\cdot d\mathbf{l}=-\frac{d}{dt}\int_S \mathbf{B}\cdot d\mathbf{A}$
+- Ampere-Maxwell:
+  $\displaystyle \oint_{\partial S}\mathbf{H}\cdot d\mathbf{l}=I_{f,\text{int}}+\frac{d}{dt}\int_S \mathbf{D}\cdot d\mathbf{A}$
+
+<Callout type="tip" title="Scelta rapida in esame">
+
+Se c'e alta simmetria, prova prima la forma integrale. Se devi imporre
+condizioni al contorno o risolvere un problema in una regione senza sorgenti,
+passa alla forma locale e alle equazioni d'onda/Poisson-Laplace.
+
+</Callout>
+
+## Invarianti strutturali
+
+- assenza di monopoli magnetici: linee di $\mathbf{B}$ chiuse;
+- simmetria dinamica tra campi: variazione di $\mathbf{E}$ genera $\mathbf{B}$,
+  variazione di $\mathbf{B}$ genera $\mathbf{E}$.
+
+Da qui emerge la propagazione ondosa del campo elettromagnetico.
+
+## Prossimi passi in questa sezione
+
+- [Onde elettromagnetiche](./electromagnetic-waves)
+- [Poynting, impulso e tensore di Maxwell](./poynting-and-electromagnetic-momentum)

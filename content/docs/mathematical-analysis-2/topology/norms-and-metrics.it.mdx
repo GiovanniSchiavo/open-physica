@@ -1,0 +1,247 @@
+---
+title: Norme e Metriche
+description: Norme, distanze, spazi metrici, spazi normati e spazi di Banach.
+---
+
+Per misurare "quanto sono vicini" due punti in $\mathbb{R}^n$ servono due
+strumenti fondamentali: la **norma**, che misura la "lunghezza" di un vettore, e
+la **metrica** (o distanza), che misura la "separazione" tra due punti. Vediamo
+come si formalizzano questi concetti.
+
+## Norma
+
+<Statement type="definition" title="Norma">
+
+Sia $V$ uno spazio vettoriale su $\mathbb{R}$. Una **norma** su $V$ è
+un'applicazione $\|\cdot\| : V \to \mathbb{R}$ che soddisfa le seguenti
+proprietà per ogni $x, y \in V$ e $\lambda \in \mathbb{R}$:
+
+1. **Positività:** $\|x\| \geq 0$, e $\|x\| = 0 \iff x = 0$.
+2. **Omogeneità:** $\|\lambda x\| = |\lambda| \cdot \|x\|$.
+3. **Disuguaglianza triangolare:** $\|x + y\| \leq \|x\| + \|y\|$.
+
+</Statement>
+
+Intuitivamente, la norma generalizza il concetto di "valore assoluto" (che è la
+norma su $\mathbb{R}$) e di "lunghezza di un vettore" a spazi più generali.
+
+### Esempi di norme su $\mathbb{R}^n$
+
+Su $\mathbb{R}^n$ esistono infinite norme, ma le più utilizzate appartengono
+alla famiglia delle **$p$-norme**.
+
+<Statement type="definition" title="$p$-norma">
+
+Per $p \geq 1$ e $x = (x_1, x_2, \dots, x_n) \in \mathbb{R}^n$, la **$p$-norma**
+è definita come:
+
+$$
+\|x\|_p = \left( \sum_{i=1}^{n} |x_i|^p \right)^{1/p}
+$$
+
+</Statement>
+
+I casi più importanti sono:
+
+- **Norma euclidea** ($p = 2$): è la norma "naturale", che corrisponde alla
+  lunghezza geometrica del vettore:
+
+$$
+\|x\|_2 = \sqrt{x_1^2 + x_2^2 + \dots + x_n^2}
+$$
+
+- **Norma $1$** (o norma di Manhattan): somma dei valori assoluti delle
+  componenti:
+
+$$
+\|x\|_1 = |x_1| + |x_2| + \dots + |x_n|
+$$
+
+- **Norma infinito** (o norma del massimo): il massimo tra i valori assoluti
+  delle componenti:
+
+$$
+\|x\|_\infty = \max_{1 \leq i \leq n} |x_i|
+$$
+
+<Callout type="info" title="Equivalenza delle norme in dimensione finita">
+
+In $\mathbb{R}^n$ tutte le norme sono **equivalenti**: se $\|\cdot\|_a$ e
+$\|\cdot\|_b$ sono due norme qualsiasi, esistono costanti $c, C > 0$ tali che
+
+$$
+c \, \|x\|_a \leq \|x\|_b \leq C \, \|x\|_a \quad \forall x \in \mathbb{R}^n
+$$
+
+Questo significa che le proprietà topologiche (aperti, chiusi, convergenza di
+successioni, ...) sono le stesse indipendentemente dalla norma scelta. Questa
+proprietà è specifica degli spazi di dimensione finita: in dimensione infinita
+non vale in generale.
+
+</Callout>
+
+## Spazio normato
+
+<Statement type="definition" title="Spazio Normato">
+
+Uno **spazio normato** è una coppia $(V, \|\cdot\|)$, dove $V$ è uno spazio
+vettoriale su $\mathbb{R}$ (o $\mathbb{C}$) e $\|\cdot\|$ è una norma su $V$.
+
+</Statement>
+
+Esempi fondamentali:
+
+- $(\mathbb{R}^n, \|\cdot\|_2)$ — lo spazio euclideo $n$-dimensionale.
+- $(\mathcal{C}([a,b]), \|\cdot\|_\infty)$ — lo spazio delle funzioni continue
+  su $[a,b]$ con la norma del sup: $\|f\|_\infty = \sup_{x \in [a,b]} |f(x)|$.
+
+## Distanza e metrica
+
+<Statement type="definition" title="Distanza (Metrica)">
+
+Sia $X$ un insieme non vuoto. Una **distanza** (o **metrica**) su $X$ è
+un'applicazione $d : X \times X \to \mathbb{R}$ che soddisfa, per ogni
+$x, y, z \in X$:
+
+1. **Positività:** $d(x, y) \geq 0$, e $d(x, y) = 0 \iff x = y$.
+2. **Simmetria:** $d(x, y) = d(y, x)$.
+3. **Disuguaglianza triangolare:** $d(x, z) \leq d(x, y) + d(y, z)$.
+
+</Statement>
+
+La metrica è il concetto più generale per misurare la "separazione" tra punti:
+non richiede che $X$ sia uno spazio vettoriale.
+
+## Spazio metrico
+
+<Statement type="definition" title="Spazio Metrico">
+
+Uno **spazio metrico** è una coppia $(X, d)$, dove $X$ è un insieme non vuoto e
+$d$ è una distanza su $X$.
+
+</Statement>
+
+### Da norma a metrica
+
+Ogni norma induce naturalmente una metrica: dato uno spazio normato
+$(V, \|\cdot\|)$, la funzione
+
+$$
+d(x, y) = \|x - y\|
+$$
+
+è una distanza su $V$. Quindi ogni spazio normato è automaticamente uno spazio
+metrico.
+
+<Callout type="warn" title="Il viceversa non vale">
+
+Non ogni metrica proviene da una norma. Ad esempio, la **metrica discreta**
+
+$$
+d(x,y) = \begin{cases} 0 & \text{se } x = y \\ 1 & \text{se } x \neq y \end{cases}
+$$
+
+è una distanza valida su qualsiasi insieme, ma non è indotta da alcuna norma
+(non rispetta l'omogeneità).
+
+</Callout>
+
+### Esempi di spazi metrici
+
+- **$(\mathbb{R}^n, d_2)$** con la distanza euclidea $d_2(x,y) = \|x - y\|_2$ —
+  lo spazio metrico più comune nell'analisi.
+- **$(\mathbb{R}, d)$** con $d(x,y) = |x - y|$ — la retta reale con la distanza
+  usuale.
+- **$(X, d_\text{discr})$** con la metrica discreta — qualsiasi insieme diventa
+  uno spazio metrico.
+
+## Successioni e completezza
+
+La nozione di distanza permette di definire la convergenza di successioni in
+modo naturale.
+
+<Statement type="definition" title="Successione convergente in uno spazio metrico">
+
+Sia $(X, d)$ uno spazio metrico. Una successione $\{x_n\} \subset X$ **converge
+a** $x \in X$ se
+
+$$
+\lim_{n \to \infty} d(x_n, x) = 0
+$$
+
+ovvero: per ogni $\varepsilon > 0$, esiste $N \in \mathbb{N}$ tale che
+$d(x_n, x) < \varepsilon$ per ogni $n \geq N$.
+
+</Statement>
+
+<Statement type="definition" title="Successione di Cauchy">
+
+Sia $(X, d)$ uno spazio metrico. Una successione $\{x_n\} \subset X$ è **di
+Cauchy** se per ogni $\varepsilon > 0$ esiste $N \in \mathbb{N}$ tale che
+
+$$
+d(x_n, x_m) < \varepsilon \quad \forall \, n, m \geq N
+$$
+
+</Statement>
+
+Ogni successione convergente è di Cauchy, ma il viceversa non vale in generale:
+uno spazio metrico in cui ogni successione di Cauchy converge si dice
+**completo**.
+
+<Statement type="definition" title="Spazio metrico completo">
+
+Uno spazio metrico $(X, d)$ si dice **completo** se ogni successione di Cauchy
+in $X$ converge a un elemento di $X$.
+
+</Statement>
+
+## Spazio di Banach
+
+<Statement type="definition" title="Spazio di Banach">
+
+Uno **spazio di Banach** è uno spazio normato $(V, \|\cdot\|)$ che è
+**completo** rispetto alla distanza indotta dalla norma, cioè ogni successione
+di Cauchy in $V$ ha limite in $V$.
+
+</Statement>
+
+In altre parole, uno spazio di Banach è uno spazio normato nel quale non ci sono
+"buchi": le successioni di Cauchy non possono convergere a un punto che non
+appartiene allo spazio.
+
+### Esempi
+
+- $\mathbb{R}^n$ con qualsiasi norma è uno spazio di Banach (per la completezza
+  di $\mathbb{R}$).
+- $(\mathcal{C}([a,b]), \|\cdot\|_\infty)$ è uno spazio di Banach: il limite
+  uniforme di funzioni continue è continuo.
+- $(\mathbb{Q}, |\cdot|)$ **non** è di Banach (nemmeno completo come spazio
+  metrico): esistono successioni di Cauchy di razionali che convergono a numeri
+  irrazionali.
+
+## Schema riassuntivo
+
+Le strutture introdotte formano una gerarchia di inclusione:
+
+$$
+\text{Spazi di Banach} \subset \text{Spazi normati} \subset \text{Spazi metrici}
+$$
+
+Ogni livello aggiunge struttura:
+
+| Struttura        | Richiede                  | Operazioni possibili                      |
+| ---------------- | ------------------------- | ----------------------------------------- |
+| Spazio metrico   | Insieme + distanza        | Misurare distanze, convergenza, topologia |
+| Spazio normato   | Spazio vettoriale + norma | Tutto sopra + operazioni algebriche       |
+| Spazio di Banach | Spazio normato completo   | Tutto sopra + completezza                 |
+
+<Callout type="tip" title="Per Analisi 2">
+
+Nella pratica dell'analisi in più variabili, si lavora quasi sempre in
+$\mathbb{R}^n$ con la norma euclidea. In questo contesto non è necessario
+preoccuparsi della scelta della norma (sono tutte equivalenti) né della
+completezza (che è garantita). Tuttavia, conoscere il quadro generale è
+importante per capire il fondamento dei teoremi che si utilizzano.
+
+</Callout>

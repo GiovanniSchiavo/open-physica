@@ -1,0 +1,70 @@
+---
+title: Isteresi e applicazioni
+description:
+  Ciclo di isteresi, induzione residua, campo coercitivo, perdite energetiche e
+  criteri di scelta dei materiali magnetici
+---
+
+## Ciclo di isteresi
+
+Nei ferromagneti il legame $B(H)$ dipende dalla storia del campione.
+
+Fisicamente questo riflette la dinamica dei domini magnetici: cambiare $H$
+sposta pareti di dominio e ruota momenti, ma il ritorno non avviene lungo lo
+stesso percorso.
+
+Grandezze chiave:
+
+- **remanenza** $B_r$: induzione a campo nullo;
+- **coercitività** $H_c$: campo necessario per annullare $B$;
+- **saturazione**: limite di allineamento dei domini.
+
+<Callout type="info" title="Relazione con M">
+
+Ricorda che spesso si ragiona tramite magnetizzazione $M$ (o $\mathbf{M}$):
+materiale "satura" quando i dipoli non possono piu aumentare l'allineamento. Il
+legame tra $B$, $H$ e $M$ e discusso in
+[Magnetizzazione e campo H](./magnetization-and-h-field).
+
+</Callout>
+
+## Energia dissipata
+
+L'area del ciclo $B$-$H$ rappresenta energia dissipata per unità di volume e
+ciclo:
+
+$$
+W_{\text{loss}}=\oint H\,dB
+$$
+
+A frequenza elevata le perdite crescono e diventano cruciali in trasformatori e
+macchine elettriche.
+
+Se il materiale e attraversato da un ciclo a frequenza $f$ su un volume $V$, la
+potenza dissipata media e:
+
+$$
+P_{\text{loss}} \approx f\,V\,W_{\text{loss}}
+$$
+
+## Materiali magnetici "morbidi" e "duri"
+
+- **morbidi**: $H_c$ piccolo, ciclo stretto, basse perdite;
+- **duri**: $H_c$ grande, alta remanenza, adatti a magneti permanenti.
+
+Questo e il criterio qualitativo che torna spesso negli esercizi: trasformatori
+vogliono materiali morbidi, magneti permanenti vogliono materiali duri.
+
+## Scelte progettuali tipiche
+
+- trasformatori a rete: nuclei con perdite ridotte (laminazione + materiali
+  morbidi);
+- memorie/attuatori: materiali con isteresi adeguata all'applicazione;
+- schermature: alta permeabilità per guidare flusso magnetico.
+
+<Callout type="warn" title="Errore tipico">
+
+Usare un modello lineare $B=\mu H$ su tutto il range di campo in un ferromagnete
+porta a errori anche di ordini di grandezza.
+
+</Callout>

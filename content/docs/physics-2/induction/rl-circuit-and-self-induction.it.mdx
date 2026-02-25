@@ -1,0 +1,62 @@
+---
+title: Circuito RL e autoinduzione
+description:
+  Induttanza, transitori RL, costante di tempo, energia magnetica e densità di
+  energia del campo
+---
+
+## Autoinduzione
+
+Una corrente variabile in un circuito varia il proprio flusso concatenato:
+
+$$
+\Phi_B=Li
+$$
+
+con induttanza $L$ (henry).
+
+La fem autoindotta è:
+
+$$
+\mathcal{E}_L=-L\frac{di}{dt}
+$$
+
+## Transitorio di salita in RL
+
+Per gradino di tensione $\mathcal{E}$:
+
+$$
+\mathcal{E}=L\frac{di}{dt}+Ri
+$$
+
+$$
+i(t)=\frac{\mathcal{E}}{R}\left(1-e^{-t/\tau}\right),\qquad \tau=\frac{L}{R}
+$$
+
+## Transitorio di spegnimento
+
+Con generatore rimosso:
+
+$$
+i(t)=i_0e^{-t/\tau}
+$$
+
+La corrente non può annullarsi istantaneamente: è la dualità del comportamento
+capacitivo (dove è la tensione a essere continua).
+
+## Energia magnetica
+
+$$
+U_B=\frac{1}{2}Li^2
+$$
+
+Forma di campo in mezzi lineari:
+
+$$
+u_B=\frac{B^2}{2\mu}=\frac{1}{2}\mathbf{B}\cdot\mathbf{H}
+$$
+
+<Callout type="warn" title="Errore tipico">
+  Confondere $\tau=RC$ (circuiti capacitivi) con $\tau=L/R$ (circuiti
+  induttivi).
+</Callout>

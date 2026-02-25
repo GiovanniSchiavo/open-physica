@@ -1,0 +1,264 @@
+---
+title: Topologia degli insiemi in ℝⁿ
+description:
+  Intorni, palle aperte, insiemi aperti e chiusi, interno, chiusura, frontiera e
+  punti di accumulazione.
+---
+
+Fissato uno spazio metrico — nel nostro caso $(\mathbb{R}^n, d)$ con la distanza
+euclidea — possiamo classificare i punti e gli insiemi in base alla loro
+posizione relativa. Queste nozioni sono alla base di tutti i risultati
+dell'analisi in più variabili.
+
+## Palla aperta e intorno
+
+<Statement type="definition" title="Palla aperta">
+
+Sia $x_0 \in \mathbb{R}^n$ e $r > 0$. La **palla aperta** di centro $x_0$ e
+raggio $r$ è l'insieme
+
+$$
+B(x_0, r) = \{ x \in \mathbb{R}^n : d(x, x_0) < r \}
+$$
+
+ovvero l'insieme di tutti i punti la cui distanza da $x_0$ è strettamente minore
+di $r$.
+
+</Statement>
+
+In $\mathbb{R}$ la palla aperta è un intervallo aperto $(x_0 - r, x_0 + r)$. In
+$\mathbb{R}^2$ con la norma euclidea è un disco senza bordo. In $\mathbb{R}^3$ è
+una sfera piena senza superficie.
+
+<Statement type="definition" title="Intorno">
+
+Un sottoinsieme $U \subseteq \mathbb{R}^n$ è un **intorno** di $x_0$ se esiste
+$r > 0$ tale che $B(x_0, r) \subseteq U$.
+
+</Statement>
+
+In pratica, "$U$ è un intorno di $x_0$" significa che $U$ contiene una palla
+aperta centrata in $x_0$: non serve che $U$ sia una palla, ma che "attorno" a
+$x_0$ ci sia un po' di spazio tutto contenuto in $U$.
+
+## Classificazione dei punti
+
+Dato un insieme $A \subseteq \mathbb{R}^n$, ogni punto $x_0 \in \mathbb{R}^n$
+può essere classificato in base al suo rapporto con $A$.
+
+### Punto interno
+
+<Statement type="definition" title="Punto interno">
+
+Un punto $x_0 \in A$ è un **punto interno** ad $A$ se esiste $r > 0$ tale che
+
+$$
+B(x_0, r) \subseteq A
+$$
+
+L'insieme di tutti i punti interni di $A$ si chiama **interno** di $A$ e si
+denota con $\mathring{A}$ (oppure $\text{int}(A)$).
+
+</Statement>
+
+### Punto esterno
+
+<Statement type="definition" title="Punto esterno">
+
+Un punto $x_0 \in \mathbb{R}^n$ è un **punto esterno** ad $A$ se è un punto
+interno del complementare $A^c = \mathbb{R}^n \setminus A$, cioè se esiste
+$r > 0$ tale che
+
+$$
+B(x_0, r) \subseteq A^c
+$$
+
+L'insieme dei punti esterni di $A$ si chiama **esterno** di $A$ e si denota con
+$\text{ext}(A)$.
+
+</Statement>
+
+### Punto di frontiera
+
+<Statement type="definition" title="Punto di frontiera">
+
+Un punto $x_0 \in \mathbb{R}^n$ è un **punto di frontiera** di $A$ se ogni palla
+aperta centrata in $x_0$ contiene sia punti di $A$ che punti di $A^c$:
+
+$$
+\forall \, r > 0 : \quad B(x_0, r) \cap A \neq \emptyset \quad \text{e} \quad B(x_0, r) \cap A^c \neq \emptyset
+$$
+
+L'insieme dei punti di frontiera si chiama **frontiera** di $A$ e si denota con
+$\partial A$.
+
+</Statement>
+
+<Callout type="info" title="Partizione di ℝⁿ">
+
+Ogni punto di $\mathbb{R}^n$ appartiene a esattamente una di queste tre
+categorie: interno ad $A$, esterno ad $A$, oppure sulla frontiera di $A$. Si ha
+dunque:
+
+$$
+\mathbb{R}^n = \mathring{A} \sqcup \text{ext}(A) \sqcup \partial A
+$$
+
+dove $\sqcup$ denota l'unione disgiunta.
+
+</Callout>
+
+### Punto di accumulazione
+
+<Statement type="definition" title="Punto di accumulazione">
+
+Un punto $x_0 \in \mathbb{R}^n$ è un **punto di accumulazione** per $A$ se ogni
+intorno di $x_0$ contiene almeno un punto di $A$ diverso da $x_0$:
+
+$$
+\forall \, r > 0 : \quad B(x_0, r) \cap (A \setminus \{x_0\}) \neq \emptyset
+$$
+
+L'insieme dei punti di accumulazione di $A$ si chiama **derivato** di $A$ e si
+denota con $A'$ (oppure $D(A)$).
+
+</Statement>
+
+Un punto di accumulazione può appartenere o meno ad $A$. Ciò che conta è che
+"nelle vicinanze" di $x_0$ ci siano sempre altri punti di $A$, per quanto ci si
+avvicini.
+
+### Punto isolato
+
+<Statement type="definition" title="Punto isolato">
+
+Un punto $x_0 \in A$ è un **punto isolato** di $A$ se esiste $r > 0$ tale che
+
+$$
+B(x_0, r) \cap A = \{x_0\}
+$$
+
+cioè $x_0$ è l'unico punto di $A$ nella palla. Un punto isolato appartiene ad
+$A$ ma non è un punto di accumulazione.
+
+</Statement>
+
+## Insiemi aperti e chiusi
+
+<Statement type="definition" title="Insieme aperto">
+
+Un insieme $A \subseteq \mathbb{R}^n$ è **aperto** se ogni suo punto è un punto
+interno:
+
+$$
+A = \mathring{A}
+$$
+
+Equivalentemente, per ogni $x \in A$ esiste $r > 0$ tale che
+$B(x, r) \subseteq A$.
+
+</Statement>
+
+Un insieme aperto non contiene mai i suoi punti di frontiera.
+
+<Statement type="definition" title="Insieme chiuso">
+
+Un insieme $A \subseteq \mathbb{R}^n$ è **chiuso** se il suo complementare
+$A^c = \mathbb{R}^n \setminus A$ è aperto.
+
+</Statement>
+
+<Statement type="proposition" title="Caratterizzazioni degli insiemi chiusi">
+
+Per un insieme $A \subseteq \mathbb{R}^n$, le seguenti condizioni sono
+equivalenti:
+
+1. $A$ è chiuso.
+2. $A$ contiene tutti i suoi punti di frontiera: $\partial A \subseteq A$.
+3. $A$ contiene tutti i suoi punti di accumulazione: $A' \subseteq A$.
+4. Ogni successione $\{x_n\} \subset A$ convergente ha limite in $A$.
+
+</Statement>
+
+<Callout type="warn" title="Aperto e chiuso non sono opposti">
+
+Un insieme può essere **contemporaneamente aperto e chiuso** (si dice
+**clopen**): $\mathbb{R}^n$ e $\emptyset$ sono sia aperti che chiusi.
+
+Un insieme può anche non essere **né aperto né chiuso**: ad esempio,
+l'intervallo $[0, 1)$ in $\mathbb{R}$.
+
+"Aperto" e "chiuso" non sono proprietà complementari.
+
+</Callout>
+
+### Proprietà degli insiemi aperti e chiusi
+
+<Statement type="proposition" title="Proprietà di aperti e chiusi">
+
+In $\mathbb{R}^n$:
+
+- L'**unione** qualsiasi di insiemi aperti è aperta.
+- L'**intersezione finita** di insiemi aperti è aperta.
+- L'**intersezione** qualsiasi di insiemi chiusi è chiusa.
+- L'**unione finita** di insiemi chiusi è chiusa.
+
+</Statement>
+
+## Interno, chiusura e frontiera
+
+<Statement type="definition" title="Chiusura">
+
+La **chiusura** di un insieme $A \subseteq \mathbb{R}^n$ è il più piccolo
+insieme chiuso che contiene $A$:
+
+$$
+\bar{A} = A \cup \partial A = A \cup A'
+$$
+
+Equivalentemente, $\bar{A}$ è l'intersezione di tutti i chiusi che contengono
+$A$.
+
+</Statement>
+
+Le relazioni tra interno, chiusura e frontiera si riassumono così:
+
+$$
+\mathring{A} \subseteq A \subseteq \bar{A}
+$$
+
+$$
+\partial A = \bar{A} \setminus \mathring{A}
+$$
+
+- $A$ è aperto $\iff$ $A = \mathring{A}$.
+- $A$ è chiuso $\iff$ $A = \bar{A}$.
+
+## Insieme limitato
+
+<Statement type="definition" title="Insieme limitato">
+
+Un insieme $A \subseteq \mathbb{R}^n$ è **limitato** se è contenuto in una palla
+aperta, cioè se esiste $R > 0$ e un punto $x_0 \in \mathbb{R}^n$ tale che
+
+$$
+A \subseteq B(x_0, R)
+$$
+
+Equivalentemente, $A$ è limitato se $\sup_{x,y \in A} d(x,y) < +\infty$.
+
+</Statement>
+
+## Esempi in $\mathbb{R}^2$
+
+Per fissare le idee, vediamo alcuni esempi nel piano:
+
+| Insieme                                                  | Aperto | Chiuso | Limitato |
+| -------------------------------------------------------- | ------ | ------ | -------- |
+| $B(0, 1) = \{(x,y) : x^2 + y^2 < 1\}$                    | Sì     | No     | Sì       |
+| $\bar{B}(0, 1) = \{(x,y) : x^2 + y^2 \leq 1\}$           | No     | Sì     | Sì       |
+| $\{(x,y) : x^2 + y^2 = 1\}$ (circonferenza)              | No     | Sì     | Sì       |
+| $\{(x,y) : x > 0\}$ (semipiano)                          | Sì     | No     | No       |
+| $\mathbb{R}^2$                                           | Sì     | Sì     | No       |
+| $\emptyset$                                              | Sì     | Sì     | Sì       |
+| $\{(x,y) : 0 < x^2 + y^2 \leq 1\}$ (disco bucato chiuso) | No     | No     | Sì       |

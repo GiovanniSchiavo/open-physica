@@ -1,0 +1,77 @@
+---
+title: Poynting e impulso elettromagnetico
+description:
+  Flusso di energia del campo, teorema di Poynting, densità di quantità di moto,
+  pressione di radiazione e tensore di Maxwell
+---
+
+## Vettore di Poynting
+
+<Statement type="definition" title="Flusso di potenza elettromagnetica">
+
+$$
+\mathbf{S}=\mathbf{E}\times\mathbf{H}
+$$
+
+</Statement>
+
+$\mathbf{S}$ indica direzione e densità di flusso di energia (W/m$^2$).
+
+## Teorema di Poynting
+
+In forma locale:
+
+$$
+\frac{\partial u}{\partial t}+\nabla\cdot\mathbf{S}=-\mathbf{J}\cdot\mathbf{E}
+$$
+
+con densità di energia del campo:
+
+$$
+u=\frac{1}{2}(\mathbf{E}\cdot\mathbf{D}+\mathbf{B}\cdot\mathbf{H})
+$$
+
+Interpretazione:
+
+- variazione locale di energia del campo;
+- flusso uscente di energia;
+- lavoro del campo sulle cariche.
+
+## Quantità di moto del campo
+
+Per onde in mezzo lineare semplice:
+
+$$
+\mathbf{g}=\frac{\mathbf{S}}{v^2}
+$$
+
+dove $\mathbf{g}$ è la densità di quantità di moto.
+
+## Pressione di radiazione
+
+Su superficie assorbente ideale (incidenza normale):
+
+$$
+p=\frac{I}{v}
+$$
+
+Su superficie riflettente ideale:
+
+$$
+p=\frac{2I}{v}
+$$
+
+Questi risultati spiegano spinte radiative su vele solari e micro-forze in
+sistemi ottici.
+
+## Tensore degli sforzi di Maxwell
+
+Il tensore $\mathbf{T}$ descrive flusso di quantità di moto e trazioni
+meccaniche del campo. È il formalismo completo per problemi di forza su volumi e
+superfici in elettromagnetismo continuo.
+
+<Callout type="info">
+  In molti esercizi base basta il vettore di Poynting; il tensore di Maxwell
+  diventa essenziale in geometrie 3D non banali o quando servono forze locali
+  distribuite.
+</Callout>

@@ -1,0 +1,105 @@
+---
+title: Filtri del primo ordine
+description:
+  "Filtri RC passa-basso e passa-alto: funzione di trasferimento, frequenza di
+  taglio, modulo, fase e risposta qualitativa"
+---
+
+Un filtro del primo ordine e il modello piu semplice di selezione in frequenza:
+una rete RC introduce una scala temporale $\tau=RC$, che si manifesta come
+frequenza di taglio $\omega_c=1/\tau$.
+
+Nel corso questi filtri sono utili per:
+
+- capire Bode (pendenze e frequenze caratteristiche);
+- interpretare circuiti reali come approssimazioni (accoppiamenti, sensori,
+  stadi di misura).
+
+## Metodo: partitore di impedenza
+
+Per qualunque rete serie $Z_1$-$Z_2$ con uscita su $Z_2$:
+
+$$
+H(j\omega)=\frac{V_{out}}{V_{in}}=\frac{Z_2}{Z_1+Z_2}
+$$
+
+Qui usiamo $Z_R=R$ e $Z_C=\frac{1}{j\omega C}$.
+
+## Filtro RC passa-basso
+
+Uscita sul condensatore:
+
+$$
+H_{LP}(j\omega)=\frac{1}{1+j\omega RC}
+$$
+
+Modulo e fase:
+
+$$
+|H_{LP}|=\frac{1}{\sqrt{1+(\omega RC)^2}},\qquad
+\phi_{LP}=-\arctan(\omega RC)
+$$
+
+Frequenza di taglio ($-3$ dB):
+
+$$
+\omega_c=\frac{1}{RC},\qquad f_c=\frac{1}{2\pi RC}
+$$
+
+### Interpretazione fisica
+
+- per $\omega\ll\omega_c$ il condensatore "sembra aperto" lentamente e l'uscita
+  segue l'ingresso;
+- per $\omega\gg\omega_c$ il condensatore si comporta come bassa impedenza e
+  l'uscita viene attenuata.
+
+## Filtro RC passa-alto
+
+Uscita sul resistore:
+
+$$
+H_{HP}(j\omega)=\frac{j\omega RC}{1+j\omega RC}
+$$
+
+$$
+|H_{HP}|=\frac{\omega RC}{\sqrt{1+(\omega RC)^2}},\qquad
+\phi_{HP}=\frac{\pi}{2}-\arctan(\omega RC)
+$$
+
+### Interpretazione fisica
+
+- per $\omega\ll\omega_c$ il condensatore blocca la componente lenta (quasi DC);
+- per $\omega\gg\omega_c$ il condensatore lascia passare e l'uscita segue
+  l'ingresso.
+
+## Regimi asintotici
+
+- passa-basso:
+  - $\omega\ll\omega_c$: $|H|\approx1$
+  - $\omega\gg\omega_c$: attenuazione $\sim1/\omega$
+- passa-alto:
+  - $\omega\ll\omega_c$: forte attenuazione
+  - $\omega\gg\omega_c$: $|H|\approx1$
+
+## Collegamento con il dominio del tempo
+
+La stessa costante $\tau=RC$ governa la risposta a gradino.
+
+- passa-basso (uscita su $C$): $V_{out}(t)$ cresce esponenzialmente verso
+  $V_{in}$ con tempo caratteristico $\tau$;
+- passa-alto (uscita su $R$): $V_{out}(t)$ e un impulso esponenziale che decade
+  con $\tau$ (derivazione qualitativa del gradino).
+
+## Utilità pratica nel corso
+
+- riduzione del rumore ad alta frequenza;
+- accoppiamento AC (blocco della componente continua);
+- modellazione di stadi elettronici lineari semplici.
+
+<Callout type="tip" title="Metodo rapido in esame">
+
+Scrivi prima la funzione di trasferimento con partitore di impedenza, poi estrai
+modulo/fase e valuta i limiti a bassa/alta frequenza (sanity check a
+$\omega\to0$ e $\omega\to\infty$).
+
+</Callout>

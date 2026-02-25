@@ -1,0 +1,59 @@
+---
+title: "Esercizio 1"
+description: "Determinare il limite di una funzione a due variabili"
+badges:
+  - Limiti
+exercise:
+  difficulty: 2
+---
+
+## Testo dell'esercizio
+
+Determinare il limite per $(x,y) \to (0,0)$ della funzione a due variabili
+$f : \mathbb{R}^2 \to \mathbb{R}$ definita come
+
+$$
+f(x,y) = \frac{xy^2}{x^2 + y^4}
+$$
+
+## Soluzione [toc]
+
+<Solution>
+
+La funzione è definita in $\mathbb{R}^2 \setminus \{(0,0)\}$ (poichè il
+denominatore deve essere diverso da zero). Affinchè la funzione abbia un limite
+finito per $(x,y) \to (0,0)$, il limite deve essere indipendente dal percorso
+seguito per avvicinarsi a $(0,0)$, ovvero **deve essere lo stesso per ogni
+direzione in cui ci si avvicina a $(0,0)$**.
+
+Scegliamo arbitrariamente alcune restrizioni del dominio:
+
+1.  Percorso lungo l'asse $x$ (ovvero poniamo $y = 0$):
+
+    $$
+    \lim_{x \to 0} f(x,0) = \lim_{x \to 0} \frac{x \cdot 0^2}{x^2 + 0^4} = 0
+    $$
+
+2.  Percorso lungo l'asse $y$ (ovvero poniamo $x = 0$):
+
+    $$
+    \lim_{y \to 0} f(0,y) = \lim_{y \to 0} \frac{0 \cdot y^2}{0^2 + y^4} = 0
+    $$
+
+3.  Percorso lungo la retta generica $y = mx$:
+
+    $$
+    \lim_{x \to 0} f(x,mx) = \lim_{x \to 0} \frac{x \cdot (mx)^2}{x^2 + (mx)^4} = \lim_{x \to 0} \frac{m^2 x}{1 + m^4 x^2} = 0
+    $$
+
+4.  Percorso lungo la curva $x = y^2$:
+
+    $$
+    \lim_{y \to 0} f(y^2,y) = \lim_{y \to 0} \frac{y^2 \cdot y^2}{(y^2)^2 + y^4} = \lim_{y \to 0} \frac{y^4}{2y^4} = \frac{1}{2}
+    $$
+
+Abbiamo trovato due limiti differenti a seconda del percorso seguito per
+avvicinarsi a $(0,0)$: lungo gli assi e le rette il limite è $0$, mentre lungo
+la curva $x = y^2$ il limite è $\frac{1}{2}$. Pertanto, il limite non esiste.
+
+</Solution>

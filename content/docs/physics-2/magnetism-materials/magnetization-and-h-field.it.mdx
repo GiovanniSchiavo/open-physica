@@ -1,0 +1,62 @@
+---
+title: Magnetizzazione e campo H
+description:
+  Definizione di magnetizzazione, correnti amperiane legate e ruolo del campo
+  ausiliario H nelle equazioni di Maxwell per la materia
+---
+
+## Magnetizzazione
+
+La magnetizzazione macroscopica è il momento magnetico per unità di volume:
+
+$$
+\mathbf{M}=\frac{d\mathbf{m}}{d\tau}
+$$
+
+Da $\mathbf{M}$ si ottengono correnti legate:
+
+$$
+\mathbf{J}_b=\nabla\times\mathbf{M},\qquad
+\mathbf{K}_b=\mathbf{M}\times\hat{\mathbf{n}}
+$$
+
+## Campo ausiliario H
+
+Si introduce:
+
+$$
+\mathbf{H}=\frac{1}{\mu_0}\mathbf{B}-\mathbf{M}
+$$
+
+così che l'equazione di Ampere-Maxwell in materia separi correnti libere da
+correnti legate:
+
+$$
+\nabla\times\mathbf{H}=\mathbf{J}_f
+$$
+
+(in regime stazionario).
+
+## Materiali lineari isotropi
+
+Per molti materiali:
+
+$$
+\mathbf{M}=\chi_m\mathbf{H},\qquad
+\mathbf{B}=\mu_0(1+\chi_m)\mathbf{H}=\mu\mathbf{H}
+$$
+
+con $\mu_r=1+\chi_m$.
+
+## Condizioni al contorno
+
+- $B_n$ continuo;
+- salto di $H_t$ uguale a corrente superficiale libera.
+
+Queste condizioni permettono calcolo di campi in interfacce materiale-vuoto o
+materiale-materiale.
+
+<Callout type="info">
+  La coppia $(\mathbf{B},\mathbf{H})$ in magnetismo gioca un ruolo analogo a
+  $(\mathbf{D},\mathbf{E})$ in elettrostatica della materia.
+</Callout>

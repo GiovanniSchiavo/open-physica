@@ -1,0 +1,133 @@
+---
+title: Serie a segni alterni
+description:
+  Criteri di convergenza per serie a segni alterni e variabili (Leibniz e
+  Dirichlet)
+---
+
+## Criterio di Leibniz
+
+Per le serie a termini di segno alterno, ovvero del tipo $\sum (-1)^n a_n$ con
+$a_n \geq 0$, esiste un criterio specifico fondamentale.
+
+<section id="criterio-leibniz">
+
+<Statement type="theorem" title="Criterio di Leibniz">
+
+Sia $\{a_n\}_{n \in \mathbb{N}}$ una successione a termini non negativi che
+soddisfi tre condizioni:
+
+1.  **Positività:** $a_n \geq 0$ per ogni $n$.
+2.  **Monotonia:** La successione è **decrescente** ($a_{n+1} \leq a_n$).
+3.  **Infinitesima:** $\lim_{n \to \infty} a_n = 0$.
+
+Allora la serie a segni alterni converge:
+
+$$
+\sum_{k=0}^{\infty} (-1)^k a_k \quad \text{converge}
+$$
+
+Inoltre, se $S$ è la somma della serie, vale la stima dell'errore per la ridotta
+$S_n$:
+
+$$
+|S_n - S| \leq a_{n+1}
+$$
+
+Il resto è maggiorato in valore assoluto dal primo termine trascurato.
+
+</Statement>
+
+</section>
+
+### Dimostrazione
+
+Consideriamo le somme parziali di indice pari $S_{2n}$ e di indice dispari
+$S_{2n+1}$.
+
+1.  **Monotonia delle sottosuccessioni**:
+    - $S_{2n+2} = S_{2n} - a_{2n+1} + a_{2n+2}$. Poiché $a_n$ è decrescente,
+      $a_{2n+2} \leq a_{2n+1}$, quindi $-a_{2n+1} + a_{2n+2} \leq 0$. Ne segue
+      che $\{S_{2n}\}$ è **decrescente**.
+
+    - $S_{2n+3} = S_{2n+1} + a_{2n+2} - a_{2n+3}$. Poiché
+      $a_{2n+2} \geq a_{2n+3}$, il termine aggiunto è $\geq 0$. Ne segue che
+      $\{S_{2n+1}\}$ è **crescente**.
+
+2.  **Relazione tra le sottosuccessioni**:
+
+    $$
+    S_{2n+1} = S_{2n} - a_{2n+1}
+    $$
+
+    Poiché $a_{2n+1} \geq 0$, si ha $S_{2n+1} \leq S_{2n}$. Essendo $S_{2n}$
+    decrescente, $S_{2n} \leq S_0$. Essendo $S_{2n+1}$ crescente,
+    $S_{2n+1} \geq S_1$. Quindi entrambe sono limitate:
+
+    $$
+    S_1 \leq S_{2n+1} \leq S_{2n} \leq S_0
+    $$
+
+3.  **Convergenza allo stesso limite**: Per la monotonia e limitatezza, esistono
+    i limiti finiti: $\lim S_{2n} = L_1$ e $\lim S_{2n+1} = L_2$. Passando al
+    limite nella relazione $S_{2n+1} = S_{2n} - a_{2n+1}$:
+    $$
+    L_2 = L_1 - \lim_{n \to \infty} a_{2n+1}
+    $$
+    Poiché $a_n \to 0$ (ipotesi), si ha $L_2 = L_1 - 0 = L_1$. Dunque tutta la
+    successione converge a $S = L_1 = L_2$.
+
+### Esempio: Serie Armonica a Segni Alterni
+
+La serie:
+
+$$
+\sum_{n=1}^{\infty} (-1)^{n+1} \frac{1}{n} = 1 - \frac{1}{2} + \frac{1}{3} - \frac{1}{4} + \dots
+$$
+
+soddisfa le ipotesi di Leibniz ($1/n$ decresce a 0). Quindi converge (a
+$\ln 2$). Nota che la serie **non converge assolutamente** (la serie dei valori
+assoluti è l'armonica divergente).
+
+## Criterio di Dirichlet
+
+Questo criterio generalizza Leibniz a serie prodotto $\sum a_n b_n$ dove il
+segno (o la fase) è determinato da $b_n$.
+
+<section id="criterio-dirichlet">
+
+<Statement type="theorem" title="Criterio di Dirichlet">
+
+Sia $\{a_n\}_{n \in \mathbb{N}}$ una successione a termini non negativi,
+**decrescente** e **infinitesima**.
+
+Sia $\{b_n\}_{n \in \mathbb{N}}$ un'altra successione tale che le sue somme
+parziali siano **limitate**:
+
+$$
+\exists C > 0 \text{ t.c. } \left| \sum_{k=0}^{n} b_k \right| \leq C \quad \forall n \geq 0
+$$
+
+Allora la serie prodotto converge:
+
+$$
+\sum_{n=0}^{\infty} a_n b_n \quad \text{converge}
+$$
+
+</Statement>
+
+</section>
+
+### Osservazione
+
+Il criterio di Leibniz si ottiene ponendo $b_n = (-1)^n$. Le somme parziali di
+$(-1)^n$ oscillano tra valori limitati (es. 0 e 1), quindi sono limitate.
+
+### Esempio Applicativo
+
+Dimostriamo che la serie $\sum_{k=1}^{\infty} \frac{\sin k}{k}$ converge.
+
+- $a_k = \frac{1}{k}$ è decrescente e infinitesima.
+- $b_k = \sin k$ ha somme parziali limitate (fatto noto dall'analisi complessa).
+
+Quindi per Dirichlet la serie converge.

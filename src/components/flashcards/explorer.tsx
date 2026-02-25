@@ -533,6 +533,7 @@ export function FlashcardsExplorer({
             <div className="flex justify-center">
               <Button
                 type="button"
+                nativeButton={false}
                 className="h-12 min-w-56 rounded-xl border border-sky-300/35 bg-[linear-gradient(135deg,#1d4ed8,#0891b2)] px-7 text-base font-semibold text-white shadow-[0_18px_35px_-18px_rgba(8,145,178,0.55)] transition hover:scale-[1.02] hover:brightness-105 active:scale-[0.99]"
                 render={<a href={interactiveHref} />}
               >

@@ -1,0 +1,476 @@
+---
+flashcards: true
+---
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Cos'è la forza di Lorentz? Scrivi l'espressione completa e descrivi il moto di
+una carica in un campo magnetico uniforme.
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+La **forza di Lorentz** su una carica $q$ con velocità $\mathbf{v}$ in campi
+$\mathbf{E}$ e $\mathbf{B}$ è:
+
+$$\mathbf{F} = q(\mathbf{E} + \mathbf{v} \times \mathbf{B})$$
+
+**Moto in campo magnetico uniforme** ($\mathbf{E} = 0$):
+
+La componente di $\mathbf{v}$ perpendicolare a $\mathbf{B}$ genera una forza
+centripeta $\Rightarrow$ moto **circolare uniforme** con:
+
+- **Raggio di Larmor**: $r_L = \dfrac{mv_\perp}{|q|B}$
+- **Frequenza di ciclotrone**: $\omega_c = \dfrac{|q|B}{m}$ (indipendente da
+  $v$)
+
+Se $\mathbf{v}$ ha anche una componente parallela a $\mathbf{B}$, il moto
+risultante è **elicoidale**.
+
+La forza magnetica non compie lavoro ($\mathbf{F}_B \perp \mathbf{v}$), quindi
+non modifica il modulo della velocità.
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+"Parlami delle sorgenti del campo magnetico": quali grandezze generano
+$\mathbf{B}$ e quali equazioni le collegano in magnetostatica?
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+In magnetostatica (correnti stazionarie) le sorgenti del campo magnetico sono:
+
+- **correnti elettriche** (densità $\mathbf{J}$);
+- nei materiali, anche le **correnti legate** associate alla magnetizzazione
+  $\mathbf{M}$ (livello macroscopico).
+
+Le equazioni fondamentali sono:
+
+$$
+\boxed{\nabla\cdot\mathbf{B}=0}
+$$
+
+(non esistono monopoli magnetici: le linee di $\mathbf{B}$ sono chiuse) e:
+
+$$
+\boxed{\nabla\times\mathbf{B}=\mu_0\mathbf{J}}
+$$
+
+In forma integrale, la seconda è il teorema di Ampère:
+
+$$
+\oint_{\mathcal{C}}\mathbf{B}\cdot d\mathbf{l}=\mu_0 I_{\text{conc}}
+$$
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Cos'è la prima legge di Laplace (Biot-Savart-Laplace) e come porta al campo di
+un filo infinito?
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+La **prima legge di Laplace** (forma elementare di Biot-Savart-Laplace) dà il
+contributo di un elemento di corrente $I\,d\mathbf{l}$ al campo magnetico:
+
+$$
+d\mathbf{B}=
+\frac{\mu_0}{4\pi}\frac{I\,d\mathbf{l}\times\hat{\mathbf{r}}}{r^2}
+$$
+
+Integrando lungo un filo rettilineo indefinito si ottiene:
+
+$$
+\boxed{B(r)=\frac{\mu_0 I}{2\pi r}}
+$$
+
+con direzione tangente alle circonferenze concentriche al filo (regola della
+mano destra).
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Enuncia la seconda formula di Laplace e commenta il suo significato fisico.
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+La **seconda formula di Laplace** descrive la forza su un elemento di filo
+$d\mathbf{l}$ percorso da corrente $I$ in un campo magnetico $\mathbf{B}$:
+
+$$
+\boxed{d\mathbf{F}=I\,d\mathbf{l}\times\mathbf{B}}
+$$
+
+Conseguenze:
+
+- la forza è perpendicolare sia a $d\mathbf{l}$ sia a $\mathbf{B}$;
+- se un tratto di circuito può muoversi, questa legge spiega il principio di
+  motori elettrici e strumenti a bobina mobile;
+- per un tratto rettilineo di lunghezza $\ell$ in $\mathbf{B}$ uniforme:
+  $|\mathbf{F}|=I\ell B\sin\theta$.
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Perché si introduce il potenziale vettore $\mathbf{A}$? Quale equazione soddisfa
+in magnetostatica e qual è la sua soluzione integrale?
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+Poiché $\nabla\cdot\mathbf{B}=0$, si può sempre scrivere:
+
+$$
+\boxed{\mathbf{B}=\nabla\times\mathbf{A}}
+$$
+
+Il potenziale vettore non è unico (gauge): $\mathbf{A}\to\mathbf{A}+\nabla\psi$
+lascia invariato $\mathbf{B}$.
+
+In magnetostatica, scegliendo la **gauge di Coulomb** $\nabla\cdot\mathbf{A}=0$
+e usando $\nabla\times\mathbf{B}=\mu_0\mathbf{J}$ si ottiene l'equazione di
+Poisson vettoriale:
+
+$$
+\boxed{\nabla^2\mathbf{A}=-\mu_0\mathbf{J}}
+$$
+
+La soluzione in spazio libero è:
+
+$$
+\boxed{
+\mathbf{A}(\mathbf{r})=
+\frac{\mu_0}{4\pi}\int_{\mathbb{R}^3}\frac{\mathbf{J}(\mathbf{r}')}{|\mathbf{r}-\mathbf{r}'|}\,d\tau'
+}
+$$
+
+Esempio: per un dipolo magnetico $\mathbf{m}$,
+$\mathbf{A}(\mathbf{r})=\dfrac{\mu_0}{4\pi}\dfrac{\mathbf{m}\times\mathbf{r}}{r^3}$.
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+In che senso il campo magnetico può essere "conservativo"? Quando si può
+definire un potenziale magnetico scalare?
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+In generale $\mathbf{B}$ **non** è conservativo perché:
+
+$$
+\nabla\times\mathbf{B}=\mu_0\mathbf{J}
+$$
+
+Quindi dove passano correnti ($\mathbf{J}\neq 0$) la circuitazione di
+$\mathbf{B}$ può essere non nulla.
+
+In una regione in cui non ci sono correnti ($\mathbf{J}=0$) e i campi sono
+stazionari:
+
+$$
+\nabla\times\mathbf{B}=0
+$$
+
+Se inoltre la regione è **semplicemente connessa**, si può definire un
+potenziale scalare $\phi_m$ tale che:
+
+$$
+\boxed{\mathbf{B}=-\nabla\phi_m}
+$$
+
+In regioni non semplicemente connesse (per esempio attorno a un filo percorso da
+corrente) $\nabla\times\mathbf{B}=0$ può valere localmente, ma $\phi_m$ non è
+definibile globalmente senza tagli.
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Perché l'ago di una bussola si orienta nel campo magnetico terrestre?
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+L'ago della bussola si comporta come un **dipolo magnetico** con momento
+$\mathbf{m}$.
+
+In un campo $\mathbf{B}$ subisce un **momento torcente**:
+
+$$
+\boldsymbol{\tau}=\mathbf{m}\times\mathbf{B}
+$$
+
+che tende ad allineare $\mathbf{m}$ con $\mathbf{B}$ (energia minima
+$U=-\mathbf{m}\cdot\mathbf{B}$).
+
+Il campo terrestre vicino alla superficie è dell'ordine di
+$B_{\oplus}\sim 25$--$65\,\mu\text{T}$: è sufficiente a produrre un torque
+misurabile su un ago magnetizzato leggero.
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Definisci il campo di induzione magnetica $\mathbf{B}$ e la sua unità di misura.
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+Il campo magnetico $\mathbf{B}$ è definito operativamente dalla forza di Lorentz
+su una carica in moto:
+
+$$
+\mathbf{F}=q\,\mathbf{v}\times\mathbf{B}
+$$
+
+Nel SI, l'unità di misura è il **tesla**:
+
+$$
+1\ \text{T}=1\ \frac{\text{N}}{\text{A}\cdot\text{m}}
+$$
+
+Il campo $\mathbf{B}$ determina direzione e intensità degli effetti magnetici su
+cariche e correnti.
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Enuncia la legge di Biot-Savart in forma differenziale.
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+Il contributo infinitesimo al campo magnetico generato da un elemento di
+corrente $I\,d\mathbf{l}$ è:
+
+$$
+d\mathbf{B}=
+\frac{\mu_0}{4\pi}
+\frac{I\,d\mathbf{l}\times\hat{\mathbf{r}}}{r^2}
+$$
+
+dove $\hat{\mathbf{r}}$ è il versore dall'elemento sorgente al punto di
+osservazione.
+
+Integrando su tutto il circuito si ottiene il campo totale $\mathbf{B}$.
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Definisci il flusso magnetico concatenato a una superficie.
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+Il flusso magnetico attraverso una superficie orientata $S$ è:
+
+$$
+\Phi_B=\int_S \mathbf{B}\cdot d\mathbf{A}
+$$
+
+Si misura in **weber** (Wb), con:
+
+$$
+1\ \text{Wb}=1\ \text{T}\cdot\text{m}^2
+$$
+
+Il flusso concatenato è la grandezza centrale nelle leggi di Faraday-Lenz e
+nella definizione di induttanza.
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Definisci frequenza ciclotronica e raggio ciclotronico per una carica in
+$\mathbf{B}$ uniforme.
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+Per moto perpendicolare a $\mathbf{B}$:
+
+$$
+r_c=\frac{mv_\perp}{|q|B}
+$$
+
+$$
+\omega_c=\frac{|q|B}{m},\qquad
+f_c=\frac{\omega_c}{2\pi}
+$$
+
+Queste grandezze caratterizzano il moto circolare uniforme delle particelle
+cariche in campo magnetico uniforme.
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Cos'è la legge di Biot-Savart? Utilizzala per calcolare il campo magnetico al
+centro di una spira circolare percorsa da corrente.
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+La **legge di Biot-Savart** fornisce il contributo elementare al campo magnetico
+prodotto da un elemento di corrente $I\,d\mathbf{l}$:
+
+$$d\mathbf{B} = \frac{\mu_0 I}{4\pi}\frac{d\mathbf{l} \times \hat{r}}{r^2}$$
+
+**Campo al centro di una spira** di raggio $R$, corrente $I$:
+
+Ogni elemento $d\mathbf{l}$ è perpendicolare a $\hat{r}$, quindi
+$|d\mathbf{l}\times\hat{r}| = dl$ e $r = R$ costante:
+
+$$B = \frac{\mu_0 I}{4\pi R^2}\oint dl = \frac{\mu_0 I}{4\pi R^2}\cdot 2\pi R$$
+
+$$\boxed{B = \frac{\mu_0 I}{2R}}$$
+
+Il campo è diretto perpendicolarmente al piano della spira, nel verso dato dalla
+regola della mano destra.
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Applica la legge di Ampère per calcolare il campo magnetico di un filo
+rettilineo indefinito e di un solenoide ideale.
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+**Legge di Ampère**:
+$\oint_{\partial S} \mathbf{B}\cdot d\mathbf{l} = \mu_0 I_{\text{enc}}$
+
+**Filo rettilineo indefinito** — corrente $I$, distanza $r$:
+
+Simmetria cilindrica: $B \cdot 2\pi r = \mu_0 I$
+
+$$\boxed{B = \frac{\mu_0 I}{2\pi r}}$$
+
+Il campo è circolare attorno al filo, proporzionale a $1/r$.
+
+**Solenoide ideale** — $n$ spire/m, campo uniforme interno:
+
+Rettangolo ampèriano di lato $\ell_\parallel$ interno e lato esterno (B≈0):
+
+$B\,\ell_\parallel = \mu_0 n\,\ell_\parallel\, I$
+
+$$\boxed{B = \mu_0 n I}$$
+
+Il campo è uniforme all'interno e zero al di fuori (solenoide ideale).
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Cos'è il momento di dipolo magnetico di una spira? Scrivi le espressioni per il
+momento torcente, l'energia e il collegamento con il momento angolare orbitale.
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+Il **momento di dipolo magnetico** di una spira piana di area $A$ percorsa da
+corrente $I$ è:
+
+$$\mathbf{m} = I A\,\hat{n}$$
+
+dove $\hat{n}$ segue la regola della mano destra rispetto al verso della
+corrente.
+
+**Momento torcente** in campo $\mathbf{B}$:
+
+$$\boldsymbol{\tau} = \mathbf{m}\times\mathbf{B}$$
+
+**Energia**: $U = -\mathbf{m}\cdot\mathbf{B}$ (minima quando
+$\mathbf{m} \parallel \mathbf{B}$)
+
+**Momento angolare orbitale** — per un elettrone in orbita circolare:
+
+$$\mathbf{m}_L = -\frac{e}{2m_e}\mathbf{L}$$
+
+Il rapporto $\mathbf{m}_L/\mathbf{L} = -e/(2m_e)$ è detto **rapporto
+giromagnetico**. Per lo spin: $\mathbf{m}_s = -\dfrac{e}{m_e}\mathbf{S}$
+(fattore di Landé $g_s \approx 2$).
+
+</FlashcardAnswer>
+
+</Flashcard>

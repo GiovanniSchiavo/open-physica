@@ -1,0 +1,77 @@
+---
+title: Metodo dei fasori
+description:
+  Rappresentazione complessa dei segnali sinusoidali, impedenza e algebra dei
+  circuiti lineari in regime armonico
+---
+
+## Perché usare i fasori
+
+In regime sinusoidale stazionario, le derivate temporali diventano
+moltiplicazioni per $j\omega$ e i circuiti si risolvono con algebra lineare
+complessa.
+
+Per un segnale:
+
+$$
+x(t)=X_0\cos(\omega t+\varphi)
+$$
+
+si introduce il fasore:
+
+$$
+\tilde{X}=X_0e^{j\varphi}
+$$
+
+## Impedenze elementari
+
+$$
+Z_R=R,\qquad Z_L=j\omega L,\qquad Z_C=\frac{1}{j\omega C}
+$$
+
+Legge di Ohm fasoriale:
+
+$$
+\tilde{V}=Z\tilde{I}
+$$
+
+## Combinazioni serie/parallelo
+
+- serie: $Z_{eq}=\sum_k Z_k$
+- parallelo: $1/Z_{eq}=\sum_k 1/Z_k$
+
+La procedura è identica ai circuiti in continua, ma con grandezze complesse.
+
+## Modulo e fase
+
+Se $Z=R+jX$:
+
+$$
+|Z|=\sqrt{R^2+X^2},\qquad \varphi_Z=\arctan\frac{X}{R}
+$$
+
+- $X>0$: comportamento induttivo (corrente in ritardo)
+- $X<0$: comportamento capacitivo (corrente in anticipo)
+
+## Potenza in regime sinusoidale
+
+Con valori efficaci:
+
+$$
+P=V_{\text{eff}}I_{\text{eff}}\cos\varphi
+$$
+
+$$
+Q=V_{\text{eff}}I_{\text{eff}}\sin\varphi
+$$
+
+$$
+S=V_{\text{eff}}I_{\text{eff}}
+$$
+
+con $\varphi$ sfasamento tensione-corrente.
+
+<Callout type="tip" title="Controllo di consistenza">
+  In un puro resistore $\varphi=0$ e $Q=0$; in L o C ideali $P=0$ e tutta la
+  potenza è reattiva.
+</Callout>

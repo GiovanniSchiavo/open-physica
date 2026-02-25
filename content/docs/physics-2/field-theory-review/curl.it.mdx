@@ -1,0 +1,97 @@
+---
+title: Rotore
+description:
+  Definizione di rotore, teoremi correlati ed esempio del campo gravitazionale
+---
+
+Un altro operatore differenziale che può essere utile ricordare è il **rotore**.
+
+<Statement type="definition" title="Rotore">
+
+Si definisce la grandezza **rotore** un vettore ottenuto dal campo vettoriale
+$$\vec{v}$$ in questo modo:
+
+$$
+\text{rot } \vec{v} = \nabla \times \vec{v} = \det \begin{pmatrix} \hat{i} & \hat{j} & \hat{k} \\ \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\ v_x & v_y & v_z \end{pmatrix}
+$$
+
+$$
+\nabla \times \vec{v} = \hat{i} \left( \frac{\partial v_z}{\partial y} - \frac{\partial v_y}{\partial z} \right) - \hat{j} \left( \frac{\partial v_x}{\partial z} - \frac{\partial v_z}{\partial x} \right) + \hat{k} \left( \frac{\partial v_x}{\partial y} - \frac{\partial v_y}{\partial x} \right)
+$$
+
+</Statement>
+
+Anche per il rotore, come per la divergenza, esiste una utilissima formula per
+semplificare il calcolo del lavoro lungo un percorso. In particolare sia $$S$$
+una qualunque superficie con bordo $$L$$ vale che:
+
+$$
+\int_L \vec{v} \cdot d\vec{l} = \iint_S \nabla \times \vec{v} \, dS
+$$
+
+Si vede immediatamente che la caratteristica di un campo di possedere un rotore
+nullo è analoga a quella della divergenza, infatti se il rotore di un campo è
+nullo è nulla anche la circuitazione calcolata lungo qualunque percorso, e
+viceversa.
+
+Da questo deduciamo un'altra condizione necessaria alla conservatività di un
+campo vettoriale. Un campo conservativo è per questo detto **irrotazionale**.
+
+<Callout type="info">
+  La sufficienza si ha nei campi definiti in un dominio semplicemente connesso.
+</Callout>
+
+## Campo gravitazionale
+
+Un esempio immediato di campo contemporaneamente solenoidale e irrotazionale è
+il **campo gravitazionale**. Per definirlo prendiamo la funzione scalare
+seguente:
+
+$$
+U = \frac{1}{|\vec{r}|} \qquad \vec{r} = \hat{i}x + \hat{j}y + \hat{k}z
+$$
+
+Generiamo da $$U$$ un campo attraverso l'operazione di gradiente (che quindi
+risulta conservativo):
+
+$$
+\nabla U = \frac{dU}{d|\vec{r}|} \nabla|\vec{r}|
+$$
+
+Questa formula si ottiene usando la regola di derivazione delle funzioni
+composte, si verifica immediatamente che:
+
+$$
+\nabla|\vec{r}| = \frac{\vec{r}}{|\vec{r}|} = \hat{r}
+$$
+
+Da cui otteniamo il nostro campo $$\vec{v}$$:
+
+$$
+\vec{v} = \nabla U = -\frac{1}{|\vec{r}|^2} \hat{r}
+$$
+
+$$
+\vec{v} = \left( -\frac{x}{(x^2 + y^2 + z^2)^{3/2}}, -\frac{y}{(x^2 + y^2 + z^2)^{3/2}}, -\frac{z}{(x^2 + y^2 + z^2)^{3/2}} \right)
+$$
+
+Che il campo sia irrotazionale è ovvio, poiché l'abbiamo dedotto attraverso
+l'operatore di gradiente da un campo scalare. Bisogna verificare se è
+solenoidale, basta derivare per calcolare la divergenza:
+
+$$
+\frac{\partial v_x}{\partial x} = -\frac{(x^2 + y^2 + z^2)^{3/2} - 3x(x^2 + y^2 + z^2)^{1/2}}{(x^2 + y^2 + z^2)^3}
+$$
+
+Siccome le altre derivate sono simmetriche a questa calcoliamo direttamente la
+divergenza:
+
+$$
+\frac{\partial v_x}{\partial x} = -\frac{|\vec{r}|^2 - 3x^2}{|\vec{r}|^5}
+$$
+
+$$
+\nabla \cdot \vec{v} = -\frac{3|\vec{r}|^2 - 3(x^2 + y^2 + z^2)}{|\vec{r}|^5} = -\frac{3|\vec{r}|^2 - 3|\vec{r}|^2}{|\vec{r}|^5} = 0
+$$
+
+Come risulta evidente il campo è anche solenoidale.

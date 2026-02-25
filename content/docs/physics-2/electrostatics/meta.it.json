@@ -1,0 +1,10 @@
+{
+  "title": "Elettrostatica",
+  "pages": [
+    "gauss-potential-and-dipole",
+    "energy-poisson-and-boundary-conditions",
+    "conductors",
+    "dielectrics",
+    "common-geometries"
+  ]
+}

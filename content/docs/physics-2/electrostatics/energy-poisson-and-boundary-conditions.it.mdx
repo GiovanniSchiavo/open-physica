@@ -1,0 +1,103 @@
+---
+title: Energia, Poisson e condizioni al contorno
+description:
+  Energia elettrostatica, densità di energia del campo, equazioni di Poisson e
+  Laplace, unicità e condizioni al contorno sui conduttori
+---
+
+## Energia elettrostatica
+
+Per un sistema discreto di cariche:
+
+$$
+U=\frac{1}{2}\sum_i q_i V(\mathbf{r}_i)
+$$
+
+con $V$ dovuto alle altre cariche.
+
+Per distribuzioni continue:
+
+$$
+U=\frac{1}{2}\int \rho(\mathbf{r})V(\mathbf{r})\,d\tau
+$$
+
+## Densità di energia del campo
+
+Usando le equazioni di Maxwell in regime statico:
+
+$$
+U=\frac{\varepsilon_0}{2}\int E^2\,d\tau
+$$
+
+quindi:
+
+$$
+u_e=\frac{\varepsilon_0}{2}E^2
+$$
+
+Nei dielettrici lineari, omogenei e isotropi:
+
+$$
+u_e=\frac{1}{2}\mathbf{E}\cdot\mathbf{D}
+$$
+
+## Equazioni di Poisson e Laplace
+
+Sostituendo $\mathbf{E}=-\nabla V$ in Gauss:
+
+<Statement type="law" title="Poisson e Laplace">
+
+$$
+\nabla^2 V=-\frac{\rho}{\varepsilon_0}
+$$
+
+$$
+\nabla^2 V=0\quad(\rho=0)
+$$
+
+</Statement>
+
+- Poisson: regione con sorgenti di carica;
+- Laplace: regione priva di carica libera.
+
+## Unicità della soluzione
+
+Con opportune condizioni al contorno, la soluzione di Poisson/Laplace è unica.
+Questo giustifica i metodi indiretti (simmetrie, immagini, sovrapposizione)
+quando soddisfano sia equazione che vincoli al bordo.
+
+## Condizioni al contorno elettrostatiche
+
+Per interfaccia tra mezzi:
+
+- componente tangenziale di $\mathbf{E}$ continua;
+- salto della componente normale di $\mathbf{D}$ pari alla densità di carica
+  libera superficiale $\sigma_l$.
+
+Su conduttore ideale in equilibrio:
+
+- interno: $\mathbf{E}=0$;
+- superficie equipotenziale;
+- appena all'esterno:
+
+$$
+E_n=\frac{\sigma}{\varepsilon_0}
+$$
+
+## Pressione elettrostatica
+
+Il campo vicino a una superficie conduttrice induce una pressione meccanica:
+
+$$
+p=\frac{\varepsilon_0}{2}E^2
+$$
+
+Questo spiega fenomeni come effetto punta e attrazione fra armature nei
+condensatori.
+
+<Callout type="warn" title="Errore frequente">
+
+Usare direttamente Poisson in una regione dove $\rho=0$ porta a forzare una
+soluzione errata: in quel dominio devi usare Laplace e imporre bene i bordi.
+
+</Callout>

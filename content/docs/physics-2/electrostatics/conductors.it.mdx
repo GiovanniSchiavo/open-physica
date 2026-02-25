@@ -1,0 +1,349 @@
+---
+title: Elettrostatica dei conduttori
+description:
+  Conduttori, campo elettrico interno, gabbia di Faraday, capacità
+  elettrostatica, condensatori, energia e pressione elettrostatica
+---
+
+Fino a questo punto abbiamo trattato di problemi di elettrostatica parlando
+sempre di materiali isolanti, in cui le cariche sono stazionarie e ben
+localizzate al loro interno. Esistono però anche **materiali conduttori**, in
+cui le cariche possono muoversi e ridisporsi al loro interno.
+
+La presenza di conduttori crea un problema fondamentale: immaginiamo di porre un
+conduttore scarico vicino ad un isolante carico. Le cariche del conduttore
+risentono del campo elettrico e si ridispongono in maniera non uniforme
+(**caricamento per induzione**), generando una distribuzione $$\sigma$$
+incognita che a sua volta genera un campo elettrico che interferisce con quello
+generato dall'isolante.
+
+Questo è detto il **problema generale dell'elettrostatica**.
+
+## Campo elettrico dentro i conduttori
+
+Per definizione un sistema è elettrostatico se le cariche sono ferme. Poiché le
+cariche sono libere di muoversi ma rimangono ferme nella situazione di
+equilibrio, la forza totale che agisce su di esse deve essere nulla:
+
+$$
+\vec{F} = q\vec{E} = 0
+$$
+
+Poiché $$q \neq 0$$, risulta che:
+
+<Statement type="theorem" title="Campo elettrico nei conduttori">
+
+Il campo elettrico all'interno di un conduttore in elettrostatica è sempre
+**nullo**:
+
+$$
+\vec{E} = 0
+$$
+
+Di conseguenza, il potenziale è costante:
+
+$$
+V = \text{cost}
+$$
+
+Il volume occupato da un conduttore in elettrostatica è **equipotenziale**.
+
+</Statement>
+
+### Distribuzione di carica del conduttore
+
+<Statement type="theorem" title="Distribuzione superficiale della carica">
+
+Le cariche elettriche si dispongono tutte sulla **superficie** del conduttore, e
+non all'interno.
+
+</Statement>
+
+<Accordions>
+<Accordion id="proof-surface-charge" title="Dimostrazione">
+
+Prendiamo una qualunque superficie chiusa $$S_c$$ contenuta nel conduttore.
+Indichiamo con $$\tau(S_c)$$ il volume racchiuso da $$S_c$$. Poiché il campo
+elettrico è nullo ovunque all'interno:
+
+$$
+\Phi_{S_c}(\vec{E}_0) = \int_{S_c} \vec{E}_0 \cdot \hat{n} \, d\Sigma = 0
+$$
+
+Per il teorema di Gauss:
+
+$$
+\Phi_{S_c}(\vec{E}_0) = \frac{\int_{\tau(S_c)} \rho \, d\tau}{\varepsilon_0} = 0
+$$
+
+Per ogni volume, questo è vero se e solo se $$\rho = 0$$ ovunque all'interno.
+Tutta la carica si dispone sulla superficie.
+
+</Accordion>
+</Accordions>
+
+## Campo elettrico tra conduttore e esterno
+
+La superficie esterna di un conduttore è una superficie equipotenziale. Poiché
+il campo elettrico è sempre perpendicolare alle superfici equipotenziali:
+
+<Statement type="theorem" title="Teorema di Coulomb per conduttori">
+
+Il campo elettrico generato da un conduttore in statica, nelle immediate
+vicinanze del conduttore, è:
+
+$$
+\vec{E}_0 = \frac{\sigma}{\varepsilon_0} \hat{n}
+$$
+
+Dove $$\hat{n}$$ è il versore normale uscente dalla superficie e $$\sigma$$ è la
+densità di carica superficiale.
+
+</Statement>
+
+## Gabbia di Faraday
+
+Consideriamo un **conduttore cavo** inizialmente scarico. Mettiamo all'interno
+una carica elettrica positiva $$+Q$$. Il conduttore per induzione ridistribuirà
+le sue cariche: cariche negative sulla superficie interna (per un totale di
+$$-Q$$) e cariche positive sulla superficie esterna (per un totale di $$+Q$$).
+
+<Callout type="tip">
+
+La **gabbia di Faraday** è in grado di schermare tutto ciò che avviene
+all'esterno. Qualunque carica mettiamo al di fuori del guscio, il campo
+elettrico interno non ne risente.
+
+</Callout>
+
+La gabbia di Faraday è sia uno schermo elettrostatico che elettrodinamico: è in
+grado di schermare anche le onde elettromagnetiche. Ecco perché i palazzi
+rivestiti di armatura metallica ostacolano le reti di telefonia mobile, ma
+offrono ottima protezione dai fulmini.
+
+## Effetto punte
+
+<Statement type="theorem" title="Effetto punte">
+
+La densità di carica $$\sigma$$ tende ad accumularsi nei punti che hanno un
+**raggio di curvatura minore**. In prossimità di punte, la densità di carica
+diverge e il campo elettrico è molto intenso.
+
+</Statement>
+
+Per due sfere conduttrici di raggi $$R_1 > R_2$$ poste allo stesso potenziale:
+
+$$
+\sigma_2 = \frac{R_1}{R_2} \sigma_1
+$$
+
+Questo fenomeno è sfruttato nell'accendino (ionizzazione dell'aria) e nel
+parafulmine.
+
+## Capacità elettrostatica
+
+### Capacità di un conduttore isolato
+
+Per un conduttore isolato, potenziale $$V$$ e carica $$Q$$ sono direttamente
+proporzionali:
+
+<Statement type="definition" title="Capacità elettrostatica di un conduttore isolato">
+
+Si definisce **capacità elettrostatica** di un conduttore isolato:
+
+$$
+C = \frac{Q}{V}
+$$
+
+Si misura in **Farad** $$[F] = [C/V]$$.
+
+</Statement>
+
+La capacità dipende solo dalla geometria. Per una sfera di raggio $$R$$:
+
+$$
+C = 4\pi\varepsilon_0 R
+$$
+
+Una sfera di 1 metro di raggio ha una capacità di circa $$100 \, pF$$.
+
+### Sistemi non isolati
+
+Per un sistema di $$n$$ conduttori, possiamo scrivere:
+
+$$
+V_i = \sum_{k=1}^{n} p_{ik} Q_k
+$$
+
+I coefficienti $$p_{ik}$$ formano la **matrice dei potenziali** (simmetrica).
+Questa è invertibile:
+
+$$
+Q_i = \sum_{j=1}^{n} c_{ij} V_j
+$$
+
+I coefficienti $$c_{ij}$$ si chiamano **coefficienti di induzione**
+($$i \neq j$$) e **coefficienti di capacità** ($$i = j$$).
+
+### Capacità di un condensatore
+
+<Statement type="definition" title="Capacità di un condensatore">
+
+Si definisce **capacità** di un condensatore il rapporto tra la carica presente
+su una delle due armature e la differenza di potenziale tra le due armature:
+
+$$
+C = \frac{Q}{\Delta V}
+$$
+
+Si misura in Farad.
+
+</Statement>
+
+<Callout type="warn">
+
+Non confondere la capacità di un **condensatore** con la capacità di un **corpo
+isolato**: hanno significato fisico completamente differente.
+
+</Callout>
+
+Per un condensatore sferico con raggio interno $$R_1$$ e raggio esterno $$R_2$$:
+
+$$
+C = 4\pi\varepsilon_0 \frac{R_1 R_2}{R_2 - R_1}
+$$
+
+## Energia elettrostatica
+
+L'energia di un sistema di $$N$$ cariche:
+
+$$
+U = \frac{1}{2} \sum_{i=1}^{N} q_i V_i
+$$
+
+Per sistemi continui:
+
+$$
+U = \frac{1}{2} \int_\tau \rho(r) V(r) \, d\tau
+$$
+
+Questa può essere riscritta in termini del campo elettrico:
+
+$$
+U = \int_\tau u \, d\tau = \int_\tau \frac{1}{2} \varepsilon_0 E_0^2 \, d\tau
+$$
+
+<Statement type="definition" title="Densità di energia elettrostatica">
+
+La densità di energia elettrostatica è:
+
+$$
+u = \frac{1}{2} \varepsilon_0 E_0^2
+$$
+
+È una quantità sempre positiva.
+
+</Statement>
+
+### Energia del condensatore
+
+$$
+E = \frac{1}{2} Q \Delta V = \frac{1}{2} C (\Delta V)^2 = \frac{1}{2} \frac{Q^2}{C}
+$$
+
+## Pressione elettrostatica
+
+<Statement type="definition" title="Principio dei lavori virtuali">
+
+In un sistema conservativo isolato, per uno spostamento virtuale
+$$\delta\vec{l}$$ infinitamente lento:
+
+$$
+\vec{F} \cdot \delta\vec{l} + dU = 0 \implies \vec{F} = -\nabla U
+$$
+
+Per sistemi non isolati (es. collegati a un generatore):
+
+$$
+\vec{F} = +\nabla U
+$$
+
+</Statement>
+
+### Pressione di un conduttore isolato
+
+La pressione elettrostatica sulla superficie di un conduttore:
+
+$$
+P = \frac{1}{2} \varepsilon_0 E_0^2
+$$
+
+Si noti l'analogia con la densità di energia!
+
+### Microfono e altoparlante
+
+Un **microfono** a condensatore funziona collegando un generatore di tensione a
+un condensatore con un'armatura flessibile. Le vibrazioni sonore modificano la
+distanza tra le armature, variando la carica $$Q$$ e generando un segnale
+elettrico.
+
+Un **altoparlante** funziona al contrario: variando $$\Delta V$$, si opera una
+forza variabile sulle armature, facendo oscillare l'armatura flessibile e
+producendo onde acustiche.
+
+## Il problema generale dell'elettrostatica del vuoto
+
+Le due equazioni fondamentali:
+
+$$
+\nabla \cdot \vec{E}_0 = \frac{\rho}{\varepsilon_0} \qquad \vec{E}_0 = -\nabla V
+$$
+
+Si combinano nell'**equazione di Poisson**:
+
+<Statement type="definition" title="Laplaciano">
+
+L'operatore differenziale **laplaciano** $$\nabla^2$$:
+
+$$
+\nabla^2 w = \nabla \cdot (\nabla w) = \frac{\partial^2 w}{\partial x^2} + \frac{\partial^2 w}{\partial y^2} + \frac{\partial^2 w}{\partial z^2}
+$$
+
+</Statement>
+
+<Statement type="law" title="Equazione di Poisson">
+
+$$
+\nabla^2 V = -\frac{\rho}{\varepsilon_0}
+$$
+
+</Statement>
+
+In regioni prive di cariche ($$\rho = 0$$) si ottiene l'**equazione di
+Laplace**:
+
+$$
+\nabla^2 V = 0
+$$
+
+Il **problema di Dirichlet** (con condizioni al contorno note) ammette sempre
+una soluzione unica.
+
+### Risoluzione con le cariche immagine
+
+Il metodo delle **cariche immagine** sfrutta simmetrie per trovare soluzioni. Ad
+esempio, per una carica $$+q$$ vicino a un piano conduttore a massa:
+
+Si immagina una carica $$-q$$ in posizione simmetrica rispetto al piano. Il
+potenziale risultante soddisfa le condizioni di Dirichlet, quindi è l'unica
+soluzione:
+
+$$
+V(x,y,z) = \frac{1}{4\pi\varepsilon_0} \left[ \frac{q}{\sqrt{(x-d)^2 + y^2 + z^2}} - \frac{q}{\sqrt{(x+d)^2 + y^2 + z^2}} \right]
+$$
+
+La distribuzione di carica indotta sul piano:
+
+$$
+\sigma = -\varepsilon_0 \left( \frac{\partial V}{\partial x} \right)_{x=0}
+$$

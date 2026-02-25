@@ -1,0 +1,197 @@
+---
+title: Induzione elettromagnetica
+description:
+  Legge di Faraday-Neumann-Lenz, forza di Lorentz, terza equazione di Maxwell,
+  autoinduzione, mutua induzione, energia magnetica
+---
+
+Cosa succede ad un circuito immerso in un campo magnetico variabile nel tempo?
+
+Esperimenti fondamentali:
+
+1. Accendendo un campo magnetico uniforme: picco di corrente istantaneo
+2. Campo che cresce linearmente: corrente costante
+3. Ruotando la spira: effetto che diminuisce con l'angolo
+4. Cambiando la superficie del circuito: si genera corrente
+
+La grandezza chiave è il **flusso del campo magnetico** attraverso il circuito.
+
+## Legge di Faraday-Neumann-Lenz
+
+<Statement type="law" title="Faraday-Neumann-Lenz">
+
+$$
+\text{fem} = -\frac{\partial \Phi(\vec{B})}{\partial t}
+$$
+
+Il segno meno (Lenz) indica che la corrente indotta genera un campo che **si
+oppone** alla variazione di flusso.
+
+</Statement>
+
+<Callout type="info">
+  La fem non è localizzata in un punto, ma sull'**intero circuito**. La
+  circuitazione del campo elettrico non è più nulla!
+</Callout>
+
+### Terza equazione di Maxwell
+
+Per un circuito rigido:
+
+$$
+\nabla \times \vec{E} = -\frac{\partial \vec{B}}{\partial t}
+$$
+
+Il campo elettrico **non è più conservativo** in presenza di campi magnetici
+variabili.
+
+## Induzione attraverso la forza di Lorentz
+
+### Deformazione del circuito
+
+Una sbarretta mobile su binari in campo magnetico:
+
+$$
+\text{fem} = vBl
+$$
+
+La forza sulla sbarretta è di tipo **viscoso**:
+
+$$
+\vec{F} = -\frac{B^2 l^2}{R}\vec{v} = -\beta \vec{v}
+$$
+
+Questa è la manifestazione meccanica della **legge di Lenz**.
+
+### Traslazione
+
+Anche spostando una spira in campo non uniforme (ma costante nel tempo),
+l'induzione è spiegabile tramite la forza di Lorentz.
+
+## Autoinduzione
+
+<Statement type="definition" title="Induttanza">
+
+La costante di proporzionalità tra flusso autoindotto e corrente:
+
+$$
+\Phi(\vec{B}) = Li
+$$
+
+Si misura in **Henry** $$[H] = \frac{Wb}{A}$$
+
+</Statement>
+
+La forza elettromotrice autoindotta:
+
+$$
+f_{a.i.} = -L\frac{\partial i}{\partial t}
+$$
+
+### Circuito RL
+
+Equazione di Kirchhoff:
+
+$$
+\text{fem} = L\frac{\partial i}{\partial t} + Ri
+$$
+
+Soluzione (chiusura dell'interruttore):
+
+$$
+i(t) = \frac{\text{fem}}{R}\left(1 - e^{-t/\tau}\right) \qquad \tau = \frac{L}{R}
+$$
+
+### Energia magnetica
+
+$$
+U_M = \frac{1}{2}Li^2 = \frac{1}{2}\Phi(\vec{B})i = \frac{\Phi(\vec{B})^2}{2L}
+$$
+
+**Densità di energia magnetica**:
+
+$$
+du_m = HdB
+$$
+
+Per materiali lineari:
+
+$$
+u_m = \frac{1}{2}\mu H^2 = \frac{B^2}{2\mu} = \frac{1}{2}BH
+$$
+
+<Callout type="warn">
+  Per i ferromagneti, l'energia è l'area del ciclo di isteresi nel piano
+  $$H$$-$$B$$.
+</Callout>
+
+## Mutua induzione
+
+Per due circuiti:
+
+$$
+\Phi_1(\vec{B}) = L_1 i_1 + M_{12} i_2
+$$
+
+<Statement type="theorem" title="Simmetria mutua induzione">
+
+$$
+M_{12} = M_{21} = M
+$$
+
+</Statement>
+
+### Energia di mutua induzione
+
+$$
+U_M = \frac{1}{2}L_1 i_1^2 + \frac{1}{2}L_2 i_2^2 + M i_1 i_2
+$$
+
+L'ultimo termine è l'**energia di scambio**.
+
+Generalizzazione a $$n$$ circuiti:
+
+$$
+U_M = \frac{1}{2}\sum_{k=1}^{n}\sum_{h=1}^{n} M_{kh} i_k i_h = \frac{1}{2}\sum_{k=1}^{n} i_k \Phi_k
+$$
+
+### Effetto risucchio/repulsione del solenoide
+
+La forza su un materiale dentro un solenoide:
+
+$$
+F_M = \frac{1}{2}i\mu_0 n^2 S \chi_m
+$$
+
+- $$\chi_m > 0$$ (para/ferro): **risucchio**
+- $$\chi_m < 0$$ (dia): **repulsione**
+
+## Generatori e motori elettrici
+
+### Generatore
+
+Una bobbina rotante in campo magnetico:
+
+$$
+\Phi(\vec{B}) = NBS\cos(\omega t)
+$$
+
+$$
+\text{fem} = \omega NBS\sin(\omega t)
+$$
+
+- **Indotto**: la bobbina
+- **Induttore**: il magnete
+
+### Trasformatore
+
+Due solenoidi su nucleo ferromagnetico:
+
+$$
+\frac{\Delta V_1}{\Delta V_2} = \frac{N_1}{N_2} \qquad \frac{i_1}{i_2} = \frac{N_2}{N_1}
+$$
+
+<Callout type="tip">
+  Le **correnti di Foucault** (correnti parassite) si riducono usando lamine
+  ferromagnetiche isolate.
+</Callout>

@@ -1,0 +1,140 @@
+---
+title: Circuiti in corrente alternata
+description:
+  Fasori, reattanze, impedenza, circuito RLC serie, risonanza e fattore di
+  qualità, filtri del primo ordine
+---
+
+Quando un circuito è alimentato da una tensione sinusoidale
+$v(t) = V_0 \cos(\omega t)$, si parla di **corrente alternata** (CA). Il
+**metodo simbolico** (o dei fasori) permette di trasformare le equazioni
+differenziali in equazioni algebriche nel dominio della frequenza.
+
+## Fasori e metodo simbolico
+
+Un segnale sinusoidale $x(t) = X_0\cos(\omega t + \varphi)$ è rappresentato dal
+**fasore**:
+
+$$
+\tilde{X} = X_0 e^{j\varphi}
+$$
+
+Le relazioni tra fasori sono algebriche: derivare diventa moltiplicare per
+$j\omega$, integrare diventa dividere per $j\omega$.
+
+## Elementi circuitali in CA
+
+### Resistore
+
+Tensione e corrente sono in fase:
+
+$$
+\tilde{V}_R = R\,\tilde{I}, \qquad \mathbf{Z}_R = R
+$$
+
+### Condensatore — reattanza capacitiva
+
+$$
+\tilde{I} = j\omega C\,\tilde{V}_C \qquad \Rightarrow \qquad
+\boxed{X_C = \frac{1}{\omega C}}, \quad \mathbf{Z}_C = \frac{1}{j\omega C}
+$$
+
+La corrente **anticipa** la tensione di $90°$. All'aumentare di $\omega$, $X_C$
+diminuisce: il condensatore diventa sempre più "trasparente".
+
+### Induttore — reattanza induttiva
+
+$$
+\tilde{V}_L = j\omega L\,\tilde{I} \qquad \Rightarrow \qquad
+\boxed{X_L = \omega L}, \quad \mathbf{Z}_L = j\omega L
+$$
+
+La corrente **ritarda** sulla tensione di $90°$. All'aumentare di $\omega$,
+$X_L$ aumenta: l'induttore ostacola sempre di più la corrente.
+
+<Callout type="tip" title="Mnemonica ELI the ICE man">
+
+- **ELI**: in un **induttore** (**L**) la tensione (**E**) precede la corrente
+  (**I**)
+- **ICE**: in un **condensatore** (**C**) la corrente (**I**) precede la
+  tensione (**E**)
+
+</Callout>
+
+## Impedenza
+
+L'**impedenza** è la generalizzazione complessa della resistenza:
+
+$$
+\mathbf{Z} = R + jX, \qquad |\mathbf{Z}| = \sqrt{R^2 + X^2}, \qquad
+\varphi = \arctan\!\left(\frac{X}{R}\right)
+$$
+
+Le impedenze in serie si sommano; in parallelo vale la regola delle resistenze.
+
+## Circuito RLC serie
+
+Con $v(t) = V_0\cos(\omega t)$, l'impedenza totale è:
+
+$$
+\mathbf{Z}_{RLC} = R + j\!\left(\omega L - \frac{1}{\omega C}\right)
+$$
+
+L'ampiezza della corrente:
+
+$$
+I_0 = \frac{V_0}{|\mathbf{Z}|} = \frac{V_0}{\sqrt{R^2 + \left(\omega L - \dfrac{1}{\omega C}\right)^{\!2}}}
+$$
+
+Lo sfasamento tra corrente e tensione:
+
+$$
+\varphi = \arctan\!\left(\frac{\omega L - 1/(\omega C)}{R}\right)
+$$
+
+## Risonanza
+
+La **risonanza** si ha quando la reattanza totale si annulla:
+
+$$
+\omega_0 L = \frac{1}{\omega_0 C} \qquad \Rightarrow \qquad
+\boxed{\omega_0 = \frac{1}{\sqrt{LC}}}
+$$
+
+A $\omega_0$: $|\mathbf{Z}|$ è minimo (uguale a $R$), la corrente è massima e in
+fase con la tensione applicata.
+
+### Fattore di qualità
+
+$$
+Q = \frac{\omega_0 L}{R} = \frac{1}{\omega_0 RC} = \frac{1}{R}\sqrt{\frac{L}{C}}
+$$
+
+$Q$ misura il rapporto tra energia immagazzinata ed energia dissipata per ciclo.
+La **larghezza di banda** a $-3\,\text{dB}$ è:
+
+$$
+\Delta\omega = \frac{\omega_0}{Q}
+$$
+
+Alta $Q$ → picco di risonanza stretto (alta selettività), utile nei filtri e nei
+circuiti sintonizzati (radio, rivelatori di particelle).
+
+## Filtri del primo ordine
+
+**Filtro passa-basso RC** — la tensione sull'uscita è quella sul condensatore:
+
+$$
+H(\omega) = \frac{1}{1 + j\omega RC}, \qquad |H| = \frac{1}{\sqrt{1+(\omega/\omega_c)^2}}, \quad \omega_c = \frac{1}{RC}
+$$
+
+**Filtro passa-alto RC** — uscita sul resistore:
+
+$$
+H(\omega) = \frac{j\omega RC}{1 + j\omega RC}
+$$
+
+## Circuito RLC parallelo (antirisonante)
+
+Nel circuito RLC **parallelo**, la corrente totale è minima alla risonanza
+(impedenza massima). Usato come circuito di sintonia nei ricevitori radio.

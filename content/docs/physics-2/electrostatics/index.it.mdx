@@ -1,0 +1,182 @@
+---
+title: Elettrostatica
+description:
+  La carica elettrica, legge di Coulomb, campo elettrico, teorema di Gauss,
+  potenziale elettrostatico
+---
+
+L'elettrostatica costituisce la branca dell'elettromagnetismo che analizza le
+configurazioni di cariche elettriche in condizioni di stazionarietà (cariche
+ferme) e i campi di forze da esse generati nel vuoto o all'interno della
+materia.
+
+Questo studio rappresenta il fondamento teorico necessario per la comprensione
+dei fenomeni elettromagnetici: permette di definire rigorosamente le sorgenti
+del campo, di applicare principi di simmetria per la risoluzione di problemi
+complessi e di valutare gli ordini di grandezza delle interazioni in gioco.
+
+## L'evidenza fenomenologica della carica elettrica
+
+Un approccio empirico fondamentale alla natura della carica è offerto
+dall'osservazione delle interazioni elementari mediante un elettroscopio a
+pendolo (una sfera leggera resa superficialmente conduttiva, ad esempio tramite
+grafitaggio).
+
+<Callout type="info" title="Osservazione Sperimentale">
+
+Avvicinando al pendolo un corpo elettrizzato per strofinio (es. una bacchetta di
+plexiglas), si osserva inizialmente un'attrazione dovuta all'**induzione
+elettrostatica** (polarizzazione della sfera).
+
+Successivamente al contatto fisico, avviene un trasferimento di carica che porta
+la sfera allo stesso potenziale della sorgente; ne consegue una forza repulsiva,
+poiché entrambi i corpi possiedono ora una carica dello stesso segno.
+
+</Callout>
+
+L'utilizzo di materiali differenti (serie triboelettrica), come il PVC o il
+vetro, permette di osservare comportamenti opposti, evidenziando la natura duale
+della carica elettrica.
+
+<Statement type="definition" title="Effetto Triboelettrico">
+
+L'**effetto triboelettrico** è un **fenomeno elettrico** che consiste nel
+trasferimento di cariche elettriche, e quindi nella generazione di una tensione,
+tra **materiali diversi** quando vengono strofinati tra di loro. La parola che
+descrive il fenomeno deriva dal greco _tribos_, che significa appunto strofinio.
+
+</Statement>
+
+## Carica elettrica: modello minimo
+
+Chiamiamo **carica elettrica** una grandezza scalare $q$ che può essere positiva
+o negativa (per convenzione). L’esperimento suggerisce che:
+
+- cariche dello stesso segno si respingono;
+- cariche di segno opposto si attraggono;
+- la carica può trasferirsi per contatto e ridistribuirsi sui conduttori.
+
+<Statement type="principle" title="Conservazione della Carica">
+
+In un sistema isolato, la somma algebrica delle cariche elettriche rimane
+costante nel tempo, indipendentemente dai processi fisici o chimici che
+avvengono al suo interno.
+
+$$
+\frac{dQ_{\text{tot}}}{dt} = 0
+$$
+
+</Statement>
+
+<Callout type="info" title="Unità di misura">
+
+Nel SI la carica si misura in Coulomb (C). Il Coulomb è “grande” in termini
+microscopici: molte situazioni reali hanno cariche nette molto più piccole.
+
+</Callout>
+
+## Legge di Coulomb: la forza tra cariche puntiformi
+
+La legge di Coulomb descrive la forza tra due cariche puntiformi $Q$ e $q$ a
+distanza $r$ nel vuoto (o aria, in buona approssimazione):
+
+<Statement type="law" title="Legge di Coulomb">
+
+$$
+\mathbf{F}_{q}=\frac{1}{4\pi\varepsilon_0}\frac{Qq}{r^2}\,\hat{\mathbf{r}}_{Q\to
+q}
+$$
+
+dove $\hat{\mathbf{r}}_{Q\to q}$ e il versore che punta da $Q$ verso $q$.
+
+</Statement>
+
+Interpretazione pratica: il modulo scala come $1/r^2$ e il segno di $Qq$ decide
+se la forza è attrattiva o repulsiva lungo la congiungente.
+
+<Callout type="warn" title="Il verso non è un dettaglio">
+
+Il segno sta già nel prodotto $Qq$: evita di aggiungere “meno” a memoria.
+Disegna sempre $\hat{\mathbf{r}}_{Q\to q}$ e chiediti se la forza punta verso
+l’altra carica (attrazione) o si allontana (repulsione).
+
+</Callout>
+
+## Dal concetto di forza al concetto di campo
+
+L’idea di campo serve a separare “chi genera” l’effetto (le sorgenti) da “chi lo
+subisce” (la carica di prova). Definiamo quindi il campo come forza su unità di
+carica di prova.
+
+<Statement type="definition" title="Campo elettrico">
+
+$$
+\mathbf{E}(\mathbf{r})=\lim_{q_0\to 0}\frac{\mathbf{F}(\mathbf{r},q_0)}{q_0}
+$$
+
+Unità: $\mathrm{N/C}$ (equivalente a $\mathrm{V/m}$).
+
+</Statement>
+
+Per una carica puntiforme $Q$:
+
+$$
+\mathbf{E}(\mathbf{r})=\frac{1}{4\pi\varepsilon_0}\frac{Q}{r^2}\,\hat{\mathbf{r}}
+$$
+
+### Principio di sovrapposizione
+
+<Statement type="principle" title="Sovrapposizione del Campo Elettrico">
+
+Il campo elettrico generato da una distribuzione di cariche è la **somma
+vettoriale** dei campi generati singolarmente da ciascuna carica:
+
+$$
+\mathbf{E}_{\text{tot}}(\mathbf{r})=\sum_{i=1}^{n} \mathbf{E}_i(\mathbf{r}) = \sum_{i=1}^{n} \frac{1}{4\pi\varepsilon_0}\frac{q_i}{|\mathbf{r}-\mathbf{r}_i|^2}\,\hat{\mathbf{r}}_{i\to\mathbf{r}}
+$$
+
+Per distribuzioni continue di carica, ciò diviene un integrale:
+
+$$
+\mathbf{E}_{\text{tot}}(\mathbf{r})=\int \frac{1}{4\pi\varepsilon_0}\frac{dq'}{|\mathbf{r}-\mathbf{r}'|^2}\,\hat{\mathbf{r}}'\,d\tau'
+$$
+
+</Statement>
+
+**Implicazioni fondamentali:**
+
+1. **Linearità.** Raddoppiare tutte le cariche raddoppia il campo; non ci sono
+   interazioni "non-lineari" tra i campi stessi.
+
+2. **Decomposizione del problema.** Invece di risolvere in blocco una
+   configurazione complessa, puoi:
+   - Spezzare la distribuzione in contributi elementari (singole cariche,
+     piccoli elementi di volume);
+   - Calcolare il campo di ogni contributo;
+   - Sommare i vettori risultanti.
+
+3. **Base per metodi avanzati.** Il principio di sovrapposizione è la ragione
+   per cui funzionano il metodo di "integrazione diretta", il teorema di Gauss
+   (che ne è una conseguenza via divergenza), e il formalismo del potenziale.
+
+Questa proprietà è la "superpotenza" dell'elettrostatica: problemi
+apparentemente intricati si risolvono decomponendoli in sottoproblemi più
+semplici.
+
+### Densità di carica
+
+Quando le cariche sono distribuite:
+
+- densità volumica: $\rho=dQ/d\tau$;
+- densità superficiale: $\sigma=dQ/d\Sigma$;
+- densità lineare: $\lambda=dQ/dl$.
+
+Il campo si ottiene integrando il contributo infinitesimo:
+
+$$
+d\mathbf{E}=\frac{1}{4\pi\varepsilon_0}\frac{dq}{|\mathbf{r}-\mathbf{r}'|^2}\,
+\hat{\mathbf{r}}'
+$$
+
+e scegliendo $dq=\rho\,d\tau$ oppure $dq=\sigma\,d\Sigma$ oppure
+$dq=\lambda\,dl$ in base alla geometria.

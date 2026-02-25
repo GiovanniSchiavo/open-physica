@@ -1,0 +1,58 @@
+---
+title: Successioni di Funzioni
+description:
+  Appunti su successioni di funzioni, convergenza puntuale e uniforme.
+---
+
+Iniziamo dando la definizione di successione di funzioni.
+
+<Statement type="definition" title="Successione di Funzioni, convergenza puntuale e uniforme">
+
+Una **successione di funzioni** è una famiglia numerabile di funzioni
+
+$$
+\{f_n\}_{n \in \mathbb{N}}
+$$
+
+ovvero, per ogni $n \in \mathbb{N}$, definiamo una funzione $f_n$
+
+$$
+f_1, f_2, f_3, \dots, f_n, \dots \; f_n: X \to Y
+$$
+
+### Convergenza Puntuale
+
+Consideriamo un intervallo $I \subseteq X$, diremo che $f_n$ converge
+**puntualmente** a $F$ nell'intervallo $I$, e si scrive:
+
+$$
+f_n \underset{I}{\longrightarrow} F \ \text{ se } \ \lim_{n \to \infty} f_n = F
+$$
+
+ovvero se
+
+$$
+\forall x \in I, \forall \varepsilon > 0, \quad \exists p_{\epsilon,x} \mid n > p_{\epsilon,x} \implies
+|f_n - F|< \varepsilon
+$$
+
+### Convergenza Uniforme
+
+Consideriamo un intervallo $I \subseteq X$, diremo che $f_n$ converge
+**uniformemente** a $F$ nell'intervallo $I$, e si scrive:
+
+$$
+f_n \underset{I}{\rightrightarrows} F \ \text{ se } \ \lim_{n \to \infty} \sup_{x \in I} |f_n(x) - F(x)| = 0
+$$
+
+ovvero se
+
+$$
+\forall x \in I, \forall \varepsilon > 0, \quad \exists p_{\epsilon} \mid n > p_{\epsilon} \implies
+|f_n - F| < \varepsilon
+$$
+
+Si noti che la convergenza puntuale è condizione NECESSARIA ma non SUFFICIENTE
+per la convergenza uniforme.
+
+</Statement>

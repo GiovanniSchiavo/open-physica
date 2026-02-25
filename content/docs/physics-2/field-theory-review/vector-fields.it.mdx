@@ -1,0 +1,205 @@
+---
+title: Campo vettoriale
+description:
+  "Trattazione formale dei campi vettoriali: definizioni, proprietà
+  differenziali, teoria del potenziale, flusso, divergenza e Teorema di Gauss"
+---
+
+## Definizione e Rappresentazione
+
+In fisica e matematica, un campo vettoriale rappresenta una grandezza vettoriale
+che varia in funzione della posizione nello spazio. A differenza di un campo
+scalare, che associa a ogni punto un singolo valore reale (come la temperatura o
+il potenziale elettrostatico), un campo vettoriale definisce una grandezza
+dotata di modulo, direzione e verso in ogni punto del dominio.
+
+<Statement type="definition" title="Campo Vettoriale">
+
+Sia $\Omega \subseteq \mathbb{R}^n$ un sottoinsieme aperto. Un campo vettoriale
+è una funzione vettoriale $\vec{F}: \Omega \to \mathbb{R}^n$. In $\mathbb{R}^3$,
+il campo associa a ogni punto $\vec{r}=(x,y,z)$ un vettore:
+
+$$
+\vec{F}(\vec{r}) = F_x(x,y,z)\hat{i} + F_y(x,y,z)\hat{j} + F_z(x,y,z)\hat{k}
+$$
+
+dove $F_x, F_y, F_z$ sono le componenti scalari del campo.
+
+</Statement>
+
+Si assume generalmente che le componenti $F_i$ siano funzioni continue e
+differenziabili ($C^1$ o $C^\infty$) nel dominio di definizione per permettere
+operazioni di calcolo differenziale.
+
+## Campi Conservativi e Potenziale Scalare
+
+Una classe fondamentale di campi vettoriali è costituita dai campi conservativi
+(o irrotazionali). Questi campi emergono naturalmente come gradiente di una
+funzione scalare.
+
+Sia $U: \Omega \to \mathbb{R}$ un campo scalare differenziabile (detto
+_potenziale_). Il gradiente di $U$ è definito come:
+
+$$
+\nabla U = \frac{\partial U}{\partial x}\hat{i} + \frac{\partial U}{\partial y}\hat{j} + \frac{\partial U}{\partial z}\hat{k}
+$$
+
+<Statement type="definition" title="Campo Conservativo">
+
+Un campo vettoriale $\vec{F}$ è detto **conservativo** in un dominio $\Omega$ se
+esiste una funzione scalare differenziabile $U$ tale che:
+
+$$
+\vec{F} = \nabla U
+$$
+
+In fisica, spesso si definisce $\vec{F} = -\nabla U$ (es. campo elettrico e
+potenziale), dove il segno meno indica che il campo punta verso i minimi di
+energia potenziale.
+
+</Statement>
+
+### Integrale di Linea e Indipendenza dal Percorso
+
+<Statement type="theorem" title="Teorema Fondamentale degli Integrali di Linea">
+
+Per un campo conservativo, l'integrale di linea (o lavoro) lungo una curva
+$\gamma$ che congiunge $A$ e $B$ è indipendente dal percorso scelto:
+
+$$
+\int_\gamma \vec{F} \cdot d\vec{l} = \int_A^B \nabla U \cdot d\vec{l} = U(B) - U(A)
+$$
+
+</Statement>
+
+### Circuitazione
+
+Conseguenza immediata è che la circuitazione (integrale lungo una linea chiusa
+$\Gamma$) di un campo conservativo è identicamente nulla:
+
+$$
+\oint_\Gamma \vec{F} \cdot d\vec{l} = 0
+$$
+
+<Callout type="info" title="Condizione necessaria">
+
+Se il dominio $\Omega$ è semplicemente connesso, la condizione necessaria e
+sufficiente affinché $\vec{F}$ sia conservativo è che sia **irrotazionale**,
+ovvero che il suo rotore sia nullo: $\nabla \times \vec{F} = 0$.
+
+</Callout>
+
+## Flusso attraverso una Superficie
+
+Il flusso generalizza il concetto di "quantità di campo che attraversa una
+superficie". È fondamentale nella formulazione integrale delle leggi di Maxwell
+e nella fluidodinamica.
+
+Sia $S$ una superficie orientabile e $\hat{n}$ il versore normale alla
+superficie in ogni punto.
+
+<Statement type="definition" title="Flusso">
+
+Il flusso del campo vettoriale $\vec{F}$ attraverso la superficie $S$ è definito
+dall'integrale di superficie:
+
+$$
+\Phi_S(\vec{F}) = \int_S \vec{F} \cdot \hat{n} \, dS = \int_S \vec{F} \cdot d\vec{S}
+$$
+
+</Statement>
+
+Fisicamente, il prodotto scalare $\vec{F} \cdot \hat{n}$ proietta il campo lungo
+la normale locale. Solo la componente normale contribuisce al flusso netto
+attraverso la superficie.
+
+## La Divergenza
+
+La divergenza è un operatore differenziale che fornisce una misura locale della
+"densità di sorgente" o "densità di pozzo" del campo.
+
+Matematicamente, è il prodotto scalare formale tra l'operatore nabla $\nabla$ e
+il vettore $\vec{F}$:
+
+<Statement type="definition" title="Divergenza">
+
+$$
+\text{div}\,\vec{F} = \nabla \cdot \vec{F} = \frac{\partial F_x}{\partial x} + \frac{\partial F_y}{\partial y} + \frac{\partial F_z}{\partial z}
+$$
+
+</Statement>
+
+### Interpretazione Fisica
+
+La divergenza in un punto $P$ rappresenta il limite del flusso per unità di
+volume attorno a $P$, quando il volume tende a zero:
+
+$$
+(\nabla \cdot \vec{F})_P = \lim_{V \to 0} \frac{1}{V} \oint_{\partial V} \vec{F} \cdot \hat{n} \, dS
+$$
+
+- **$\nabla \cdot \vec{F} > 0$:** Il punto agisce come sorgente (il fluido si
+  espande o viene generato).
+- **$\nabla \cdot \vec{F} < 0$:** Il punto agisce come pozzo (il fluido si
+  comprime o viene assorbito).
+
+## Teorema della Divergenza (Gauss)
+
+Il Teorema della Divergenza stabilisce un legame profondo tra il comportamento
+del campo sul bordo di un dominio e le sue proprietà interne.
+
+<Statement type="theorem" title="Teorema della Divergenza">
+
+Sia $V$ una regione solida compatta in $\mathbb{R}^3$ con bordo $\partial V$
+costituito da una superficie chiusa orientata verso l'esterno. Se $\vec{F}$ è un
+campo vettoriale di classe $C^1$ su $V$, allora:
+
+$$
+\oint_{\partial V} \vec{F} \cdot \hat{n} \, dS = \int_V (\nabla \cdot \vec{F}) \, dV
+$$
+
+</Statement>
+
+Questo teorema afferma che il flusso netto uscente attraverso una superficie
+chiusa è pari alla somma integrale di tutte le sorgenti e i pozzi (divergenza)
+all'interno del volume racchiuso.
+
+## Campi Solenoidali
+
+Una classe specifica di campi vettoriali è quella a divergenza nulla.
+
+<Statement type="definition" title="Campo Solenoidale">
+
+Un campo $\vec{F}$ è detto **solenoidale** in una regione se, per ogni punto
+della regione:
+
+$$
+\nabla \cdot \vec{F} = 0
+$$
+
+</Statement>
+
+Per il teorema di Gauss, il flusso di un campo solenoidale attraverso qualsiasi
+superficie chiusa (che sia bordo di un volume contenuto nel dominio) è nullo.
+
+**Implicazioni Fisiche e Matematiche:**
+
+1.  **Fluidodinamica:** Rappresenta fluidi incomprimibili (la densità è costante
+    nel tempo e nello spazio).
+2.  **Elettromagnetismo:** Il campo magnetico $\vec{B}$ è sempre solenoidale
+    ($\nabla \cdot \vec{B} = 0$), il che implica l'inesistenza di monopoli
+    magnetici.
+3.  **Potenziale Vettore:** Sotto opportune condizioni topologiche, un campo
+    solenoidale ammette sempre un potenziale vettore $\vec{A}$ tale che
+    $\vec{F} = \nabla \times \vec{A}$.
+
+<Callout type="tip" title="Sintesi Operativa">
+
+- **Gradiente:** Trasforma scalari in vettori ($\mathbb{R} \to \mathbb{R}^3$). È
+  legato alla variazione di energia.
+- **Divergenza:** Trasforma vettori in scalari ($\mathbb{R}^3 \to \mathbb{R}$).
+  È legata alla densità di flusso.
+- **Rotore:** Trasforma vettori in vettori ($\mathbb{R}^3 \to \mathbb{R}^3$). È
+  legato alla vorticità e alla circuitazione.
+
+</Callout>

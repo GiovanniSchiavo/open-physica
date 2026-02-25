@@ -1,0 +1,208 @@
+---
+title: Sfera e Guscio Sferico
+description:
+  Campo e potenziale elettrostatico per distribuzioni sferiche di carica
+---
+
+## Sfera carica uniformemente
+
+Consideriamo una sfera di raggio $R$ con densità di carica volumica $\rho$
+uniforme. La carica totale è:
+
+$$
+Q = \rho \frac{4}{3}\pi R^3
+$$
+
+### Campo Elettrico
+
+Per la simmetria sferica, il campo elettrico $\vec{E}$ è radiale e dipende solo
+dalla distanza $r$ dal centro. Usiamo il Teorema di Gauss scegliendo una
+superficie gaussiana sferica di raggio $r$.
+
+#### Caso Interno ($r < R$)
+
+La carica racchiusa $Q_{int}$ dalla superficie gaussiana è proporzionale al
+volume racchiuso:
+
+$$
+Q_{int} = \rho \frac{4}{3}\pi r^3 = Q \frac{r^3}{R^3}
+$$
+
+Applicando Gauss:
+
+$$
+\Phi(\vec{E}) = \oint \vec{E} \cdot d\boldsymbol{\Sigma} = E(r) 4\pi r^2 = \frac{Q_{int}}{\varepsilon_0}
+$$
+
+$$
+E(r) 4\pi r^2 = \frac{Q r^3}{\varepsilon_0 R^3} \implies E(r) = \frac{Q r}{4\pi\varepsilon_0 R^3} = \frac{\rho r}{3\varepsilon_0}
+$$
+
+In forma vettoriale:
+
+$$
+\vec{E}(r) = \frac{\rho r}{3\varepsilon_0} \hat{u}_r
+$$
+
+#### Caso Esterno ($r \ge R$)
+
+La carica racchiusa è l'intera carica $Q$.
+
+$$
+E(r) 4\pi r^2 = \frac{Q}{\varepsilon_0} \implies E(r) = \frac{Q}{4\pi\varepsilon_0 r^2}
+$$
+
+Il campo è identico a quello di una carica puntiforme $Q$ posta nel centro.
+
+**Riassumendo:**
+
+$$
+\vec{E}(r)=\begin{cases} \begin{aligned}
+\frac{Qr}{4\pi\varepsilon_0 R^3}=\frac{\rho r}{3 \varepsilon_0} \hat{u}_r \ \mathrm{\ se\ r<R}\\
+\frac{Q}{4\pi\varepsilon_0 r^2} \hat{u}_r \quad \ \ \ \ \ \ \mathrm{\ se\ r\geq R}
+\end{aligned}  \end{cases}
+$$
+
+### Potenziale Elettrostatico
+
+Il potenziale $V(r)$ si ottiene integrando il campo elettrico:
+$V(r) = - \int_{\infty}^r \vec{E} \cdot d\vec{l}$. Poniamo $V(\infty) = 0$.
+
+#### Caso Esterno ($r \ge R$)
+
+$$
+V(r) = - \int_{\infty}^r \frac{Q}{4\pi\varepsilon_0 r'^2} dr' = \frac{Q}{4\pi\varepsilon_0 r}
+$$
+
+#### Caso Interno ($r < R$)
+
+Dobbiamo integrare dall'infinito fino a $R$ (potenziale sulla superficie) e poi
+da $R$ a $r$:
+
+$$
+V(r) = V(R) - \int_R^r E_{int}(r') dr'
+$$
+
+Sappiamo che $V(R) = \frac{Q}{4\pi\varepsilon_0 R}$.
+
+$$
+V(r) = \frac{Q}{4\pi\varepsilon_0 R} - \int_R^r \frac{Q r'}{4\pi\varepsilon_0 R^3} dr'
+$$
+
+$$
+V(r) = \frac{Q}{4\pi\varepsilon_0 R} - \frac{Q}{4\pi\varepsilon_0 R^3} \left[ \frac{r'^2}{2} \right]_R^r = \frac{Q}{4\pi\varepsilon_0 R} - \frac{Q}{8\pi\varepsilon_0 R^3} (r^2 - R^2)
+$$
+
+$$
+V(r) = \frac{Q}{4\pi\varepsilon_0 R} \left( 1 - \frac{r^2 - R^2}{2R^2} \right) = \frac{Q}{4\pi\varepsilon_0 R} \left( \frac{2R^2 - r^2 + R^2}{2R^2} \right) = \frac{Q (3R^2 - r^2)}{8\pi\varepsilon_0 R^3}
+$$
+
+Sostituendo $Q = \rho \frac{4}{3}\pi R^3$:
+
+$$
+V(r) = \frac{\rho \frac{4}{3}\pi R^3 (3R^2 - r^2)}{8\pi\varepsilon_0 R^3} = \frac{\rho(3R^2 - r^2)}{6\varepsilon_0}
+$$
+
+**Riassumendo:**
+
+$$
+V(r)=\begin{cases} \begin{aligned}
+\frac{\rho (3R^2-r^2)}{6\varepsilon_0 } \ \mathrm{\ se\ r<R}\\
+\frac{Q}{4\pi\varepsilon_0 r} \qquad  \ \ \mathrm{\ se\ r\geq R}
+\end{aligned} \end{cases}
+$$
+
+A $r=0$ (centro), $V(0) = \frac{3}{2} V(R)$.
+
+### Capacità
+
+Per una sfera isolata di raggio $R$ immersa nel vuoto (considerando l'altra
+armatura all'infinito), la capacità è data da $C = Q / V(R)$.
+
+Poiché $V(R) = \frac{Q}{4\pi\varepsilon_0 R}$:
+
+$$
+C = 4\pi\varepsilon_0 R
+$$
+
+---
+
+## Guscio sferico carico uniformemente
+
+Consideriamo un guscio sferico di raggio $R$ con carica $Q$ distribuita
+uniformemente sulla superficie ($\sigma = Q / 4\pi R^2$).
+
+### Campo Elettrico
+
+Applicando Gauss:
+
+#### Caso Interno ($r < R$)
+
+Non c'è carica racchiusa in una superficie gaussiana di raggio $r < R$:
+$Q_{int} = 0$.
+
+$$
+E(r) = 0
+$$
+
+#### Caso Esterno ($r \ge R$)
+
+La carica racchiusa è $Q$.
+
+$$
+E(r) = \frac{Q}{4\pi\varepsilon_0 r^2}
+$$
+
+**Riassumendo:**
+
+$$
+\vec{E}(r)=\begin{cases}  \begin{aligned}
+0 \qquad \qquad \ \ \mathrm{\ se\ r<R}\\
+\frac{Q}{4\pi\varepsilon_0 r^2} \hat{u}_r \ \ \ \ \ \ \ \mathrm{\ se\ r\geq R}
+\end{aligned} \end{cases}
+$$
+
+### Potenziale Elettrostatico
+
+#### Caso Esterno ($r \ge R$)
+
+Come per la sfera e la carica puntiforme:
+
+$$
+V(r) = \frac{Q}{4\pi\varepsilon_0 r}
+$$
+
+#### Caso Interno ($r < R$)
+
+Poiché il campo elettrico interno è nullo, il potenziale è costante ed è uguale
+al valore al bordo (continuità del potenziale):
+
+$$
+V(r) = V(R) = \frac{Q}{4\pi\varepsilon_0 R}
+$$
+
+**Riassumendo:**
+
+$$
+V(r)=\begin{cases} \begin{aligned}
+\frac{Q}{4\pi\varepsilon_0 R} \ \ \ \ \ \ \ \mathrm{\ se\ r<R}\\
+\frac{Q}{4\pi\varepsilon_0 r} \ \ \ \ \ \ \ \mathrm{\ se\ r\geq R}
+\end{aligned} \end{cases}
+$$
+
+### Capacità
+
+Anche per un guscio sferico conduttore, la capacità propria è la stessa di una
+sfera solida di ugual raggio (la carica si distribuisce comunque sulla
+superficie esterna).
+
+$$
+C = 4\pi\varepsilon_0 R
+$$
+
+Invece, se consideriamo un **condensatore sferico** formato da due gusci
+concentrici di raggi $R_a$ e $R_b$ ($R_a < R_b$):
+
+$$
+C = 4\pi\varepsilon_0 \frac{R_a R_b}{R_b - R_a}
+$$

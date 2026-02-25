@@ -1,0 +1,99 @@
+---
+title: Onde sonore, Doppler e mezzi dispersivi
+description:
+  Onde acustiche, intensità sonora, effetto Doppler, onde d'urto, velocità di
+  fase/gruppo e propagazione in mezzi dispersivi
+---
+
+## Equazione dell'onda sonora
+
+In un fluido ideale, piccole perturbazioni di pressione soddisfano:
+
+$$
+\frac{\partial^2 p'}{\partial x^2}-\frac{1}{v_s^2}\frac{\partial^2 p'}{\partial t^2}=0
+$$
+
+dove $v_s$ è la velocità del suono.
+
+Per gas ideali (approssimazione adiabatica):
+
+$$
+v_s=\sqrt{\gamma\frac{p_0}{\rho_0}}
+$$
+
+## Intensità e livello sonoro
+
+L'intensità media è:
+
+$$
+I=\frac{P}{S}
+$$
+
+Il livello in decibel:
+
+$$
+L=10\log_{10}\left(\frac{I}{I_0}\right),\qquad I_0=10^{-12}\,\text{W/m}^2
+$$
+
+Un aumento di $10\,\text{dB}$ corrisponde a un'intensità 10 volte maggiore.
+
+## Effetto Doppler
+
+### Osservatore in moto
+
+$$
+f' = f\left(1\pm\frac{v_O}{v}\right)
+$$
+
+### Sorgente in moto
+
+$$
+f' = \frac{f}{1\mp\frac{v_S}{v}}
+$$
+
+Segni scelti in modo che la frequenza aumenti in avvicinamento.
+
+## Onde d'urto e cono di Mach
+
+Se una sorgente supera la velocità dell'onda ($v_S>v$), si forma un fronte
+conico:
+
+$$
+\sin\mu=\frac{v}{v_S}=\frac{1}{M}
+$$
+
+dove $M$ è il numero di Mach.
+
+## Mezzi dispersivi
+
+In un mezzo dispersivo la velocità dipende dalla frequenza:
+
+$$
+v_f(\omega)=\frac{\omega}{k(\omega)}
+$$
+
+Per pacchetti d'onda conta la velocità di gruppo:
+
+$$
+v_g=\frac{d\omega}{dk}
+$$
+
+Interpretazione:
+
+- $v_f$: velocità delle creste;
+- $v_g$: velocità del trasporto di energia/informazione (in molti casi).
+
+## Collegamento con ottica e EM
+
+Le stesse idee (dispersione, fase, gruppo) si applicano anche a:
+
+- propagazione in fibre ottiche;
+- segnali a banda larga in linee di trasmissione;
+- pacchetti d'onda elettromagnetici in mezzi materiali.
+
+<Callout type="tip" title="Checklist per problemi su Doppler/dispersone">
+  - identifica il riferimento fermo del mezzo; - scegli formula corretta
+  (sorgente o osservatore in moto); - controlla segni fisicamente
+  (avvicinamento/allontanamento); - nei mezzi dispersivi distingui sempre $v_f$
+  da $v_g$.
+</Callout>

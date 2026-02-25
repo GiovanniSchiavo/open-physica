@@ -1,0 +1,934 @@
+---
+flashcards: true
+---
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Enuncia la legge di Coulomb e confrontala con la legge di gravitazione
+universale. Quali sono le analogie e le differenze fondamentali?
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+**Legge di Coulomb** — forza tra due cariche puntiformi $q_1$, $q_2$ a distanza
+$r$:
+
+$$\mathbf{F} = \frac{1}{4\pi\varepsilon_0}\frac{q_1 q_2}{r^2}\hat{r}$$
+
+**Confronto con la gravitazione universale** $F_g = G\dfrac{m_1 m_2}{r^2}$:
+
+|                   | Coulomb                       | Gravitazione                      |
+| ----------------- | ----------------------------- | --------------------------------- |
+| Dipendenza da $r$ | $1/r^2$                       | $1/r^2$                           |
+| Costante          | $k = 8.99\times10^9$ N·m²/C²  | $G = 6.67\times10^{-11}$ N·m²/kg² |
+| Segno             | repulsiva o attrattiva        | sempre attrattiva                 |
+| Sorgente          | carica $q$ (può essere $< 0$) | massa $m$ (sempre $> 0$)          |
+
+L'ordine di grandezza del rapporto $F_e/F_g$ tra coppia $e^-$–$p$ è
+$\approx 10^{39}$: la forza elettrica domina enormemente su scala atomica.
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Calcola il campo elettrico generato da un filo rettilineo indefinito con densità
+lineare di carica uniforme $\lambda$.
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+Per simmetria cilindrica, $\mathbf{E}$ è radiale e dipende solo dalla distanza
+$r$ dall'asse del filo.
+
+Si sceglie come superficie di Gauss un cilindro coassiale di raggio $r$ e
+lunghezza $\ell$ (superficie chiusa $\Sigma=\partial\tau$):
+
+$$
+\oint_{\Sigma}\mathbf{E}\cdot d\boldsymbol{\Sigma}
+=E(r)\,(2\pi r\ell)
+=\frac{Q_{\text{int}}}{\varepsilon_0}
+=\frac{\lambda \ell}{\varepsilon_0}
+$$
+
+Quindi:
+
+$$
+\boxed{\mathbf{E}(r)=\frac{\lambda}{2\pi\varepsilon_0 r}\,\hat{\mathbf{r}}}
+$$
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Quali sono le condizioni di continuità/discontinuità di $\mathbf{E}$ e cos'è la
+pressione elettrostatica su una superficie carica?
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+Dalle equazioni di Maxwell in elettrostatica:
+
+- La componente **tangenziale** è continua:
+
+  $$
+  \mathbf{E}_{2,\parallel}-\mathbf{E}_{1,\parallel}=\mathbf{0}
+  $$
+
+  (perché $\nabla\times\mathbf{E}=0$).
+
+- La componente **normale** ha un salto se c'è carica superficiale libera
+  $\sigma$:
+
+  $$
+  \mathbf{E}_{2,\perp}-\mathbf{E}_{1,\perp}=\frac{\sigma}{\varepsilon_0}\,\hat{\mathbf{n}}
+  $$
+
+  (da Gauss su un "pillbox" che attraversa la superficie).
+
+Per un **conduttore** in equilibrio: $\mathbf{E}_{\text{in}}=\mathbf{0}$ e
+$\mathbf{E}$ appena fuori è normale alla superficie con
+$E_{\text{out}}=\sigma/\varepsilon_0$.
+
+La **pressione elettrostatica** (forza per unità di area) esercitata dal campo
+sulla superficie carica vale:
+
+$$
+p=\frac{\varepsilon_0}{2}E_{\text{out}}^2=\frac{\sigma^2}{2\varepsilon_0}
+$$
+
+È la densità di energia del campo valutata al bordo: tende a "spingere" verso
+l'esterno una superficie caricata.
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Cos'è lo sviluppo in multipoli del potenziale? Perché se $Q_{\text{tot}}=0$ il
+termine di dipolo non dipende dall'origine scelta?
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+Per una distribuzione di carica localizzata, a grande distanza ($r$ molto più
+grande della dimensione della sorgente) il potenziale ammette lo **sviluppo in
+multipoli**:
+
+$$
+V(\mathbf{r})=
+\frac{1}{4\pi\varepsilon_0}
+\left(
+\frac{Q}{r}
+\frac{\mathbf{p}\cdot\hat{\mathbf{r}}}{r^2}
+\cdots
+\right)
+$$
+
+dove:
+
+- $Q=\int \rho(\mathbf{r}')\,d\tau'$ è la carica totale;
+- $\mathbf{p}=\int \mathbf{r}'\,\rho(\mathbf{r}')\,d\tau'$ è il momento di
+  dipolo (o, per cariche discrete, $\mathbf{p}=\sum_i q_i\mathbf{r}_i$).
+
+Se si cambia origine di un vettore $\mathbf{a}$,
+$\mathbf{r}'\mapsto
+\mathbf{r}''=\mathbf{r}'-\mathbf{a}$, il dipolo diventa:
+
+$$
+\mathbf{p}''=\int \mathbf{r}''\rho\,d\tau'=\mathbf{p}-\mathbf{a}\int\rho\,d\tau'
+=\mathbf{p}-\mathbf{a}Q
+$$
+
+Quindi se $Q_{\text{tot}}=0$ il momento di dipolo è **invariante** rispetto alla
+scelta dell'origine: $\mathbf{p}''=\mathbf{p}$.
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Qual è l'energia elettrostatica di una sfera uniformemente carica (raggio $R$,
+carica totale $Q$)? Qual è l'idea fisica del calcolo?
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+L'energia elettrostatica può essere calcolata:
+
+- come lavoro di assemblaggio: $U=\dfrac{1}{2}\int \rho V\,d\tau$;
+- oppure come energia del campo: $U=\dfrac{\varepsilon_0}{2}\int E^2\,d\tau$.
+
+Per una sfera piena con carica volumica uniforme (carica totale $Q$) il
+risultato finale è:
+
+$$
+\boxed{U=\frac{3}{5}\,\frac{1}{4\pi\varepsilon_0}\,\frac{Q^2}{R}}
+$$
+
+L'ordine di grandezza è "costante di Coulomb $\times$ $Q^2/R$": la costante
+$3/5$ dipende dal fatto che la carica è distribuita in volume (non tutta sulla
+superficie).
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Dimostra (in forma generale) la densità di energia elettrostatica e spiega
+perché l'energia del campo è sempre non negativa.
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+Il lavoro per "costruire" una distribuzione di carica può scriversi come:
+
+$$
+U=\frac{1}{2}\int \rho(\mathbf{r})\,V(\mathbf{r})\,d\tau
+$$
+
+Usando l'equazione di Poisson $\nabla^2 V=-\rho/\varepsilon_0$:
+
+$$
+U=-\frac{\varepsilon_0}{2}\int V\,\nabla^2 V\,d\tau
+$$
+
+Integrando per parti (trascurando il termine di bordo per campi che decadono
+all'infinito) si ottiene:
+
+$$
+U=\frac{\varepsilon_0}{2}\int (\nabla V)^2\,d\tau
+=\frac{\varepsilon_0}{2}\int E^2\,d\tau
+$$
+
+Da qui si identifica la **densità di energia**:
+
+$$
+\boxed{u_E=\frac{\varepsilon_0}{2}E^2}
+$$
+
+Poiché $E^2\ge 0$, anche $u_E\ge 0$ e quindi l'energia totale del campo è non
+negativa.
+
+Quando si dice che due cariche opposte hanno energia potenziale negativa, si sta
+parlando dell'**energia di interazione** (definita rispetto allo zero a distanza
+infinita), non della somma completa che includerebbe anche le energie di
+auto-interazione.
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Perché in elettrostatica si può definire la divergenza di $\mathbf{E}$? Che
+relazione ha con la legge $1/r^2$ e con l'esperimento della sfera cava?
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+In elettrostatica vale la legge di Gauss:
+
+$$
+\oint_{\Sigma}\mathbf{E}\cdot d\boldsymbol{\Sigma}=\frac{Q_{\text{int}}}{\varepsilon_0},
+\qquad \Sigma=\partial\tau
+$$
+
+Applicando il teorema della divergenza:
+
+$$
+\int_{\tau}(\nabla\cdot\mathbf{E})\,d\tau
+=\frac{1}{\varepsilon_0}\int_{\tau}\rho\,d\tau
+\quad\Rightarrow\quad
+\boxed{\nabla\cdot\mathbf{E}=\frac{\rho}{\varepsilon_0}}
+$$
+
+La legge di Coulomb $E\propto 1/r^2$ implica che il flusso attraverso una sfera
+di raggio $r$ sia indipendente da $r$: $E(r)\,4\pi r^2 = \text{costante}$.
+
+Un test sperimentale classico (storicamente con bilance di torsione e misure di
+campo) è che **all'interno di una sfera cava uniformemente carica il campo è
+nullo**: se la forza variasse anche di poco da $1/r^2$, la cancellazione non
+sarebbe perfetta e comparirebbe un campo interno misurabile.
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Da $V$ a Poisson/Laplace: definizione integrale del potenziale, laplaciano e
+soluzione generale di Poisson.
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+In elettrostatica $\nabla\times\mathbf{E}=0$, quindi esiste un potenziale
+scalare:
+
+$$
+V(B)-V(A)=-\int_A^B \mathbf{E}\cdot d\mathbf{l},
+\qquad
+\mathbf{E}=-\nabla V
+$$
+
+Combinando con Gauss ($\nabla\cdot\mathbf{E}=\rho/\varepsilon_0$) si ottiene:
+
+$$
+\boxed{\nabla^2 V=-\frac{\rho}{\varepsilon_0}}
+$$
+
+che è l'**equazione di Poisson**. Nelle regioni senza cariche ($\rho=0$) diventa
+l'**equazione di Laplace**: $\nabla^2 V=0$.
+
+La soluzione in spazio libero (Green $1/|\mathbf{r}-\mathbf{r}'|$) è:
+
+$$
+\boxed{
+V(\mathbf{r})=
+\frac{1}{4\pi\varepsilon_0}\int_{\mathbb{R}^3}\frac{\rho(\mathbf{r}')}{|\mathbf{r}-\mathbf{r}'|}\,d\tau'
+}
+$$
+
+(a cui si aggiungono eventuali termini determinati dalle condizioni al contorno
+su superfici conduttrici o dielettriche).
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Come si descrivono le cariche di polarizzazione in un dielettrico e cosa cambia
+se il mezzo è isotropo ma non omogeneo?
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+Le cariche **legate** dovute alla polarizzazione $\mathbf{P}$ sono:
+
+$$
+\boxed{\rho_p=-\nabla\cdot\mathbf{P}},\qquad
+\boxed{\sigma_p=\mathbf{P}\cdot\hat{\mathbf{n}}}
+$$
+
+In un dielettrico lineare isotropo: $\mathbf{P}=\varepsilon_0\chi_e\mathbf{E}$.
+
+Se il mezzo è isotropo ma **non omogeneo** (cioè $\chi_e=\chi_e(\mathbf{r})$),
+allora in generale:
+
+$$
+\rho_p=-\varepsilon_0\nabla\cdot(\chi_e\mathbf{E})
+=-\varepsilon_0\left(\chi_e\,\nabla\cdot\mathbf{E}+(\nabla\chi_e)\cdot\mathbf{E}\right)
+$$
+
+Quindi **non** c'è garanzia che $\rho_p=0$: basta che $\chi_e$ vari nello spazio
+o che $\mathbf{E}$ non sia uniforme.
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Quali sono le condizioni al contorno tra due dielettrici? Quali componenti sono
+continue e quali possono essere discontinue?
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+All'interfaccia tra due dielettrici (in elettrostatica):
+
+- La componente tangenziale di $\mathbf{E}$ è continua:
+
+  $$
+  \mathbf{E}_{2,\parallel}-\mathbf{E}_{1,\parallel}=\mathbf{0}
+  $$
+
+- La componente normale di $\mathbf{D}$ salta in presenza di carica libera
+  superficiale $\sigma_f$:
+
+  $$
+  \mathbf{D}_{2,\perp}-\mathbf{D}_{1,\perp}=\sigma_f\,\hat{\mathbf{n}}
+  $$
+
+Se non ci sono cariche libere sull'interfaccia ($\sigma_f=0$), allora $D_\perp$
+è continuo, mentre $E_\perp$ può cambiare perché $D=\varepsilon E$:
+
+$$
+E_{2,\perp}=\frac{\varepsilon_1}{\varepsilon_2}E_{1,\perp}
+$$
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Come si ricava la suscettività elettrica di un dielettrico non polare a partire
+da un modello microscopico?
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+In un dielettrico **non polare** le molecole non hanno dipolo permanente, ma un
+campo $\mathbf{E}$ induce una separazione di carica: il dipolo indotto è
+proporzionale al campo:
+
+$$
+\mathbf{p}_{\text{ind}}=\alpha\,\mathbf{E}
+$$
+
+dove $\alpha$ è la **polarizzabilità**.
+
+Se ci sono $N$ molecole per unità di volume, la polarizzazione macroscopica è:
+
+$$
+\mathbf{P}=N\mathbf{p}_{\text{ind}}=N\alpha\,\mathbf{E}
+$$
+
+Confrontando con $\mathbf{P}=\varepsilon_0\chi_e\mathbf{E}$:
+
+$$
+\boxed{\chi_e=\frac{N\alpha}{\varepsilon_0}}
+$$
+
+Per molecole polari (dipoli permanenti) c'è anche un contributo di
+**orientazione** che dipende dalla temperatura.
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Che cosa succede alla capacità se si inserisce un dielettrico solo in parte in
+un condensatore?
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+Dipende dalla geometria: in pratica si riconduce a **condensatori in parallelo**
+o **in serie**.
+
+1. Dielettrico che riempie una frazione di area (due regioni affiancate):
+   equivalente a un parallelo:
+
+$$
+C=C_1+C_2=\frac{\varepsilon_0 A_1}{d}+\frac{\varepsilon_0\varepsilon_r A_2}{d}
+$$
+
+2. Dielettrico che riempie una frazione di spessore (strati lungo la direzione
+   del campo): equivalente a un serie:
+
+$$
+\frac{1}{C}=\frac{1}{C_1}+\frac{1}{C_2}
+=\frac{d_1}{\varepsilon_0\varepsilon_r A}+\frac{d_2}{\varepsilon_0 A}
+$$
+
+In entrambi i casi l'inserimento del dielettrico **aumenta** la capacità
+rispetto al vuoto.
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Una carica è posta dentro una cavità di un conduttore: come si distribuiscono le
+cariche indotte sulle superfici del conduttore?
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+In equilibrio elettrostatico il campo dentro il metallo è nullo e il conduttore
+è equipotenziale.
+
+Se una carica $q$ è posta nella cavità:
+
+- sulla **superficie interna** della cavità si induce una carica totale $-q$
+  (perché, scegliendo una superficie gaussiana nel metallo che avvolge la
+  cavità, il flusso deve essere zero ma la carica totale racchiusa deve essere
+  nulla: $q+Q_{\text{ind,int}}=0$);
+- sulla **superficie esterna** del conduttore compare una carica totale $+q$ se
+  il conduttore era inizialmente neutro (conservazione della carica).
+
+La distribuzione dettagliata sulla superficie interna dipende dalla posizione di
+$q$ nella cavità (non è uniforme in generale), ma le cariche totali indotte sono
+fissate dai vincoli sopra.
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Definisci il flusso di un campo elettrico attraverso una superficie e scrivi il
+teorema di Gauss in forma integrale.
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+Il **flusso** del campo elettrico attraverso una superficie orientata $\Sigma$
+è:
+
+$$
+\Phi_E=\int_{\Sigma} \mathbf{E}\cdot d\boldsymbol{\Sigma}
+$$
+
+dove $d\boldsymbol{\Sigma}=\hat{\mathbf{n}}\,d\Sigma$.
+
+Per una superficie chiusa $\Sigma=\partial\tau$:
+
+$$
+\oint_{\Sigma}\mathbf{E}\cdot d\boldsymbol{\Sigma}
+=
+\frac{Q_{\text{int}}}{\varepsilon_0}
+$$
+
+Questa è la legge di Gauss in forma integrale.
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Definisci il potenziale elettrostatico e la differenza di potenziale tra due
+punti.
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+Il **potenziale elettrostatico** $V$ è l'energia potenziale per unità di carica:
+
+$$
+V=\frac{U}{q}
+$$
+
+La differenza di potenziale tra $A$ e $B$ è:
+
+$$
+V(B)-V(A)=-\int_A^B \mathbf{E}\cdot d\mathbf{l}
+$$
+
+In elettrostatica vale anche:
+
+$$
+\mathbf{E}=-\nabla V
+$$
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Definisci la capacità elettrica di un conduttore isolato e di un condensatore.
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+La **capacità** misura quanta carica può accumularsi per unità di differenza di
+potenziale.
+
+Per un conduttore isolato:
+
+$$
+C=\frac{Q}{V}
+$$
+
+Per un condensatore (due conduttori):
+
+$$
+C=\frac{Q}{\Delta V}
+$$
+
+Unità di misura: **farad** (F), con $1\text{ F}=1\text{ C}/1\text{ V}$.
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Definisci permittività assoluta, relativa e suscettività elettrica in un
+dielettrico lineare isotropo.
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+In un dielettrico lineare isotropo:
+
+$$
+\mathbf{D}=\varepsilon \mathbf{E}
+$$
+
+dove:
+
+- $\varepsilon$ è la **permittività assoluta** del mezzo;
+- $\varepsilon_r=\varepsilon/\varepsilon_0$ è la **permittività relativa**.
+
+La **suscettività elettrica** è:
+
+$$
+\chi_e=\varepsilon_r-1
+$$
+
+e la polarizzazione è:
+
+$$
+\mathbf{P}=\varepsilon_0\chi_e\mathbf{E}
+$$
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Enuncia la legge di Gauss per il campo elettrico e illustra come si applica per
+calcolare il campo di una sfera uniformemente carica.
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+**Legge di Gauss**:
+
+$$\oint_{\Sigma} \mathbf{E} \cdot d\boldsymbol{\Sigma} = \frac{Q_{\text{enc}}}{\varepsilon_0}$$
+
+Il flusso del campo elettrico attraverso una superficie gaussiana chiusa è
+uguale alla carica totale interna divisa per $\varepsilon_0$.
+
+**Applicazione — sfera di raggio $R$, carica totale $Q$:**
+
+- **Esterno** ($r > R$): superficie gaussiana sferica di raggio $r$.
+
+  $E \cdot 4\pi r^2 = \dfrac{Q}{\varepsilon_0}$
+  $\Rightarrow \mathbf{E} = \dfrac{Q}{4\pi\varepsilon_0 r^2}\,\hat{r}$ (identico
+  a una carica puntiforme).
+
+- **Interno** ($r < R$, distribuzione uniforme):
+
+  $Q_{\text{enc}} = Q\dfrac{r^3}{R^3}$
+
+  $\Rightarrow \mathbf{E} = \dfrac{Q}{4\pi\varepsilon_0 R^3}\,r\,\hat{r}$
+  (cresce linearmente con $r$).
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Cos'è il potenziale elettrostatico $V$? Come è legato al campo $\mathbf{E}$ e
+all'energia potenziale?
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+Il **potenziale elettrostatico** $V(\mathbf{r})$ è definito come il lavoro fatto
+dal campo per portare una carica unitaria positiva dall'infinito al punto
+$\mathbf{r}$, cambiato di segno:
+
+$$V(\mathbf{r}) = -\int_{\infty}^{\mathbf{r}} \mathbf{E} \cdot d\mathbf{l}$$
+
+Il campo elettrico si ricava dal potenziale come gradiente:
+
+$$\mathbf{E} = -\nabla V$$
+
+L'energia potenziale di una carica $q$ nel campo è $U = qV$.
+
+Per una carica puntiforme $Q$:
+
+$$V(r) = \frac{Q}{4\pi\varepsilon_0 r}$$
+
+Il potenziale è uno **scalare**, il che rende spesso più semplice il calcolo
+rispetto al campo vettoriale $\mathbf{E}$.
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Cos'è un dipolo elettrico? Scrivi il potenziale e il campo nel limite di dipolo,
+e descrivi la forza e il momento torcente in un campo esterno.
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+Un **dipolo elettrico** è un sistema di due cariche uguali e opposte $\pm q$
+separate da una distanza $d$. Il **momento di dipolo** è:
+
+$$\mathbf{p} = q\,\mathbf{d} \quad \text{(da } {-q} \text{ a } {+q}\text{)}$$
+
+**Potenziale** a grande distanza ($r \gg d$):
+
+$$V(\mathbf{r}) = \frac{1}{4\pi\varepsilon_0}\frac{\mathbf{p}\cdot\hat{r}}{r^2} = \frac{p\cos\theta}{4\pi\varepsilon_0 r^2}$$
+
+**Momento torcente** in campo esterno $\mathbf{E}$:
+
+$$\boldsymbol{\tau} = \mathbf{p}\times\mathbf{E}$$
+
+Il dipolo tende ad allinearsi con il campo (posizione di equilibrio stabile).
+
+**Energia potenziale**: $U = -\mathbf{p}\cdot\mathbf{E}$
+
+**Forza** su un dipolo in campo non uniforme:
+$\mathbf{F} = \nabla(\mathbf{p}\cdot\mathbf{E})$
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Quali sono le proprietà di un conduttore in equilibrio elettrostatico? Spiega lo
+schermo elettrostatico e l'effetto punta.
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+In un **conduttore in equilibrio**:
+
+1. $\mathbf{E} = 0$ all'interno — altrimenti le cariche si muoverebbero.
+2. Tutte le cariche libere risiedono sulla **superficie**.
+3. La superficie è **equipotenziale**.
+4. $\mathbf{E}$ è perpendicolare alla superficie, con
+   $E = \sigma/\varepsilon_0$.
+
+**Schermo elettrostatico** (gabbia di Faraday): una cavità conduttrice chiusa è
+completamente schermata da campi esterni. Il campo all'interno è nullo e
+indipendente da ciò che accade fuori.
+
+**Effetto punta**: la densità di carica $\sigma$ è maggiore dove la curvatura è
+più alta. Poiché $E \propto \sigma$, il campo è intensissimo nelle regioni
+appuntite → possibile ionizzazione dell'aria e scarica (parafulmini, corona).
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Cos'è la capacità di un condensatore? Deriva la capacità del condensatore piano.
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+La **capacità** è definita come:
+
+$$C = \frac{Q}{V}$$
+
+dove $Q$ è la carica su una delle armature e $V$ la differenza di potenziale tra
+di esse. Si misura in Farad ($\text{F} = \text{C/V}$).
+
+**Condensatore piano** — armature di area $A$, distanza $d$, dielettrico
+$\varepsilon$:
+
+Il campo interno (uniforme) vale:
+$E = \dfrac{\sigma}{\varepsilon} = \dfrac{Q}{\varepsilon A}$
+
+La tensione: $V = E\, d = \dfrac{Q d}{\varepsilon A}$
+
+Quindi:
+
+$$\boxed{C = \frac{\varepsilon A}{d} = \frac{\varepsilon_r \varepsilon_0 A}{d}}$$
+
+Inserire un dielettrico ($\varepsilon_r > 1$) aumenta la capacità perché le
+molecole polarizzate riducono il campo interno, permettendo di immagazzinare più
+carica a parità di tensione.
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Cos'è la polarizzazione di un dielettrico? Definisci $\mathbf{P}$, $\mathbf{D}$
+e spiega il ruolo delle cariche di polarizzazione.
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+In presenza di campo elettrico, le molecole del dielettrico si **polarizzano**
+(dipoli permanenti si orientano, dipoli indotti compaiono). La
+**polarizzazione** $\mathbf{P}$ è il momento di dipolo per unità di volume:
+
+$$\mathbf{P} = \varepsilon_0 \chi_e \mathbf{E}$$
+
+dove $\chi_e$ è la suscettività elettrica.
+
+Le cariche di polarizzazione legate compaiono con densità volumetrica
+$\rho_p = -\nabla\cdot\mathbf{P}$ e superficiale
+$\sigma_p = \mathbf{P}\cdot\hat{n}$.
+
+Il **vettore spostamento elettrico** $\mathbf{D}$ ingloba sia le cariche libere
+che quelle di polarizzazione:
+
+$$\mathbf{D} = \varepsilon_0\mathbf{E} + \mathbf{P} = \varepsilon_0(1+\chi_e)\mathbf{E} = \varepsilon\mathbf{E}$$
+
+La legge di Gauss in forma macroscopica diventa:
+
+$$\nabla\cdot\mathbf{D} = \rho_{\text{libera}}$$
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Perché una bacchetta carica attira pezzetti di carta (neutri)? Qual è il ruolo
+dei dipoli indotti?
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+La carta è (in prima approssimazione) un isolante polarizzabile. Un campo
+elettrico esterno induce una separazione di carica a livello microscopico:
+
+$$
+\mathbf{p}_{\text{ind}}=\alpha\,\mathbf{E}
+$$
+
+In un campo **non uniforme** un dipolo sente una forza netta verso regioni in
+cui il campo è più intenso:
+
+$$
+\mathbf{F}\approx\nabla(\mathbf{p}\cdot\mathbf{E})
+$$
+
+Per un dipolo indotto (allineato al campo in media) si può scrivere
+qualitativamente:
+
+$$
+\mathbf{F}\propto\nabla(E^2)
+$$
+
+Questo spiega perché un oggetto neutro ma polarizzabile può essere attratto da
+un corpo carico: la polarizzazione crea cariche legate più vicine e più lontane,
+ma l'asimmetria del campo (più forte vicino alla bacchetta) rende l'effetto
+risultante attrattivo.
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Perché in un conduttore in equilibrio elettrostatico vale $\mathbf{E}=0$ nel
+volume e la carica libera si dispone sulla superficie?
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+Se nel volume di un conduttore ci fosse un campo elettrico interno
+$\mathbf{E}\neq 0$, le cariche libere subirebbero una forza $q\mathbf{E}$ e si
+muoverebbero: non sarebbe equilibrio.
+
+Il sistema evolve quindi finché:
+
+- il campo nel metallo si annulla: $\mathbf{E}=0$;
+- il potenziale diventa costante in tutto il conduttore (equipotenziale);
+- la carica libera si accumula sulle superfici, perché solo lì può generare un
+  campo che "compensa" eventuali campi esterni senza lasciare campo residuo nel
+  volume.
+
+Un modo compatto di vedere che nel volume non può restare carica libera è usare
+Gauss: scegli una superficie chiusa $\Sigma=\partial\tau$ tutta dentro il
+metallo. Poiché $\mathbf{E}=0$ su $\Sigma$, il flusso è nullo e quindi:
+
+$$
+0=\oint_{\Sigma}\mathbf{E}\cdot d\boldsymbol{\Sigma}=\frac{Q_{\text{int}}}{\varepsilon_0}
+\quad\Rightarrow\quad
+Q_{\text{int}}=0
+$$
+
+cioè non può esserci carica netta all'interno del volume conduttore: la carica
+libera "migra" alla superficie.
+
+</FlashcardAnswer>
+
+</Flashcard>

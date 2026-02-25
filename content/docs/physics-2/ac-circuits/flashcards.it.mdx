@@ -1,0 +1,361 @@
+---
+flashcards: true
+---
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Cos'è la resistenza in corrente alternata di un condensatore (reattanza
+capacitiva) e di un induttore (reattanza induttiva)?
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+In regime sinusoidale $v(t) = V_0\cos(\omega t)$:
+
+**Condensatore** — la corrente è $i = C\dfrac{dv}{dt}$:
+
+$$X_C = \frac{1}{\omega C}, \qquad \mathbf{Z}_C = \frac{1}{j\omega C}$$
+
+La corrente **anticipa** la tensione di $90°$.
+
+**Induttore** — la tensione è $v = L\dfrac{di}{dt}$:
+
+$$X_L = \omega L, \qquad \mathbf{Z}_L = j\omega L$$
+
+La corrente **ritarda** sulla tensione di $90°$.
+
+**Mnemonica**: "ELI the ICE man"
+
+- **E**LI: in un induttore (**L**) la tensione (**E**) precede la corrente
+  (**I**)
+- IC**E**: in un condensatore (**C**) la corrente (**I**) precede la tensione
+  (**E**)
+
+All'aumentare di $\omega$: $X_C$ diminuisce (il condensatore conduce meglio),
+$X_L$ aumenta (l'induttore ostacola di più).
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Nel circuito $RC$ in serie alimentato in corrente alternata, qual è l'impedenza
+totale? Come si ottengono ampiezza e fase della corrente $i(t)$?
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+Con generatore sinusoidale $v(t)=V_0\cos(\omega t)$, nel dominio fasoriale:
+
+$$
+\tilde{Z}=\tilde{Z}_R+\tilde{Z}_C=R+\frac{1}{j\omega C}=R-\frac{j}{\omega C}
+$$
+
+Modulo e fase dell'impedenza:
+
+$$
+|\tilde{Z}|=\sqrt{R^2+\left(\frac{1}{\omega C}\right)^2},
+\qquad
+\arg(\tilde{Z})=-\arctan\!\left(\frac{1}{\omega RC}\right)
+$$
+
+La corrente fasoriale è $\tilde{I}=\tilde{V}/\tilde{Z}$, quindi l'ampiezza vale:
+
+$$
+I_0=\frac{V_0}{|\tilde{Z}|}
+$$
+
+e la corrente **anticipa** la tensione di:
+
+$$
+\varphi=\arctan\!\left(\frac{1}{\omega RC}\right)
+$$
+
+In forma temporale:
+
+$$
+i(t)=I_0\cos(\omega t+\varphi)
+$$
+
+Al crescere di $\omega$: $|\tilde{Z}|\to R$ e $i(t)$ tende al caso resistivo; a
+basse frequenze $|\tilde{Z}|$ è grande e la corrente è piccola.
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Qual è la funzione di trasferimento di un filtro $RL$ del primo ordine (passa
+basso e passa alto) e qual è la sua frequenza di taglio?
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+Circuito serie $R$-$L$ con ingresso $\tilde{V}_{in}$.
+
+**Uscita sul resistore** (passa-basso):
+
+$$
+H_{LP}(j\omega)=\frac{\tilde{V}_R}{\tilde{V}_{in}}
+=\frac{R}{R+j\omega L}
+$$
+
+$$
+|H_{LP}|=\frac{R}{\sqrt{R^2+(\omega L)^2}}
+$$
+
+**Uscita sull'induttore** (passa-alto):
+
+$$
+H_{HP}(j\omega)=\frac{\tilde{V}_L}{\tilde{V}_{in}}
+=\frac{j\omega L}{R+j\omega L}
+$$
+
+Frequenza di taglio:
+
+$$
+\boxed{\omega_c=\frac{R}{L}},\qquad f_c=\frac{R}{2\pi L}
+$$
+
+Intuizione: a basse frequenze l'induttore "pesa" poco ($\omega L$ piccolo) e
+passa la componente lenta; ad alte frequenze la sua reattanza cresce e attenua
+la corrente.
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Come si calcola l'impedenza equivalente di impedenze in parallelo? Qual è
+l'analogia con il parallelo di condensatori?
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+Nel dominio fasoriale, in parallelo le tensioni sono uguali e si sommano le
+correnti: conviene usare l'**ammettenza** $Y=1/Z$.
+
+Per impedenze in parallelo:
+
+$$
+\boxed{
+\frac{1}{Z_{\text{eq}}}=\sum_k \frac{1}{Z_k}
+}
+$$
+
+Caso notevole: due condensatori in parallelo hanno:
+
+$$
+Z_C=\frac{1}{j\omega C}
+\quad\Rightarrow\quad
+\frac{1}{Z_{\text{eq}}}=j\omega(C_1+C_2)
+$$
+
+cioè:
+
+$$
+\boxed{C_{\text{eq}}=C_1+C_2}
+$$
+
+L'analogia generale è: in parallelo si sommano le "conduttanze" (o ammettenze).
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Come funziona (a grandi linee) un ricevitore radio basato su un circuito $RLC$
+serie?
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+Un circuito $RLC$ serie è un **circuito sintonizzato**: la corrente è massima in
+prossimità della risonanza $\omega_0=1/\sqrt{LC}$, quindi seleziona una banda
+stretta di frequenze.
+
+Caratteristiche chiave:
+
+- Selettività: descritta dal fattore di qualità $Q$.
+- Larghezza di banda (circa): $\Delta\omega \approx \omega_0/Q$.
+
+In un ricevitore AM semplificato:
+
+1. l'antenna raccoglie un segnale a molte frequenze;
+2. il circuito $RLC$ "sceglie" la portante desiderata;
+3. un rivelatore (diodo) estrae l'inviluppo (informazione a bassa frequenza);
+4. un filtro e un amplificatore portano il segnale all'altoparlante.
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Come si usa il metodo dei fasori e cos'è l'impedenza complessa?
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+Per segnali sinusoidali si rappresenta:
+
+$$
+x(t)=X_0\cos(\omega t+\varphi)\quad\leftrightarrow\quad \tilde{X}=X_0e^{j\varphi}
+$$
+
+Nel dominio fasoriale, derivare equivale a moltiplicare per $j\omega$.
+
+L'impedenza complessa generalizza la resistenza:
+
+$$
+Z_R=R,\qquad Z_L=j\omega L,\qquad Z_C=\frac{1}{j\omega C}
+$$
+
+Legge di Ohm fasoriale:
+
+$$
+\tilde{V}=Z\tilde{I}
+$$
+
+con $Z=R+jX$, $|Z|=\sqrt{R^2+X^2}$ e fase
+$\phi=\arctan\!\left(\dfrac{X}{R}\right)$.
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Quali sono le funzioni di trasferimento dei filtri RC passa-basso e passa-alto
+del primo ordine?
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+**Passa-basso** (uscita sul condensatore):
+
+$$
+H_{LP}(j\omega)=\frac{1}{1+j\omega RC}
+$$
+
+$$
+|H_{LP}|=\frac{1}{\sqrt{1+(\omega RC)^2}}
+$$
+
+**Passa-alto** (uscita sul resistore):
+
+$$
+H_{HP}(j\omega)=\frac{j\omega RC}{1+j\omega RC}
+$$
+
+$$
+|H_{HP}|=\frac{\omega RC}{\sqrt{1+(\omega RC)^2}}
+$$
+
+Frequenza di taglio comune:
+
+$$
+\omega_c=\frac{1}{RC},\qquad f_c=\frac{1}{2\pi RC}
+$$
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Definisci potenza attiva, reattiva e apparente in regime sinusoidale.
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+Con valori efficaci e sfasamento $\phi$ tra tensione e corrente:
+
+$$
+P=V_{\text{eff}}I_{\text{eff}}\cos\phi
+$$
+
+$$
+Q=V_{\text{eff}}I_{\text{eff}}\sin\phi
+$$
+
+$$
+S=V_{\text{eff}}I_{\text{eff}}
+$$
+
+- $P$ (W): potenza realmente dissipata/convertita;
+- $Q$ (var): energia che oscilla tra campo elettrico e magnetico;
+- $S$ (VA): potenza apparente.
+
+Fattore di potenza:
+
+$$
+\cos\phi=\frac{P}{S}
+$$
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Cos'è la risonanza nel circuito $RLC$ serie? Ricava la frequenza di risonanza e
+commenta il fattore di qualità $Q$.
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+In un circuito $RLC$ serie con tensione $v(t) = V_0\cos(\omega t)$, l'impedenza
+totale è:
+
+$$Z = R + j\left(\omega L - \frac{1}{\omega C}\right)$$
+
+La **risonanza** si ha quando la parte immaginaria si annulla:
+
+$$\omega_0 L = \frac{1}{\omega_0 C} \qquad \Rightarrow \qquad \boxed{\omega_0 = \frac{1}{\sqrt{LC}}}$$
+
+A $\omega_0$: $|Z|$ è minimo (= $R$), la corrente è massima e in fase con la
+tensione.
+
+Il **fattore di qualità**:
+
+$$Q = \frac{\omega_0 L}{R} = \frac{1}{\omega_0 RC} = \frac{1}{R}\sqrt{\frac{L}{C}}$$
+
+$Q$ misura il rapporto tra energia immagazzinata ed energia dissipata per ciclo.
+Alta $Q$ → picco di risonanza stretto (alta selettività), utile nei filtri e nei
+circuiti sintonizzati.
+
+</FlashcardAnswer>
+
+</Flashcard>

@@ -1,0 +1,206 @@
+---
+title: Magnetismo nella materia
+description:
+  Intensità di magnetizzazione, campo H, materiali diamagnetici, paramagnetici e
+  ferromagnetici, isteresi, modelli microscopici
+---
+
+Analogamente all'elettricità, studiamo come si propaga il campo magnetico nella
+materia. I materiali si comportano in tre modi:
+
+- **Ferromagnetici** (Fe, Co, Ni): attratti con forza
+- **Paramagnetici** (NaCl): attratti debolmente
+- **Diamagnetici** (Cu): respinti
+
+La seconda equazione di Maxwell ($$\nabla \cdot \vec{B} = 0$$) vale sempre. Per
+la quarta bisogna aggiungere le correnti microscopiche:
+
+$$
+\nabla \times \vec{B} = \mu_0 (\vec{J} + \vec{J}_m)
+$$
+
+## Intensità di magnetizzazione
+
+<Statement type="definition" title="Intensità di magnetizzazione">
+
+Il vettore **intensità magnetica** $$\vec{M}$$:
+
+$$
+\vec{M} = \lim_{\tau \to 0} \frac{\sum_i \vec{m}_i}{\tau} \qquad [A/m]
+$$
+
+</Statement>
+
+Se $$\vec{B}$$ e il materiale sono omogenei, le correnti interne si annullano.
+Rimangono le **correnti amperiane**:
+
+- **Di superficie**: $$\vec{J}_{mS} = \vec{M} \times \hat{n}$$
+- **Di volume**: $$\vec{J}_{mV} = \nabla \times \vec{M}$$
+
+## Campo magnetico H
+
+<Statement type="definition" title="Campo magnetico H">
+
+$$
+\vec{H} = \frac{\vec{B} - \mu_0 \vec{M}}{\mu_0} = \frac{\vec{B}}{\mu_0} - \vec{M}
+$$
+
+</Statement>
+
+L'equazione diventa:
+
+$$
+\nabla \times \vec{H} = \vec{J}
+$$
+
+dove $$\vec{J}$$ sono solo le correnti macroscopiche. Simmetria con
+l'elettricità:
+
+| Campo elettrico                 | Campo magnetico                     |
+| ------------------------------- | ----------------------------------- |
+| $$\nabla \cdot \vec{D} = \rho$$ | $$\nabla \cdot \vec{B} = 0$$        |
+| $$\nabla \times \vec{E} = 0$$   | $$\nabla \times \vec{H} = \vec{J}$$ |
+
+### Teorema della circuitazione per H
+
+$$
+\oint_l \vec{H} \cdot d\vec{l} = \sum_{k=1}^{n} i_k
+$$
+
+### Condizioni al contorno
+
+- Componente tangenziale di $$\vec{H}$$: **si conserva**
+- Componente normale di $$\vec{B}$$: **si conserva**
+
+## Materiali omogenei isotropi
+
+<Statement type="definition" title="Permeabilità magnetica">
+
+$$
+\vec{B} = \mu \vec{H} = \mu_0 \mu_r \vec{H}
+$$
+
+$$\mu_r$$ è la **permeabilità magnetica relativa**.
+
+</Statement>
+
+<Statement type="definition" title="Suscettività magnetica">
+
+$$
+\chi_m = \mu_r - 1 \qquad \vec{M} = \chi_m \vec{H}
+$$
+
+</Statement>
+
+### Diamagneti
+
+- $$\chi_m < 0$$ (tipicamente $$\sim 10^{-5}$$)
+- $$\vec{M}$$ opposto a $$\vec{H}$$
+- Indipendente da temperatura
+- Approssimabili al vuoto
+
+### Paramagneti
+
+- $$\chi_m > 0$$
+- $$\vec{M}$$ concorde a $$\vec{H}$$
+- **Legge di Curie**: $$\chi_m = \frac{C\rho}{T}$$
+
+### Ferromagneti
+
+- $$\chi_m \gg 1$$
+- Relazione $$\vec{B} - \vec{H}$$ **non lineare** e **non univoca**
+- Fenomeno dell'**isteresi**
+
+<Statement type="definition" title="Ciclo di isteresi">
+
+Partendo da materiale smagnetizzato:
+
+1. **Curva di prima magnetizzazione**: aumentando $$H$$, $$B$$ cresce fino a
+   saturazione
+2. Diminuendo $$H$$: $$B$$ resta sopra la curva iniziale
+3. Per $$H = 0$$: **induzione residua** $$B_r$$
+4. Per $$B = 0$$: **campo coercitivo** $$H_c$$
+5. Il ciclo si chiude
+
+</Statement>
+
+**Temperatura di Curie** $$T_c$$: sopra questa temperatura il ferromagnete
+diventa paramagnete (legge di Weiss-Curie):
+
+$$
+\chi_m = \frac{C\rho}{T - T_c}
+$$
+
+## Modelli microscopici
+
+### Campo microscopico
+
+$$
+\vec{H}_{mic} = \vec{H} + \frac{1}{3}\vec{M} \quad \text{(dia/para)}
+$$
+
+$$
+\vec{H}_{mic} = \vec{H} + \gamma\vec{M} \quad \text{(ferro, parametro di Weiss)}
+$$
+
+### Correnti di Larmor (diamagneti)
+
+Un elettrone orbitante ha momento magnetico proporzionale al momento angolare:
+
+$$
+\vec{m} = -\frac{|e|}{2m_e}\vec{L}
+$$
+
+In campo magnetico: **precessione di Larmor**:
+
+$$
+\vec{\omega}_L = \frac{\mu_0 |e|}{2m_e} \vec{H}_{mic}
+$$
+
+Questa genera una **corrente di Larmor** con momento magnetico opposto a
+$$\vec{H}$$, spiegando $$\chi_m < 0$$.
+
+### Distribuzione di Langevin (paramagneti)
+
+Per molecole con momento magnetico proprio $$\vec{m}$$, usando la statistica di
+Boltzmann:
+
+$$
+\langle \cos\theta \rangle = L(a) = \coth(a) - \frac{1}{a}
+$$
+
+con $$a = \frac{\mu_0 m H_{mic}}{kT}$$.
+
+Per $$a \ll 1$$:
+
+$$
+\chi_m \propto \frac{1}{T}
+$$
+
+### Interpretazione dei ferromagneti
+
+Usando la funzione di Langevin completa e la relazione di Weiss:
+
+$$
+\begin{cases}
+\vec{H}_{mic} = \vec{H} + \gamma\vec{M} \\
+\vec{M} = nm L(a)
+\end{cases}
+$$
+
+La soluzione grafica mostra:
+
+- **Saturazione** per $$H$$ grande
+- **Soluzioni multiple** per certi valori di $$H$$ → isteresi
+
+La temperatura critica $$T_c = \frac{nm^2\gamma\mu_0}{3k}$$ separa:
+
+- $$T < T_c$$: comportamento ferromagnetico
+- $$T > T_c$$: comportamento paramagnetico
+
+<Callout type="info">
+  I **domini di Weiss** sono regioni in cui i momenti magnetici sono allineati.
+  L'applicazione di campo magnetico fa crescere i domini favorevolmente
+  orientati. La transizione a $$T_c$$ è una **transizione di fase del secondo
+  ordine**.
+</Callout>

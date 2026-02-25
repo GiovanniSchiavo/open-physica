@@ -1,0 +1,451 @@
+---
+flashcards: true
+---
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Cos'è la legge di Faraday-Neumann-Lenz? Enunciala e spiega il significato fisico
+del segno meno.
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+La **legge di Faraday-Neumann-Lenz** afferma che la forza elettromotrice indotta
+in un circuito è uguale alla variazione nel tempo del flusso magnetico
+concatenato, cambiata di segno:
+
+$$\mathcal{E} = -\frac{d\Phi_B}{dt}$$
+
+Il **segno meno** esprime la **legge di Lenz**: la corrente indotta genera un
+campo magnetico che **si oppone** alla variazione di flusso che l'ha prodotta.
+
+Questa è una conseguenza della conservazione dell'energia: se la corrente
+indotta rinforzasse la variazione, si avrebbe un sistema auto-alimentante.
+
+**Forma differenziale** (terza equazione di Maxwell):
+
+$$\nabla \times \mathbf{E} = -\frac{\partial \mathbf{B}}{\partial t}$$
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Quali sono le due cause della f.e.m. indotta? Scrivi la formula generale della
+f.e.m. per un circuito che può anche muoversi.
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+In generale una f.e.m. può nascere per:
+
+1. **Campo magnetico variabile nel tempo** ("f.e.m. di trasformazione"): genera
+   un campo elettrico non conservativo con $\nabla\times\mathbf{E}\neq 0$.
+2. **Moto del circuito in un campo magnetico** ("f.e.m. di movimento"): sulle
+   cariche agisce la forza magnetica $q\,\mathbf{v}\times\mathbf{B}$.
+
+La forma generale (forza per unità di carica lungo il circuito) è:
+
+$$
+\boxed{\mathcal{E}=\oint_{\mathcal{C}}\left(\mathbf{E}+\mathbf{v}\times\mathbf{B}\right)\cdot d\mathbf{l}}
+$$
+
+Se il circuito è fermo ($\mathbf{v}=0$) si riduce a
+$\mathcal{E}=\oint
+\mathbf{E}\cdot d\mathbf{l}$ e Faraday diventa:
+
+$$
+\oint_{\mathcal{C}}\mathbf{E}\cdot d\mathbf{l}=-\frac{d}{dt}\int_{S}\mathbf{B}\cdot d\boldsymbol{\Sigma}
+$$
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Circuito che si muove in un campo $\mathbf{B}$ costante: cos'è la f.e.m. di
+movimento e come si collega alla variazione di flusso?
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+Se $\mathbf{B}$ è stazionario ($\partial\mathbf{B}/\partial t=0$), la f.e.m. può
+comunque essere non nulla se cambia la geometria del circuito.
+
+Sull'elemento di filo $d\mathbf{l}$ in moto con velocità $\mathbf{v}$ la forza
+magnetica per unità di carica è $\mathbf{v}\times\mathbf{B}$, quindi:
+
+$$
+\boxed{\mathcal{E}=\oint_{\mathcal{C}}(\mathbf{v}\times\mathbf{B})\cdot d\mathbf{l}}
+$$
+
+Nel caso semplice di una sbarra di lunghezza $\ell$ che scorre su due rotaie in
+un campo uniforme $\mathbf{B}$ perpendicolare al piano:
+
+$$
+\boxed{\mathcal{E}=B\,\ell\,v}
+$$
+
+Lo stesso risultato si ottiene via flusso:
+
+$$
+\Phi_B=B\,A(t)\quad\Rightarrow\quad
+\mathcal{E}=-\frac{d\Phi_B}{dt}=-B\frac{dA}{dt}
+$$
+
+con $dA/dt=\ell v$.
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Sbarra mobile su rotaie: perché il calcolo con la forza di Lorentz e quello con
+Faraday-Neumann-Lenz danno lo stesso risultato? Scrivi anche la forma locale.
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+Nel caso della sbarra che scorre in un campo $\mathbf{B}$ stazionario, la f.e.m.
+può essere vista in due modi equivalenti:
+
+1. **Lorentz**: le cariche nella sbarra hanno velocità $\mathbf{v}$, subiscono
+   $q\,\mathbf{v}\times\mathbf{B}$ e si separano fino a creare un campo
+   elettrostatico interno tale che lungo la sbarra:
+
+   $$
+   \Delta V=\int (\mathbf{v}\times\mathbf{B})\cdot d\mathbf{l}=B\ell v
+   $$
+
+2. **Faraday**: il flusso cambia perché cambia l'area del circuito, quindi
+   $\mathcal{E}=-d\Phi_B/dt$ con lo stesso valore.
+
+La forma locale di Faraday è:
+
+$$
+\boxed{\nabla\times\mathbf{E}=-\frac{\partial\mathbf{B}}{\partial t}}
+$$
+
+Nota: quando il circuito si muove, l'integrale di linea che definisce la f.e.m.
+coinvolge in generale anche il termine $\mathbf{v}\times\mathbf{B}$.
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Una barretta conduttrice in moto in un campo magnetico: come nasce una
+differenza di potenziale e cosa cambia passando al sistema di riferimento della
+barretta?
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+Nel laboratorio, se una barretta si muove con velocità $\mathbf{v}$ in un campo
+magnetico $\mathbf{B}$, sulle cariche libere agisce:
+
+$$
+\mathbf{F}_B=q\,\mathbf{v}\times\mathbf{B}
+$$
+
+Le cariche si separano finché compare un campo elettrico interno
+$\mathbf{E}_{\text{int}}$ tale che in equilibrio (lungo la direzione di
+separazione) $q\mathbf{E}_{\text{int}}+q\,\mathbf{v}\times\mathbf{B}=0$.
+L'integrale di $\mathbf{E}_{\text{int}}$ dà la differenza di potenziale misurata
+tra due punti della barretta.
+
+Nel sistema di riferimento solidale con la barretta, non c'è moto delle cariche
+associato alla traslazione rigida, ma i campi cambiano: un campo magnetico in un
+sistema può trasformarsi in un campo elettrico in un altro.
+
+In forma compatta (per $v\ll c$):
+
+$$
+\mathbf{E}'\approx \mathbf{E}+\mathbf{v}\times\mathbf{B}
+$$
+
+Questa trasformazione rende coerenti le due descrizioni (laboratorio vs
+barretta).
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Una spira si muove lungo l'asse di un'altra spira percorsa da corrente: come si
+scrive la f.e.m. indotta in approssimazione quasi-stazionaria?
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+Se la spira 1 è percorsa da corrente stazionaria $I_1$ e la spira 2 si muove
+lungo $z$ con velocità $v_z$, il flusso concatenato alla spira 2 può essere
+scritto tramite la **mutua induzione** dipendente dalla distanza:
+
+$$
+\Phi_{21}(z)=M(z)\,I_1
+$$
+
+Allora la f.e.m. indotta è:
+
+$$
+\boxed{\mathcal{E}_2=-\frac{d\Phi_{21}}{dt}=-I_1\,\frac{dM}{dz}\,v_z}
+$$
+
+L'approssimazione quasi-stazionaria richiede tipicamente $v_z\ll c$ e distanze
+abbastanza grandi da poter trascurare effetti radiativi: si usa Faraday e la
+magnetostatica istantanea per descrivere $M(z)$.
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Definisci induttanza e flusso concatenato in un circuito.
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+L'**induttanza** $L$ di un circuito lega corrente e flusso magnetico
+concatenato:
+
+$$
+\lambda=N\Phi_B=Li
+$$
+
+dove $N$ è il numero di spire e $\lambda$ il flusso concatenato totale.
+
+Unità di misura:
+
+$$
+[L]=\text{henry (H)}=\frac{\text{Wb}}{\text{A}}
+$$
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Definisci autoinduzione e scrivi la fem autoindotta.
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+L'**autoinduzione** è il fenomeno per cui una variazione della corrente in un
+circuito induce nello stesso circuito una fem che si oppone alla variazione.
+
+$$
+\mathcal{E}_{\text{auto}}=-L\frac{di}{dt}
+$$
+
+Il segno meno è la regola di Lenz.
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Definisci mutua induzione tra due circuiti e coefficiente di mutua induzione
+$M$.
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+Due circuiti sono in **mutua induzione** quando la corrente in uno genera flusso
+concatenato nell'altro.
+
+Definizione:
+
+$$
+\lambda_{21}=M i_1,\qquad \lambda_{12}=M i_2
+$$
+
+in condizioni lineari reciproche vale:
+
+$$
+M_{12}=M_{21}=M
+$$
+
+Le fem indotte mutue sono:
+
+$$
+\mathcal{E}_2=-M\frac{di_1}{dt},\qquad
+\mathcal{E}_1=-M\frac{di_2}{dt}
+$$
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Cos'è l'autoinduzione? Definisci il coefficiente di autoinduzione $L$ e calcola
+quello di un solenoide.
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+Quando la corrente in un circuito varia, il flusso che essa stessa genera
+cambia, inducendo una f.e.m. nel circuito stesso. Questo fenomeno è detto
+**autoinduzione**.
+
+Il **coefficiente di autoinduzione** $L$ è definito da:
+
+$$\Phi_B = L\, I \qquad \Rightarrow \qquad \mathcal{E}_L = -L\frac{dI}{dt}$$
+
+Si misura in Henry ($\text{H} = \text{V·s/A}$).
+
+**Solenoide** — $n$ spire per unità di lunghezza, lunghezza $\ell$, sezione $A$,
+nucleo di permeabilità $\mu$:
+
+$$B = \mu n I, \quad \Phi_B = \mu n I A, \quad \Phi_{\text{tot}} = N\Phi_B = \mu n^2 \ell A\, I$$
+
+$$\boxed{L = \mu n^2 \ell A = \mu n^2 V}$$
+
+L'energia immagazzinata nel campo magnetico del solenoide è:
+
+$$U_L = \frac{1}{2}L I^2 = \frac{B^2}{2\mu}\,V$$
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Descrivi il circuito $RL$ in regime transitorio e spiega il ruolo
+dell'induttore.
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+**Accensione** — circuito $RL$ con tensione $\mathcal{E}$ applicata a $t=0$:
+
+$$\mathcal{E} = RI + L\frac{dI}{dt}$$
+
+$$\boxed{I(t) = \frac{\mathcal{E}}{R}\left(1 - e^{-t/\tau_L}\right)}, \qquad \tau_L = \frac{L}{R}$$
+
+**Spegnimento** — sorgente rimossa, circuito chiuso su $R$:
+
+$$I(t) = I_0\, e^{-t/\tau_L}$$
+
+L'**induttore si oppone alle variazioni di corrente**: all'accensione
+inizialmente si comporta come un circuito aperto, poi lascia passare la
+corrente; allo spegnimento cerca di mantenere la corrente circolante (può
+generare tensioni molto elevate).
+
+L'energia immagazzinata nell'induttore è $U = \dfrac{1}{2}LI^2$.
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Cos'è la mutua induzione? Definisci il coefficiente $M$ e dimostra
+(qualitativamente) che $M_{12} = M_{21}$.
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+La **mutua induzione** descrive come la variazione di corrente in un circuito
+induce una f.e.m. in un secondo circuito accoppiato magneticamente.
+
+Il **coefficiente di mutua induzione** $M$ è definito da:
+
+$$\Phi_{21} = M\, I_1 \qquad \Rightarrow \qquad \mathcal{E}_2 = -M\frac{dI_1}{dt}$$
+
+Si misura in Henry ($\text{H}$). Vale la relazione:
+
+$$M_{12} = M_{21} = M, \qquad M^2 \leq L_1 L_2$$
+
+**Dimostrazione di $M_{12}=M_{21}$** tramite il potenziale vettore:
+
+$$\Phi_{21} = \oint_{\mathcal{C}_2}\mathbf{A}_1\cdot d\mathbf{l}_2 = \frac{\mu_0 I_1}{4\pi}\oint_{\mathcal{C}_1}\oint_{\mathcal{C}_2}\frac{d\mathbf{l}_1\cdot d\mathbf{l}_2}{|\mathbf{r}_1 - \mathbf{r}_2|}$$
+
+L'espressione è **simmetrica** nei due circuiti, quindi $M_{12}=M_{21}$.
+
+**Coefficiente di accoppiamento**: $k = M/\sqrt{L_1 L_2}\leq 1$.
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Come funziona un trasformatore ideale? Ricava il rapporto di trasformazione per
+tensioni e correnti.
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+Un **trasformatore ideale** è composto da due solenoidi (primario $N_1$ spire,
+secondario $N_2$ spire) avvolti sullo stesso nucleo ferromagnetico, con
+accoppiamento magnetico perfetto ($k=1$, nessuna perdita).
+
+Il flusso concatenato è lo stesso per entrambi: $\Phi_B(t)$
+
+Applicando Faraday a ciascuno:
+
+$$\mathcal{E}_1 = -N_1\frac{d\Phi_B}{dt}, \qquad \mathcal{E}_2 = -N_2\frac{d\Phi_B}{dt}$$
+
+**Rapporto di trasformazione delle tensioni**:
+
+$$\frac{V_2}{V_1} = \frac{N_2}{N_1}$$
+
+**Conservazione della potenza** (trasformatore ideale, nessuna perdita):
+
+$$P_1 = P_2 \Rightarrow V_1 I_1 = V_2 I_2 \Rightarrow \frac{I_2}{I_1} = \frac{N_1}{N_2}$$
+
+I trasformatori elevatori ($N_2 > N_1$) aumentano la tensione e riducono la
+corrente → minori perdite Joule nelle linee ad alta tensione.
+
+</FlashcardAnswer>
+
+</Flashcard>

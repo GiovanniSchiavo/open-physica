@@ -1,0 +1,11 @@
+{
+  "title": "Geometrie notevoli",
+  "pages": [
+    "infinite-plane",
+    "cilindrical-shell",
+    "ring",
+    "disk",
+    "infinite-cable",
+    "sphere-spherical-shell"
+  ]
+}

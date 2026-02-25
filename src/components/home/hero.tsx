@@ -18,7 +18,7 @@ export function Hero({ lang }: { lang: string }) {
 
         {/* Content */}
         <div className="animate-in fade-in slide-in-from-bottom-8 relative z-10 container mx-auto px-6 text-center duration-1000">
-          <h1 className="from-foreground via-foreground/90 to-primary/70 mb-8 bg-linear-to-b bg-clip-text text-6xl font-black tracking-tighter text-transparent drop-shadow-sm sm:text-7xl lg:text-8xl xl:text-9xl">
+          <h1 className="from-foreground via-foreground/90 to-primary/70 mb-8 bg-linear-to-b bg-clip-text text-4xl font-black tracking-tighter text-transparent drop-shadow-sm sm:text-6xl lg:text-8xl xl:text-9xl">
             {config.hero.title[lang]}
           </h1>
           <p className="text-muted-foreground mx-auto mb-12 max-w-2xl text-xl leading-relaxed font-medium sm:text-2xl">

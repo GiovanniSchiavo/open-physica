@@ -1,0 +1,105 @@
+---
+title: Riassunto
+description:
+  Riepilogo rapido di definizioni e teoremi fondamentali sulle serie numeriche
+---
+
+Questa pagina raccoglie tutte le definizioni e i teoremi fondamentali sulle
+serie numeriche in formato compatto, ideale per un ripasso veloce o come
+riferimento durante lo studio.
+
+## Tabella riassuntiva delle serie notevoli
+
+| Serie               | Forma                                                   | Ridotta Ennesima $S_n$                 | Convergenza                           | Somma            |
+| :------------------ | :------------------------------------------------------ | :------------------------------------- | :------------------------------------ | :--------------- |
+| **Geometrica**      | $\sum_{k=0}^{\infty} r^k$                               | $\dfrac{1-r^{n+1}}{1-r}$               | $\lvert r \rvert < 1$                 | $\dfrac{1}{1-r}$ |
+| **Geom. complessa** | $\sum_{k=0}^{\infty} z^k$                               | $\dfrac{1-z^{n+1}}{1-z}$               | $\lvert z \rvert < 1$                 | $\dfrac{1}{1-z}$ |
+| **Telescopica**     | $\sum_{k=0}^{\infty} (b_k - b_{k+1})$                   | $b_0 - b_{n+1}$                        | $\exists \lim_{n \to \infty} b_n = L$ | $b_0 - L$        |
+| **di Mengoli**      | $\sum_{k=1}^{\infty} \dfrac{1}{k(k+1)}$                 | $1 - \dfrac{1}{n+1}$                   | Sempre                                | $1$              |
+| **Armonica gen.**   | $\sum_{k=1}^{\infty} \dfrac{1}{k^\alpha}$               | Non esprimibile elementarmente         | $\alpha > 1$                          | —                |
+| **Armonica**        | $\sum_{k=1}^{\infty} \dfrac{1}{k}$                      | $H_n \approx \ln n + \gamma$           | Diverge                               | $+\infty$        |
+| **di Abel**         | $\sum_{n=2}^{\infty} \dfrac{1}{n^\alpha (\ln n)^\beta}$ | Non esprimibile elementarmente         | $\alpha > 1 \lor (\alpha=1, \beta>1)$ | —                |
+| **Esponenziale**    | $\sum_{k=0}^{\infty} \dfrac{x^k}{k!}$                   | Taylor: $\sum_{k=0}^n \dfrac{x^k}{k!}$ | $\forall x \in \mathbb{R}$            | $e^x$            |
+| **Arm. alternata**  | $\sum_{k=1}^{\infty} \dfrac{(-1)^{k+1}}{k}$             | $H_n - 2H_{\lfloor n/2 \rfloor}$       | Per Leibniz                           | $\ln 2$          |
+
+---
+
+## Definizioni fondamentali
+
+<include>./index.it.mdx#serie-numerica</include>
+
+<include>./index.it.mdx#successione-ridotte</include>
+
+<include>./index.it.mdx#serie-convergente</include>
+
+<include>./index.it.mdx#serie-divergente</include>
+
+<include>./index.it.mdx#serie-irregolare</include>
+
+---
+
+## Serie notevoli
+
+<include>./geometric-series.it.mdx#def-serie-geometrica</include>
+
+<include>./geometric-series.it.mdx#carattere-serie-geometrica</include>
+
+<include>./telescopic-series.it.mdx#def-serie-telescopica</include>
+
+<include>./complex-series.it.mdx#carattere-serie-geometrica-complessa</include>
+
+---
+
+## Proprietà delle serie
+
+<include>./properties.it.mdx#algebra-serie</include>
+
+<include>./properties.it.mdx#indipendenza-primi-termini</include>
+
+<include>./positive-terms.it.mdx#regolarità-termini-positivi</include>
+
+---
+
+## Criteri di convergenza generali
+
+<include>./convergence-criteria.it.mdx#condizione-necessaria</include>
+
+<include>./convergence-criteria.it.mdx#criterio-cauchy</include>
+
+<include>./convergence-criteria.it.mdx#convergenza-assoluta</include>
+
+<include>./convergence-criteria.it.mdx#criterio-convergenza-assoluta</include>
+
+---
+
+## Criteri per serie a termini positivi
+
+<include>./positive-terms.it.mdx#criterio-confronto</include>
+
+<include>./positive-terms.it.mdx#criterio-confronto-asintotico</include>
+
+<include>./positive-terms.it.mdx#criterio-condensazione</include>
+
+<include>./positive-terms.it.mdx#carattere-armonica-generalizzata</include>
+
+<include>./positive-terms.it.mdx#criterio-rapporto</include>
+
+<include>./positive-terms.it.mdx#criterio-rapporto-asintotico</include>
+
+<include>./positive-terms.it.mdx#criterio-radice</include>
+
+<include>./positive-terms.it.mdx#criterio-radice-asintotico</include>
+
+---
+
+## Criteri per serie a segni alterni
+
+<include>./alternating-series.it.mdx#criterio-leibniz</include>
+
+<include>./alternating-series.it.mdx#criterio-dirichlet</include>
+
+---
+
+## Serie nel campo complesso
+
+<include>./complex-series.it.mdx#criterio-convergenza-complesso</include>

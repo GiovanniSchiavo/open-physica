@@ -1,0 +1,736 @@
+---
+flashcards: true
+---
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Scrivi le quattro equazioni di Maxwell nel vuoto e spiega il significato fisico
+di ciascuna.
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+1. **Legge di Gauss per $\mathbf{E}$**:
+   $\nabla \cdot \mathbf{E} = \dfrac{\rho}{\varepsilon_0}$
+
+   le cariche elettriche sono sorgenti (o pozzi) del campo elettrico.
+
+2. **Legge di Gauss per $\mathbf{B}$**: $\nabla \cdot \mathbf{B} = 0$
+
+   non esistono monopoli magnetici; le linee di $\mathbf{B}$ sono sempre chiuse.
+
+3. **Legge di Faraday-Neumann-Lenz**:
+   $\nabla \times \mathbf{E} = -\dfrac{\partial \mathbf{B}}{\partial t}$
+
+   un campo magnetico variabile nel tempo genera un campo elettrico indotto.
+
+4. **Legge di Ampère-Maxwell**:
+   $\nabla \times \mathbf{B} = \mu_0 \mathbf{J} + \mu_0\varepsilon_0\dfrac{\partial \mathbf{E}}{\partial t}$
+
+   le correnti e un campo elettrico variabile generano un campo magnetico. Il
+   termine $\mu_0\varepsilon_0\dfrac{\partial \mathbf{E}}{\partial t}$ è la
+   corrente di spostamento introdotta da Maxwell.
+
+</FlashcardAnswer>
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Cosa indica il segno meno nella legge di Faraday-Neumann-Lenz? Qual è la sua
+conseguenza fisica?
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+Il segno meno in $\mathcal{E} = -\dfrac{d\Phi_B}{dt}$ esprime la **legge di
+Lenz**: la forza elettromotrice indotta genera una corrente il cui campo
+magnetico **si oppone** alla variazione del flusso che l'ha prodotta.
+
+- Se $\Phi_B$ aumenta, la corrente indotta crea un $\mathbf{B}$ opposto al
+  flusso esterno.
+- Se $\Phi_B$ diminuisce, la corrente indotta crea un $\mathbf{B}$ che tende a
+  mantenere il flusso.
+
+È una diretta conseguenza della **conservazione dell'energia**: senza il segno
+meno, il sistema si auto-alimenterebbe indefinitamente.
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Come si ricava l'equazione di D'Alembert (equazione d'onda) a partire dalle
+equazioni di Maxwell nel vuoto? Che forma ha, per esempio, per $E_x$?
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+Nel vuoto senza sorgenti: $\rho=0$, $\mathbf{J}=0$. Quindi:
+
+$$
+\nabla\cdot\mathbf{E}=0,
+\qquad
+\nabla\times\mathbf{E}=-\frac{\partial\mathbf{B}}{\partial t},
+\qquad
+\nabla\times\mathbf{B}=\mu_0\varepsilon_0\frac{\partial\mathbf{E}}{\partial t}
+$$
+
+Si prende il rotore della legge di Faraday:
+
+$$
+\nabla\times(\nabla\times\mathbf{E})
+=-\frac{\partial}{\partial t}(\nabla\times\mathbf{B})
+=-\mu_0\varepsilon_0\frac{\partial^2\mathbf{E}}{\partial t^2}
+$$
+
+Usando l'identità vettoriale
+$\nabla\times(\nabla\times\mathbf{E})=\nabla(\nabla\cdot\mathbf{E})-\nabla^2\mathbf{E}$
+e $\nabla\cdot\mathbf{E}=0$:
+
+$$
+\boxed{\nabla^2\mathbf{E}-\frac{1}{c^2}\frac{\partial^2\mathbf{E}}{\partial t^2}=0},
+\qquad
+c=\frac{1}{\sqrt{\mu_0\varepsilon_0}}
+$$
+
+Stessa equazione per $\mathbf{B}$.
+
+Per la componente $x$:
+
+$$
+\boxed{
+\left(\frac{\partial^2}{\partial x^2}+\frac{\partial^2}{\partial y^2}+\frac{\partial^2}{\partial z^2}\right)E_x
+-\frac{1}{c^2}\frac{\partial^2 E_x}{\partial t^2}=0
+}
+$$
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Quali sono le proprietà principali di un'onda elettromagnetica piana nel vuoto?
+Come si collegano $\mathbf{E}$, $\mathbf{B}$ e il vettore di Poynting?
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+Per un'onda piana monocromatica nel vuoto:
+
+$$
+\mathbf{E}(\mathbf{r},t)=\mathbf{E}_0\cos(\mathbf{k}\cdot\mathbf{r}-\omega t),
+\qquad
+\mathbf{B}(\mathbf{r},t)=\mathbf{B}_0\cos(\mathbf{k}\cdot\mathbf{r}-\omega t)
+$$
+
+Le equazioni di Maxwell impongono:
+
+- **trasversalità**: $\mathbf{k}\cdot\mathbf{E}_0=0$ e
+  $\mathbf{k}\cdot\mathbf{B}_0=0$;
+- **ortogonalità**: $\mathbf{E}_0\perp\mathbf{B}_0\perp\mathbf{k}$;
+- relazione tra ampiezze:
+
+  $$
+  \boxed{B_0=\frac{E_0}{c}}
+  $$
+
+- direzione di propagazione fissata da:
+
+  $$
+  \mathbf{B}_0=\frac{1}{\omega}\,\mathbf{k}\times\mathbf{E}_0
+  $$
+
+Il flusso di energia è dato da:
+
+$$
+\mathbf{S}=\frac{1}{\mu_0}\mathbf{E}\times\mathbf{B}
+$$
+
+Per un'onda piana $\mathbf{S}$ è parallelo a $\mathbf{k}$ e il suo valore medio
+è l'**intensità**:
+
+$$
+\langle S\rangle=\frac{E_0^2}{2\mu_0 c}=\frac{1}{2}\varepsilon_0 c E_0^2
+$$
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Perché serve la corrente di spostamento? Mostra il paradosso del condensatore in
+carica e come lo risolve la legge di Ampère-Maxwell.
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+Se un condensatore si sta caricando, un circuito amperiano che "taglia" il filo
+vede una corrente concatenata $I$ e quindi (magnetostatica) prevedrebbe un campo
+$\mathbf{B}$ attorno al filo.
+
+Ma se si prende una superficie diversa con lo **stesso bordo** che passa tra le
+armature, lì non passa corrente di conduzione: usando solo Ampère si
+ottenrebbero due valori diversi per $\oint \mathbf{B}\cdot d\mathbf{l}$.
+
+La correzione di Maxwell introduce la **corrente di spostamento**:
+
+$$
+\mathbf{J}_d=\frac{\partial\mathbf{D}}{\partial t}
+$$
+
+e la forma integrale completa:
+
+$$
+\boxed{
+\oint_{\partial S}\mathbf{B}\cdot d\mathbf{l}
+=\mu_0 I_{\text{cond}}+\mu_0\frac{d\Phi_D}{dt}
+}
+$$
+
+Tra le armature, $I_{\text{cond}}=0$ ma $d\Phi_D/dt\neq 0$: la legge dà lo
+stesso risultato per qualunque superficie che abbia lo stesso contorno.
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Nelle equazioni di Maxwell nei materiali, quali termini contribuiscono a
+$\partial\mathbf{D}/\partial t$ nella legge di Ampère-Maxwell?
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+Nel formalismo macroscopico:
+
+$$
+\nabla\times\mathbf{H}=\mathbf{J}_f+\frac{\partial\mathbf{D}}{\partial t}
+$$
+
+con:
+
+$$
+\mathbf{D}=\varepsilon_0\mathbf{E}+\mathbf{P}
+$$
+
+Quindi:
+
+$$
+\boxed{
+\frac{\partial\mathbf{D}}{\partial t}
+=\varepsilon_0\frac{\partial\mathbf{E}}{\partial t}
+\frac{\partial\mathbf{P}}{\partial t}
+}
+$$
+
+Il termine $\partial\mathbf{P}/\partial t$ è interpretabile come una **corrente
+di polarizzazione** (corrente legata) che contribuisce alla circuitazione di
+$\mathbf{H}$ insieme alla corrente libera $\mathbf{J}_f$.
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Come si propagano le onde elettromagnetiche in un conduttore? Cos'è la
+profondità di pelle (skin depth)?
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+In un mezzo conduttore con conducibilità $\sigma$ (oltre a $\varepsilon$, $\mu$)
+compare una corrente di conduzione $\mathbf{J}=\sigma\mathbf{E}$.
+
+La soluzione ondosa ha un numero d'onda **complesso**:
+
+$$
+\tilde{k}=\beta-i\alpha
+$$
+
+così che l'ampiezza decada come $e^{-\alpha z}$.
+
+Nel limite di **buon conduttore** ($\sigma\gg \omega\varepsilon$) si ottiene:
+
+$$
+\boxed{\alpha\simeq\beta\simeq\sqrt{\frac{\omega\mu\sigma}{2}}}
+$$
+
+La **profondità di pelle** è:
+
+$$
+\boxed{\delta=\frac{1}{\alpha}=\sqrt{\frac{2}{\omega\mu\sigma}}}
+$$
+
+Interpretazione: a frequenza più alta l'onda penetra meno nel metallo; le
+correnti indotte si concentrano in uno strato superficiale di spessore $\delta$.
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Perché vicino a uno specchio conduttore non vale necessariamente $E=cB$?
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+La relazione $E=cB$ vale per una **singola onda piana progressiva** nel vuoto.
+
+Su uno specchio ideale (conduttore perfetto) l'onda incidente viene riflessa e
+il campo totale è una **sovrapposizione** di onda incidente e riflessa, cioè una
+configurazione di tipo stazionario.
+
+La condizione al contorno sul conduttore impone che la componente tangenziale di
+$\mathbf{E}$ sulla superficie sia nulla, quindi in corrispondenza dello specchio
+si può avere $E=0$ mentre $B$ è massimo (spesso raddoppia rispetto al contributo
+di una sola onda).
+
+Quindi localmente $E$ e $B$ non devono soddisfare $E=cB$: non stanno descrivendo
+un'unica onda piana, ma la somma di due onde.
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Enuncia le quattro equazioni di Maxwell in forma differenziale (mezzi
+materiali).
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+Nel formalismo macroscopico:
+
+$$
+\nabla\cdot\mathbf{D}=\rho_f
+$$
+
+$$
+\nabla\cdot\mathbf{B}=0
+$$
+
+$$
+\nabla\times\mathbf{E}=-\frac{\partial\mathbf{B}}{\partial t}
+$$
+
+$$
+\nabla\times\mathbf{H}=\mathbf{J}_f+\frac{\partial\mathbf{D}}{\partial t}
+$$
+
+dove $\rho_f$ e $\mathbf{J}_f$ sono carica e corrente libere.
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Definisci corrente di spostamento e spiega perché è necessaria.
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+La **corrente di spostamento** è:
+
+$$
+\mathbf{J}_d=\frac{\partial\mathbf{D}}{\partial t}
+$$
+
+È necessaria per rendere compatibile la legge di Ampere con la conservazione
+della carica anche in regime variabile (ad esempio tra le armature di un
+condensatore in carica).
+
+La legge corretta è:
+
+$$
+\nabla\times\mathbf{H}=\mathbf{J}_f+\mathbf{J}_d
+$$
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Definisci il vettore di Poynting e il suo significato fisico.
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+Il **vettore di Poynting** è:
+
+$$
+\mathbf{S}=\mathbf{E}\times\mathbf{H}
+$$
+
+Rappresenta la densità di flusso di potenza elettromagnetica (W/m$^2$), cioè
+direzione e intensità del trasporto di energia del campo.
+
+Nel vuoto, per onda piana:
+
+$$
+\langle S\rangle=\frac{1}{2}\varepsilon_0 c E_0^2
+$$
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Definisci impedenza caratteristica del vuoto.
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+L'**impedenza del vuoto** è il rapporto tra modulo dei campi in un'onda piana:
+
+$$
+Z_0=\frac{E}{H}=\sqrt{\frac{\mu_0}{\varepsilon_0}}
+$$
+
+Valore numerico:
+
+$$
+Z_0\approx 377\ \Omega
+$$
+
+È la costante che collega ampiezze di $\mathbf{E}$ e $\mathbf{H}$ nelle onde
+elettromagnetiche in vuoto.
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Scrivi le quattro equazioni di Maxwell nel vuoto in forma differenziale e in
+forma integrale.
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+**1. Legge di Gauss per $\mathbf{E}$**
+
+Differenziale: $\nabla \cdot \mathbf{E} = \dfrac{\rho}{\varepsilon_0}$
+
+Integrale:
+$\displaystyle\oint_{\partial V} \mathbf{E} \cdot d\mathbf{A} = \dfrac{Q_{enc}}{\varepsilon_0}$
+
+**2. Legge di Gauss per $\mathbf{B}$**
+
+Differenziale: $\nabla \cdot \mathbf{B} = 0$
+
+Integrale: $\displaystyle\oint_{\partial V} \mathbf{B} \cdot d\mathbf{A} = 0$
+
+**3. Legge di Faraday-Neumann-Lenz**
+
+Differenziale:
+$\nabla \times \mathbf{E} = -\dfrac{\partial \mathbf{B}}{\partial t}$
+
+Integrale:
+$\displaystyle\oint_{\partial S} \mathbf{E} \cdot d\mathbf{l} = -\dfrac{d\Phi_B}{dt}$
+
+**4. Legge di Ampère-Maxwell**
+
+Differenziale:
+$\nabla \times \mathbf{B} = \mu_0 \mathbf{J} + \mu_0\varepsilon_0\dfrac{\partial \mathbf{E}}{\partial t}$
+
+Integrale:
+$\displaystyle\oint_{\partial S} \mathbf{B} \cdot d\mathbf{l} = \mu_0 I_{enc} + \mu_0\varepsilon_0\dfrac{d\Phi_E}{dt}$
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Come si chiama la prima equazione di Maxwell? Scrivila in forma differenziale e
+in forma integrale.
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+**Legge di Gauss per il campo elettrico**
+
+Forma differenziale: $\nabla \cdot \mathbf{E} = \dfrac{\rho}{\varepsilon_0}$
+
+Forma integrale:
+$\displaystyle\oint_{\partial V} \mathbf{E} \cdot d\mathbf{A} = \dfrac{Q_{enc}}{\varepsilon_0}$
+
+Significa che le cariche elettriche sono le sorgenti del campo $\mathbf{E}$: il
+flusso di $\mathbf{E}$ attraverso una superficie chiusa è proporzionale alla
+carica totale racchiusa.
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Come si chiama la seconda equazione di Maxwell? Scrivila in forma differenziale
+e in forma integrale.
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+**Legge di Gauss per il campo magnetico**
+
+Forma differenziale: $\nabla \cdot \mathbf{B} = 0$
+
+Forma integrale:
+$\displaystyle\oint_{\partial V} \mathbf{B} \cdot d\mathbf{A} = 0$
+
+Significa che non esistono monopoli magnetici: le linee di $\mathbf{B}$ sono
+sempre chiuse e il flusso netto attraverso qualsiasi superficie chiusa è nullo.
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Come si chiama la terza equazione di Maxwell? Scrivila in forma differenziale e
+in forma integrale.
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+**Legge di Faraday-Neumann-Lenz**
+
+Forma differenziale:
+$\nabla \times \mathbf{E} = -\dfrac{\partial \mathbf{B}}{\partial t}$
+
+Forma integrale:
+$\displaystyle\oint_{\partial S} \mathbf{E} \cdot d\mathbf{l} = -\dfrac{d\Phi_B}{dt}$
+
+Significa che un campo magnetico variabile nel tempo genera un campo elettrico
+indotto. Il segno negativo esprime la legge di Lenz: il campo indotto si oppone
+alla variazione che lo ha generato.
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Come si chiama la quarta equazione di Maxwell? Scrivila in forma differenziale e
+in forma integrale.
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+**Legge di Ampère-Maxwell**
+
+Forma differenziale:
+$\nabla \times \mathbf{B} = \mu_0 \mathbf{J} + \mu_0\varepsilon_0\dfrac{\partial \mathbf{E}}{\partial t}$
+
+Forma integrale:
+$\displaystyle\oint_{\partial S} \mathbf{B} \cdot d\mathbf{l} = \mu_0 I_{enc} + \mu_0\varepsilon_0\dfrac{d\Phi_E}{dt}$
+
+Le correnti di conduzione $\mathbf{J}$ e la corrente di spostamento
+$\varepsilon_0\dfrac{\partial \mathbf{E}}{\partial t}$ (introdotta da Maxwell)
+sono entrambe sorgenti del campo $\mathbf{B}$.
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Ricava la velocità di propagazione delle onde elettromagnetiche nel vuoto a
+partire dalle equazioni di Maxwell.
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+Partendo dalle equazioni di Maxwell nel vuoto (senza sorgenti), si prendono i
+rotori di Faraday e Ampère-Maxwell:
+
+$$\nabla \times (\nabla \times \mathbf{E}) = -\frac{\partial}{\partial t}(\nabla \times \mathbf{B}) = -\mu_0\varepsilon_0\frac{\partial^2 \mathbf{E}}{\partial t^2}$$
+
+Usando l'identità vettoriale
+$\nabla \times (\nabla \times \mathbf{E}) = \nabla(\nabla\cdot\mathbf{E}) - \nabla^2\mathbf{E}$
+e $\nabla\cdot\mathbf{E}=0$:
+
+$$\nabla^2 \mathbf{E} = \mu_0\varepsilon_0\frac{\partial^2 \mathbf{E}}{\partial t^2}$$
+
+Questa è l'equazione delle onde con velocità:
+
+$$\boxed{c = \frac{1}{\sqrt{\mu_0\varepsilon_0}} \approx 3 \times 10^8\,\text{m/s}}$$
+
+Lo stesso risultato si ottiene per $\mathbf{B}$. Maxwell riconobbe che la luce è
+un'onda elettromagnetica.
+
+In un mezzo con $\varepsilon_r$ e $\mu_r$:
+$v = \dfrac{c}{\sqrt{\varepsilon_r\mu_r}} = \dfrac{c}{n}$.
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Cos'è il vettore di Poynting $\mathbf{S}$? Cosa rappresenta fisicamente e come
+si ricava dal teorema di Poynting?
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+Il **vettore di Poynting** descrive il flusso di energia elettromagnetica per
+unità di area:
+
+$$\mathbf{S} = \frac{1}{\mu_0}\,\mathbf{E} \times \mathbf{B}$$
+
+Si misura in $\text{W/m}^2$.
+
+**Teorema di Poynting** (equazione di continuità dell'energia):
+
+$$\frac{\partial u}{\partial t} + \nabla \cdot \mathbf{S} = -\mathbf{J}\cdot\mathbf{E}$$
+
+dove $u = \dfrac{\varepsilon_0 E^2}{2} + \dfrac{B^2}{2\mu_0}$ è la densità di
+energia del campo e $\mathbf{J}\cdot\mathbf{E}$ è la potenza dissipata per unità
+di volume (effetto Joule).
+
+Per un'onda piana monocromatica, il valor medio dell'intensità è:
+
+$$\langle S \rangle = \frac{E_0 B_0}{2\mu_0} = \frac{E_0^2}{2\mu_0 c}$$
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Cos'è l'equazione di D'Alembert? Scrivi la soluzione generale e la relazione di
+dispersione per le onde elettromagnetiche piane.
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+L'**equazione di D'Alembert** (equazione delle onde) in 1D è:
+
+$$\frac{\partial^2 f}{\partial x^2} - \frac{1}{v^2}\frac{\partial^2 f}{\partial t^2} = 0$$
+
+La **soluzione generale** è la sovrapposizione di onde progressive e regressive:
+
+$$f(x,t) = f_+(x - vt) + f_-(x + vt)$$
+
+**Onda armonica piana** (soluzione particolare):
+
+$$\mathbf{E}(\mathbf{r},t) = \mathbf{E}_0\cos(\mathbf{k}\cdot\mathbf{r} - \omega t)$$
+
+**Relazione di dispersione** nel vuoto:
+
+$$\omega = c\,k, \qquad c = \frac{1}{\sqrt{\mu_0\varepsilon_0}}$$
+
+Le onde EM nel vuoto sono **non dispersive** (velocità indipendente da
+$\omega$).
+
+In un mezzo con $\varepsilon_r(\omega)$: $v(\omega) = c/n(\omega)$ dove
+$n = \sqrt{\varepsilon_r\mu_r}$ può dipendere da $\omega$ → **dispersione**.
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Cos'è la pressione di radiazione? Ricava l'espressione per un'onda
+elettromagnetica che incide su una superficie assorbente.
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+Le onde elettromagnetiche trasportano non solo energia ma anche **impulso**. La
+densità di impulso del campo è:
+
+$$\mathbf{g} = \frac{\mathbf{S}}{c^2} = \varepsilon_0(\mathbf{E}\times\mathbf{B})$$
+
+Quando un'onda incide su una superficie ed è completamente **assorbita**, cede
+il suo impulso: si esercita una **pressione di radiazione**.
+
+Per un'onda piana di intensità $I$ (potenza per unità di area):
+
+$$P_{\text{rad}} = \frac{I}{c} \quad \text{(assorbimento totale)}$$
+
+$$P_{\text{rad}} = \frac{2I}{c} \quad \text{(riflessione totale)}$$
+
+**Ordini di grandezza**: per la luce solare ($I \approx 1400\,\text{W/m}^2$):
+$P_{\text{rad}} \approx 4.7\,\mu\text{Pa}$ — trascurabile in laboratorio, ma
+rilevante per particelle micrometriche (pinze ottiche) e propulsione solare
+(vele solari).
+
+</FlashcardAnswer>
+
+</Flashcard>

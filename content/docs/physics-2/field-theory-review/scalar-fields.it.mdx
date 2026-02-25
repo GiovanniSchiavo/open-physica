@@ -1,0 +1,103 @@
+---
+title: Campo scalare
+description: Grafici, curve di livello e gradiente di un campo scalare
+---
+
+<Statement type="definition" title="Campo scalare">
+
+In matematica e fisica, un **campo scalare** è una funzione che associa uno
+scalare a ogni punto di uno spazio.
+
+Un campo scalare su uno spazio euclideo $n$-dimensionale con valori reali è una
+funzione $F: \mathbb{R}^n \rightarrow \mathbb{R}$. Spesso si richiede che la
+funzione sia continua o differenziabile almeno $k$ volte, e per questo si parla
+di funzione di classe $C^k$. Il campo può essere pensato come uno spazio
+$n$-dimensionale con numeri reali (o complessi) associati a ogni punto.
+
+</Statement>
+
+## Rappresentazione grafica di un campo scalare
+
+Il primo problema che si presenta quando si studia un campo scalare riguarda la
+sua rappresentazione pratica. Esistono diversi metodi di visualizzazione; per i
+campi scalari il più comune è quello delle **curve di livello**. Queste si
+ottengono fissando la funzione a una costante, ovvero imponendo
+$F(\mathbf{x}) = c$.
+
+Ad esempio, considerando la temperatura $T$ in una stanza, possiamo escludere la
+dipendenza da $z$ (altezza) e studiare la distribuzione nel piano $(x, y)$ per
+un istante fissato $t^*$:
+
+$$
+T(x, y, t^*) = c
+$$
+
+Per il **teorema della funzione implicita** (o teorema di Dini), se almeno una
+delle derivate parziali di $T$ è non nulla in un punto in cui vale l'uguaglianza
+sopra, allora l'equazione definisce localmente il grafico di una curva regolare
+nel piano $(x, y)$. È quindi possibile tracciare una famiglia di curve:
+
+$$
+T(x, y, t^*) = n \cdot c \quad \text{con } n \in \mathbb{N}
+$$
+
+dove $c$ è una costante arbitraria. Questo metodo è ampiamente utilizzato nelle
+**cartine altimetriche** (curve di livello dell'altitudine) e nelle **mappe
+meteorologiche** (isobare, curve di livello della pressione atmosferica).
+
+## Gradiente di un campo scalare
+
+Per caratterizzare la rapidità di variazione di un campo scalare, introduciamo
+una quantità che descriva come la grandezza del campo cambia nello spazio.
+
+Consideriamo uno spostamento infinitesimo $d\vec{l}$ tra due punti $P_1$ e
+$P_2$:
+
+$$
+d\vec{l} = (dx, dy, dz) = dx\,\hat{\imath} + dy\,\hat{\jmath} + dz\,\hat{k}
+$$
+
+dove $(\hat{\imath}, \hat{\jmath}, \hat{k})$ sono i versori della base canonica
+di $\mathbb{R}^3$.
+
+<Statement type="definition" title="Gradiente">
+
+Si definisce **gradiente** di un campo scalare $U$ la quantità vettoriale:
+
+$$
+\nabla U \equiv \text{grad}\,U = \left( \frac{\partial U}{\partial x}, \frac{\partial U}{\partial y}, \frac{\partial U}{\partial z} \right)
+$$
+
+Il simbolo $\nabla$ (nabla o operatore del) indica l'operatore vettoriale
+$\nabla = \left(\frac{\partial}{\partial x}, \frac{\partial}{\partial y}, \frac{\partial}{\partial z}\right)$.
+
+</Statement>
+
+Calcolando il prodotto scalare tra il gradiente e lo spostamento infinitesimo:
+
+$$
+\nabla U \cdot d\vec{l} = \frac{\partial U}{\partial x}\,dx + \frac{\partial U}{\partial y}\,dy + \frac{\partial U}{\partial z}\,dz = dU
+$$
+
+otteniamo il **differenziale totale** di $U$. Da questa relazione fondamentale
+deriva l'espressione della **derivata direzionale**:
+
+$$
+\frac{dU}{|d\vec{l}|} = |\nabla U| \cos\theta
+$$
+
+dove $\theta$ è l'angolo tra $\nabla U$ e $d\vec{l}$.
+
+### Proprietà geometriche del gradiente
+
+Da questa formula emergono due proprietà fondamentali:
+
+1. **Ortogonalità alle curve di livello**: se $d\vec{l}$ è tangente a una curva
+   di livello, allora $dU = 0$ e quindi $\cos\theta = 0$. Il gradiente è dunque
+   **perpendicolare alle curve di livello**.
+
+2. **Direzione di massima crescita**: la derivata direzionale è massima quando
+   $\theta = 0$, cioè quando ci si sposta nella direzione del gradiente.
+   Pertanto, $\nabla U$ indica la **direzione e il verso di massima pendenza**
+   del campo, e il suo modulo $|\nabla U|$ rappresenta il tasso di variazione
+   massimo.

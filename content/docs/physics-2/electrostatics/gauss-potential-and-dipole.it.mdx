@@ -1,0 +1,212 @@
+---
+title: Gauss, potenziale e dipolo
+description:
+  "Teorema di Gauss, divergenza, potenziale elettrostatico, gradiente e campo di
+  dipolo"
+---
+
+In regime elettrostatico (cariche ferme) il campo elettrico è caratterizzato da
+due equazioni locali: una dice "da cosa nasce" il campo, l'altra dice "che non
+ha vortici".
+
+<Statement type="law" title="Equazioni dell'elettrostatica (nel vuoto)">
+
+$$
+\nabla\cdot\mathbf{E}=\frac{\rho}{\varepsilon_0}
+$$
+
+$$
+\nabla\times\mathbf{E}=0
+$$
+
+</Statement>
+
+<Callout type="info" title="Esempi geometrici">
+
+I risultati per geometrie standard (piano infinito, filo infinito, sfera/guscio,
+disco, anello, ...) sono raccolti in [Geometrie notevoli](./common-geometries).
+
+</Callout>
+
+## Teorema di Gauss (forma integrale)
+
+Sia $\tau$ un volume e sia $\Sigma=\partial\tau$ la sua superficie di frontiera.
+Definiamo il flusso del campo elettrico attraverso la superficie chiusa
+$\Sigma$:
+
+$$
+\Phi_E=\oint_{\Sigma}\mathbf{E}\cdot d\boldsymbol{\Sigma}
+$$
+
+dove $d\boldsymbol{\Sigma}=\hat{\mathbf{n}}\,d\Sigma$ e il vettore area è
+orientato verso l'esterno.
+
+<Statement type="law" title="Teorema di Gauss per il campo elettrico">
+
+$$
+\oint_{\Sigma}\mathbf{E}\cdot d\boldsymbol{\Sigma}=\frac{Q_{\text{int}}}{\varepsilon_0}
+$$
+
+</Statement>
+
+Il contenuto fisico è che il flusso totale dipende **solo** dalla carica totale
+racchiusa, non da come essa è distribuita nel volume.
+
+<Accordions>
+<Accordion id="gauss-point-charge" title="Esempio teorico: carica puntiforme">
+
+Per una carica puntiforme $q$, il campo è radiale e vale:
+
+$$
+E(r)=\frac{1}{4\pi\varepsilon_0}\frac{q}{r^2}
+$$
+
+Su una sfera centrata sulla carica, $\mathbf{E}$ è parallelo alla normale e
+costante in modulo, quindi:
+
+$$
+\Phi_E=E(r)\,4\pi r^2=\frac{q}{\varepsilon_0}
+$$
+
+Il flusso non dipende dal raggio: è una proprietà globale della sorgente.
+
+</Accordion>
+</Accordions>
+
+## Forma differenziale: divergenza e densità di carica
+
+Applicando il teorema della divergenza:
+
+$$
+\oint_{\Sigma}\mathbf{E}\cdot d\boldsymbol{\Sigma}=\int_\tau (\nabla\cdot\mathbf{E})\,d\tau
+$$
+
+e confrontando con $Q_{\text{int}}=\int_\tau \rho\,d\tau$ si ottiene la prima
+equazione di Maxwell in elettrostatica:
+
+$$
+\nabla\cdot\mathbf{E}=\frac{\rho}{\varepsilon_0}
+$$
+
+Interpretazione: $\nabla\cdot\mathbf{E}$ misura la densità locale di sorgenti
+del campo. In una regione priva di carica ($\rho=0$) la divergenza è nulla, ma
+il campo può comunque essere non nullo (per esempio un campo uniforme).
+
+## Potenziale elettrostatico: gradiente e lavoro
+
+In elettrostatica vale anche:
+
+$$
+\nabla\times\mathbf{E}=0
+$$
+
+Questa condizione equivale alla conservatività del campo: l'integrale di linea
+tra due punti non dipende dal percorso. Si introduce quindi un potenziale
+scalare $V$ tale che:
+
+<Statement type="definition" title="Potenziale elettrostatico">
+
+$$
+\mathbf{E}=-\nabla V
+$$
+
+e la differenza di potenziale tra due punti $A$ e $B$ è:
+
+$$
+V(B)-V(A)=-\int_A^B \mathbf{E}\cdot d\mathbf{l}
+$$
+
+</Statement>
+
+Il lavoro compiuto dal campo su una carica $q$ lungo $A\to B$ è:
+
+$$
+W_{A\to B}=q\,[V(A)-V(B)]
+$$
+
+Per una carica puntiforme $Q$ (scelto $V(\infty)=0$):
+
+$$
+V(r)=\frac{1}{4\pi\varepsilon_0}\frac{Q}{r}
+$$
+
+<Callout type="info" title="Poisson e Laplace (ponte concettuale)">
+
+Combinando $\nabla\cdot\mathbf{E}=\rho/\varepsilon_0$ con $\mathbf{E}=-\nabla V$
+si ottiene $\nabla^2 V=-\rho/\varepsilon_0$ (Poisson). In regioni senza carica
+vale $\nabla^2 V=0$ (Laplace). Vedi
+[Energia, Poisson e condizioni al contorno](./energy-poisson-and-boundary-conditions).
+
+</Callout>
+
+## Dipolo elettrico e primi termini multipolari
+
+Per una distribuzione di carica localizzata, il potenziale a grande distanza si
+organizza in una serie di termini (multipoli). Il primo termine è il monopolo
+($\propto 1/r$) ed è controllato da $Q_{\text{tot}}$. Se $Q_{\text{tot}}=0$, il
+termine dominante è spesso il dipolo ($\propto 1/r^2$).
+
+<Statement type="definition" title="Momento di dipolo (discreto e continuo)">
+
+Per cariche discrete:
+
+$$
+\mathbf{p}=\sum_i q_i\,\mathbf{r}_i
+$$
+
+Per una densità continua:
+
+$$
+\mathbf{p}=\int \mathbf{r}\,\rho(\mathbf{r})\,d\tau
+$$
+
+</Statement>
+
+Nel caso di due cariche $\pm q$ separate da $\mathbf{d}$ (diretto da $-$ a $+$),
+si ha $\mathbf{p}=q\mathbf{d}$.
+
+Per $r\gg d$:
+
+$$
+V(\mathbf{r})\approx\frac{1}{4\pi\varepsilon_0}\frac{\mathbf{p}\cdot\hat{\mathbf{r}}}{r^2}
+=\frac{1}{4\pi\varepsilon_0}\frac{\mathbf{p}\cdot\mathbf{r}}{r^3}
+$$
+
+e il campo decresce come:
+
+$$
+|\mathbf{E}(\mathbf{r})|\sim\frac{1}{r^3}
+$$
+
+Per un dipolo lungo $z$, in coordinate sferiche:
+
+$$
+E_r=\frac{2p\cos\theta}{4\pi\varepsilon_0 r^3},\qquad
+E_\theta=\frac{p\sin\theta}{4\pi\varepsilon_0 r^3},\qquad
+E_\phi=0
+$$
+
+<Callout type="info" title="Dipoli e materia">
+
+Il concetto di dipolo è centrale anche nei dielettrici (polarizzazione). Vedi
+[Elettrostatica nei mezzi materiali](./dielectrics).
+
+</Callout>
+
+## Dipolo in campo esterno: energia e coppia
+
+In un campo esterno $\mathbf{E}$, un dipolo ideale ha energia potenziale:
+
+$$
+U=-\mathbf{p}\cdot\mathbf{E}
+$$
+
+e subisce una coppia:
+
+$$
+\boldsymbol{\tau}=\mathbf{p}\times\mathbf{E}
+$$
+
+che tende ad allinearlo al campo (minimo di energia). In un campo non uniforme,
+può comparire anche una forza risultante; una forma compatta spesso usata è
+$\mathbf{F}\approx\nabla(\mathbf{p}\cdot\mathbf{E})$.

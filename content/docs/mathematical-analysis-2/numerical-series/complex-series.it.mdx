@@ -1,0 +1,115 @@
+---
+title: Serie a termini complessi
+description: Definizione e proprietà delle serie numeriche nel campo complesso
+---
+
+## Definizione
+
+Consideriamo una successione $\{a_k\}_{k \in \mathbb{N}}$ di numeri complessi,
+ovvero $a_k \in \mathbb{C}$.
+
+Possiamo scrivere ogni termine nella sua forma algebrica:
+
+$$
+a_k = \alpha_k + i\beta_k
+$$
+
+dove $\alpha_k, \beta_k \in \mathbb{R}$ sono rispettivamente la parte reale e la
+parte immaginaria di $a_k$:
+
+$$
+\alpha_k = \text{Re}(a_k), \quad \beta_k = \text{Im}(a_k)
+$$
+
+Analogamente al caso reale, la serie $\sum_{k=0}^{\infty} a_k$ si dice
+**convergente**, **divergente** o **irregolare** se tale è la successione delle
+somme parziali $\{S_n\}_{n \in \mathbb{N}}$ nel campo $\mathbb{C}$.
+
+## Convergenza componente per componente
+
+Una proprietà fondamentale riduce lo studio di una serie complessa allo studio
+di due serie reali.
+
+<section id="criterio-convergenza-complesso">
+
+<Statement type="proposition" title="Criterio di convergenza in C">
+
+La serie complessa $\sum_{k=0}^{\infty} a_k$ converge se e solo se convergono
+entrambe le serie reali delle parti reali e delle parti immaginarie.
+
+$$
+\sum_{k=0}^{\infty} a_k \text{ converge} \iff \sum_{k=0}^{\infty} \alpha_k \text{ e } \sum_{k=0}^{\infty} \beta_k \text{ convergono}
+$$
+
+In tal caso, dette $S_{\alpha} = \sum \alpha_k$ e $S_{\beta} = \sum \beta_k$, la
+somma della serie è:
+
+$$
+S = S_{\alpha} + i S_{\beta}
+$$
+
+</Statement>
+
+</section>
+
+## Serie geometrica nel campo complesso
+
+Consideriamo la serie geometrica $\sum_{k=0}^{\infty} z^k$ con
+$z \in \mathbb{C}$.
+
+La somma parziale $n$-esima è data dalla stessa formula del caso reale (valida
+per $z \neq 1$):
+
+$$
+S_n = \sum_{k=0}^{n} z^k = \frac{1 - z^{n+1}}{1 - z}
+$$
+
+Per studiare il limite di $S_n$ per $n \to \infty$, osserviamo il termine
+$z^{n+1}$:
+
+- Se $|z| < 1$, allora $\lim_{n \to \infty} z^{n+1} = 0$.
+- Se $|z| > 1$, il modulo cresce all'infinito, quindi la serie non converge.
+- Se $|z| = 1$ e $z \neq 1$, il termine $z^{n+1}$ oscilla sulla circonferenza
+  unitaria, quindi il limite non esiste.
+
+<section id="carattere-serie-geometrica-complessa">
+
+<Statement type="theorem" title="Carattere della serie geometrica complessa">
+
+La serie geometrica $\sum z^k$ converge se e solo se il modulo della ragione è
+minore di 1:
+
+$$
+\sum_{k=0}^{\infty} z^k \text{ converge} \iff |z| < 1
+$$
+
+In tal caso, la somma è:
+
+$$
+\sum_{k=0}^{\infty} z^k = \frac{1}{1-z}
+$$
+
+</Statement>
+
+</section>
+
+### Esempio: Ragione immaginaria
+
+Consideriamo la serie con ragione $z = i$ (unità immaginaria):
+
+$$
+\sum_{k=0}^{\infty} i^k = 1 + i + i^2 + i^3 + \dots = 1 + i - 1 - i + \dots
+$$
+
+Poiché $|i| = 1$, la serie non converge. Infatti, le somme parziali si ripetono
+periodicamente:
+
+- $S_0 = 1$
+- $S_1 = 1 + i$
+- $S_2 = 1 + i - 1 = i$
+- $S_3 = i - i = 0$
+- $S_4 = 1$
+- $\dots$
+
+La successione delle ridotte $\{S_n\}$ assume ciclicamente i valori
+$\{1, 1+i, i, 0\}$, quindi il limite non esiste. La serie è **irregolare**.

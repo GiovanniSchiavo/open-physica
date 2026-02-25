@@ -1,0 +1,67 @@
+---
+title: RLC serie e risonanza
+description:
+  Impedenza del circuito RLC serie, ampiezza e fase della corrente, frequenza di
+  risonanza, fattore di qualità e banda passante
+---
+
+## Impedenza del circuito RLC serie
+
+$$
+Z(\omega)=R+j\left(\omega L-\frac{1}{\omega C}\right)
+$$
+
+Corrente fasoriale:
+
+$$
+\tilde{I}=\frac{\tilde{V}}{Z(\omega)}
+$$
+
+Modulo della corrente:
+
+$$
+I_0(\omega)=\frac{V_0}{\sqrt{R^2+\left(\omega L-\frac{1}{\omega C}\right)^2}}
+$$
+
+## Condizione di risonanza
+
+Quando la parte reattiva si annulla:
+
+$$
+\omega_0L=\frac{1}{\omega_0C}
+\quad\Rightarrow\quad
+\omega_0=\frac{1}{\sqrt{LC}}
+$$
+
+A $\omega_0$:
+
+- $|Z|$ minimo ($=R$)
+- corrente massima
+- sfasamento nullo
+
+## Fattore di qualità
+
+$$
+Q=\frac{\omega_0L}{R}=\frac{1}{\omega_0RC}=\frac{1}{R}\sqrt{\frac{L}{C}}
+$$
+
+Banda a mezza potenza:
+
+$$
+\Delta\omega=\frac{\omega_0}{Q}
+$$
+
+Alto $Q$ significa risonanza più selettiva.
+
+## Interpretazione energetica
+
+Durante un periodo l'energia oscilla tra campo elettrico nel condensatore e
+campo magnetico nell'induttore, mentre la resistenza dissipa una frazione a ogni
+ciclo.
+
+Questo rende il circuito analogo a un oscillatore smorzato meccanico.
+
+<Callout type="warn" title="Attenzione alle approssimazioni">
+  Le formule di banda semplice valgono bene per smorzamento debole (Q non troppo
+  piccolo).
+</Callout>

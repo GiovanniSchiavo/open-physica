@@ -1,0 +1,84 @@
+---
+title: Anello
+description:
+  Campo e potenziale elettrostatico di un anello con carica uniforme sull'asse
+---
+
+## Anello carico uniformemente (sull'asse)
+
+Consideriamo un anello di raggio $R$ con carica totale $Q$ distribuita
+uniformemente. La densità lineare vale:
+
+$$
+\lambda = \frac{Q}{2\pi R}
+$$
+
+Calcoliamo campo e potenziale sull'asse dell'anello (asse $x$), passante per il
+centro.
+
+### Campo elettrico
+
+Prendiamo un elemento infinitesimo di carica $dq = \lambda \, dl$. Per un punto
+$P$ sull'asse a distanza $x$ dal centro, la distanza dall'elemento di carica è
+costante su tutto l'anello:
+
+$$
+r=\sqrt{x^2+R^2}
+$$
+
+Il contributo infinitesimo di campo ha modulo:
+
+$$
+dE=\frac{1}{4\pi\varepsilon_0}\frac{dq}{r^2}
+$$
+
+Per simmetria, le componenti trasversali si annullano sull'intero anello: resta
+solo la componente assiale. Se $\theta$ è l'angolo tra $\vec{r}$ e l'asse $x$:
+
+$$
+\cos\theta=\frac{x}{r}
+$$
+
+Quindi:
+
+$$
+dE_x=dE\cos\theta=\frac{1}{4\pi\varepsilon_0}\frac{x\,dq}{r^3}
+$$
+
+Integrando lungo l'anello ($\int dq = Q$) otteniamo:
+
+$$
+E_x(x)=\frac{1}{4\pi\varepsilon_0}\frac{Qx}{(x^2+R^2)^{3/2}}
+$$
+
+Vettorialmente, lungo l'asse:
+
+$$
+\vec{E}(x)=\frac{1}{4\pi\varepsilon_0}\frac{Qx}{(x^2+R^2)^{3/2}}\,\hat{u}_x
+$$
+
+In termini di $\lambda$:
+
+$$
+\vec{E}(x)=\frac{\lambda R x}{2\varepsilon_0(x^2+R^2)^{3/2}}\,\hat{u}_x
+$$
+
+### Potenziale elettrostatico
+
+Il potenziale è uno scalare, quindi sommiamo i contributi $dV$. Poiché $r$ è
+costante lungo l'anello:
+
+$$
+V(x)=\int \frac{1}{4\pi\varepsilon_0}\frac{dq}{r}
+=\frac{1}{4\pi\varepsilon_0}\frac{1}{\sqrt{x^2+R^2}}\int dq
+$$
+
+$$
+V(x)=\frac{1}{4\pi\varepsilon_0}\frac{Q}{\sqrt{x^2+R^2}}
+$$
+
+In termini di $\lambda$:
+
+$$
+V(x)=\frac{\lambda R}{2\varepsilon_0\sqrt{x^2+R^2}}
+$$

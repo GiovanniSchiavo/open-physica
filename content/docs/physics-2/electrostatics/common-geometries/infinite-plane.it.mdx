@@ -1,0 +1,96 @@
+---
+title: Piano infinito
+description:
+  Campo e potenziale elettrostatico di un piano infinito con carica uniforme
+---
+
+## Piano $\Sigma$ infinito con carica uniforme
+
+Consideriamo un piano infinito con densità di carica superficiale $\sigma$
+uniforme.
+
+### Campo Elettrico
+
+Per simmetria, il campo elettrico è perpendicolare al piano e uscente da esso
+(se $\sigma > 0$). Ha lo stesso modulo a parità di distanza da entrambe le
+parti, ma verso opposto.
+
+Usiamo una superficie gaussiana cilindrica ("scatoletta di tonno") con basi di
+area $A$ parallele al piano, poste a distanza $x$ e $-x$ da esso.
+
+Carica interna racchiusa:
+
+$$
+Q_{int} = \sigma A
+$$
+
+Il flusso attraverso la superficie laterale è nullo (campo parallelo alla
+superficie). Il flusso passa solo attraverso le due basi:
+
+$$
+\Phi(\vec{E}) = E A + E A = 2 E A
+$$
+
+Applicando Gauss:
+
+$$
+2 E A = \frac{\sigma A}{\varepsilon_0} \implies E = \frac{\sigma}{2\varepsilon_0}
+$$
+
+Il campo è uniforme, non dipende dalla distanza!
+
+In forma vettoriale, indicando con $\hat{u}_n$ il versore normale al piano
+uscente:
+
+$$
+\vec{E} = \frac{\sigma}{2\varepsilon_0} \text{sgn}(x) \hat{u}_x
+$$
+
+Oppure semplicemente considerando il verso:
+
+$$
+\vec{E} = \frac{\sigma}{2\varepsilon_0} \hat{u}_n
+$$
+
+### Potenziale Elettrostatico
+
+Integrandendo il campo elettrico lungo l'asse $x$ perpendicolare al piano,
+prendendo come riferimento $x_0$ (dove $V(x_0) = 0$):
+
+$$
+V(x) - V(x_0) = - \int_{x_0}^x E dx' = - \int_{x_0}^x \frac{\sigma}{2\varepsilon_0} dx'
+$$
+
+$$
+V(x) = - \frac{\sigma}{2\varepsilon_0} (x - x_0)
+$$
+
+(Assumendo $x, x_0 > 0$).
+
+### Capacità
+
+Un piano infinito isolato ha capacità indefinita. Tuttavia, due piani infiniti
+paralleli con carica opposta ($\sigma$ e $-\sigma$) formano un **condensatore
+piano**.
+
+Consideriamo due piani di area $A$ (in questo caso finita per definire la
+capacità totale, oppure per unità di area) separati da una distanza $d$.
+
+Il campo elettrico tra le armature è la somma dei campi dei due piani (che si
+sommano, mentre all'esterno si annullano):
+
+$$
+E_{tot} = \frac{\sigma}{2\varepsilon_0} + \frac{\sigma}{2\varepsilon_0} = \frac{\sigma}{\varepsilon_0}
+$$
+
+La differenza di potenziale in modulo è:
+
+$$
+|\Delta V| = E d = \frac{\sigma d}{\varepsilon_0} = \frac{Q d}{\varepsilon_0 A}
+$$
+
+La capacità $C = Q / |\Delta V|$ è:
+
+$$
+C = \frac{\varepsilon_0 A}{d}
+$$

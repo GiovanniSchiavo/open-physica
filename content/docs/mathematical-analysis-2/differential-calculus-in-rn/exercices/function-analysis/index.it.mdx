@@ -1,0 +1,70 @@
+---
+title: Studio di funzione
+description:
+  Esercizi sulla continuità, derivabilità e differenziabilità di funzioni a due
+  variabili
+---
+
+<ExerciseCards />
+
+<Callout type="tip" title="Continuità, Derivabilità e Differenziabilità">
+
+Sia $f : X \subseteq \mathbb{R}^2 \to \mathbb{R}$ una funzione a due variabili e
+sia $P =
+(x_0, y_0) \in \mathring{X}$ un punto interno all'insieme dominio.
+
+La funzione è differenziabile in $P$ se esiste una funzione lineare
+
+$$
+H(h,k) : \mathbb{R}^2 \to \mathbb{R}\\
+H(h,k) = f_x^\prime(P) \cdot h + f_y^\prime(P) \cdot k
+$$
+
+tale che
+
+$$
+\lim_{(h,k) \to (0,0)} \frac{f(x_0 + h, y_0 + k) - f(x_0, y_0) - H(h,k)}{\sqrt{h^2 + k^2}} = 0
+$$
+
+**Implicazioni fondamentali:**
+
+- $f_x^\prime(P), f_y^\prime(P)$ continue $\implies f$ differenziabile in
+  $P \implies f$ continua in $P$
+- $f$ NON continua in $P \ \lor \ f$ NON derivabile in $P \implies f$ NON
+  differenziabile in $P$
+- $f$ continua in $P \ \land \ f$ derivabile in
+  $P \rlap{\(\quad\not\)}\implies f$ differenziabile in $P$, occorre applicare
+  la definizione
+
+**Schema di verifica:**
+
+```mermaid
+   flowchart TD
+    START["f è differenziabile in P?"]
+    CHECK_D{"Esistono le derivate<br/>parziali in P?"}
+
+    CHECK_PC["f'<sub>x</sub>(P), f'<sub>y</sub>(P) <br> continue?"]
+
+    CHECK_C{"f è continua in P?"}
+    DIFF_SI["✓ DIFFERENZIABILE"]
+    DIFF_NO1["✗ NON DIFFERENZIABILE"]
+    DIFF_NO2["✗ NON DIFFERENZIABILE"]
+
+    DIFF_MAYBE["? APPLICARE LA DEFINIZIONE DI DIFFERENZIABILITÀ"]
+
+    START --> CHECK_D
+    CHECK_D -->|NO| DIFF_NO1
+    CHECK_D -->|SÌ| CHECK_PC
+    CHECK_PC -->|SÌ| DIFF_SI
+    CHECK_PC -->|NO| CHECK_C
+    CHECK_C -->|NO| DIFF_NO2
+    CHECK_C -->|SÌ| DIFF_MAYBE
+
+    style START fill:var(--info),color:var(--background),stroke:var(--info),stroke-width:2px
+    style DIFF_SI fill:var(--success),color:var(--background),stroke:var(--success),stroke-width:2px
+    style DIFF_NO1 fill:var(--destructive),color:var(--background),stroke:var(--destructive),stroke-width:2px
+    style DIFF_NO2 fill:var(--destructive),color:var(--background),stroke:var(--destructive),stroke-width:2px
+    style DIFF_MAYBE fill:var(--warn),color:var(--background),stroke:var(--warn),stroke-width:2px
+```
+
+</Callout>

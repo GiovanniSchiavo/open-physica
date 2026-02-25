@@ -1,0 +1,72 @@
+---
+title: Circuiti RC
+description:
+  Transitori di carica/scarica, costante di tempo, bilanci energetici e lettura
+  fisica delle curve esponenziali
+---
+
+## Equazione del circuito RC in carica
+
+Per generatore ideale $\mathcal{E}$, resistenza $R$, condensatore $C$:
+
+$$
+\mathcal{E}=Ri+\frac{q}{C},\qquad i=\frac{dq}{dt}
+$$
+
+Si ottiene:
+
+$$
+\frac{dq}{dt}+\frac{1}{RC}q=\frac{\mathcal{E}}{R}
+$$
+
+Soluzione con $q(0)=0$:
+
+$$
+q(t)=C\mathcal{E}\left(1-e^{-t/\tau}\right),\qquad
+i(t)=\frac{\mathcal{E}}{R}e^{-t/\tau},\qquad \tau=RC
+$$
+
+## Scarica del condensatore
+
+Con generatore scollegato e tensione iniziale $V_0$:
+
+$$
+q(t)=CV_0e^{-t/\tau},\qquad i(t)=-\frac{V_0}{R}e^{-t/\tau}
+$$
+
+## Significato della costante di tempo
+
+Dopo un tempo $\tau$:
+
+- in carica: $q$ raggiunge il 63.2% del valore finale;
+- in scarica: $q$ scende al 36.8% del valore iniziale.
+
+## Bilancio energetico
+
+Energia immagazzinata nel condensatore:
+
+$$
+U_C=\frac{1}{2}CV^2
+$$
+
+In una carica da sorgente ideale:
+
+- energia fornita dal generatore: $C\mathcal{E}^2$;
+- energia accumulata nel condensatore: $\tfrac12 C\mathcal{E}^2$;
+- energia dissipata su $R$: $\tfrac12 C\mathcal{E}^2$.
+
+## Estensioni dal programma
+
+Nel corso si incontrano varianti con:
+
+- più resistenze (equivalente di Thévenin visto dal condensatore);
+- dielettrici non omogenei (capacità efficace dipendente dalla geometria);
+- conduttori cilindrici con costanti geometriche non banali.
+
+La strategia resta la stessa: riduzione equivalente + ODE del primo ordine.
+
+<Callout type="tip" title="Verifica rapida delle soluzioni">
+  - controlla comportamento a $t=0^+$ e $t\to\infty$; - verifica continuità
+  della tensione sul condensatore; - verifica bilancio energetico per evitare
+  errori di segno.
+</Callout>

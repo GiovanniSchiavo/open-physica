@@ -45,8 +45,8 @@ const config: Config = {
       it: "OpenPhysica",
     },
     description: {
-      en: "Collaborative collection of lecture notes - Physics UNIPD",
-      it: "Raccolta di appunti collaborativa - Fisica UNIPD",
+      en: "Collaborative collection of lecture notes",
+      it: "Raccolta di appunti collaborativa",
     },
     primaryCta: {
       text: {
@@ -71,6 +71,31 @@ const config: Config = {
   },
   links: [
     {
+      type: "menu",
+      text: {
+        en: "Courses",
+        it: "Corsi",
+      },
+      items: [
+        {
+          text: {
+            en: "Physics 2",
+            it: "Fisica 2",
+          },
+          url: "/docs/physics-2",
+          active: "nested-url",
+        },
+        {
+          text: {
+            en: "Mathematical Analysis 2",
+            it: "Analisi Matematica 2",
+          },
+          url: "/docs/mathematical-analysis-2",
+          active: "nested-url",
+        },
+      ],
+    },
+    {
       text: {
         en: "Flashcards",
         it: "Flashcards",
@@ -83,6 +108,7 @@ const config: Config = {
         it: "Contribuisci",
       },
       url: "/docs/contributing",
+      active: "nested-url",
     },
   ],
 };

@@ -1,0 +1,117 @@
+---
+title: Interferenza, diffrazione e reticoli
+description:
+  Coerenza, differenza di cammino ottico, esperienza di Young, interferenza da
+  film sottili, diffrazione da fenditura e reticolo, criterio di Rayleigh
+---
+
+## Interferenza: principio di sovrapposizione
+
+Per due onde coerenti:
+
+$$
+I=I_1+I_2+2\sqrt{I_1I_2}\cos\Delta\phi
+$$
+
+con:
+
+$$
+\Delta\phi=\frac{2\pi}{\lambda}\Delta
+$$
+
+($\Delta$ = differenza di cammino ottico).
+
+Massimi: $\Delta=m\lambda$; minimi: $\Delta=(m+1/2)\lambda$.
+
+## Esperienza di Young
+
+Per doppia fenditura (distanza $d$) su schermo lontano (distanza $L$):
+
+$$
+\Delta\approx d\sin\theta \approx d\frac{y}{L}
+$$
+
+Posizione massimi:
+
+$$
+y_m\approx m\frac{\lambda L}{d}
+$$
+
+Interfrangia:
+
+$$
+\Delta y=\frac{\lambda L}{d}
+$$
+
+## Interferenza su lamine sottili
+
+La differenza di cammino include:
+
+- cammino geometrico nel mezzo ($2nt\cos\theta_t$);
+- eventuali inversioni di fase di $\pi$ alle riflessioni.
+
+Questo modello spiega colori sottili (bolle di sapone, strati anti-riflesso).
+
+## Interferenza da molte sorgenti
+
+Con $N$ sorgenti coerenti identiche:
+
+- massimi principali più stretti all'aumentare di $N$;
+- comparsa di massimi secondari e minimi multipli.
+
+Caso limite: reticolo di diffrazione.
+
+## Diffrazione da fenditura singola
+
+Per fenditura di larghezza $a$:
+
+$$
+I(\theta)=I_0\left(\frac{\sin\beta}{\beta}\right)^2,
+\qquad \beta=\frac{\pi a\sin\theta}{\lambda}
+$$
+
+Minimi:
+
+$$
+a\sin\theta=m\lambda,\qquad m=\pm1,\pm2,\ldots
+$$
+
+## Reticolo di diffrazione
+
+Per passo reticolare $d$:
+
+$$
+d\sin\theta=m\lambda
+$$
+
+Questo permette separazione spettrale fine e misura di lunghezze d'onda.
+
+### Potere risolutivo
+
+$$
+R=\frac{\lambda}{\Delta\lambda}=mN
+$$
+
+con $N$ numero di fenditure illuminate.
+
+## Criterio di Rayleigh
+
+Due sorgenti sono appena risolte quando il massimo principale di una cade sul
+primo minimo dell'altra.
+
+Per apertura circolare:
+
+$$
+\theta_R\approx1.22\frac{\lambda}{D}
+$$
+
+## Interferenza vs diffrazione
+
+- **interferenza**: principalmente legata alla geometria tra più sorgenti;
+- **diffrazione**: effetto della dimensione finita dell'apertura;
+- in pratica i due fenomeni coesistono e si modulano.
+
+<Callout type="warn" title="Errore comune">
+  Non usare formule di campo lontano senza verificare ipotesi geometriche
+  (regime di Fraunhofer).
+</Callout>

@@ -1,0 +1,260 @@
+---
+title: Magnetismo
+description:
+  Forza di Lorentz, leggi di Laplace, spettrometro di massa, ciclotrone, teorema
+  di Ampere, potenziale magnetico, effetto Hall
+---
+
+Alcuni materiali presenti in natura esercitano forze molto più intense di quelle
+elettrostatiche. Queste forze possono essere attrattive o repulsive, con segni
+detti **poli Nord e Sud**.
+
+Una differenza fondamentale: non si riesce mai ad isolare un polo magnetico.
+Ogni materiale è costituito da una coppia di poli N e S indivisibili.
+
+Alla fine dell'800 ci si accorse che il moto delle cariche elettriche genera un
+campo magnetico.
+
+## Effetti del campo magnetico su un circuito
+
+<Statement type="law" title="Seconda formula di Laplace">
+
+La forza su un elemento di filo $$d\vec{l}$$ percorso da corrente $$i$$ in un
+campo magnetico $$\vec{B}_0$$:
+
+$$
+d\vec{F} = i \, d\vec{l} \times \vec{B}_0
+$$
+
+</Statement>
+
+<Statement type="definition" title="Campo di induzione magnetica">
+
+Il campo $$\vec{B}_0$$ si misura in **Tesla**:
+
+$$
+[B_0] = \frac{N}{A \cdot m} = T
+$$
+
+</Statement>
+
+<Statement type="definition" title="Weber">
+
+Il **Weber** misura il flusso del campo magnetico:
+
+$$
+[\Phi_S(\vec{B}_0)] = Wb = V \cdot s \qquad [T] = \frac{Wb}{m^2}
+$$
+
+</Statement>
+
+**Seconda equazione di Maxwell** (non esistenza di monopoli magnetici):
+
+$$
+\nabla \cdot \vec{B}_0 = 0
+$$
+
+## Forza di Lorentz
+
+<Statement type="law" title="Forza di Lorentz">
+
+La forza su una singola carica $$q$$ in movimento:
+
+$$
+\vec{F} = q\vec{v} \times \vec{B}_0
+$$
+
+</Statement>
+
+<Callout type="info">
+  La forza di Lorentz è sempre perpendicolare alla velocità, quindi **non compie
+  lavoro**. Una carica in campo uniforme compie moto circolare uniforme.
+</Callout>
+
+Raggio del moto circolare:
+
+$$
+r = \frac{mv}{qB_0}
+$$
+
+**Frequenza di ciclotrone** (non dipende dalla velocità!):
+
+$$
+\nu_0 = \frac{qB_0}{2\pi m}
+$$
+
+### Spettrometro di massa
+
+Separa particelle in base al rapporto massa/carica. Le particelle vengono
+accelerate da $$\Delta V$$, poi curvate dal campo magnetico:
+
+$$
+r = \frac{1}{B_0}\sqrt{2\Delta V \frac{m}{q}}
+$$
+
+### Ciclotrone
+
+Primo acceleratore di particelle. Sfrutta la costanza della frequenza di
+ciclotrone: le particelle vengono accelerate ripetutamente da un condensatore
+oscillante, curvate dal campo magnetico con raggio crescente.
+
+### Moto a elica
+
+Se $$\vec{v}$$ ha componente parallela a $$\vec{B}_0$$: moto circolare +
+rettilineo uniforme = **elica**.
+
+**Effetto bottiglia**: in campi magnetici variabili, le particelle possono
+rimanere intrappolate (protezione dal vento solare).
+
+## Forza su un circuito - Momento magnetico
+
+Su una spira quadrata in campo magnetico uniforme si esercita una **coppia**:
+
+$$
+\vec{M} = \vec{m} \times \vec{B}_0
+$$
+
+<Statement type="definition" title="Momento magnetico della spira">
+
+$$
+\vec{m} = iS\hat{n}
+$$
+
+dove $$S$$ è l'area della spira e $$\hat{n}$$ il versore normale.
+
+</Statement>
+
+<Callout type="tip">
+  Una spira percorsa da corrente si comporta come un **dipolo magnetico** con
+  momento $$\vec{m}$$.
+</Callout>
+
+## Campo magnetico generato da un circuito
+
+<Statement type="law" title="Prima legge di Laplace">
+
+Un elemento $$d\vec{l}^0$$ in posizione $$\vec{r}^0$$ produce campo:
+
+$$
+d\vec{B}_0 = \frac{\mu_0}{4\pi} \frac{i \, d\vec{l} \times (\vec{r} - \vec{r}^0)}{|\vec{r} - \vec{r}^0|^3}
+$$
+
+</Statement>
+
+<Statement type="definition" title="Permeabilità magnetica del vuoto">
+
+$$
+\mu_0 = 4\pi \cdot 10^{-7} \, \frac{T \cdot m}{A}
+$$
+
+</Statement>
+
+### Legge di Biot-Savart
+
+Campo magnetico di un filo infinito a distanza $$\delta$$:
+
+$$
+B_0 = \frac{\mu_0 i}{2\pi\delta}
+$$
+
+Le linee di campo sono circonferenze concentriche al filo.
+
+### Seconda equazione di Maxwell (dimostrazione)
+
+Dalla prima legge di Laplace: $$\nabla \cdot \vec{B}_0 = 0$$ (il rotore di un
+gradiente è nullo).
+
+### Campo di una spira
+
+Sull'asse della spira, a distanza $$h$$:
+
+$$
+B_0 = \frac{\mu_0}{2} \frac{ir^2}{(h^2 + r^2)^{3/2}} = \frac{\mu_0}{2\pi} \frac{m}{(h^2 + r^2)^{3/2}}
+$$
+
+A grande distanza: stessa formula del campo di un **dipolo elettrico**!
+
+### Campo di un solenoide
+
+Per un solenoide infinito con densità $$n = N/L$$ spire:
+
+$$
+B_0 = \mu_0 in
+$$
+
+Il campo interno è **uniforme**, quello esterno è **nullo**.
+
+## Teorema della circuitazione di Ampere
+
+<Statement type="theorem" title="Teorema di Ampere">
+
+La circuitazione di $$\vec{B}_0$$ è proporzionale alle correnti concatenate:
+
+$$
+\oint_L \vec{B}_0 \cdot d\vec{l} = \sum_{k=1}^{n} \mu_0 i_k
+$$
+
+In forma differenziale:
+
+$$
+\nabla \times \vec{B}_0 = \mu_0 \vec{J}
+$$
+
+</Statement>
+
+<Callout type="warn">
+  Questa relazione vale solo per **correnti stazionarie**.
+</Callout>
+
+## Potenziale magnetico scalare
+
+In regioni senza correnti ($$\vec{J} = 0$$), $$\vec{B}$$ è irrotazionale e si
+può definire:
+
+$$
+\vec{B} = -\nabla\phi \qquad \phi = -\frac{\mu_0 i}{4\pi}\Omega
+$$
+
+dove $$\Omega$$ è l'angolo solido sotteso dal circuito.
+
+Per una spira:
+
+$$
+\phi = \frac{\mu_0}{4\pi} \frac{\vec{m} \cdot \vec{r}}{r^3}
+$$
+
+Identico al potenziale del dipolo elettrico → **teorema di equivalenza di
+Ampere**.
+
+## Problema generale della magnetostatica
+
+Definiamo il potenziale vettore $$\vec{A}_0$$:
+
+$$
+\vec{B}_0 = \nabla \times \vec{A}_0
+$$
+
+Nella gauge di Coulomb ($$\nabla \cdot \vec{A}_0 = 0$$):
+
+$$
+\nabla^2 \vec{A}_0 = -\mu_0 \vec{J}
+$$
+
+Soluzione:
+
+$$
+\vec{A}_0(\vec{r}) = \frac{\mu_0}{4\pi} \int_\tau \frac{\vec{J}(\vec{r}^0)}{|\vec{r} - \vec{r}^0|} d\tau^0
+$$
+
+## Effetto Hall
+
+Un conduttore percorso da corrente in campo magnetico perpendicolare: le cariche
+si accumulano su un lato creando una **tensione di Hall**:
+
+$$
+V_H = \frac{IB}{nqb} = R_H \frac{IB}{b}
+$$
+
+dove $$R_H = \frac{1}{nq}$$ è il **coefficiente di Hall**.
+
+Questo permette di determinare il numero e il tipo di portatori di carica.

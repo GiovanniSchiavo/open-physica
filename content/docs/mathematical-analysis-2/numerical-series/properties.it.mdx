@@ -1,0 +1,84 @@
+---
+title: Proprietà delle Serie
+description: Linearità e comportamento asintotico delle serie numeriche
+---
+
+## Linearità
+
+Le serie convergenti formano uno spazio vettoriale: la somma di serie
+convergenti è convergente, e il prodotto per uno scalare conserva la
+convergenza.
+
+<section id="algebra-serie">
+
+<Statement type="proposition" title="Algebra delle serie">
+
+Siano $\sum a_n$ e $\sum b_n$ due serie convergenti con somma $A$ e $B$, e sia
+$c \in \mathbb{R}$ una costante. Allora:
+
+1. **Somma:** La serie somma $\sum (a_n + b_n)$ converge alla somma $A + B$.
+2. **Prodotto per scalare:** La serie $\sum (c \cdot a_n)$ converge a
+   $c \cdot A$.
+
+$$
+\sum_{n=0}^{\infty} (a_n + b_n) = \sum_{n=0}^{\infty} a_n + \sum_{n=0}^{\infty} b_n
+$$
+
+$$
+\sum_{n=0}^{\infty} c \cdot a_n = c \sum_{n=0}^{\infty} a_n
+$$
+
+</Statement>
+
+</section>
+
+### Dimostrazione
+
+Segue direttamente dalle proprietà dei limiti delle successioni. Se $S_n^A$ e
+$S_n^B$ sono le somme parziali delle due serie:
+
+$$
+\lim_{n \to \infty} (S_n^A + S_n^B) = \lim_{n \to \infty} S_n^A + \lim_{n \to \infty} S_n^B = A + B
+$$
+
+Analogamente per il prodotto per scalare.
+
+## Proprietà della "coda" della serie
+
+Il carattere di una serie (convergenza o divergenza) non dipende dai suoi primi
+termini finiti.
+
+<section id="indipendenza-primi-termini">
+
+<Statement type="theorem" title="Indipendenza dai primi termini">
+
+Sia $\sum_{n=0}^{\infty} a_n$ una serie e sia $k_0 \in \mathbb{N}$ un indice
+fissato. Le due serie:
+
+$$
+\sum_{n=0}^{\infty} a_n \quad \text{e} \quad \sum_{n=k_0}^{\infty} a_n
+$$
+
+hanno lo **stesso carattere**.
+
+</Statement>
+
+</section>
+
+Questo significa che possiamo modificare, aggiungere o togliere un numero finito
+di termini senza alterare il fatto che la serie converga o diverga (anche se,
+ovviamente, la somma totale cambierà).
+
+### Dimostrazione
+
+Indichiamo con $S_n$ la somma parziale della serie completa e con $\bar{S}_n$
+quella della serie "troncata" (o coda) che parte da $k_0$. Per $n \geq k_0$:
+
+$$
+S_n = \sum_{k=0}^{n} a_k = \sum_{k=0}^{k_0-1} a_k + \sum_{k=k_0}^{n} a_k = C + \bar{S}_n
+$$
+
+dove $C$ è una costante finita (la somma dei primi $k_0$ termini). Poiché $S_n$
+e $\bar{S}_n$ differiscono solo per una costante additiva, i loro limiti per
+$n \to \infty$ hanno lo stesso comportamento (entrambi finiti o entrambi
+infiniti).

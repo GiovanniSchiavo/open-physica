@@ -1,0 +1,366 @@
+---
+flashcards: true
+---
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Enuncia la legge di Ohm in forma locale e globale. Definisci resistività e
+conducibilità. Cos'è l'effetto Joule?
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+**Forma locale** (equazione costitutiva per conduttori ohmici):
+
+$$\mathbf{J} = \sigma_e \mathbf{E}$$
+
+dove $\sigma_e$ è la **conducibilità elettrica** ($[\Omega^{-1}\text{m}^{-1}]$)
+e $\rho_r = 1/\sigma_e$ è la **resistività** ($[\Omega\cdot\text{m}]$).
+
+**Forma globale** per un conduttore di lunghezza $\ell$, sezione $A$:
+
+$$V = RI, \qquad R = \frac{\rho_r \ell}{A}$$
+
+**Effetto Joule** — potenza dissipata per unità di volume:
+
+$$p_J = \mathbf{J}\cdot\mathbf{E} = \sigma_e E^2 = \rho_r J^2$$
+
+Potenza totale dissipata in una resistenza:
+
+$$P = VI = RI^2 = \frac{V^2}{R}$$
+
+L'effetto Joule converte energia elettrica in calore; è la causa principale
+delle perdite nelle linee di trasmissione ad alta tensione (bassa $I$, bassa
+$P_J = RI^2$).
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Qual è il significato fisico dell'equazione di continuità
+$\nabla\cdot\mathbf{J}=-\partial\rho/\partial t$?
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+L'equazione di continuità esprime la **conservazione locale della carica**:
+
+$$
+\nabla\cdot\mathbf{J}=-\frac{\partial\rho}{\partial t}
+$$
+
+Interpretazione:
+
+- se in una regione esce più corrente di quanta ne entri
+  ($\nabla\cdot\mathbf{J}>0$), la densità di carica locale diminuisce
+  ($\partial\rho/\partial t<0$);
+- se entra più corrente di quanta ne esca, la carica si accumula.
+
+In regime stazionario:
+
+$$
+\frac{\partial\rho}{\partial t}=0\quad\Rightarrow\quad \nabla\cdot\mathbf{J}=0
+$$
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Nel circuito RC in carica, come si distribuisce l'energia fornita dal generatore
+ideale?
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+Per un condensatore inizialmente scarico caricato fino a $V=\mathcal{E}$:
+
+Energia finale nel condensatore:
+
+$$
+U_C=\frac{1}{2}C\mathcal{E}^2
+$$
+
+Energia totale fornita dal generatore:
+
+$$
+W_G=C\mathcal{E}^2
+$$
+
+Energia dissipata sulla resistenza:
+
+$$
+W_R=W_G-U_C=\frac{1}{2}C\mathcal{E}^2
+$$
+
+Quindi metà dell'energia va nel campo elettrico del condensatore e metà viene
+dissipata per effetto Joule.
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Enuncia le leggi di Kirchhoff per i circuiti. Come si applica il metodo delle
+maglie?
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+**Prima legge (nodi)** — conservazione della carica:
+
+$$\sum_k I_k = 0 \quad \text{(correnti entranti = uscenti in ogni nodo)}$$
+
+**Seconda legge (maglie)** — conservazione dell'energia:
+
+$$\sum_k \mathcal{E}_k = \sum_k R_k I_k \quad \text{(percorrendo ogni maglia chiusa)}$$
+
+**Metodo delle maglie:**
+
+1. Assegnare correnti $I_j$ ad ogni maglia indipendente (con verso arbitrario).
+2. Scrivere un'equazione KVL per ogni maglia: somma algebrica delle cadute di
+   tensione = somma delle f.e.m.
+3. Risolvere il sistema lineare.
+
+**Convenzioni di segno:**
+
+- La f.e.m. è positiva se il generatore viene percorso dal $-$ al $+$.
+- La caduta su $R$ è $+RI$ se la corrente di maglia concorda con il verso di
+  percorrenza.
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Descrivi il circuito $RC$ in regime transitorio: carica e scarica del
+condensatore.
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+**Carica** — condensatore inizialmente scarico, tensione $\mathcal{E}$ applicata
+a $t=0$:
+
+Dalla legge di Kirchhoff: $\mathcal{E} = RI + \dfrac{Q}{C}$
+
+$$Q(t) = C\mathcal{E}\left(1 - e^{-t/\tau}\right), \quad I(t) = \frac{\mathcal{E}}{R}e^{-t/\tau}$$
+
+Le tensioni ai capi dei componenti sono:
+
+$$
+V_C(t)=\frac{Q(t)}{C}=\mathcal{E}\left(1-e^{-t/\tau}\right),
+\qquad
+V_R(t)=RI(t)=\mathcal{E}e^{-t/\tau}
+$$
+
+**Scarica** — condensatore carico $Q_0$, circuito chiuso su $R$:
+
+$$Q(t) = Q_0 e^{-t/\tau}, \quad I(t) = \frac{Q_0}{RC}e^{-t/\tau}$$
+
+e quindi:
+
+$$
+V_C(t)=\frac{Q_0}{C}e^{-t/\tau}=V_0 e^{-t/\tau},
+\qquad
+V_R(t)=RI(t)=V_0 e^{-t/\tau}
+$$
+
+In entrambi i casi la **costante di tempo** è:
+
+$$\boxed{\tau = RC}$$
+
+$\tau$ rappresenta il tempo necessario affinché la carica raggiunga
+$(1-e^{-1}) \approx 63\%$ del valore finale (carica) o scenda al $37\%$ del
+valore iniziale (scarica).
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Descrivi il circuito $RL$ in corrente continua (accensione e spegnimento) e
+scrivi $I(t)$, $V_R(t)$ e $V_L(t)$.
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+Per un circuito serie $R$-$L$ alimentato da una tensione costante $\mathcal{E}$
+(a $t=0$ si chiude l'interruttore):
+
+$$
+\mathcal{E}=RI+L\frac{dI}{dt}
+$$
+
+La soluzione in accensione e:
+
+$$
+I(t)=\frac{\mathcal{E}}{R}\left(1-e^{-t/\tau_L}\right),
+\qquad
+\tau_L=\frac{L}{R}
+$$
+
+Le tensioni:
+
+$$
+V_R(t)=RI(t)=\mathcal{E}\left(1-e^{-t/\tau_L}\right),
+\qquad
+V_L(t)=L\frac{dI}{dt}=\mathcal{E}e^{-t/\tau_L}
+$$
+
+Allo spegnimento (si toglie il generatore e si richiude il circuito su $R$):
+
+$$
+I(t)=I_0 e^{-t/\tau_L},\qquad V_R(t)=RI_0 e^{-t/\tau_L},\qquad V_L(t)=-RI_0 e^{-t/\tau_L}
+$$
+
+Fisicamente l'induttore si oppone alle variazioni di corrente
+($\mathcal{E}_L=-L\,dI/dt$).
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Cos'è la densità di corrente $\mathbf{J}$? Come si lega a $I$ e alla velocità di
+deriva?
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+La **densità di corrente** $\mathbf{J}$ descrive quanta carica attraversa
+un'area per unità di tempo e di superficie:
+
+$$
+I=\int_{\Sigma}\mathbf{J}\cdot d\boldsymbol{\Sigma}
+$$
+
+In un conduttore con portatori di densità $n$ e carica $q$ (segno incluso),
+vale:
+
+$$
+\mathbf{J}=nq\,\mathbf{v}_d
+$$
+
+dove $\mathbf{v}_d$ è la **velocità di deriva** media. In un filo uniforme di
+sezione $A$ con $\mathbf{J}$ quasi costante:
+
+$$
+I=J\,A
+$$
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Dal modello di Drude-Lorentz alla resistività: come si ottengono $\sigma_e$ e
+$\rho_r$ e qual è il significato del tempo di rilassamento?
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+Nel modello di Drude, gli elettroni subiscono urti con un **tempo medio di
+rilassamento** $\tau_c$ (tempo tra urti che randomizzano la velocità).
+
+Sotto un campo $\mathbf{E}$, l'equazione media del moto (con attrito efficace)
+porta a una velocità di deriva:
+
+$$
+\mathbf{v}_d=\frac{q\tau_c}{m}\mathbf{E}
+$$
+
+Quindi:
+
+$$
+\mathbf{J}=nq\,\mathbf{v}_d
+=nq\frac{q\tau_c}{m}\mathbf{E}
+=\sigma_e\mathbf{E}
+$$
+
+con:
+
+$$
+\boxed{\sigma_e=\frac{nq^2\tau_c}{m}},\qquad
+\boxed{\rho_r=\frac{1}{\sigma_e}=\frac{m}{nq^2\tau_c}}
+$$
+
+Interpretazione: maggiore $\tau_c$ (meno urti) o maggiore densità $n$ significa
+maggiore conducibilità.
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+In un filo resistivo percorso da corrente continua, dove scorre l'energia?
+Spiega il ruolo del vettore di Poynting.
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+In un filo cilindrico (raggio $a$, lunghezza $\ell$) che dissipa potenza, esiste
+un campo elettrico $\mathbf{E}$ **lungo il filo** (che mantiene la corrente) e
+un campo magnetico $\mathbf{B}$ **attorno al filo**:
+
+$$
+B(r)=\frac{\mu_0 I}{2\pi r}\qquad (r\ge a)
+$$
+
+Il flusso di energia elettromagnetica e descritto dal **vettore di Poynting**:
+
+$$
+\mathbf{S}=\frac{1}{\mu_0}\mathbf{E}\times\mathbf{B}
+$$
+
+Qui $\mathbf{E}$ è assiale e $\mathbf{B}$ è azimutale, quindi $\mathbf{S}$ è
+radiale **verso l'interno**: l'energia entra nel filo dalla superficie e viene
+dissipata come calore (effetto Joule).
+
+Infatti il flusso attraverso la superficie laterale $2\pi a\ell$ vale:
+
+$$
+P=\int \mathbf{S}\cdot d\mathbf{A}=VI
+$$
+
+cioè la potenza elettrica fornita al resistore.
+
+</FlashcardAnswer>
+
+</Flashcard>

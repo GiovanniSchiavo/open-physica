@@ -1,0 +1,75 @@
+---
+title: Teorema di Ampere e potenziale vettore
+description:
+  Circuitazione del campo magnetico, forma differenziale della magnetostatica,
+  potenziale vettore e invarianza di gauge
+---
+
+## Teorema della circuitazione
+
+<Statement type="law" title="Ampere in magnetostatica">
+
+$$
+\oint_\Gamma \mathbf{B}\cdot d\mathbf{l}=\mu_0 I_{\text{conc}}
+$$
+
+</Statement>
+
+È particolarmente efficace per simmetrie elevate (fili infiniti, solenoidi,
+toroidi).
+
+## Forma locale
+
+$$
+\nabla\times\mathbf{B}=\mu_0\mathbf{J},\qquad
+\nabla\cdot\mathbf{B}=0
+$$
+
+Le due equazioni caratterizzano la magnetostatica nel vuoto.
+
+## Potenziale vettore
+
+Dato che $\nabla\cdot\mathbf{B}=0$, esiste sempre $\mathbf{A}$ tale che:
+
+$$
+\mathbf{B}=\nabla\times\mathbf{A}
+$$
+
+Con gauge di Coulomb ($\nabla\cdot\mathbf{A}=0$):
+
+$$
+\nabla^2\mathbf{A}=-\mu_0\mathbf{J}
+$$
+
+Soluzione integrale:
+
+$$
+\mathbf{A}(\mathbf{r})=\frac{\mu_0}{4\pi}\int\frac{\mathbf{J}(\mathbf{r}')}{|\mathbf{r}-\mathbf{r}'|}\,d\tau'
+$$
+
+## Invarianza di gauge
+
+La trasformazione:
+
+$$
+\mathbf{A}\to\mathbf{A}+\nabla\chi
+$$
+
+lascia invariato $\mathbf{B}$.
+
+Questo introduce libertà di scelta utile per semplificare calcoli e problemi con
+simmetria.
+
+## Continuità ai bordi (richiamo operativo)
+
+- componente normale di $\mathbf{B}$ continua;
+- componente tangenziale di $\mathbf{H}$ legata a correnti superficiali libere.
+
+Queste condizioni sono essenziali nei problemi con conduttori di spessore finito
+studiati nel programma.
+
+<Callout type="tip" title="Scelta strategica del metodo">
+  - Ampere: calcolo rapido in geometrie ideali ad alta simmetria; - Biot-Savart:
+  geometrie finite o prive di simmetria semplice; - potenziale vettore: problemi
+  con vincoli di gauge o richieste su energia e flusso concatenato.
+</Callout>

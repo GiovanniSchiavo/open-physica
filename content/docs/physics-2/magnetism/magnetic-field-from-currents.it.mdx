@@ -1,0 +1,72 @@
+---
+title: Campo magnetico prodotto da correnti
+description:
+  Biot-Savart, legge di Laplace, campi di geometrie notevoli e forze tra
+  conduttori percorsi da corrente
+---
+
+## Legge di Biot-Savart
+
+Per elemento di corrente $i\,d\mathbf{l}$:
+
+$$
+d\mathbf{B}=\frac{\mu_0}{4\pi}\frac{i\,d\mathbf{l}\times\hat{\mathbf{r}}}{r^2}
+$$
+
+Integrazione sulla geometria del circuito fornisce il campo totale.
+
+## Geometrie fondamentali
+
+### Filo rettilineo indefinito
+
+$$
+B(r)=\frac{\mu_0 i}{2\pi r}
+$$
+
+### Spira circolare (asse)
+
+$$
+B(z)=\frac{\mu_0 iR^2}{2(R^2+z^2)^{3/2}}
+$$
+
+### Solenoide lungo
+
+$$
+B\approx\mu_0 n i
+$$
+
+($n$ spire per unità di lunghezza).
+
+## Forza tra fili paralleli
+
+Due fili lunghi paralleli a distanza $d$:
+
+$$
+\frac{F}{L}=\frac{\mu_0 i_1i_2}{2\pi d}
+$$
+
+- correnti concordi: attrazione;
+- correnti discordi: repulsione.
+
+## Forza su tratto di circuito
+
+Legge di Laplace:
+
+$$
+d\mathbf{F}=i\,d\mathbf{l}\times\mathbf{B}
+$$
+
+Per spira in campo uniforme, risultante nulla ma coppia non nulla.
+
+## Dipolo magnetico di spira
+
+$$
+\mathbf{m}=iS\hat{\mathbf{n}},\qquad
+\boldsymbol{\tau}=\mathbf{m}\times\mathbf{B},\qquad
+U=-\mathbf{m}\cdot\mathbf{B}
+$$
+
+<Callout type="warn" title="Quando NON usare Biot-Savart direttamente">
+  Se il problema ha alta simmetria (cilindrica/planare), il teorema di Ampere è
+  spesso più rapido e robusto.
+</Callout>

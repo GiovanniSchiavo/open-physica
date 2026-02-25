@@ -1,0 +1,90 @@
+---
+title: Ottica geometrica e polarizzazione
+description:
+  Riflessione, rifrazione, indice di rifrazione, coefficienti di Fresnel, angolo
+  di Brewster e stati di polarizzazione
+---
+
+## Dalla propagazione all'ottica geometrica
+
+Nel limite in cui la lunghezza d'onda è molto minore delle dimensioni
+geometriche del sistema, la propagazione si descrive con raggi.
+
+<Statement type="principle" title="Principio di Fermat">
+
+La luce segue il cammino che rende stazionario il tempo ottico.
+
+</Statement>
+
+Da Fermat derivano leggi di riflessione e rifrazione.
+
+## Riflessione e rifrazione
+
+Per interfaccia tra mezzi con indici $n_1$ e $n_2$:
+
+- **riflessione**: $\theta_r=\theta_i$
+- **rifrazione (Snell)**:
+
+$$
+n_1\sin\theta_i=n_2\sin\theta_t
+$$
+
+Se $n_1>n_2$ esiste angolo critico:
+
+$$
+\theta_c=\arcsin\left(\frac{n_2}{n_1}\right)
+$$
+
+oltre il quale si ha riflessione totale interna.
+
+## Coefficienti di Fresnel
+
+I coefficienti di ampiezza dipendono dalla polarizzazione rispetto al piano di
+incidenza:
+
+- polarizzazione **sigma** (campo elettrico perpendicolare al piano);
+- polarizzazione **pi** (campo elettrico nel piano).
+
+Per incidenza normale:
+
+$$
+r=\frac{n_1-n_2}{n_1+n_2},\qquad t=\frac{2n_1}{n_1+n_2}
+$$
+
+L'intensità riflessa/trasmessa dipende da $|r|^2$ e da fattori di impedenza dei
+mezzi.
+
+## Angolo di Brewster
+
+Per polarizzazione $\pi$, esiste un angolo con riflessione nulla:
+
+$$
+\tan\theta_B=\frac{n_2}{n_1}
+$$
+
+Questo è il principio alla base di molti polarizzatori per riflessione.
+
+## Stati di polarizzazione
+
+Per un'onda piana con propagazione lungo z:
+
+$$
+\mathbf{E}(z,t)=\hat{x}E_{0x}\cos(kz-\omega t)+\hat{y}E_{0y}\cos(kz-\omega t+\delta)
+$$
+
+- $\delta=0,\pi$: polarizzazione lineare;
+- $E_{0x}=E_{0y}$ e $\delta=\pm\pi/2$: polarizzazione circolare;
+- caso generale: polarizzazione ellittica.
+
+### Elementi ottici fondamentali
+
+- **polarizzatore lineare**: seleziona una direzione di oscillazione;
+- **lamina a quarto d'onda**: converte tra polarizzazione lineare e
+  circolare/ellittica;
+- **lamina a mezz'onda**: ruota la direzione di polarizzazione lineare.
+
+<Callout type="tip" title="Schema risolutivo rapido">
+  1) identifica piano di incidenza e stato di polarizzazione; 2) applica Snell;
+  3) usa Fresnel per ampiezze/intensità; 4) verifica limiti fisici
+  ($R+T\approx1$ in mezzi non assorbenti).
+</Callout>

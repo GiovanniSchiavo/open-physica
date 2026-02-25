@@ -1,0 +1,91 @@
+---
+title: "Esercizio 3"
+description: "Esercizio 3 sulla convergenza delle successioni di funzioni"
+exercise:
+  difficulty: 1
+---
+
+## Testo dell'esercizio
+
+Studiare la convergenza puntuale e uniforme della successione di funzioni
+
+$$
+\Big\{ nxe^{-nx^2} \Big\}_n \quad n \in \mathbb{N}^\star \\
+$$
+
+Studiare poi la convergenza uniforme nell'intervallo $[1, +\infty[$.
+
+## Soluzione [toc]
+
+<Solution>
+
+### Convergenza puntuale
+
+Impostiamo il limite:
+
+$$
+\lim_{n \to \infty} nxe^{-nx^2} = 0 \quad \forall x \in \mathbb{R}
+$$
+
+Quindi la successione di funzioni converge puntualmente alla funzione $F=0$ in
+tutto $\mathbb{R}$, cioè
+
+$$
+\Big\{ nxe^{-nx^2} \Big\}_n \underset{\mathbb{R}}{\longrightarrow} 0
+$$
+
+### Convergenza uniforme
+
+La funzione limite è $F=0$, che è continua su $\mathbb{R}$.
+
+Studiamo il segno di $g_n(x) = |f_n(x) - F(x)|$:
+
+$$
+g_n(x) = \Big|nxe^{-nx^2} - 0 \Big| = n|x|e^{-nx^2}
+$$
+
+che è una famiglia di funzioni pari, quindi ci basta studiarla per $x \geq 0$:
+
+$$
+g_n^\prime(x) = \frac{\partial}{\partial x} nxe^{-nx^2} = n(e^{-nx^2} - 2nx^2e^{-nx^2}) = ne^{-nx^2}(1-2nx^2) \\
+ne^{-nx^2}(1-2nx^2) > 0 \\
+x \in \Bigg]-\frac{1}{\sqrt{2n}}, \frac{1}{\sqrt{2n}}\Bigg[
+$$
+
+Quindi il massimo si ha in $x = \frac{1}{\sqrt{2n}}$:
+
+$$
+S_n = g_n\left(\frac{1}{\sqrt{2n}}\right) = \frac{n}{\sqrt{2n}}e^{-\frac{1}{2}} = \frac{n}{\sqrt{2ne}}
+$$
+
+Infine, calcoliamo il limite di $S_n$ per $n \to \infty$:
+
+$$
+\lim_{n \to \infty} S_n = \lim_{n \to \infty} \frac{n}{\sqrt{2ne}} = + \infty
+$$
+
+la successione di funzioni non converge uniformemente in $\mathbb{R}$.
+
+#### Convergenza uniforme in $[1, +\infty[$
+
+Nell'intervallo $[1, +\infty[$, la funzione $g_n(x)$ è decrescente, quindi il
+massimo si ha in $x=1$:
+
+$$
+S_n = g_n(1) = ne^{-n}
+$$
+
+Infine, calcoliamo il limite di $S_n$ per $n \to +\infty$:
+
+$$
+\lim_{n \to \infty} S_n = \lim_{n \to \infty} ne^{-n} = 0
+$$
+
+Dunque la successione di funzioni converge uniformemente a $F$ in
+$[1, +\infty[$,
+
+$$
+\Big\{ nxe^{-nx^2} \Big\}_n \underset{[1, +\infty[}{\rightrightarrows} 0
+$$
+
+</Solution>

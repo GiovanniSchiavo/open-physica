@@ -1,0 +1,826 @@
+---
+flashcards: true
+---
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Enuncia le leggi di riflessione e rifrazione (Snell). Come si ricavano dalle
+equazioni di Maxwell?
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+**Legge di riflessione**: l'angolo di incidenza uguale all'angolo di
+riflessione:
+
+$$\theta_i = \theta_r$$
+
+**Legge di Snell** (rifrazione):
+
+$$n_1\sin\theta_i = n_2\sin\theta_t$$
+
+dove $n = c/v = \sqrt{\varepsilon_r\mu_r}$ è l'indice di rifrazione.
+
+**Ricavazione dalle condizioni al contorno di Maxwell**: le componenti
+tangenziali di $\mathbf{E}$ e $\mathbf{H}$ devono essere continue
+all'interfaccia. Imponendo che le fasi delle onde incidente, riflessa e
+trasmessa coincidano su tutta la superficie a ogni istante:
+
+$$\mathbf{k}_i\cdot\hat{x} = \mathbf{k}_r\cdot\hat{x} = \mathbf{k}_t\cdot\hat{x}$$
+
+con $|\mathbf{k}| = n\omega/c$, si ottengono direttamente entrambe le leggi.
+
+**Riflessione totale interna**: per $n_1 > n_2$, se
+$\theta_i > \theta_c = \arcsin(n_2/n_1)$ l'onda è completamente riflessa; è il
+principio delle fibre ottiche.
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Se tra sorgenti adiacenti (o fenditure) c'è un ulteriore sfasamento che cresce
+nel tempo, ad esempio $\Delta\phi(t)=\Omega t$, cosa succede alla figura di
+interferenza?
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+Nelle formule per $N$ sorgenti entra la differenza di fase totale tra sorgenti
+adiacenti:
+
+$$
+\delta_{\text{tot}}(t)=\delta+\Delta\phi(t)
+$$
+
+dove tipicamente $\delta=\dfrac{2\pi}{\lambda}d\sin\theta$ dipende dall'angolo.
+Se $\Delta\phi(t)=\Omega t$, allora l'intensità diventa **dipendente dal
+tempo**:
+
+$$
+I(\theta,t)\propto
+\left(\frac{\sin\!\big(N\delta_{\text{tot}}(t)/2\big)}{\sin\!\big(\delta_{\text{tot}}(t)/2\big)}\right)^2
+$$
+
+Conseguenze:
+
+- le condizioni di massimo/minimo si spostano nel tempo: le frange **scorrono**
+  sullo schermo;
+- se il rivelatore integra su tempi lunghi rispetto a $2\pi/\Omega$, le frange
+  tendono a **sfumare** (media temporale), perché la fase relativa non è stabile
+  → perdita di coerenza.
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Perché l'effetto Doppler per le onde sonore non è simmetrico tra "sorgente in
+moto" e "rivelatore in moto"? Cosa cambia per le onde elettromagnetiche?
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+Per il suono la velocità di propagazione $v_s$ è definita rispetto al **mezzo**:
+esiste un riferimento privilegiato (quello dell'aria, acqua, ecc.).
+
+Quindi:
+
+- se si muove il **rivelatore**, cambia solo la velocità con cui "incontra" i
+  fronti d'onda;
+- se si muove la **sorgente**, cambia anche la distanza tra fronti emessi (la
+  lunghezza d'onda nel mezzo).
+
+Per le onde elettromagnetiche nel vuoto, invece, la velocità $c$ è la stessa in
+tutti i sistemi inerziali: il Doppler corretto è quello **relativistico** e
+dipende solo dalla velocità relativa, senza bisogno di un mezzo.
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Qual è la differenza tra onda progressiva e onda stazionaria? In che senso una
+soluzione può essere "fattorizzabile"?
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+Per l'equazione delle onde 1D, la soluzione generale è:
+
+$$
+f(x,t)=f_+(x-vt)+f_-(x+vt)
+$$
+
+Una **onda progressiva** è, per esempio, solo $f_+(x-vt)$ (si propaga verso
+$+x$) o solo $f_-(x+vt)$ (verso $-x$): non si separa in un prodotto puro di una
+funzione di $x$ e una di $t$.
+
+Una **onda stazionaria** nasce dalla sovrapposizione di due onde di uguale
+ampiezza e frequenza che viaggiano in versi opposti:
+
+$$
+A\cos(kx-\omega t)+A\cos(kx+\omega t)=2A\cos(kx)\cos(\omega t)
+$$
+
+Qui la dipendenza spaziale e temporale è **fattorizzabile**:
+
+$$
+f(x,t)=X(x)\,T(t)
+$$
+
+e compaiono **nodi** (punti fissi in cui l'ampiezza è sempre zero) e **ventri**
+(massima ampiezza).
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Interferenza da $N$ fenditure: come si ottiene la formula dell'intensità con il
+metodo dei fasori? Quali sono massimi e minimi?
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+In Fraunhofer, i contributi delle $N$ fenditure hanno la stessa ampiezza e una
+differenza di fase costante $\delta$ tra fenditure adiacenti:
+
+$$
+\delta=\frac{2\pi}{\lambda}\,d\sin\theta
+$$
+
+La somma dei fasori è una serie geometrica:
+
+$$
+\tilde{E}=\tilde{E}_0\sum_{n=0}^{N-1}e^{in\delta}
+=\tilde{E}_0\,e^{i(N-1)\delta/2}\,\frac{\sin(N\delta/2)}{\sin(\delta/2)}
+$$
+
+Quindi l'intensità è:
+
+$$
+\boxed{
+I(\theta)=I_1\left(\frac{\sin(N\delta/2)}{\sin(\delta/2)}\right)^2
+}
+$$
+
+con $I_1$ intensità della singola fenditura (eventualmente include una
+modulazione di diffrazione).
+
+**Massimi principali**:
+
+$$
+\delta=2\pi m \quad\Leftrightarrow\quad d\sin\theta=m\lambda
+$$
+
+**Minimi** (tra i massimi principali):
+
+$$
+\sin(N\delta/2)=0,\ \sin(\delta/2)\neq 0
+\quad\Rightarrow\quad
+\delta=\frac{2\pi m}{N}\ \ (m\ \text{non multiplo di }N)
+$$
+
+Tra due massimi principali ci sono $N-1$ minimi e $N-2$ massimi secondari.
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Per $N=4$, come si interpretano minimo e massimo secondario con i fasori?
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+Per $N=4$ la somma dei contributi è la somma di quattro fasori uguali, ruotati
+di un angolo $\delta$ tra uno e il successivo.
+
+- **Minimo**: scegliendo $\delta=\pi/2$, i quattro fasori formano un quadrato
+  chiuso (poligono regolare) e la somma vettoriale è zero:
+
+  $$
+  \tilde{E}_0\,(1+i-1-i)=0
+  $$
+
+- **Massimo secondario**: per valori di $\delta$ tra due minimi, il poligono
+  quasi si richiude ma non esattamente; la risultante è diversa da zero ma molto
+  più piccola rispetto al massimo principale (tutti i fasori quasi allineati).
+
+Questa è una lettura geometrica diretta della formula
+$\sin(N\delta/2)/\sin(\delta/2)$.
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Quali approssimazioni si usano nel regime di Fraunhofer (campo lontano) e perché
+il campo sullo schermo decade come $1/r$?
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+Nel regime di **Fraunhofer**:
+
+- lo schermo è molto lontano dall'apertura: $L\gg a^2/\lambda$ (dove $a$ è una
+  dimensione caratteristica dell'apertura);
+- i raggi verso lo schermo sono quasi paralleli: $\sin\theta\approx\theta$ per
+  piccoli angoli;
+- l'ampiezza di ciascun contributo può essere trattata come quasi costante lungo
+  l'apertura, mentre la fase varia linearmente con la posizione.
+
+Il campo che si osserva sullo schermo è quello di un'onda che, a grandi
+distanze, è localmente quasi piana ma deriva da una sorgente estesa: per una
+radiazione che si espande nello spazio, l'energia si distribuisce su superfici
+di area crescente $\propto r^2$, quindi l'intensità scala come $1/r^2$ e
+l'ampiezza (il campo) come:
+
+$$
+|\tilde{E}(r)|\propto \frac{1}{r}
+$$
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Cosa succede alla figura di diffrazione se al posto di una fenditura si mette un
+disco opaco? Cosa si osserva al centro dello schermo?
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+Per la **principio di Babinet**, in Fraunhofer le figure di diffrazione di
+un'apertura e del suo ostacolo complementare (fenditura vs schermo opaco con la
+stessa forma) sono uguali, a parte il contributo del fascio non diffratto.
+
+Quindi un **disco opaco** produce una figura di diffrazione molto simile a
+quella di un'apertura circolare (anelli), e al centro dello schermo compare un
+**massimo luminoso**: il **punto di Poisson/Arago**.
+
+L'effetto nasce da interferenza costruttiva dei contributi diffratti dal bordo
+del disco lungo la direzione assiale.
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Interferenza da lamina sottile: qual è la differenza di fase e quali sono le
+condizioni di massimo/minimo?
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+Una lamina di indice $n$ e spessore $t$ (incidenza con angolo trasmesso
+$\theta_t$) genera due raggi principali: uno riflesso sulla prima superficie e
+uno che attraversa la lamina, riflette sulla seconda superficie e riesce.
+
+La differenza di cammino ottico interna è:
+
+$$
+\Delta \mathcal{L}=2nt\cos\theta_t
+$$
+
+La differenza di fase è:
+
+$$
+\Delta\phi=\frac{2\pi}{\lambda_0}(2nt\cos\theta_t)+\Delta\phi_{\text{rifl}}
+$$
+
+dove $\Delta\phi_{\text{rifl}}$ tiene conto dell'eventuale salto di fase $\pi$
+quando una riflessione avviene da indice minore a maggiore.
+
+In pratica:
+
+- se c'è **un solo** salto di fase $\pi$, allora:
+  - massimi in riflessione: $2nt\cos\theta_t=(m+1/2)\lambda_0$
+  - minimi in riflessione: $2nt\cos\theta_t=m\lambda_0$
+- se i salti di fase sono **zero o due**, si scambiano le condizioni.
+
+Questo spiega i colori delle bolle di sapone e dei film d'olio.
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Riflessione e trasmissione a un'interfaccia: cosa succede a frequenza e
+lunghezza d'onda passando da un mezzo all'altro?
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+All'interfaccia tra due mezzi, la fase deve coincidere su tutta la superficie a
+ogni istante: questo impone che la **frequenza** (e quindi la pulsazione) sia la
+stessa per onda incidente, riflessa e trasmessa:
+
+$$
+\boxed{\omega_i=\omega_r=\omega_t}
+$$
+
+Cambiano invece velocità di fase e lunghezza d'onda:
+
+$$
+v=\frac{c}{n},
+\qquad
+\lambda=\frac{v}{f}=\frac{\lambda_0}{n}
+$$
+
+Quindi entrando in un mezzo con indice maggiore ($n$ più grande), la lunghezza
+d'onda diminuisce. Le ampiezze sono determinate dai coefficienti di Fresnel e
+dalle condizioni al contorno di Maxwell.
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Quando un'onda elettromagnetica è polarizzata? Cosa cambia se la differenza di
+fase tra componenti non è costante?
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+Per un'onda che si propaga lungo $z$:
+
+$$
+E_x=E_{0x}\cos(\omega t-kz),\qquad
+E_y=E_{0y}\cos(\omega t-kz+\Delta\phi)
+$$
+
+Se $\Delta\phi$ è **costante** nel tempo, l'estremità di $\mathbf{E}$ descrive
+una figura fissa nel piano trasverso: linea (polarizzazione lineare), cerchio
+(se $E_{0x}=E_{0y}$ e $\Delta\phi=\pm\pi/2$) o ellisse (caso generale).
+
+Se $\Delta\phi$ **non è costante** (per esempio perché si sommano componenti a
+frequenze diverse o perché il mezzo introduce una fase che varia con la
+propagazione), lo stato di polarizzazione **evolve**: l'ellisse non è più fissa
+(ruota o cambia forma) e, in generale, non si può descrivere la polarizzazione
+con una singola ellisse stazionaria.
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Cos'è l'intensità di un'onda e perché si può interpretare come un flusso di
+energia?
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+L'**intensità** è la potenza media trasportata dall'onda per unità di area:
+
+$$
+\boxed{I=\frac{\langle P\rangle}{A}}
+$$
+
+È quindi un flusso di energia.
+
+Per onde elettromagnetiche, l'intensità coincide con il valore medio del modulo
+del vettore di Poynting:
+
+$$
+I=\langle S\rangle, \qquad \mathbf{S}=\frac{1}{\mu_0}\mathbf{E}\times\mathbf{B}
+$$
+
+Per onde sonore, l'intensità è legata al flusso di energia meccanica del mezzo
+(per esempio $I=\langle p\,u\rangle$, pressione acustica per velocità
+particellare).
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Definisci coerenza temporale e spaziale di due onde.
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+La **coerenza temporale** misura per quanto tempo la differenza di fase tra due
+onde resta stabile; è legata alla larghezza spettrale della sorgente.
+
+La **coerenza spaziale** misura quanto la fase è correlata tra punti diversi del
+fronte d'onda.
+
+Per ottenere frange di interferenza ben visibili serve coerenza sia temporale
+sia spaziale adeguata.
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Definisci cammino ottico e differenza di cammino ottico.
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+Il **cammino ottico** lungo un percorso è:
+
+$$
+\mathcal{L}=\int n\,ds
+$$
+
+Se l'indice è uniforme: $\mathcal{L}=ns$.
+
+La **differenza di cammino ottico** tra due raggi è:
+
+$$
+\Delta\mathcal{L}=\mathcal{L}_1-\mathcal{L}_2
+$$
+
+ed è collegata alla differenza di fase:
+
+$$
+\Delta\phi=\frac{2\pi}{\lambda_0}\Delta\mathcal{L}
+$$
+
+dove $\lambda_0$ è la lunghezza d'onda nel vuoto.
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Definisci il criterio di Rayleigh per la risoluzione.
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+Il **criterio di Rayleigh** afferma che due sorgenti puntiformi sono appena
+risolte quando il massimo principale della figura di diffrazione di una cade sul
+primo minimo dell'altra.
+
+Per apertura circolare:
+
+$$
+\theta_R\approx1.22\frac{\lambda}{D}
+$$
+
+dove $D$ è il diametro dell'apertura.
+
+Minore è $\theta_R$, maggiore è il potere risolutivo dello strumento.
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Definisci velocità del suono in un gas ideale e livello sonoro in decibel.
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+Per un gas ideale (trasformazioni adiabatiche):
+
+$$
+v_s=\sqrt{\gamma\frac{p_0}{\rho_0}}
+$$
+
+dove $\gamma$ è il rapporto tra calori specifici.
+
+Il livello sonoro è:
+
+$$
+L=10\log_{10}\!\left(\frac{I}{I_0}\right)\ \text{dB}
+$$
+
+con $I_0=10^{-12}\,\text{W/m}^2$.
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Cosa sono i coefficienti di Fresnel? Cos'è l'angolo di Brewster e qual è la sua
+applicazione pratica?
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+I **coefficienti di Fresnel** descrivono le ampiezze delle onde riflessa e
+trasmessa all'interfaccia tra due mezzi, dipendendo dalla polarizzazione.
+
+Per **incidenza normale**:
+
+$$r = \frac{n_1 - n_2}{n_1 + n_2}, \qquad t = \frac{2n_1}{n_1 + n_2}$$
+
+Per incidenza obliqua si distinguono due polarizzazioni:
+
+- **s (TE/σ)**: $\mathbf{E}$ perpendicolare al piano di incidenza
+- **p (TM/π)**: $\mathbf{E}$ parallelo al piano di incidenza
+
+**Angolo di Brewster** $\theta_B$: per la polarizzazione p, il coefficiente di
+riflessione $r_p = 0$:
+
+$$\tan\theta_B = \frac{n_2}{n_1}$$
+
+A $\theta_B$ la luce riflessa è **completamente polarizzata s**. Applicazioni:
+
+- Occhiali da sole polarizzati (eliminano il riflesso dal suolo/acqua)
+- Finestre di Brewster nei laser (evitano riflessioni interne)
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Cos'è la polarizzazione della luce? Descrivi luce polarizzata linearmente,
+circolarmente ed ellitticamente.
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+La **polarizzazione** descrive l'orientazione del vettore $\mathbf{E}$ di
+un'onda EM nel tempo.
+
+**Polarizzazione lineare**: $\mathbf{E}$ oscilla sempre lungo una direzione
+fissa. Es.: $\mathbf{E} = E_0\cos(kz-\omega t)\,\hat{x}$.
+
+**Polarizzazione circolare**: due componenti di uguale ampiezza, sfasate di
+$\pm 90°$:
+
+$$\mathbf{E} = E_0[\cos(kz-\omega t)\,\hat{x} \pm \sin(kz-\omega t)\,\hat{y}]$$
+
+$\mathbf{E}$ ruota con velocità angolare $\omega$ → luce polarizzata
+circolarmente destra ($+$) o sinistra ($-$).
+
+**Polarizzazione ellittica**: caso generale con ampiezze diverse o sfasamento
+arbitrario; l'estremità di $\mathbf{E}$ descrive un'ellisse.
+
+La luce naturale è **non polarizzata** (sovrapposizione incoerente di tutte le
+polarizzazioni). I polarizzatori lineari (Polaroid) trasmettono solo la
+componente lungo il loro asse → legge di Malus: $I = I_0\cos^2\theta$.
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Descrivi l'esperienza di Young (doppia fenditura) e ricava la condizione per i
+massimi e minimi di interferenza.
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+Due fenditure $S_1$, $S_2$ separate da $d$, illuminate da una sorgente coerente
+monocromatica ($\lambda$). Su uno schermo a distanza $L \gg d$, il punto $P$ a
+coordinata $y$ riceve onde con **differenza di cammino**:
+
+$$\Delta = d\sin\theta \approx \frac{d\,y}{L}$$
+
+**Massimi** (interferenza costruttiva):
+
+$$\Delta = m\lambda, \quad m = 0,\pm1,\pm2,\ldots \qquad \Rightarrow \quad y_m = \frac{m\lambda L}{d}$$
+
+**Minimi** (interferenza distruttiva):
+
+$$\Delta = \left(m+\tfrac{1}{2}\right)\lambda \qquad \Rightarrow \quad y_m = \frac{(2m+1)\lambda L}{2d}$$
+
+**Intensità**:
+
+$$I(\theta) = 4I_0\cos^2\!\left(\frac{\pi d\sin\theta}{\lambda}\right)$$
+
+La frangia centrale ($m=0$) è il massimo principale. L'interfrancia (distanza
+tra massimi consecutivi) è $\Delta y = \lambda L/d$.
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Come si forma il pattern di diffrazione da una singola fenditura? Ricava le
+posizioni dei minimi e confronta le intensità dei massimi secondari.
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+Una fenditura di larghezza $a$ illuminata da onda piana. Ogni punto della
+fenditura emette onde coerenti; si integra il contributo di tutta la larghezza.
+
+Definendo $\beta = \dfrac{\pi a \sin\theta}{\lambda}$, l'ampiezza è:
+
+$$\tilde{E} \propto \int_{-a/2}^{a/2} e^{ikx\sin\theta}\,dx = a\,\frac{\sin\beta}{\beta}$$
+
+**Intensità**:
+
+$$I(\theta) = I_0\left(\frac{\sin\beta}{\beta}\right)^2$$
+
+**Minimi** (zeros of $\sin\beta$, escludendo $\beta=0$):
+
+$$a\sin\theta = m\lambda, \quad m = \pm1,\pm2,\ldots$$
+
+**Massimo principale**: $\theta = 0$, con $I = I_0$.
+
+**Massimi secondari** approssimativamente a $\beta \approx (2m+1)\pi/2$:
+
+$$I_1 \approx \frac{I_0}{(3\pi/2)^2} \approx \frac{4I_0}{9\pi^2} \approx 4.5\%\,I_0$$
+
+La larghezza del massimo principale è $2\lambda/a$; fenditure più strette
+diffrangono di più.
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Cos'è un reticolo di diffrazione? Ricava le condizioni per i massimi principali
+e il potere risolutivo. Cos'è il criterio di Rayleigh?
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+Un **reticolo di diffrazione** è un insieme di $N$ fenditure equidistanziate di
+passo $d$.
+
+**Massimi principali** (interferenza costruttiva di tutte le $N$ fenditure):
+
+$$d\sin\theta_m = m\lambda, \quad m = 0,\pm1,\pm2,\ldots$$
+
+Il pattern è la figura di singola fenditura **modulata** dall'interferenza del
+reticolo. Tra ogni coppia di massimi principali ci sono $N-2$ massimi secondari
+e $N-1$ minimi.
+
+**Potere risolutivo**:
+
+$$\mathcal{R} = \frac{\lambda}{\Delta\lambda} = mN$$
+
+Maggiore il numero di fenditure o l'ordine di diffrazione, migliore la
+risoluzione spettrale.
+
+**Criterio di Rayleigh**: due sorgenti puntiformi (o due lunghezze d'onda) sono
+**appena risolte** quando il massimo dell'una cade sul **primo minimo**
+dell'altra.
+
+Per un reticolo: $\Delta\lambda_{\min} = \lambda/(mN)$.
+
+Per un'apertura circolare (telescopio): $\theta_{\min} = 1.22\,\lambda/D$.
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Enuncia e spiega l'effetto Doppler per le onde sonore nei casi di rivelatore in
+moto e di sorgente in moto. Cos'è il cono di Mach?
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+**Effetto Doppler**: la frequenza percepita cambia quando sorgente e rivelatore
+sono in moto relativo. Per le onde sonore (velocità $v_s$ nel mezzo):
+
+**Rivelatore in moto** (velocità $v_R$ verso la sorgente):
+
+$$f' = f\frac{v_s + v_R}{v_s}$$
+
+**Sorgente in moto** (velocità $v_S$ verso il rivelatore):
+
+$$f' = f\frac{v_s}{v_s - v_S}$$
+
+**Caso generale**:
+
+$$f' = f\frac{v_s \pm v_R}{v_s \mp v_S}$$
+
+(segni superiori: avvicinamento; inferiori: allontanamento).
+
+**Cono di Mach** — sorgente supersonica ($v_S > v_s$, numero di Mach
+$M = v_S/v_s > 1$):
+
+Le onde si sovrappongono in un cono con semi-angolo $\sin\alpha = v_s/v_S = 1/M$
+→ fronte d'urto ad alta pressione (**bang sonico**).
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Cosa sono la velocità di fase e la velocità di gruppo? In quale regime
+differiscono e qual è il loro significato fisico?
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+**Velocità di fase** — velocità con cui si propaga una singola componente
+armonica (fase costante):
+
+$$v_\phi = \frac{\omega}{k}$$
+
+**Velocità di gruppo** — velocità con cui si propaga un pacchetto d'onda
+(inviluppo, e quindi l'energia/informazione):
+
+$$v_g = \frac{d\omega}{dk}$$
+
+In un **mezzo non dispersivo** ($\omega \propto k$): $v_g = v_\phi$.
+
+In un **mezzo dispersivo** ($n = n(\omega)$, es. vetro, plasma):
+
+$$v_g = v_\phi\left(1 - \frac{k}{n}\frac{dn}{dk}\right) = \frac{c}{n + \omega\,dn/d\omega}$$
+
+- $dn/d\omega > 0$ (dispersione normale): $v_g < v_\phi$
+- $dn/d\omega < 0$ (dispersione anomala): $v_g > v_\phi$ (possibile $v_g > c$,
+  ma non viola la causalità; l'informazione viaggia a $v_g$ solo in regime di
+  dispersione normale)
+
+**Esempio**: luce nel vetro, onde su acqua profonda, onde elettromagnetiche in
+un plasma.
+
+</FlashcardAnswer>
+
+</Flashcard>

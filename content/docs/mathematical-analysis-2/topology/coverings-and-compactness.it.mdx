@@ -1,0 +1,181 @@
+---
+title: Coperture e Compattezza
+description:
+  Ricoprimenti aperti, sottocoperture, compattezza e teorema di Heine-Borel
+---
+
+La **compattezza** è una delle proprietà topologiche più potenti: garantisce che
+molti risultati "locali" (validi in un intorno) possano essere estesi a tutto
+l'insieme. In $\mathbb{R}^n$ ha una caratterizzazione particolarmente semplice
+grazie al teorema di Heine-Borel.
+
+## Copertura
+
+<Statement type="definition" title="Copertura">
+
+Sia $A \subseteq \mathbb{R}^n$. Una famiglia di insiemi $\{U_i\}_{i \in I}$ (con
+$I$ insieme di indici qualsiasi) è una **copertura** (o **ricoprimento**) di $A$
+se
+
+$$
+A \subseteq \bigcup_{i \in I} U_i
+$$
+
+Se ogni $U_i$ è un insieme aperto, si parla di **copertura aperta** (o
+ricoprimento aperto).
+
+</Statement>
+
+### Esempio
+
+Consideriamo $A = [0, 1] \subset \mathbb{R}$. La famiglia di intervalli aperti
+
+$$
+\mathcal{U} = \left\{ \left(-\frac{1}{n}, \frac{1}{n}\right) \cup \left(1 - \frac{1}{n}, 1 + \frac{1}{n}\right) : n \geq 2 \right\} \cup \left\{ \left(\frac{1}{4}, \frac{3}{4}\right) \right\}
+$$
+
+è una copertura aperta di $[0, 1]$: ogni punto dell'intervallo è contenuto in
+almeno uno degli aperti della famiglia.
+
+## Sottocopertura
+
+<Statement type="definition" title="Sottocopertura">
+
+Data una copertura $\{U_i\}_{i \in I}$ di $A$, una **sottocopertura** è una
+sottofamiglia $\{U_i\}_{i \in J}$ con $J \subseteq I$ che è ancora una copertura
+di $A$:
+
+$$
+A \subseteq \bigcup_{i \in J} U_i
+$$
+
+Se $J$ è un insieme finito, si parla di **sottocopertura finita**.
+
+</Statement>
+
+## Compattezza
+
+<Statement type="definition" title="Insieme compatto">
+
+Un insieme $A \subseteq \mathbb{R}^n$ è **compatto** se da ogni copertura aperta
+di $A$ è possibile estrarre una **sottocopertura finita**.
+
+Formalmente: per ogni famiglia di aperti $\{U_i\}_{i \in I}$ tale che
+$A \subseteq \bigcup_{i \in I} U_i$, esistono indici
+$i_1, i_2, \dots, i_k \in I$ (finiti) tali che
+
+$$
+A \subseteq U_{i_1} \cup U_{i_2} \cup \dots \cup U_{i_k}
+$$
+
+</Statement>
+
+Questa definizione può sembrare astratta, ma il suo significato è profondo: un
+insieme compatto è "finito dal punto di vista topologico", nel senso che
+qualsiasi modo di ricoprirlo con aperti contiene sempre un numero finito di
+aperti sufficiente.
+
+### Esempio: $[0, 1]$ è compatto
+
+Consideriamo la copertura aperta $\{U_i\}_{i \in I}$ di $[0, 1]$. Per quanto
+infinita possa essere questa famiglia, è sempre possibile selezionare un numero
+finito di $U_i$ che ricoprono tutto $[0, 1]$. Questo è il contenuto del classico
+teorema di Heine-Borel.
+
+### Esempio: $(0, 1)$ non è compatto
+
+La copertura aperta $\left\{\left(\frac{1}{n}, 1\right)\right\}_{n \geq 2}$
+ricopre $(0, 1)$ ma non ammette sottocoperture finite: per ogni scelta finita di
+indici $n_1, \dots, n_k$, i punti nell'intervallo
+$\left(0, \frac{1}{\max(n_1, \dots, n_k)}\right)$ non sono coperti.
+
+## Teorema di Heine-Borel
+
+In $\mathbb{R}^n$ la compattezza ha una caratterizzazione estremamente semplice
+e concreta.
+
+<Statement type="theorem" title="Teorema di Heine-Borel">
+
+Un sottoinsieme $A \subseteq \mathbb{R}^n$ è **compatto** se e solo se è
+**chiuso e limitato**.
+
+$$
+A \text{ compatto} \iff A \text{ chiuso e } A \text{ limitato}
+$$
+
+</Statement>
+
+<Callout type="warn" title="Solo in ℝⁿ!">
+
+Il teorema di Heine-Borel vale in $\mathbb{R}^n$ (più in generale, negli spazi
+di dimensione finita) ma **non** in spazi di dimensione infinita. Ad esempio,
+nello spazio delle funzioni continue $\mathcal{C}([0,1])$, la palla unitaria
+chiusa è chiusa e limitata ma **non** compatta.
+
+</Callout>
+
+### Esempi
+
+| Insieme                           | Chiuso | Limitato | Compatto |
+| --------------------------------- | ------ | -------- | -------- |
+| $[a, b]$ in $\mathbb{R}$          | Sì     | Sì       | Sì       |
+| $\bar{B}(0, r)$ in $\mathbb{R}^n$ | Sì     | Sì       | Sì       |
+| $(a, b)$ in $\mathbb{R}$          | No     | Sì       | No       |
+| $[0, +\infty)$ in $\mathbb{R}$    | Sì     | No       | No       |
+| $\mathbb{R}^n$                    | Sì     | No       | No       |
+
+## Compattezza per successioni
+
+In $\mathbb{R}^n$ la compattezza si può caratterizzare anche tramite
+successioni, in modo spesso più comodo nella pratica.
+
+<Statement type="definition" title="Compattezza sequenziale">
+
+Un insieme $A \subseteq \mathbb{R}^n$ è **sequenzialmente compatto** se ogni
+successione $\{x_n\} \subset A$ ammette una sottosuccessione convergente a un
+elemento di $A$.
+
+</Statement>
+
+<Statement type="theorem" title="Equivalenza in ℝⁿ">
+
+In $\mathbb{R}^n$, le seguenti condizioni sono equivalenti:
+
+1. $A$ è **compatto** (ogni copertura aperta ha una sottocopertura finita).
+2. $A$ è **sequenzialmente compatto** (ogni successione ha una sottosuccessione
+   convergente in $A$).
+3. $A$ è **chiuso e limitato** (Heine-Borel).
+
+</Statement>
+
+La condizione (2) è nota come **teorema di Bolzano-Weierstrass** per gli insiemi
+compatti: in un compatto, ogni successione ha almeno un punto di accumulazione,
+e questo punto appartiene all'insieme.
+
+## Proprietà degli insiemi compatti
+
+La compattezza ha numerose conseguenze utili nell'analisi.
+
+<Statement type="proposition" title="Proprietà degli insiemi compatti">
+
+Sia $K \subseteq \mathbb{R}^n$ un insieme compatto. Allora:
+
+1. **Weierstrass:** Ogni funzione continua $f : K \to \mathbb{R}$ ammette
+   massimo e minimo (cioè è limitata e raggiunge i suoi estremi).
+2. **Chiuso in compatto:** Ogni sottoinsieme chiuso di $K$ è compatto.
+3. **Immagine continua:** Se $f : K \to \mathbb{R}^m$ è continua, allora $f(K)$
+   è compatto.
+4. **Continuità uniforme:** Ogni funzione continua $f : K \to \mathbb{R}^m$ è
+   uniformemente continua (teorema di Heine-Cantor).
+
+</Statement>
+
+<Callout type="tip" title="Perché la compattezza è così importante">
+
+In molti teoremi dell'analisi (Weierstrass, Heine-Cantor, teoremi di esistenza
+per equazioni differenziali, ...), l'ipotesi di compattezza è ciò che permette
+di passare dal "locale" al "globale". Quando si lavora su un compatto, si ha la
+garanzia che le proprietà puntali (come la continuità) si traducano in proprietà
+globali (come la continuità uniforme o l'esistenza del massimo).
+
+</Callout>

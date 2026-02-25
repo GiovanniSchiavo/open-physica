@@ -1,0 +1,114 @@
+---
+title: Serie Geometriche
+description: Definizione, carattere e somma delle serie geometriche
+---
+
+La **serie geometrica** è una delle serie più importanti dell'analisi
+matematica, sia per la sua semplicità che per le sue frequenti applicazioni.
+
+<section id="def-serie-geometrica">
+
+<Statement type="definition" title="Serie Geometrica">
+
+Sia $r \in \mathbb{R}$ un numero reale. Si chiama **serie geometrica di ragione
+$r$** la serie:
+
+$$
+\sum_{k=0}^{\infty} r^k = 1 + r + r^2 + r^3 + \dots
+$$
+
+</Statement>
+
+</section>
+
+## Somma parziale (Ridotta)
+
+Per studiare il carattere della serie, analizziamo la successione delle somme
+parziali $S_n$:
+
+$$
+S_n = \sum_{k=0}^{n} r^k = 1 + r + r^2 + \dots + r^n
+$$
+
+### Caso $r = 1$
+
+In questo caso, ogni termine della somma è uguale a 1:
+
+$$
+S_n = \underbrace{1 + 1 + \dots + 1}_{n+1 \text{ volte}} = n + 1
+$$
+
+Quindi:
+
+$$
+\lim_{n \to \infty} S_n = \lim_{n \to \infty} (n+1) = +\infty
+$$
+
+La serie **diverge** positivamente.
+
+### Caso $r \neq 1$
+
+Per trovare una formula chiusa per $S_n$, osserviamo che:
+
+$$
+S_n = 1 + r + r^2 + \dots + r^n
+$$
+
+Moltiplicando per $r$:
+
+$$
+r S_n = r + r^2 + r^3 + \dots + r^{n+1}
+$$
+
+Sottraendo le due espressioni ($S_n - r S_n$):
+
+$$
+S_n(1 - r) = 1 - r^{n+1} \implies S_n = \frac{1 - r^{n+1}}{1 - r}
+$$
+
+## Carattere della serie geometrica
+
+Il comportamento della serie per $n \to \infty$ dipende esclusivamente dal
+valore della ragione $r$:
+
+<section id="carattere-serie-geometrica">
+
+<Statement type="theorem" title="Carattere della serie geometrica">
+
+Il limite della successione delle ridotte $S_n = \frac{1 - r^{n+1}}{1 - r}$
+determina il carattere della serie:
+
+- **Convergente** se $|r| < 1$ (ovvero $-1 < r < 1$):
+  $$
+  \sum_{k=0}^{\infty} r^k = \frac{1}{1-r}
+  $$
+- **Divergente** a $+\infty$ se $r \geq 1$.
+- **Irregolare** (indeterminata) se $r \leq -1$.
+
+</Statement>
+
+</section>
+
+## Esempio: Perché $0,999\dots = 1$?
+
+Possiamo usare la serie geometrica per dimostrare in modo rigoroso un risultato
+spesso controintuitivo: che $0,\overline{9}$ è esattamente uguale a 1.
+
+Scriviamo il numero periodico come una somma:
+
+$$
+0,\overline{9} = \frac{9}{10} + \frac{9}{100} + \frac{9}{1000} + \dots = 9 \sum_{k=1}^{\infty} \left(\frac{1}{10}\right)^k
+$$
+
+Questa è una serie geometrica di ragione $r = \frac{1}{10}$ (che è $< 1$, quindi
+converge). Notiamo che la somma parte da $k=1$, quindi:
+
+$$
+\sum_{k=1}^{\infty} \left(\frac{1}{10}\right)^k = \left( \sum_{k=0}^{\infty} \left(\frac{1}{10}\right)^k \right) - 1 = \frac{1}{1 - \frac{1}{10}} - 1 = \frac{1}{9/10} - 1 = \frac{10}{9} - 1 = \frac{1}{9}
+$$
+
+Moltiplicando per 9:
+
+$$
+0,\overline{9} = 9 \cdot \frac{1}{9} = 1
+$$

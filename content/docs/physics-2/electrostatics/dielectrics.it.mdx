@@ -1,0 +1,265 @@
+---
+title: Elettrostatica nei mezzi materiali
+description:
+  Dielettrici, polarizzazione, vettore di spostamento D, suscettività, superfici
+  di separazione, energia elettrostatica nei mezzi
+---
+
+Abbiamo fino ad ora discusso l'elettrostatica nel vuoto. Ora supponiamo di
+immergere tutto il nostro sistema elettrostatico in un mezzo materiale
+**isolante** (detto **dielettrico**).
+
+Consideriamo un condensatore piano: se poniamo un mezzo non conduttore, omogeneo
+e isotropo, tra le piastre, la differenza di potenziale cambia mentre la carica
+$$Q$$ rimane invariata:
+
+$$
+\Delta V \neq \Delta V_0
+$$
+
+Definiamo $$\varepsilon_r$$ (costante dielettrica relativa) tale che:
+
+$$
+C = \varepsilon_r C_0
+$$
+
+La grandezza $$\varepsilon_r$$ è un numero puro, maggiore di uno. Da questo
+segue:
+
+$$
+E = \frac{E_0}{\varepsilon_r}
+$$
+
+## Dipolo di deformazione
+
+Consideriamo atomi simmetrici come l'elio. Modelliamo l'atomo come un nucleo
+positivo circondato da una nube elettronica sferica.
+
+Sotto l'azione di un campo elettrico, il nucleo si decentra di una quantità
+$$\delta$$, creando un **momento di dipolo**:
+
+$$
+\vec{p} = ze\vec{\delta}
+$$
+
+Dalla condizione di equilibrio tra forza elettrica e forza di richiamo:
+
+$$
+\vec{p}_d = \alpha_d \vec{E}_{mic}
+$$
+
+<Statement type="definition" title="Polarizzabilità">
+
+La costante $$\alpha_d$$ è detta **costante di polarizzabilità** della molecola.
+
+</Statement>
+
+## Momento di dipolo medio parallelo
+
+Per un materiale formato da molecole polari con momento di dipolo $$p$$, in
+assenza di campo esterno i dipoli hanno direzioni casuali (dipolo complessivo
+nullo).
+
+In presenza di campo esterno tendono ad allinearsi, ma l'agitazione termica li
+rimescola continuamente. A livello macroscopico si misura un momento medio
+parallelo al campo.
+
+Usando la distribuzione di Boltzmann:
+
+$$
+\langle p_{//} \rangle = p \cdot L(a)
+$$
+
+dove $$L(a) = \coth a - \frac{1}{a}$$ è la **funzione di Langevin** e
+$$a = \frac{pE_{mic}}{KT}$$.
+
+Per $$a \ll 1$$ (campi ordinari):
+
+$$
+\langle p_{//} \rangle = \frac{p^2}{3KT} E_{mic} = \alpha_0 E_{mic}
+$$
+
+dove $$\alpha_0 = \frac{p^2}{3KT}$$ è il **coefficiente di orientamento**.
+
+## Polarizzazione ed intensità di polarizzazione
+
+<Statement type="definition" title="Intensità di polarizzazione">
+
+L'**intensità di polarizzazione** $$\vec{P}$$ è definita come:
+
+$$
+\vec{P} = \lim_{\tau \to 0} \frac{\sum_{i=0}^{n} \vec{p}_i}{d\tau} = \frac{dN}{d\tau} \langle \vec{p} \rangle
+$$
+
+</Statement>
+
+Da cui $$d\vec{p} = \vec{P} \, d\tau$$.
+
+Dal potenziale di una distribuzione di dipoli si ricava:
+
+$$
+\sigma_p = \vec{P} \cdot \hat{n} \qquad \rho_p = -\nabla \cdot \vec{P}
+$$
+
+<Callout type="info">
+
+In un dielettrico **omogeneo** ($$\vec{P}$$ costante) la densità interna
+$$\rho_p$$ è nulla.
+
+</Callout>
+
+## Problema generale dell'elettrostatica nei dielettrici
+
+La prima equazione di Maxwell deve tenere conto di tutte le cariche, comprese
+quelle di polarizzazione:
+
+$$
+\nabla \cdot \vec{E} = \frac{\rho + \rho_p}{\varepsilon_0}
+$$
+
+<Statement type="definition" title="Vettore di spostamento">
+
+Si definisce **vettore di spostamento** $$\vec{D}$$:
+
+$$
+\vec{D} = \varepsilon_0 \vec{E} + \vec{P}
+$$
+
+</Statement>
+
+Da cui la prima equazione di Maxwell nei dielettrici:
+
+$$
+\nabla \cdot \vec{D} = \rho
+$$
+
+dove $$\rho$$ rappresenta solo le **cariche localizzate** (non quelle di
+polarizzazione).
+
+<Callout type="tip">
+
+Il vettore $$\vec{D}$$ non dipende dalle cariche di polarizzazione, quindi non
+ha dipendenza dal mezzo.
+
+</Callout>
+
+### Materiali omogenei isotropi
+
+Per questi materiali:
+
+$$
+\vec{P} = \varepsilon_0 \chi \vec{E}
+$$
+
+<Statement type="definition" title="Suscettività dielettrica">
+
+Si definisce **suscettività dielettrica** del mezzo:
+
+$$
+\chi = \varepsilon_r - 1
+$$
+
+</Statement>
+
+Da cui:
+
+$$
+\vec{D} = \varepsilon_0 (1 + \chi) \vec{E} = \varepsilon_0 \varepsilon_r \vec{E}
+$$
+
+Questa relazione, unita a $$\nabla \cdot \vec{D} = \rho$$, risolve il problema
+dell'elettrostatica nei materiali isotropi.
+
+### Esempi notevoli
+
+**Carica Q immersa in un dielettrico:**
+
+$$
+D = \frac{1}{4\pi} \frac{Q}{r^2} \implies E = \frac{1}{4\pi\varepsilon_0\varepsilon_r} \frac{Q}{r^2}
+$$
+
+**Carica in una bolla di vuoto circondata da dielettrico:**
+
+La carica di polarizzazione sulla superficie della bolla:
+
+$$
+Q^* = \frac{Q}{\varepsilon_r}
+$$
+
+## Superficie di separazione tra mezzi isolanti
+
+<Statement type="theorem" title="Condizioni al contorno">
+
+Al passaggio attraverso una superficie di separazione tra due dielettrici (senza
+cariche localizzate sulla superficie):
+
+$$
+E_{1t} = E_{2t} \qquad \text{(componente tangenziale)}
+$$
+
+$$
+D_{1n} = D_{2n} \qquad \text{(componente normale)}
+$$
+
+</Statement>
+
+Da queste condizioni deriva la **rifrazione delle linee di forza**:
+
+$$
+\frac{\tan \vartheta_2}{\tan \vartheta_1} = \frac{\varepsilon_{r2}}{\varepsilon_{r1}}
+$$
+
+## Energia elettrostatica nei mezzi
+
+La densità di energia volumica nei dielettrici:
+
+<Statement type="definition" title="Densità di energia nei dielettrici">
+
+$$
+u = \frac{1}{2} \vec{D} \cdot \vec{E}
+$$
+
+</Statement>
+
+Per materiali isotropi: $$u = \frac{1}{2} \varepsilon_0 \varepsilon_r E^2$$.
+
+## Materiali non isotropi
+
+Se cade la condizione di isotropia, $$\vec{P}$$ non è più parallelo a
+$$\vec{E}$$.
+
+<Statement type="definition" title="Tensore di suscettività">
+
+Il **tensore di suscettività** è una matrice 3×3:
+
+$$
+\chi = \begin{pmatrix} \chi_{xx} & \chi_{xy} & \chi_{xz} \\ \chi_{yx} & \chi_{yy} & \chi_{yz} \\ \chi_{zx} & \chi_{zy} & \chi_{zz} \end{pmatrix}
+$$
+
+$$
+\vec{P} = \varepsilon_0 \chi \vec{E}
+$$
+
+</Statement>
+
+### Materiali piezoelettrici
+
+Materiali che si polarizzano se sottoposti a **stress meccanico**, creando una
+differenza di potenziale. Funzionano anche al contrario: sottoposti a campo
+elettrico si deformano meccanicamente.
+
+## Modello di Clausius-Mosotti
+
+Per un liquido amorfo apolare ad alta densità, il campo microscopico
+$$\vec{E}_{mic}$$ è diverso dal campo macroscopico $$\vec{E}$$:
+
+$$
+E_{mic} = E + \frac{P}{3\varepsilon_0}
+$$
+
+Da cui la relazione tra la grandezza microscopica $$\alpha$$ e quella
+macroscopica $$\chi$$:
+
+$$
+\chi = \frac{1}{\varepsilon_0} \frac{n\alpha}{1 - \frac{n\alpha}{3\varepsilon_0}}
+$$

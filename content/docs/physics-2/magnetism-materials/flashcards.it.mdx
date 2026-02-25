@@ -1,0 +1,160 @@
+---
+flashcards: true
+---
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Quali sono le differenze principali tra materiali ferromagnetici, paramagnetici
+e diamagnetici?
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+- **Ferromagnetici** (es. Fe, Ni, Co): presentano magnetizzazione spontanea
+  anche in assenza di campo esterno, dovuta all'allineamento parallelo dei
+  momenti magnetici in domini di Weiss. $\chi_m \gg 1$.
+- **Paramagnetici** (es. Al, Pt): i momenti magnetici si allineano parzialmente
+  con il campo esterno, ma tornano disordinati senza di esso.
+  $0 < \chi_m \ll 1$.
+- **Diamagnetici** (es. Cu, Bi): non hanno momenti magnetici permanenti. Il
+  campo esterno induce momenti opposti ad esso (legge di Lenz). $\chi_m < 0$,
+  effetto debole.
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Perché una moneta di ferro (anche inizialmente smagnetizzata) viene attratta da
+un magnete?
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+Il ferro è **ferromagnetico**: ha domini magnetici che possono orientarsi.
+
+In presenza del campo del magnete, i domini tendono ad allinearsi e la moneta
+acquista una magnetizzazione $\mathbf{M}$ (momento magnetico per unità di
+volume). In prima approssimazione, il pezzo di ferro si comporta come un dipolo
+magnetico indotto con momento $\mathbf{m}$ orientato lungo $\mathbf{B}$.
+
+In un campo **non uniforme** un dipolo sente una forza:
+
+$$
+\mathbf{F}=\nabla(\mathbf{m}\cdot\mathbf{B})
+$$
+
+Quindi viene attratto verso le regioni dove $B$ è più grande (vicino ai poli del
+magnete).
+
+Confronto:
+
+- **paramagnetici** ($\chi_m>0$): attratti debolmente;
+- **diamagnetici** ($\chi_m<0$): respinti debolmente;
+- **ferromagnetici**: attrazione forte per l'allineamento dei domini.
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Cos'è la magnetizzazione $\mathbf{M}$ e come è legata al campo $\mathbf{H}$ e a
+$\mathbf{B}$ in un mezzo lineare?
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+La **magnetizzazione** $\mathbf{M}$ è il momento di dipolo magnetico per unità
+di volume del materiale.
+
+In un mezzo lineare e isotropo:
+
+$$\mathbf{M} = \chi_m \mathbf{H}$$
+
+Il campo ausiliario $\mathbf{H}$ è definito da:
+
+$$\mathbf{H} = \frac{\mathbf{B}}{\mu_0} - \mathbf{M}$$
+
+Sostituendo si ottiene:
+
+$$\mathbf{B} = \mu_0 (1 + \chi_m)\, \mathbf{H} = \mu_0 \mu_r \mathbf{H} = \mu \mathbf{H}$$
+
+dove $\mu_r = 1 + \chi_m$ è la **permeabilità magnetica relativa** e
+$\mu = \mu_0 \mu_r$ la permeabilità assoluta.
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Cosa si intende per temperatura di Curie nei ferromagnetici? Cosa succede al di
+sopra di essa?
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+La **temperatura di Curie** $T_C$ è la temperatura critica al di sopra della
+quale un materiale ferromagnetico perde la sua magnetizzazione spontanea e
+diventa **paramagnetico**.
+
+- Al di sotto di $T_C$: i momenti magnetici nei domini di Weiss sono allineati
+  spontaneamente anche in assenza di campo esterno.
+- Al di sopra di $T_C$: l'energia termica supera l'energia di scambio, e i
+  momenti si disordinano. La suscettività segue la **legge di Curie-Weiss**:
+
+$$\chi_m = \frac{C}{T - T_C}, \quad T > T_C$$
+
+Esempi: per il ferro $T_C \approx 1043\,\text{K}$, per il nichel
+$T_C \approx 627\,\text{K}$.
+
+</FlashcardAnswer>
+
+</Flashcard>
+
+<Flashcard>
+
+<FlashcardQuestion>
+
+Cos'è l'isteresi magnetica e quali grandezze caratterizzano il ciclo di isteresi
+di un ferromagnete?
+
+</FlashcardQuestion>
+
+<FlashcardAnswer>
+
+L'**isteresi magnetica** è il fenomeno per cui lo stato di magnetizzazione di un
+ferromagnete dipende non solo dal campo applicato attualmente, ma anche dalla
+sua storia magnetica.
+
+Il ciclo di isteresi ($B$ vs $H$) è caratterizzato da:
+
+- **Magnetizzazione di saturazione** $B_s$: valore massimo di $\mathbf{B}$
+  raggiungibile.
+- **Magnetizzazione residua (rimanenza)** $B_r$: valore di $\mathbf{B}$ con
+  $H = 0$ dopo la saturazione.
+- **Campo coercitivo** $H_c$: campo esterno necessario per riportare $B = 0$.
+
+**Magneti duri** (es. acciai): $H_c$ elevato, ciclo largo → buoni per magneti
+permanenti.
+
+**Magneti dolci** (es. ferro dolce): $H_c$ piccolo, ciclo stretto → buoni per
+nuclei di trasformatori (basse perdite per isteresi).
+
+</FlashcardAnswer>
+
+</Flashcard>

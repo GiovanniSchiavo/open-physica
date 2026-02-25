@@ -1,0 +1,223 @@
+---
+title: Insiemi Connessi
+description:
+  Connessione, connessione per archi, insiemi semplicemente connessi, stellati e
+  convessi.
+---
+
+Quando si lavora in $\mathbb{R}^n$, non basta sapere se un insieme è aperto o
+chiuso: è fondamentale capire se è "tutto d'un pezzo" oppure se si spezza in
+parti separate. Questa idea è catturata dal concetto di **connessione**, che si
+declina in diverse varianti a seconda della forza della proprietà richiesta.
+
+## Insieme connesso
+
+<Statement type="definition" title="Insieme connesso">
+
+Un sottoinsieme $A \subseteq \mathbb{R}^n$ è **connesso** se non può essere
+scritto come unione di due insiemi aperti (in $A$) non vuoti e disgiunti.
+
+Formalmente, $A$ è connesso se **non** esistono due aperti $U, V$ di
+$\mathbb{R}^n$ tali che:
+
+$$
+A \subseteq U \cup V, \quad A \cap U \neq \emptyset, \quad A \cap V \neq \emptyset, \quad A \cap U \cap V = \emptyset
+$$
+
+Se tali $U$ e $V$ esistono, si dice che $(U \cap A, \, V \cap A)$ è una
+**separazione** di $A$, e $A$ si dice **sconnesso**.
+
+</Statement>
+
+In modo equivalente: $A$ è connesso se le uniche parti di $A$ che sono
+contemporaneamente aperte e chiuse (in $A$) sono $A$ stesso e $\emptyset$.
+
+### Esempi
+
+- **Connesso:** un intervallo $[a, b]$ in $\mathbb{R}$, una palla aperta
+  $B(x_0, r)$ in $\mathbb{R}^n$, il piano $\mathbb{R}^2$.
+- **Sconnesso:** $A = (0, 1) \cup (2, 3)$ in $\mathbb{R}$ — si può separare con
+  $U = (-\infty, 1.5)$ e $V = (1.5, +\infty)$.
+
+<Statement type="proposition" title="Insiemi connessi di ℝ">
+
+I sottoinsiemi connessi di $\mathbb{R}$ sono esattamente gli **intervalli**
+(aperti, chiusi, semiaperti, limitati o illimitati).
+
+</Statement>
+
+## Insieme connesso per archi
+
+La connessione per archi è una proprietà più forte e più intuitiva: un insieme è
+connesso per archi se possiamo "camminare" da qualsiasi punto a qualsiasi altro
+restando all'interno dell'insieme.
+
+<Statement type="definition" title="Insieme connesso per archi">
+
+Un sottoinsieme $A \subseteq \mathbb{R}^n$ è **connesso per archi** se per ogni
+coppia di punti $x, y \in A$ esiste un **cammino continuo** che li collega
+restando in $A$, cioè esiste un'applicazione continua $\gamma : [0, 1] \to A$
+tale che
+
+$$
+\gamma(0) = x \quad \text{e} \quad \gamma(1) = y
+$$
+
+</Statement>
+
+<Statement type="proposition" title="Connesso per archi implica connesso">
+
+Se $A$ è connesso per archi, allora $A$ è connesso.
+
+</Statement>
+
+### Dimostrazione
+
+Per assurdo, supponiamo $A$ connesso per archi e sconnesso. Allora esistono
+aperti $U, V$ che separano $A$. Presi $x \in A \cap U$ e $y \in A \cap V$, per
+ipotesi esiste un cammino $\gamma : [0, 1] \to A$ con $\gamma(0) = x$ e
+$\gamma(1) = y$. L'immagine $\gamma([0,1])$ è connessa (immagine continua di un
+connesso), ma è contenuta nell'unione disgiunta $(U \cap A) \cup (V \cap A)$
+intersecando entrambi — contraddizione.
+
+<Callout type="warn" title="Il viceversa non vale in generale">
+
+Esistono insiemi connessi che non sono connessi per archi. Un esempio classico è
+la **curva del topografo** (o "seno del topologo"):
+
+$$
+A = \left\{\left(x, \sin\frac{1}{x}\right) : x > 0\right\} \cup \{(0, y) : y \in [-1, 1]\}
+$$
+
+Questo insieme è connesso, ma non è possibile tracciare un cammino continuo dal
+segmento verticale a un punto della curva oscillante.
+
+</Callout>
+
+<Callout type="tip" title="Per Analisi 2">
+
+In $\mathbb{R}^n$, per gli **aperti** le due nozioni coincidono:
+
+$$
+A \text{ aperto e connesso} \iff A \text{ aperto e connesso per archi}
+$$
+
+Dato che in analisi si lavora spesso con aperti, la distinzione tra le due
+nozioni è raramente un problema nella pratica.
+
+</Callout>
+
+## Insieme semplicemente connesso
+
+La connessione per archi garantisce di poter collegare due punti qualsiasi con
+un cammino. La connessione semplice aggiunge una condizione più forte: ogni
+cammino chiuso si può "contrarre" a un punto senza uscire dall'insieme.
+Intuitivamente, l'insieme non ha "buchi".
+
+<Statement type="definition" title="Insieme semplicemente connesso">
+
+Un sottoinsieme aperto $A \subseteq \mathbb{R}^n$ è **semplicemente connesso**
+se:
+
+1. $A$ è connesso per archi.
+2. Ogni cammino chiuso in $A$ è **contraibile** a un punto, cioè per ogni curva
+   chiusa continua $\gamma : [0, 1] \to A$ con $\gamma(0) = \gamma(1)$, esiste
+   una deformazione continua che la riduce a un punto restando in $A$.
+
+Formalmente, esiste un'applicazione continua $H : [0,1] \times [0,1] \to A$
+(un'**omotopia**) tale che:
+
+$$
+H(t, 0) = \gamma(t), \quad H(t, 1) = x_0, \quad H(0, s) = H(1, s) \quad \forall \, t, s \in [0,1]
+$$
+
+</Statement>
+
+### Esempi
+
+- **Semplicemente connesso:** $\mathbb{R}^2$, la palla aperta $B(0, r)$,
+  qualsiasi insieme convesso.
+- **Non semplicemente connesso:** $\mathbb{R}^2 \setminus \{0\}$ — il piano
+  forato all'origine. Una circonferenza attorno all'origine non può essere
+  contratta a un punto senza "passare" per il buco.
+
+<Callout type="info" title="Importanza in Analisi 2">
+
+La connessione semplice è cruciale per i teoremi di analisi vettoriale. Ad
+esempio, un campo vettoriale irrotazionale ($\nabla \times \mathbf{F} = 0$) è
+conservativo **se e solo se** il dominio è semplicemente connesso. Se il dominio
+ha dei buchi, questa implicazione può fallire.
+
+</Callout>
+
+## Insieme stellato
+
+<Statement type="definition" title="Insieme stellato">
+
+Un sottoinsieme $A \subseteq \mathbb{R}^n$ è **stellato** (rispetto a un punto
+$x_0 \in A$) se per ogni $x \in A$ il segmento che congiunge $x_0$ a $x$ è
+interamente contenuto in $A$:
+
+$$
+\forall \, x \in A, \quad \forall \, t \in [0, 1] : \quad (1-t) x_0 + t x \in A
+$$
+
+Il punto $x_0$ si chiama **centro stella** di $A$.
+
+</Statement>
+
+<Statement type="proposition" title="Stellato implica semplicemente connesso">
+
+Se $A$ è stellato, allora $A$ è semplicemente connesso.
+
+</Statement>
+
+### Dimostrazione
+
+Sia $x_0$ il centro stella. Per ogni coppia di punti $x, y \in A$, il cammino
+che va da $x$ a $x_0$ e poi da $x_0$ a $y$ (lungo segmenti) è un cammino
+continuo in $A$. Quindi $A$ è connesso per archi. Inoltre, ogni cammino chiuso
+$\gamma$ si può contrarre a $x_0$ tramite l'omotopia
+$H(t, s) = (1-s) \gamma(t) + s \, x_0$, che resta in $A$ per la proprietà di
+stellarità.
+
+### Esempi
+
+- Ogni **insieme convesso** è stellato (rispetto a qualsiasi suo punto).
+- Un insieme a forma di "stella" (come suggerisce il nome) è stellato rispetto
+  al centro, ma non è convesso.
+- $\mathbb{R}^2 \setminus \{0\}$ non è stellato.
+
+## Insieme convesso
+
+<Statement type="definition" title="Insieme convesso">
+
+Un sottoinsieme $A \subseteq \mathbb{R}^n$ è **convesso** se per ogni coppia di
+punti $x, y \in A$, il segmento che li congiunge è interamente contenuto in $A$:
+
+$$
+\forall \, x, y \in A, \quad \forall \, t \in [0, 1] : \quad (1-t)x + ty \in A
+$$
+
+</Statement>
+
+Un insieme convesso è stellato rispetto a **qualsiasi** suo punto. È il caso più
+forte di "insieme senza buchi".
+
+## Gerarchia delle proprietà di connessione
+
+Le implicazioni tra le varie proprietà formano una catena:
+
+$$
+\text{Convesso} \implies \text{Stellato} \implies \text{Semplicemente connesso} \implies \text{Connesso per archi} \implies \text{Connesso}
+$$
+
+Nessuna di queste implicazioni è reversibile in generale.
+
+| Proprietà              | Significato intuitivo                     | Esempio tipico                    |
+| ---------------------- | ----------------------------------------- | --------------------------------- |
+| Convesso               | Qualsiasi segmento resta dentro           | Palla, intervallo, semipiano      |
+| Stellato               | C'è un punto da cui "si vede tutto"       | Forma a stella                    |
+| Semplicemente connesso | Connesso per archi e senza buchi          | $\mathbb{R}^2$, palla aperta      |
+| Connesso per archi     | Si può camminare tra due punti qualsiasi  | Aperto connesso di $\mathbb{R}^n$ |
+| Connesso               | Non si può spezzare in due parti separate | Intervallo, seno del topologo     |

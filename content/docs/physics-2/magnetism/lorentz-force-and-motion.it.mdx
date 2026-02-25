@@ -1,0 +1,89 @@
+---
+title: Forza di Lorentz e moti di particelle
+description:
+  Dinamica di cariche in campi magnetici, traiettorie, frequenza di ciclotrone,
+  selettore di velocità, spettrometro di massa ed effetto Hall
+---
+
+## Legge di Lorentz
+
+<Statement type="law" title="Forza su carica in moto">
+
+$$
+\mathbf{F}=q\mathbf{v}\times\mathbf{B}
+$$
+
+</Statement>
+
+Poiché $\mathbf{F}\perp\mathbf{v}$, il campo magnetico non compie lavoro:
+modifica direzione ma non il modulo della velocità.
+
+## Moto in campo uniforme
+
+### Caso $\mathbf{v}\perp\mathbf{B}$
+
+Moto circolare uniforme con:
+
+$$
+r=\frac{mv}{|q|B},\qquad
+\omega_c=\frac{|q|B}{m},\qquad
+T=\frac{2\pi m}{|q|B}
+$$
+
+### Caso generale
+
+Scomponi $\mathbf{v}=\mathbf{v}_\perp+\mathbf{v}_\parallel$:
+
+- componente perpendicolare: moto circolare;
+- componente parallela: moto rettilineo uniforme.
+
+Traiettoria complessiva: elica.
+
+## Applicazioni classiche
+
+### Selettore di velocità
+
+Con campi incrociati $\mathbf{E}$ e $\mathbf{B}$:
+
+$$
+qE=qvB\Rightarrow v=\frac{E}{B}
+$$
+
+Solo le particelle con quella velocità attraversano senza deviazione.
+
+### Spettrometro di massa
+
+Dopo accelerazione a differenza di potenziale $\Delta V$:
+
+$$
+\frac{1}{2}mv^2=q\Delta V
+$$
+
+Nel tratto magnetico:
+
+$$
+r=\frac{1}{B}\sqrt{\frac{2m\Delta V}{q}}
+$$
+
+Da $r$ si ricava $m/q$.
+
+### Ciclotrone
+
+Usa campo $B$ uniforme e campo elettrico alternato sincronizzato con $\omega_c$,
+per accelerare progressivamente le particelle.
+
+## Effetto Hall
+
+In una barretta conduttrice con corrente $I$ in campo trasverso $B$, si misura
+una tensione laterale:
+
+$$
+V_H=\frac{IB}{nqb}
+$$
+
+Permette stima di densità e segno dei portatori.
+
+<Callout type="tip" title="Controllo dimensionale utile">
+  Le formule di raggio/periodo devono restituire rispettivamente metri e
+  secondi: verifica sempre unità di $B$ (tesla).
+</Callout>

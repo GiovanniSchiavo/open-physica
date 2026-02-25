@@ -201,6 +201,7 @@ export function FlashcardsPlayClient({
             <Button
               type="button"
               variant="outline"
+              nativeButton={false}
               className="h-8 w-fit rounded-xl px-2.5 sm:h-9 sm:px-3"
               render={
                 <a

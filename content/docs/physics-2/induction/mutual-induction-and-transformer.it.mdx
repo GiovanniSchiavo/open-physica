@@ -1,0 +1,93 @@
+---
+title: Mutua induzione e trasformatore
+description:
+  Coefficiente di mutua induzione, circuiti accoppiati, energia condivisa e
+  modello ideale del trasformatore
+---
+
+## Mutua induzione tra due circuiti
+
+Per due correnti $i_1,i_2$:
+
+$$
+\Phi_1=L_1i_1+Mi_2,\qquad
+\Phi_2=L_2i_2+Mi_1
+$$
+
+con simmetria reciproca $M_{12}=M_{21}=M$.
+
+La mutua induzione e la base fisica del trasformatore: una corrente variabile in
+un circuito produce un flusso variabile concatenato con l'altro e quindi una fem
+indotta.
+
+## Fem indotte (forma operativa)
+
+Se i flussi dipendono dal tempo, le fem sono:
+
+$$
+\mathcal{E}_1=-\frac{d\Phi_1}{dt},\qquad \mathcal{E}_2=-\frac{d\Phi_2}{dt}
+$$
+
+quindi in particolare compaiono termini $-M\,di_2/dt$ e $-M\,di_1/dt$
+(accoppiamento dinamico).
+
+<Callout type="warn" title="Segno e convenzione dei punti (dot convention)">
+
+Nei circuiti accoppiati il segno di $M$ e dei termini indotti dipende da come
+orienti le spire e defini i versi di corrente/tensione. In esercizi reali, usa
+sempre una convenzione esplicita (punti sui morsetti) per non "indovinare" il
+segno.
+
+</Callout>
+
+## Energia magnetica del sistema accoppiato
+
+$$
+U=\frac{1}{2}L_1i_1^2+\frac{1}{2}L_2i_2^2+Mi_1i_2
+$$
+
+Il termine incrociato governa scambio energetico tra i due circuiti.
+
+Spesso si introduce un coefficiente di accoppiamento $k$ (con $0\le k\le 1$):
+
+$$
+M=k\sqrt{L_1L_2}
+$$
+
+che misura "quanto flusso" del primario concatena il secondario.
+
+## Trasformatore ideale
+
+Per due avvolgimenti con $N_1,N_2$ spire:
+
+$$
+\frac{V_2}{V_1}=\frac{N_2}{N_1},\qquad
+\frac{I_2}{I_1}=\frac{N_1}{N_2}
+$$
+
+In assenza di perdite la potenza è conservata:
+
+$$
+V_1I_1\approx V_2I_2
+$$
+
+<Callout type="info" title="Ipotesi del modello ideale">
+
+Assumere trasformatore ideale significa, tipicamente: resistenze degli
+avvolgimenti trascurabili, flusso quasi interamente confinato nel nucleo,
+perdite per isteresi e correnti parassite trascurabili.
+
+</Callout>
+
+## Aspetti pratici dal programma
+
+- nuclei ferromagnetici laminati per ridurre correnti parassite;
+- scelte progettuali in funzione di frequenza e potenza;
+- validità del modello ideale limitata da perdite ohmiche e isteretiche.
+
+<Callout type="info">
+
+Nella risoluzione di problemi reali, specifica sempre se assumi trasformatore
+ideale o no: cambia direttamente il numero di gradi di libertà del modello.
+
+</Callout>

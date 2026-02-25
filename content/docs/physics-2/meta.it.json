@@ -1,0 +1,17 @@
+{
+  "title": "Fisica 2",
+  "root": true,
+  "pages": [
+    "index",
+    "field-theory-review",
+    "electrostatics",
+    "electrodynamics",
+    "ac-circuits",
+    "magnetism",
+    "magnetism-materials",
+    "induction",
+    "maxwell-equations",
+    "waves",
+    "[BookOpen][Flashcards](/it/flashcards?scope=course&mode=interactive&course=physics-2)"
+  ]
+}

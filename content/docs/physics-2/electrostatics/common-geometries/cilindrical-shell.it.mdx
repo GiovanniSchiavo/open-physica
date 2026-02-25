@@ -1,0 +1,98 @@
+---
+title: Guscio cilindrico
+description:
+  Campo e potenziale elettrostatico di un guscio cilindrico uniformemente carico
+---
+
+## Guscio cilindrico uniformemente carico
+
+Consideriamo un guscio cilindrico infinito di raggio $R$ con densità di carica
+superficiale uniforme $\sigma$. (O equivalentemente carica $Q$ distribuita su
+altezza $h$).
+
+### Campo Elettrico
+
+Per simmetria cilindrica e invarianza per traslazione lungo l'asse e rotazione,
+il campo è radiale. Usiamo una superficie gaussiana cilindrica di raggio $r$ e
+altezza $L$.
+
+#### Caso Interno ($r < R$)
+
+La carica racchiusa è nulla ($Q_{int} = 0$).
+
+$$
+E(r) 2\pi r L = 0 \implies E(r) = 0
+$$
+
+#### Caso Esterno ($r \ge R$)
+
+La carica racchiusa è quella sulla superficie cilindrica di raggio $R$ e altezza
+$L$. $Q_{int} = \sigma (2\pi R L)$. In termini di carica totale $Q$ su una
+lunghezza $h$: $\sigma = \frac{Q}{2\pi R h}$. Quindi per la lunghezza $L$:
+$Q_{int} = \frac{Q}{h} L$.
+
+Applicando Gauss:
+
+$$
+E(r) 2\pi r L = \frac{Q_{int}}{\varepsilon_0} = \frac{Q L}{h \varepsilon_0}
+$$
+
+$$
+E(r) = \frac{Q}{2\pi \varepsilon_0 h r}
+$$
+
+**Riassumendo:**
+
+$$
+\vec{E}(r)=\begin{cases} \begin{aligned}
+0 \qquad \qquad \ \ \mathrm{\ se\ r<R}\\
+\frac{Q}{2\pi\varepsilon_0 h r} \hat{u}_r \ \ \ \ \ \ \ \mathrm{\ se\ r\geq R}
+\end{aligned} \end{cases}
+$$
+
+### Potenziale Elettrostatico
+
+Calcoliamo la differenza di potenziale tra un punto a distanza $r$ e la
+superficie del guscio ($R$).
+
+$$
+V(r) - V(R) = - \int_R^r \vec{E} \cdot d\vec{l} = - \int_R^r \frac{Q}{2\pi\varepsilon_0 h r'} dr'
+$$
+
+$$
+V(r) - V(R) = - \frac{Q}{2\pi\varepsilon_0 h} [\ln r']_R^r = - \frac{Q}{2\pi\varepsilon_0 h} \ln\left(\frac{r}{R}\right)
+$$
+
+Per $r < R$, il campo è nullo, quindi il potenziale è costante e uguale a
+$V(R)$.
+
+Se poniamo $V(R) = 0$:
+
+$$
+V(r)=\begin{cases} \begin{aligned}
+0 \qquad \qquad \ \ \ \mathrm{\ se\ r<R}\\
+- \frac{Q}{2\pi\varepsilon_0 h} \ln\bigl(\frac{r}{R}\bigr)  \ \ \mathrm{\ se\ r\geq R}
+\end{aligned} \end{cases}
+$$
+
+### Capacità
+
+Per un singolo guscio isolato infinito, la capacità non è definita in modo
+standard (divergerebbe rispetto all'infinito). Tuttavia, questa geometria
+costituisce l'armatura interna di un **condensatore cilindrico**.
+
+Consideriamo un secondo guscio conduttore coassiale di raggio $R_b > R$ e
+calcoliamo la capacità del sistema formato dai due gusci di altezza $h$.
+
+La differenza di potenziale in valore assoluto tra i due gusci (tra $R$ e $R_b$)
+è:
+
+$$
+|\Delta V| = |V(R_b) - V(R)| = \frac{Q}{2\pi\varepsilon_0 h} \ln\left(\frac{R_b}{R}\right)
+$$
+
+La capacità $C = Q / |\Delta V|$ è:
+
+$$
+C = \frac{2\pi\varepsilon_0 h}{\ln(R_b/R)}
+$$

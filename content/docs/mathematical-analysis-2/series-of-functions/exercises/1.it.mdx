@@ -1,0 +1,110 @@
+---
+title: "Esercizio 1"
+description: "Esercizio 1 sulla convergenza uniforme di una serie di funzioni"
+badges:
+  - Convergenza uniforme
+  - Serie geometrica
+exercise:
+  difficulty: 2
+---
+
+## Testo dell'esercizio
+
+Considerata la serie
+
+$$
+\sum_{n=0}^{\infty} x^n
+$$
+
+determinare l'insieme di convergenza puntuale e la funzione somma. Verificare
+poi che la serie converge uniformemente nell'intervallo
+$\left[-\frac{1}{2}, \; \frac{1}{2}\right]$.
+
+## Soluzione [toc]
+
+<Solution>
+
+### Convergenza puntuale
+
+Fissato un valore di $x \in \mathbb{R}$, la serie $\sum_{n=0}^{\infty} x^n$ è
+una **serie geometrica** di ragione $q = x$: ogni termine si ottiene
+moltiplicando il precedente per $x$.
+
+Per il teorema sul carattere della serie geometrica, essa converge se e solo se
+$|q| < 1$, cioè $|x| < 1$, ovvero $-1 < x < 1$. L'insieme di convergenza
+puntuale è quindi:
+
+$$
+A = \left]-1, \; 1\right[
+$$
+
+Per ricavare la **funzione somma**, partiamo dalla ridotta $n$-esima. Poiché
+$x \neq 1$ nell'insieme di convergenza, possiamo scrivere:
+
+$$
+S_n(x) = \sum_{k=0}^{n} x^k = \frac{1 - x^{n+1}}{1 - x}
+$$
+
+(formula ottenuta dal trucco $S_n - x S_n = 1 - x^{n+1}$). Per $|x| < 1$ si ha
+$x^{n+1} \to 0$ quando $n \to \infty$, quindi:
+
+$$
+F(x) = \lim_{n \to \infty} S_n(x) = \frac{1}{1 - x} \qquad \text{per } x \in \left]-1, \; 1\right[
+$$
+
+### Convergenza uniforme in $\left[-\frac{1}{2}, \; \frac{1}{2}\right]$
+
+Applichiamo la definizione: per ogni $\varepsilon > 0$ deve esistere un indice
+$p \in \mathbb{N}$ tale che per ogni $n > p$ e per ogni
+$x \in \left[-\frac{1}{2}, \; \frac{1}{2}\right]$:
+
+$$
+|F(x) - S_n(x)| < \varepsilon
+$$
+
+Calcoliamo il resto:
+
+$$
+|F(x) - S_n(x)| = \left|\frac{1}{1-x} - \frac{1 - x^n}{1 - x}\right| = \left|\frac{x^n}{1-x}\right|
+$$
+
+Stimiamo numeratore e denominatore nell'intervallo
+$\left[-\frac{1}{2}, \; \frac{1}{2}\right]$:
+
+- **Numeratore:** $|x^n| \le \left(\frac{1}{2}\right)^n$ poiché
+  $|x| \le \frac{1}{2}$
+
+- **Denominatore:** $|1-x| \ge \frac{1}{2}$ poiché $x \le \frac{1}{2}$, quindi
+  $\frac{1}{|1-x|} \le 2$
+
+Combinando le due stime:
+
+$$
+\left|\frac{x^n}{1-x}\right| \le \frac{(1/2)^n}{1/2} = \left(\frac{1}{2}\right)^{n-1}
+$$
+
+Basta quindi imporre:
+
+$$
+\left(\frac{1}{2}\right)^{n-1} < \varepsilon
+$$
+
+Applicando il logaritmo:
+
+$$
+(n-1) \ln\left(\frac{1}{2}\right) < \ln(\varepsilon) \implies n > 1 - \frac{\ln(\varepsilon)}{\ln(1/2)}
+$$
+
+L'indice $p$ trovato dipende **solo** da $\varepsilon$ e **non** da $x$.
+Pertanto la serie converge **uniformemente** nell'intervallo
+$\left[-\frac{1}{2}, \; \frac{1}{2}\right]$.
+
+<Callout type="tip" title="Osservazione">
+
+Lo stesso ragionamento si applica a qualsiasi intervallo chiuso $[-r, \; r]$ con
+$0 < r < 1$: la serie geometrica converge uniformemente in ogni sottointervallo
+compatto strettamente incluso in $\left]-1, \; 1\right[$.
+
+</Callout>
+
+</Solution>
