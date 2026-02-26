@@ -12,6 +12,15 @@ const config: NextConfig = {
       },
     ];
   },
+  serverExternalPackages: ["mermaid", "@mdx-js/mdx", "shiki"],
+  experimental: {
+    optimizePackageImports: [
+      "lucide-react",
+      "framer-motion",
+      "katex",
+      "rehype-katex",
+    ],
+  },
   onDemandEntries: {
     // Keep fewer route bundles in memory during development.
     maxInactiveAge: 15_000,
