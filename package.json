@@ -4,9 +4,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "NODE_OPTIONS='--max-old-space-size=6144' next dev --bun",
-    "build": "NODE_OPTIONS='--max-old-space-size=6144' next build --bun",
-    "start": "next start --bun",
+    "dev": "bun run --bun next dev",
+    "build": "bun run --bun next build",
+    "start": "bun run --bun next start",
     "types:check": "fumadocs-mdx && tsc --noEmit",
     "lint": "fumadocs-mdx && eslint .",
     "lint:fix": "fumadocs-mdx && eslint . --fix",

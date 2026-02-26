@@ -1,6 +1,6 @@
 {
   "name": "open-physica",
-  "image": "oven/bun:latest",
+  "image": "oven/bun:1.3.10",
   "features": {
     "ghcr.io/devcontainers/features/common-utils:2": {
       "installZsh": true,
