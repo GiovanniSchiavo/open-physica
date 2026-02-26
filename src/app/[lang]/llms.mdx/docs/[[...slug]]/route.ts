@@ -1,5 +1,8 @@
 import { isSupportedLocale } from "@/lib/locale";
 import { source } from "@/lib/source";
+import type { InferPageType } from "fumadocs-core/source";
+
+type PageData = InferPageType<typeof source>["data"];
 
 export const runtime = "nodejs";
 export const revalidate = 3600;
@@ -19,11 +22,12 @@ export async function GET(
     return new Response("Not Found", { status: 404 });
   }
 
-  // Read raw MDX from Fumadocs MDX directly
-  const hasGetText = "getText" in page.data;
   let content = "";
-  if (hasGetText) {
-    content = await (page.data as any).getText("raw");
+  if ("getText" in page.data) {
+    const { getText } = page.data as PageData & {
+      getText: (type: "raw" | "processed") => Promise<string>;
+    };
+    content = await getText("raw");
   }
 
   return new Response(content, {

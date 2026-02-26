@@ -1,10 +1,13 @@
 import { loader } from "fumadocs-core/source";
 import { lucideIconsPlugin } from "fumadocs-core/source/lucide-icons";
+import { getPageTreeRoots } from "fumadocs-core/page-tree";
+import type { TagItem } from "fumadocs-ui/contexts/search";
 import { docs } from "../../.source/server";
 import { Star } from "lucide-react";
 import { createElement } from "react";
 import type { ReactNode } from "react";
 import { i18n } from "@/lib/i18n";
+import { toDisplayName } from "@/lib/search-tags";
 
 // Helper to create difficulty indicator for sidebar (matches DifficultyStars colors)
 function DifficultyIndicator({ difficulty }: { difficulty: number }) {
@@ -129,10 +132,6 @@ export const source = loader({
   ],
 });
 
-import { toDisplayName } from "@/lib/search-tags";
-import type { TagItem } from "fumadocs-ui/contexts/search";
-import { getPageTreeRoots } from "fumadocs-core/page-tree";
-
 // Derive the list of root section folders from the default page tree.
 // This replaces the old direct import of content/docs/meta.json.
 function getRootFolderIds(lang: string): string[] {
@@ -169,7 +168,7 @@ export function getLocalizedSectionTags(lang: string): TagItem[] {
 
     return {
       value,
-      name: (rootNode?.name as string) ?? toDisplayName(value),
+      name: rootNode ? String(rootNode.name) : toDisplayName(value),
     };
   });
 }

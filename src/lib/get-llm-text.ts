@@ -1,15 +1,16 @@
 import type { InferPageType } from "fumadocs-core/source";
 import type { source } from "@/lib/source";
 
+type PageData = InferPageType<typeof source>["data"];
+
 export async function getLLMText(page: InferPageType<typeof source>) {
-  // Read the raw MDX from disk and strip the YAML frontmatter block so
-  // downstream LLM consumers receive source markdown rather than rendered HTML.
-  const hasGetText = "getText" in page.data;
   let content = "";
 
-  if (hasGetText) {
-    // This removes frontmatter automatically via Fumadocs MDX
-    content = await (page.data as any).getText("raw");
+  if ("getText" in page.data) {
+    const { getText } = page.data as PageData & {
+      getText: (type: "raw" | "processed") => Promise<string>;
+    };
+    content = await getText("raw");
   }
 
   return `# ${page.data.title} (${page.url})\n\n${content}`;
