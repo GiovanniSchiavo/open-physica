@@ -3,7 +3,7 @@ import { isSupportedLocale } from "@/lib/locale";
 import { source } from "@/lib/source";
 
 export const runtime = "nodejs";
-export const revalidate = 3600;
+export const dynamic = "force-dynamic";
 
 export async function GET(
   _req: Request,

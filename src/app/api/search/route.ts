@@ -3,7 +3,7 @@ import type { StructuredData } from "fumadocs-core/mdx-plugins/remark-structure"
 import { createFromSource } from "fumadocs-core/search/server";
 
 export const runtime = "nodejs";
-export const revalidate = false;
+export const dynamic = "force-dynamic";
 
 type SearchPageData = {
   title?: string;
@@ -20,7 +20,6 @@ function emptyStructuredData(): StructuredData {
 }
 
 const server = createFromSource(source, {
-  // https://docs.orama.com/docs/orama-js/supported-languages
   localeMap: {
     en: "english",
     it: "italian",
