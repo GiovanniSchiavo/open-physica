@@ -4,7 +4,6 @@ import type { InferPageType } from "fumadocs-core/source";
 
 type PageData = InferPageType<typeof source>["data"];
 
-export const runtime = "nodejs";
 export const revalidate = 3600;
 
 export async function GET(

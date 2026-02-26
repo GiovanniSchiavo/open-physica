@@ -1,0 +1,439 @@
+                                 CAPITOLO 1
+
+
+                   Sistemi di equazioni lineari
+
+     Gli oggetti che studieremo nel corso sono le equazioni lineari, ossia
+equazioni del tipo
+                                 a1 x1 + · · · + an xn = b,
+per a1 , . . . , an , b ∈ R, n ∈ N. (Il simbolo R indica l’insieme dei numeri reali,
+che verranno propriamente definiti nel corso di analisi, e N indica l’insieme
+{0, 1, 2, 3, 4, . . . } dei numeri naturali.)
+     Per esempio
+                                  2x1 + 3x2 + 4x3 = 4
+è una equazione lineare. Ma anche
+                                 0 = 2 e x1 = 3
+sono equazioni lineari.
+    Nelle prime lezioni ci concentreremo sullo studio dei sistemi di equazioni
+lineari. Come vedrete spesso durante la vostra carriera accademica, una
+strategia molto efficace per la risoluzione di un problema fisico/matematico
+complicato è quella di tradurlo nel linguaggio dell’algebra lineare. Questo
+è uno dei principali motivi per cui studiare questi sistemi di equazioni in
+dettaglio è molto importante.
+      Definizione 1.1. Un sistema di m equazioni lineari in n incognite
+x1 , . . . , xn è un numero finito di equazioni lineari
+                       
+                       
+                        a11 x1 + a12 x2 + · · · + a1n xn = b1
+                        a21 x1 + a22 x2 + · · · + a2n xn = b2
+                       
+(1)                                     ..
+                       
+                       
+                                        .
+                       a x + a x + · · · + a x = b
+                      m1 1      m2 2            mn n          m
+    Esempio 1.2.           
+                            x1 + 2x2 + x3 = 3
+                             x1 + 3x2 + 5x3 = 7
+                             x1 + 7x2 − x3 = 1
+                           
+è un sistema di tre equazioni lineari in tre incognite.
+    Per motivi pratici preferiremo scrivere solamente i numeri aij e bk asso-
+ciati a tale sistema. Li ordiniamo a formare una tabella di numeri disposti
+in righe e colonne, cioè una matrice.
+    Definizione 1.3. La matrice dei coefficienti associata al sistema (1) è
+                                               
+                         a11 a12 . . . a1n
+                       a21 a22 . . . a2n 
+                                               
+                       ..       ..  ..      .. 
+                       .         .     .     . 
+                              am1 am2 . . . amn
+                                         7
+8                       1. SISTEMI DI EQUAZIONI LINEARI
+
+     La matrice completa del sistema (1) è
+                                                         
+                         a11 a12 . . . a1n            b1
+                       a21 a22 . . . a2n             b2 
+                                                         
+                       ..       ..         ..         .. 
+                       .         .          .          . 
+                            am1 am2 . . . amn bm
+     Esempio 1.4. La matrice completa associata al sistema dell’Esempio 1.2
+è                                       
+                                 1 2 1 3
+                                1 3 5 7 
+                                 1 7 −1 1
+     Il nostro primo obiettivo sarà quello di individuare tecniche di risoluzione
+di sistemi di equazioni lineari. Per adesso daremo semplicemente la seguente
+definizione.
+    Definizione 1.5. Sia (A | b) la matrice completa di un sistema di
+equazioni lineari. Allora l’insieme di soluzioni di (A|b) è
+                                                                          
+               
+                   x1            a11 x1 + a12 x2 + · · · + a1n xn = b1     
+                x2             a    x   + a   x     + · · · + a   x  = b
+                                                                            
+                                    21   1    22   2              2n  n    2
+                                                                             
+                              n
+   Sol(A, b) :=  ..  ∈ R                                                     ,
+                   
+                                                     ..
+               
+                  .                                .                      
+                                                                             
+                                                                            
+                x
+                     n           am1 x1 + am2 x2 + · · · + amn xn = bm 
+dove Rn è l’insieme i cui elementi sono le sequenze ordinate di n numeri
+reali.
+     Osservazione 1.6. Di solito                                  n
+                                   scriveremo gli elementi di R come righe
+                                    a1
+                                   a2 
+(a1 , . . . , an ) o come colonne  ..  con a1 , . . . , an ∈ R.
+                                   
+                                  .
+                                   an
+     Il prossimo obiettivo sarà quello di descrivere un procedimento per cui,
+dato (A|b), si riesca a determinare l’insieme Sol(A, b). L’idea è di modificare
+il sistema in modo da determinare un sistema equivalente che sia più facile
+da risolvere. ‘Equivalente’ per noi significa che durante i vari passaggi non
+vogliamo cambiare l’insieme delle soluzioni.
+     Più precisamente:
+    Definizione 1.7. Diciamo che una matrice A := (ai,j ) con m righe ed
+n colonne è in forma a scala, o a gradini, se esiste un intero r tale che
+     (1) ai,j = 0 per ogni i ∈ {r + 1, . . . , m} e j ∈ {1, . . . , n}.
+     (2) Per ogni i ∈ {1, . . . , r} esiste un intero j tale che ai,j ̸= 0.
+     (3) Per i = 1, . . . , r sia ji := min{j| aij ̸= 0}. Allora
+                             j1 < j2 < j3 < · · · < jr .
+Se inoltre si verifica che per ogni k ∈ {1, . . . , r} ed ogni i ∈ {1, . . . , k − 1}
+vale ai,jk = 0 allora diremo che A è in forma a scala ridotta.
+    Gli elementi ai,ji verranno chiamati pivot.
+                       1. SISTEMI DI EQUAZIONI LINEARI                         9
+
+    Esplicitamente, vogliamo che ognuna delle prime r righe sia non nulla,
+che le altre righe siano nulle e che ogni riga non nulla abbia il primo elemento
+non zero in una posizione più a destra rispetto al primo elemento non zero
+della riga precedente. Graficamente:
+
+
+
+
+    In particolare, le prime j1 − 1 colonne a sinistra e le ultime n − r righe
+in basso contengono solo zeri.
+    Esempio 1.8. La matrice
+                                        
+                                1 2 1 3
+                               0 2 4 6 
+                                0 0 −1 1
+è in forma a scala. Se si considera questa matrice come matrice completa di
+un sistema di equazioni lineari, allora il sistema corrispondente è
+                            
+                             x1 + 2x2 + x3 = 3
+                                   2x2 + 4x3 = 6
+                                        −x3 = 1
+                            
+
+L’unica soluzione di questo sistema è x1 = −6, x2 = 5, x3 = −1.
+    Quindi i sistemi di equazioni lineari tali che loro matrici completa è in
+forma a scala sono facili da risolvere (in maniera ricorsiva, a partire dall’ul-
+tima equazione). Adesso mostreremo che ogni sistema di equazioni lineari
+si può trasformare in un sistema in forma a scala senza cambiare l’insieme
+delle solkuzioni.
+   Definizione 1.9. Sia A una matrice. Allora chiamiamo le seguenti tre
+operazioni:
+     (1) scambiare due righe di A;
+     (2) moltiplicare una riga di A con un numero λ non zero;
+     (3) sommare λ volte la riga i di A alla riga k di A (con i ̸= k);
+operazioni elementari sulle righe di A.
+   Le operazioni elementari hanno molte applicazioni in vari contesti. Per
+adesso le utilizzeremo per risolvere sistemi di equazioni lineari.
+    Proposizione 1.10. Sia (A|b) una matrice completa di un sistema li-
+neare, e sia (A′ |b′ ) la matrice ottenuta da (A|b) applicando una qualsiasi
+operazione elementare. Allora
+                            Sol(A, b) = Sol(A′ , b′ )
+10                      1. SISTEMI DI EQUAZIONI LINEARI
+
+     Dimostrazione. Scambiare due righe in (A|b) corrisponde a scambiare
+due equazioni nel sistema. È chiaro che l’ordine delle equazioni non influisce
+l’insieme delle soluzioni, cosı̀ per questa operazione abbiamo facilmente che
+Sol(A, b) = Sol(A′ , b′ ).
+     Sia ora (x1 , . . . , xn ) una soluzione del sistema (A|b). Adesso moltiplichia-
+mo un’equazione con un numero λ, determinando un nuovo sistema (A′ |b′ ).
+Anche in questo caso è ovvio che (x1 , . . . , xn ) è anche una soluzione del si-
+stema (A′ , b′ ). Similmente, sommando un multiplo di un’equazione ad altre
+equazioni troviamo che le soluzioni del vecchio sistema sono anche soluzioni
+del nuovo sistema. In altre parole, abbiamo sempre che
+                              Sol(A, b) ⊂ Sol(A′ , b′ ).
+Se (A′ , b′ ) è ottenuta da (A, b) moltiplicando la i-esima riga con λ, allo-
+ra, usando che λ ̸= 0 possiamo definire (A′′ |b′′ ) come la matrice ottenuta da
+(A′ , b′ ) moltiplicando la i−esima riga con λ1 . Se A′ è ottenuta da A somman-
+do λ volte riga i su riga k, allora possiamo definire (A′′ |b′′ ) come la matrice
+ottenuta da (A′ , b′ ) sommando −λ volte riga i su riga k. In ambedue i casi
+troviamo
+                             Sol(A′ , b′ ) ⊂ Sol(A′′ , b′′ ).
+Abbiamo costruito (A′′ |b′′ ) tale che (A′′ |b′′ ) = (A|b). In particolare
+                        Sol(A, b) ⊂ Sol(A′ , b′ ) ⊂ Sol(A, b)
+e quindi Sol(A′ , b′ ) = Sol(A, b).                                               □
+    Osservazione 1.11. Il significato del simbolo ⊂ non è lo stesso in tutti i
+testi di matematica. In queste dispense, come nella maggior parte dei testi,
+useremo la notazione A ⊂ B per indicare che ogni elemento di A à anche un
+elemento di B. Altri autori utilizzano ⊆ per indicare questa proprietà.
+    Per indicare che ogni elemento di A è anche un elemento di B, ma A e
+B non sono uguali, scriveremo A ⊊ B.
+     Possiamo usare questo risultato per risolvere il sistema dell’Esempio 1.2:
+     Esempio 1.12. Cominciamo con la matrice
+                                            
+                                1 2 1 3
+                              1 3 5 7 
+                                1 7 −1 1
+Sottraiamo la prima riga dalla seconda riga e troviamo
+                                                
+                                   1 2 1 3
+                        II − I  0 1 4 4 
+                                   1 7 −1 1
+Sottraiamo la prima riga dalla terza riga e troviamo
+                                                  
+                                   1 2 1        3
+                                 0 1 4         4 
+                       III − I     0 5 −2 −2
+Sottraiamo cinque volte la seconda riga dalla terza riga e troviamo
+                                                    
+                                  1 2     1      3
+                                0 1      4      4 
+                    III − 5II     0 0 −22 −22
+                        1. SISTEMI DI EQUAZIONI LINEARI                            11
+
+Adesso dividiamo la terza riga per −22:
+                                            
+                                     1 2 1 3
+                                    0 1 4 4 
+                       III/(−22)     0 0 1 1
+Adesso abbiamo trovato la forma a scala e possiamo risolvere il sistema come
+visto nell’esempio sopra. In alternativa possiamo trovare la forma a scala
+ridotta. Per fare questo, sottraiamo 4 volte la terza riga dalla seconda, e
+sottraiamo la terza riga dalla prima riga:
+                                                 
+                                       1 2 0 2
+                         II − 4III  0 1 0 0 
+                                       0 0 1 1
+Adesso sottraiamo due volte la seconda riga dalla prima riga:
+                                               
+                        I − 2II     1 0 0 2
+                                  0 1 0 0 
+                                    0 0 1 1
+Ora il sistema corrispondente è x1 = 2; x2 = 0; x3 = 1 e
+                                        
+                                        2 
+                          Sol(A, b) = 0 .
+                                            1
+                                              
+
+    La procedura utilizzata nell’esempio si chiama eliminazione di Gauß.
+Questa procedura viene descritta nella dimostrazione della seguente propo-
+sizione:
+    Proposizione 1.13. Sia A una matrice, allora utilizzando una serie di
+operazioni elementari su A si può trasformare A in una matrice in forma a
+scala, e volendo anche in forma a scala ridotta.
+     Dimostrazione. Se A fosse tale che aij = 0 per ogni i, j, cioè se fosse la
+matrice nulla, allora A sarebbe già in forma a scala (con r = 0). Altrimenti,
+sia j1 il numero della colonna più a sinistra di A che contiene un coefficiente
+diverso da zero.
+     Sia i1 il numero della riga più in alto tale che il coefficiente nella colonna
+j1 è diverso da 0. Se i1 > 1 allora si scambi la riga 1 con la riga i1 . A questo
+punto abbiamo che a1j1 ̸= 0. Adesso sia Ã ottenuta da A sommando
+                                          aij
+                                       − 1
+                                         a1,j1
+volte la prima riga alla riga i per i = 2, . . . , m. Questo significa che si ha
+                                            aij1
+                            ãi,j := ai,j −        a1,j .
+                                            a1,j1
+Per j < j1 gli elementi ai,j e a1,j sono zero e quindi ãi,j = 0. Per j = j1 e
+i > 1 troviamo che
+                                           aij1
+                          ãi,j1 = ai,j1 −       a1,j1 = 0.
+                                           a1,j1
+Cioè le prime j1 − 1 colonne sono composte da soli zeri, e nella colonna j1
+c’è un unico coefficiente non zero che troviamo nella prima riga.
+12                     1. SISTEMI DI EQUAZIONI LINEARI
+
+      Adesso si applica la stessa procedura alla matrice formata dalle righe 2
+fino a n di Ã. In quella matrice l’intera colonna j1 è zero. Se indichiamo con
+j2 l’indice della prima colonna a sinistra che contiene un coefficiente diverso
+da zero, si trova j1 < j2 .
+      Ragionando ricorsivamente, per trovare la forma ridotta dobbiamo ogni
+                  ai,j
+volta sottrarre ak,jk volte la riga k dalla riga i per i = 1, . . . , k − 1 e k =
+                       k
+2, . . . , r.                                                                   □
+     Esempio 1.14. Consideriamo
+                                     
+                          0 2 −1 2  0
+                       1 3 4
+                                2 −2 
+                                      
+                       −1 1 −4 −4 2 
+                          1 1 3  6 −2
+Per trovare la forma a scala si comincia con lo scambiare le prime due righe.
+                                                  
+                             1 3 4        2 −2
+                          0 2 −1 2             0 
+                                                  
+                          −1 1 −4 −4 2 
+                             1 1 3        6 −2
+Adesso si somma la prima riga alla terza e si sottrae la prima riga dall’ultima
+riga:                                              
+                            1 3      4     2 −2
+                         0 2 −1 2               0 
+                                                   
+                         0 4        0 −2 0 
+                            0 −2 −1 4            0
+Adesso si sottrae due volte la seconda riga dalla terza e si somma la seconda
+riga alla quarta.                                 
+                             1 3 4        2 −2
+                          0 2 −1 2             0 
+                                                  
+                          0 0 2 −6 0 
+                             0 0 −2 6           0
+Sommando adesso la terza riga alla quarta si determina la forma a scala:
+                                                  
+                             1 3 4        2 −2
+                          0 2 −1 2             0 
+                                                  
+                          0 0 2 −6 0 
+                             0 0 0        0     0
+Per trovare la forma ridotta si divide la terza riga per 2:
+                                                  
+                            1 3 4         2 −2
+                          0 2 −1 2            0 
+                                                  
+                          0 0 1 −3 0 
+                            0 0 0         0    0
+Adesso si somma la terza alla seconda, e si sottrae 4 volta la terza riga alla
+prima:                                         
+                            1 3 0 14 −2
+                          0 2 0 −1 0 
+                                               
+                          0 0 1 −3 0 
+                            0 0 0 0          0
+                         1. SISTEMI DI EQUAZIONI LINEARI                        13
+
+Si moltiplica la prima riga per 2:
+                                                  
+                             2 6           0 28 −4
+                           0 2
+                                          0 −1 0 
+                           0 0            1 −3 0 
+                             0 0           0 0   0
+e si sottrae 3 volte la seconda riga dalla prima
+                                                
+                              2 0 0 31 −4
+                             0 2 0 −1 0 
+                                                
+                             0 0 1 −3 0 
+                              0 0 0 0          0
+    x1 = −31/2x4 − 2; x2 = 21 x4 , x3 = 3x4
+     Adesso che abbiamo stabilito che ogni matrice può essere trasformata in
+forma a scala, vogliamo dedurre come individuare le soluzioni del sistema,
+se esistono, da questa forma semplificata. Sia (A|b) in forma a scala.
+     Risolubilità: Iniziamo considerando il caso jr = n + 1. In questo caso
+l’ultima riga che non è identicamente zero è della forma
+                               ( 0 0 0 . . . 0 br )
+con br ̸= 0. L’equazione corrispondente è del tipo
+                                          0 = br
+che non ha soluzione. Quindi anche il sistema non ha soluzioni.
+    Soluzioni: Adesso supponiamo che valga jr < n + 1. Per i = 1, . . . r
+troviamo che l’equazione corrispondente alla riga i è
+                     ai,ji xji + ai,ji +1 xji +1 + · · · + ai,n xn = bi
+con ai,ji ̸= 0. Possiamo riscrivere il sistema come
+                            1
+              
+                xj1 = a1,j     (b1 − a1,j1 +1 xj1 +1 + · · · + a1,n xn )
+                             1
+                            1
+              
+                          a2,j2 (b2 − a2,j2 +1 xj2 +1 + · · · + a2,n xn )
+               xj2 =
+              
+
+                      .
+                       ..
+              
+              
+                            1
+                  jr = ar,j (br − ar,jr +1 xjr +1 + · · · + ar,n xn )
+              
+               x
+                                 r
+
+Quindi possiamo scegliere xjr +1 , . . . , xn come vogliamo e questi determina-
+no xjr . Dopo possiamo scegliere xjr−1 +1 , . . . , xjr −1 come vogliamo e questi
+determinano xjr −1 e continuiamo.
+    Ricapitolando, i valori di xj1 , xj2 , . . . , xjr sono completamente determi-
+nati una volta che abbiamo scelto i valori per le altre variabili. Chiamere-
+mo le incognite corrispondenti alle colonne che contengono i pivot incognite
+determinate. Chiameremo le altre incognite incognite libere.
+    Unicità: La forma a scala non è unica. Aggiungendo la condizione che
+tutti i pivot siano 1, allora la forma a scala ridotta sarà invece unica.
+    Proposizione 1.15. Sia A una matrice m × n, b una matrice m × 1.
+Allora per Sol(A, b) ci sono tre possibilità. Può essere vuoto, consistere di
+un unico elemento o essere un insieme infinito.
+14                       1. SISTEMI DI EQUAZIONI LINEARI
+
+    Dimostrazione. Supponiamo che Sol(A, b) non sia vuoto. Allora se
+non ci sono incognite libere, la soluzione è unica e troviamo un unico elemen-
+to in Sol(A, b). Se c’è almeno un’incognita libera, diciamo xi , allora l’i-esima
+coordinata può avere qualsiasi valore e quindi Sol(A, b) è infinito.           □
+     Esempio 1.16. Consideriamo il sistema
+                       
+                        x2 + 2x4 − 2x7 = 0
+                                x3 + 6x7 = 2
+                                 x5 + x7 = 0
+                       
+
+in x1 , . . . , x7 . Allora x2 , x3 , x5 sono le incognite determinate, x1 , x4 , x6 , x7
+sono le incognite libere e
+                                                                                         
+                                                     
+                                                            t 1                            
+                                                                                            
+                                                     
+                                                     
+                                                      −2t2 + 2t4                         
+                                                                                            
+                                                                                            
+                                                                                   
+          0 1 0 2 0 0 −2                    0              2 −  6t
+                                                                                           
+                                                                   4 
+                                                     
+                                                                                         
+                                                                                            
+                                                       
+Sol       0 0 1 0 0 0 6 , 2                        =        t2       t1 , t2 , t3 , t4 ∈ R
+                                                              
+          0 0 0 0 1 0 1                     0                −t
+                                                     
+                                                                 4
+                                                     
+                                                                                         
+                                                                                            
+                                                                                         
+                                                             t
+                                                                                           
+                                                     
+                                                     
+                                                     
+                                                              3                           
+                                                                                            
+                                                                                            
+                                                            t4                             
+
+Dove abbiamo prima imposto x1 = t1 , x4 = t2 , x6 = t3 , x7 = t4 , poi risolto
+per x2 , x3 , x5 .
+

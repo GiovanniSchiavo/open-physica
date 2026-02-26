@@ -1,0 +1,386 @@
+---
+title: Operazioni elementari
+description: Operazioni elementari sulle righe e l'algoritmo di Gauss
+---
+
+## Operazioni elementari sulle righe
+
+<Statement type="definition" title="Operazioni elementari sulle righe">
+
+Data una matrice $A$, si definiscono **operazioni elementari sulle righe** le
+seguenti tre azioni applicabili ad essa:
+
+1. permutazione di due righe (cambiare il loro ordine);
+2. moltiplicazione di tutti gli elementi di una riga per uno scalare
+   $\lambda \neq 0$;
+3. sommare alla riga $k$ una riga $i$ moltiplicata per uno scalare $\lambda$
+   (con $i \neq k$).
+
+</Statement>
+
+L'uso delle operazioni elementari si estende in numerosi ambiti della
+matematica. In questa fase iniziale, il nostro focus primario sarà impiegarle
+per la risoluzione pratica dei sistemi di equazioni lineari.
+
+<Statement type="proposition">
+
+Poniamo che $(A \mid b)$ rappresenti la matrice completa associata ad un sistema
+lineare, e che $(A' \mid b')$ indichi la matrice prodotta applicando una singola
+operazione elementare a $(A \mid b)$. È possibile affermare che:
+
+$$
+\text{Sol}(A, b) = \text{Sol}(A', b')
+$$
+
+</Statement>
+
+<Accordions>
+<Accordion title="Dimostrazione della proposizione">
+
+1. La permutazione di due righe della matrice $(A \mid b)$ equivale
+   semplicemente a cambiare l'ordine in cui le equazioni sono presentate
+   all'interno del sistema originario. Ovviamente, l'ordine in cui forniamo le
+   condizioni non altera in alcun modo le possibili soluzioni, quindi in questo
+   specifico caso si deduce che $\text{Sol}(A, b) = \text{Sol}(A', b')$.
+
+2. Sia ora $(x_1, \dots, x_n)$ una soluzione del sistema $(A \mid b)$. Se
+   moltiplichiamo entrambi i membri di una qualsiasi equazione per uno scalare
+   non nullo $\lambda$, otterremo un sistema riformulato identitificato da
+   $(A' \mid b')$. Qualsiasi soluzione che rendeva vera l'equazione di partenza,
+   continuerà a renderla vera dopo che tutti i termini saranno stati scalati.
+   Ugualmente, l'aggiungere ad un'equazione un multiplo di un'altra non
+   falsifica l'equazione risultante. Detto in altri termini, possiamo affermare
+   in ogni caso l'inclusione logica:
+
+   $$
+   \text{Sol}(A, b) \subset \text{Sol}(A', b')
+   $$
+
+3. Tuttavia, queste operazioni sono reversibili. Se abbiamo generato $(A', b')$
+   a partire da $(A, b)$ moltiplicando la riga $i$-esima per il fattore
+   $\lambda$, allora, con la garanzia che $\lambda \neq 0$, saremo in grado di
+   produrre una terza matrice $(A'' \mid b'')$ moltiplicando la riga $i$-esima
+   di $(A', b')$ per il reciproco $\frac{1}{\lambda}$. Nel caso di somma di
+   righe: se $A'$ è stata generata aggiungendo $\lambda$ volte la riga $i$ alla
+   riga $k$, ricaveremo $(A'' \mid b'')$ da $(A', b')$ addizionando $-\lambda$
+   volte la riga $i$ alla riga corrispondente $k$. Per le stesse logiche esposte
+   precedentemente, vale sempre:
+
+   $$
+   \text{Sol}(A', b') \subset \text{Sol}(A'', b'')
+   $$
+
+   Ma analizzando la costituzione della matrice, si nota che l'aver "revertito"
+   le mosse ha riportato la situazione esattamente come prima, dunque
+   $(A'' \mid b'') = (A \mid b)$. Possiamo concludere la catena di inclusioni:
+
+   $$
+   \text{Sol}(A, b) \subset \text{Sol}(A', b') \subset \text{Sol}(A, b)
+   $$
+
+   e quindi $\text{Sol}(A', b') = \text{Sol}(A, b)$.
+
+</Accordion>
+</Accordions>
+
+<Callout type="info" title="Osservazione">
+
+È d'obbligo far notare che l'utilizzo del segno $\subset$ varia a seconda della
+sensibilità degli autori in letteratura. Nel contesto di questi materiali,
+adopereremo la scrittura $A \subset B$ per indicare un'inclusione impropria
+(cioè ogni oggetto in $A$ fa parte di $B$, inclusa la possibilità che i due
+insiemi coincidano). In altre circostanze potreste incontrare il marchio
+$\subseteq$ con identico intento.
+
+Laddove invece si intenda segnalare un'inclusione propria (cioè $A$ è parte di
+$B$, ma $B$ possiede elementi aggiuntivi estranei ad $A$), si preferirà
+esplicitamente $A \subsetneq B$.
+
+</Callout>
+
+Vediamo subito un'applicazione concreta ricollegandoci all'esempio introdotto
+precedentemente.
+
+## Eliminazione di Gauss
+
+Prendiamo in esempio la matrice:
+
+$$
+\left(\begin{array}{ccc|c}
+1 & 2 & 1 & 3 \\
+1 & 3 & 5 & 7 \\
+1 & 7 & -1 & 1
+\end{array}\right)
+$$
+
+Decidiamo di operare una sottrazione tra la prima e la seconda riga:
+
+$$
+\text{II} - \text{I} \rightarrow
+\left(\begin{array}{ccc|c}
+1 & 2 & 1 & 3 \\
+0 & 1 & 4 & 4 \\
+1 & 7 & -1 & 1
+\end{array}\right)
+$$
+
+Ripetiamo l'azione, ma sottrarremo nuovamente la prima riga questa volta alla
+terza riga:
+
+$$
+\text{III} - \text{I} \rightarrow
+\left(\begin{array}{ccc|c}
+1 & 2 & 1 & 3 \\
+0 & 1 & 4 & 4 \\
+0 & 5 & -2 & -2
+\end{array}\right)
+$$
+
+Procediamo rimuovendo 5 volte la seconda riga direttamente sulla terza:
+
+$$
+\text{III} - 5\text{II} \rightarrow
+\left(\begin{array}{ccc|c}
+1 & 2 & 1 & 3 \\
+0 & 1 & 4 & 4 \\
+0 & 0 & -22 & -22
+\end{array}\right)
+$$
+
+Possiamo compattare la terza riga dividendo in un sol colpo per $-22$:
+
+$$
+\text{III} / (-22) \rightarrow
+\left(\begin{array}{ccc|c}
+1 & 2 & 1 & 3 \\
+0 & 1 & 4 & 4 \\
+0 & 0 & 1 & 1
+\end{array}\right)
+$$
+
+La matrice è adesso in forma a scala. Potremmo già fermarci e trovare i
+risultati risolvendo iterativamente il sistema, così come spiegato in
+precedenza. Ciononostante, possiamo andare oltre per la ricerca della cosiddetta
+forma a scala ridotta. Con questo fine a mente, andiamo a sottrarre quattro
+volte la terza riga alla seconda riga, e sottraiamola semplicemente alla prima:
+
+$$
+\text{II} - 4\text{III} \quad \text{e} \quad \text{I} - \text{III} \rightarrow
+\left(\begin{array}{ccc|c}
+1 & 2 & 0 & 2 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 1 & 1
+\end{array}\right)
+$$
+
+L'ultimo passaggio mancante richiede solo rimuovere due volte la seconda riga
+dalla prima:
+
+$$
+\text{I} - 2\text{II} \rightarrow
+\left(\begin{array}{ccc|c}
+1 & 0 & 0 & 2 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 1 & 1
+\end{array}\right)
+$$
+
+Il sistema è diventato adesso banale in quanto le singole equazioni
+corrispondono alle identità $x_1 = 2$; $x_2 = 0$; $x_3 = 1$; che in forma di
+insieme soluzione scriviamo:
+
+$$
+\text{Sol}(A, b) = \left\{ \begin{pmatrix} 2 \\ 0 \\ 1 \end{pmatrix} \right\}.
+$$
+
+Il metodo appena illustrato è noto come algoritmo di **eliminazione di Gauss**.
+Esiste una proposizione matematica a suo corredo, riportata qui di seguito:
+
+<Statement type="proposition">
+  Data una matrice $A$ qualsiasi, è sempre possibile ricorrere a sequenze finite
+  di operazioni elementari al fine di trasformare $A$ in una matrice avente
+  forma a gradini e, volendo inoltrarsi ulteriormente, anche in una a forma
+  ridotta.
+</Statement>
+
+<Accordions>
+<Accordion title="Dimostrazione della proposizione">
+
+Nel caso limite in cui la matrice sia totalmente priva di numeri, cioè $A = (0)$
+dove ogni $a_{ij} = 0$, la matrice è già banalmente a scala (infatti il valore
+$r$ dell'indice corrispondente sarà 0). Supponiamo diversamente, e partendo da
+sinistra individuiamo come prima colonna attiva $j_1$ quella in cui si può
+rintracciare un qualsiasi numero dissimile da zero.
+
+Spostiamoci verticalmente ad identificare la prima riga utile $i_1$ nella
+colonna esaminata, con coefficiente non nullo. Qualora $i_1$ non valesse $1$, ci
+basterà semplicemente permutare fra loro la riga posizionata ad $i_1$ con quella
+allocata ad $1$. Questo piccolo accorgimento basterà a regalarci sempre la
+sicurezza matematica che, al momento di compiere i passaggi, il valore pivot
+prescelto nell'analisi attuale non sarà zero: $a_{1,j_1} \neq 0$.
+
+A questo punto si produrrà la nuova matrice $\tilde{A}$, partendo da quella
+originale e addizionando alla riga generica $i$ iterativamente la prima riga,
+moltiplicando prima quest'ultima per la frazione apposita:
+
+$$
+-\frac{a_{i,j_1}}{a_{1,j_1}}
+$$
+
+con $i$ decrescente nei valori $\{2, \dots, m\}$. Ne conviene che ogni cella
+seguirà una nuova logica per il proprio calcolo:
+
+$$
+\tilde{a}_{i,j} := a_{i,j} - \frac{a_{i,j_1}}{a_{1,j_1}} a_{1,j}.
+$$
+
+Sappiamo già in partenza che per le posizioni in cui eravamo bloccati $j < j_1$,
+gli $a_{i,j}$ non valevano niente così come per gli spigoli superiori e i
+conseguenti $\tilde{a}_{i,j}$. Soffermiamoci allora solo sull'indice cruciale
+$j = j_1$ per le righe $i > 1$:
+
+$$
+\tilde{a}_{i,j_1} = a_{i,j_1} - \frac{a_{i,j_1}}{a_{1,j_1}} a_{1,j_1} = 0.
+$$
+
+Le colonne finora appurate, specificamente in quantità pari a $j_1 - 1$,
+presentano ovunque insiemi composti prettamente da zeri. Alla tanto attesa
+colonna interessata $j_1$ rimane solo la primissima traccia dell'operato con i
+coefficenti.
+
+L'intera logica può poi essere trasbordata alle sottoparti inferiori,
+considerando la radice composta dalle righe dalla seconda riga fine all'ennesima
+riga di $\tilde{A}$. Il blocco colonna con $j_1$ rimarrebbe pari a zero per
+questa sottomatrice. Si nominerà lo zero rintracciato lungo tutto l'intero
+percorso orizzontale come l'unica eccezione visibile. L'altro colpevole del
+differenziale in zero lo potremmo ricollocare visivamente nell'indice $j_2$
+($j_1 < j_2$).
+
+Da lì la dimostrazione diventerebbe semplicemente ripetibile finchè esauribile,
+con passaggi standardizzati del tipo di sottrazioni in un ordine standard, pari
+a $\frac{a_{i,j_k}}{a_{k,j_k}}$ moltiplicato per l'altezza di $k$-riga per
+intaccare tutti i casi dove $i$ oscilla in $\{1, \dots, k - 1\}$ e $k$ varia da
+$\{2, \dots, r\}$. $\square$
+
+</Accordion>
+</Accordions>
+
+### Esempio
+
+Cerchiamo di elaborare assieme la tabella numerica mostrata di seguito:
+
+$$
+\left(\begin{array}{cccc|c}
+0 & 2 & -1 & 2 & 0 \\
+1 & 3 & 4 & 2 & -2 \\
+-1 & 1 & -4 & -4 & 2 \\
+1 & 1 & 3 & 6 & -2
+\end{array}\right)
+$$
+
+Possiamo invertire comodamente le posizioni per i primi due filetti prima di
+fare operazioni pesanti.
+
+$$
+\left(\begin{array}{cccc|c}
+1 & 3 & 4 & 2 & -2 \\
+0 & 2 & -1 & 2 & 0 \\
+-1 & 1 & -4 & -4 & 2 \\
+1 & 1 & 3 & 6 & -2
+\end{array}\right)
+$$
+
+A questo punto eseguiamo in tandem due funzioni: aggiungiamo l'intera prima
+serie orizzontale all'interno della terza, e sottraiamola all'ultima presente in
+fondo:
+
+$$
+\left(\begin{array}{cccc|c}
+1 & 3 & 4 & 2 & -2 \\
+0 & 2 & -1 & 2 & 0 \\
+0 & 4 & 0 & -2 & 0 \\
+0 & -2 & -1 & 4 & 0
+\end{array}\right)
+$$
+
+La terza riga potrà essere snellita tramite l'aiuto della seconda presa due
+volte in negativo, per poi ricambiare il favore addizionando totalmente la
+seconda all'ultima presente alla fine.
+
+$$
+\left(\begin{array}{cccc|c}
+1 & 3 & 4 & 2 & -2 \\
+0 & 2 & -1 & 2 & 0 \\
+0 & 0 & 2 & -6 & 0 \\
+0 & 0 & -2 & 6 & 0
+\end{array}\right)
+$$
+
+Questa conformazione non rappresenta ostacoli formidabili a livello operativo.
+Basterà sommare vicendevolmente gli strati per chiudere con l'ambita matrice a
+gradoni:
+
+$$
+\left(\begin{array}{cccc|c}
+1 & 3 & 4 & 2 & -2 \\
+0 & 2 & -1 & 2 & 0 \\
+0 & 0 & 2 & -6 & 0 \\
+0 & 0 & 0 & 0 & 0
+\end{array}\right)
+$$
+
+L'idea più immediata per snellire fino all'orlo le misurazioni risiede nel
+limare della metà esatta per mezzo del divisore $2$ le componenti dell'asse
+numero tre:
+
+$$
+\left(\begin{array}{cccc|c}
+1 & 3 & 4 & 2 & -2 \\
+0 & 2 & -1 & 2 & 0 \\
+0 & 0 & 1 & -3 & 0 \\
+0 & 0 & 0 & 0 & 0
+\end{array}\right)
+$$
+
+Successivamente aggiungeremo per direttissima il blocco in posizione 3 sul
+blocco di mezzo e sottraendolo brutalmente moltiplicato ben quattro misure sulle
+figure alte al numero uno:
+
+$$
+\left(\begin{array}{cccc|c}
+1 & 3 & 0 & 14 & -2 \\
+0 & 2 & 0 & -1 & 0 \\
+0 & 0 & 1 & -3 & 0 \\
+0 & 0 & 0 & 0 & 0
+\end{array}\right)
+$$
+
+Miglioriamo l'area operativa scacciando ogni possibilità passibile di formare
+resti frazionati ingrandendo le misure alte tramite il fattore universale pari a
+raddoppiamenti:
+
+$$
+\left(\begin{array}{cccc|c}
+2 & 6 & 0 & 28 & -4 \\
+0 & 2 & 0 & -1 & 0 \\
+0 & 0 & 1 & -3 & 0 \\
+0 & 0 & 0 & 0 & 0
+\end{array}\right)
+$$
+
+Questo permetterà alla fine la netta depurazione trina del filetto di supporto
+dal primo strato senza alterazioni disuguaglianza:
+
+$$
+\left(\begin{array}{cccc|c}
+2 & 0 & 0 & 31 & -4 \\
+0 & 2 & 0 & -1 & 0 \\
+0 & 0 & 1 & -3 & 0 \\
+0 & 0 & 0 & 0 & 0
+\end{array}\right)
+$$
+
+Così sistematicamente, avremo terminato il processo e non rimane se non
+interpretare una misurazione che esula incognita pari e uguale a disposta, per
+poi trarre per induzione speculare i risultati: $x_1 = -\frac{31}{2}x_4 - 2$;
+$x_2 = \frac{1}{2}x_4$; $x_3 = 3x_4$.

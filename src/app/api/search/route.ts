@@ -2,7 +2,6 @@ import { source, sectionTagSet } from "@/lib/source";
 import type { StructuredData } from "fumadocs-core/mdx-plugins/remark-structure";
 import { createFromSource } from "fumadocs-core/search/server";
 
-export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 type SearchPageData = {

@@ -2,7 +2,6 @@ import { getLLMText } from "@/lib/get-llm-text";
 import { isSupportedLocale } from "@/lib/locale";
 import { source } from "@/lib/source";
 
-export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 export async function GET(

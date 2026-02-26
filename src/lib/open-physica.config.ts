@@ -79,10 +79,10 @@ const config: Config = {
       items: [
         {
           text: {
-            en: "Physics 2",
-            it: "Fisica 2",
+            en: "Linear Algebra and Geometry",
+            it: "Algebra Lineare e Geometria",
           },
-          url: "/docs/physics-2",
+          url: "/docs/linear-algebra-geometry",
           active: "nested-url",
         },
         {
@@ -91,6 +91,14 @@ const config: Config = {
             it: "Analisi Matematica 2",
           },
           url: "/docs/mathematical-analysis-2",
+          active: "nested-url",
+        },
+        {
+          text: {
+            en: "Physics 2",
+            it: "Fisica 2",
+          },
+          url: "/docs/physics-2",
           active: "nested-url",
         },
       ],

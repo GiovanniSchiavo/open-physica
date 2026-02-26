@@ -1,0 +1,102 @@
+---
+title: Matrici a scala
+description: Riduzione di un sistema in forma a scala o a gradini
+---
+
+<Callout type="tip" title="Non ti spaventare!">
+
+Il formalismo matematico che segue potrebbe apparire ostico, ma non temere: si
+tratta semplicemente di un modo rigoroso per descrivere un procedimento che, in
+pratica, risulta essere piuttosto intuitivo (e che già conosci dalle scuole
+superiori).
+
+Non ti incagliare troppo nel cercare di capire la notazione, soprattutto quella
+che riguarda gli indici delle righe e delle colonne delle matrici: è
+inevitabilmente non immediata. Cerca piuttosto di cogliere il "succo del
+discorso", ti sarà tutto più chiaro con i primi esercizi!
+
+</Callout>
+
+Illustriamo un metodo sistematico attraverso il quale, partendo dalla matrice
+$(A \mid b)$, sia possibile ricavare lo spazio delle soluzioni
+$\text{Sol}(A, b)$. Il principio fondamentale si basa sulla manipolazione del
+sistema originale per ottenerne uno "equivalente", ma dalla risoluzione più
+immediata. Con il termine "equivalente" intendiamo che, in ogni fase della
+procedura, l'insieme delle soluzioni rimane invariato.
+
+## Matrici a scala
+
+<Statement type="definition" title="Matrice a scala">
+
+Una matrice $A := (a_{i,j})$ composta da $m$ righe e $n$ colonne si dice in
+**forma a scala** (o a gradini) se esiste un numero intero $r$ tale che:
+
+1. $a_{i,j} = 0$ per tutti gli indici $i \in \{r + 1, \dots, m\}$ e
+   $j \in \{1, \dots, n\}$.
+2. Per ogni $i \in \{1, \dots, r\}$, vi è un indice di colonna $j$ tale per cui
+   $a_{i,j} \neq 0$.
+3. Per $i = 1, \dots, r$, definendo $j_i := \min\{j \mid a_{i,j} \neq 0\}$, si
+   verifica la disuguaglianza stretta:
+   $$
+   j_1 < j_2 < j_3 < \dots < j_r
+   $$
+
+In aggiunta, se si riscontra che per ogni $k \in \{1, \dots, r\}$ e per ogni
+$i \in \{1, \dots, k - 1\}$ il coefficiente $a_{i,j_k} = 0$, la matrice $A$
+prende il nome di matrice in **forma a scala ridotta**.
+
+Gli elementi speciali $a_{i,j_i}$ prendono il nome di **pivot**.
+
+</Statement>
+
+In pratica, si richiede che
+
+1. Le ultime righe della matrice siano composte unicamente da zeri.
+2. Le prime $r$ righe contengano almeno un elemento non nullo.
+3. Analizzando le righe non nulle dall'alto verso il basso, il primo valore
+   diverso da zero deve comparire sempre più a destra rispetto alla riga
+   precedente.
+
+Osserviamo la seguente matrice:
+
+$$
+\left( \begin{array}{ccc|c}
+1 & 2 & 1 & 3 \\
+0 & 2 & 4 & 6 \\
+0 & 0 & -1 & 1
+\end{array} \right)
+$$
+
+che è in forma a scala. Volendo interpretare questa stessa matrice come la
+rappresentazione completa di un sistema lineare, ricaveremmo il seguente insieme
+di equazioni:
+
+$$
+\begin{cases}
+x_1 + 2x_2 + x_3 = 3 \\
+2x_2 + 4x_3 = 6 \\
+-x_3 = 1
+\end{cases}
+$$
+
+Risolvere questo sistema è piuttosto diretto, e l'unica terna soluzione risulta
+essere $x_1 = -6, x_2 = 5, x_3 = -1$.
+
+Si noti che la matrice
+
+$$
+\left( \begin{array}{ccc|c}
+1 & 0 & 0 & -6 \\
+0 & 1 & 0 & 5 \\
+0 & 0 & 1 & -1
+\end{array} \right)
+$$
+
+è la matrice con lo stesso insieme di soluzioni in forma a scala ridotta (si
+osservi come la quarta colonna è esattamente il vettore soluzione).
+
+Questo ci fa comprendere come i sistemi associati a matrici a scala siano
+notevolmente più semplici da gestire, soprattutto partendo dal basso verso
+l'alto (sostituzione all'indietro). Proveremo a dimostrare come sia sempre
+possibile convertire un sistema lineare in un altro del tutto equivalente, la
+cui matrice dei coefficienti si presenti in forma a scala.

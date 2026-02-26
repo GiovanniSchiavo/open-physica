@@ -1,0 +1,131 @@
+---
+title: Risolubilità e soluzioni
+description: Risolubilità di un sistema lineare e variabili libere.
+---
+
+Avendo prima certificato che qualsiasi griglia matriciale si presta alla
+conversione nella corrispondente forma a scala, ci domandiamo ora come scovare
+materialmente le eventuali soluzioni, o accertarne l'assenza, estraendole dalla
+sua versione "alleggerita". Ammettiamo di possedere la matrice equivalente
+$(A \mid b)$ in forma a scala.
+
+**Risolubilità**: Immaginiamo dapprima l'eventualità in cui l'indice $j_r$ cada
+sull'ultima colonna, formalmente $j_r = n + 1$. Sotto questa condizione,
+l'ultima stringa orizzontale non unicamente nulla assumerebbe l'aspetto:
+
+$$
+\begin{pmatrix} 0 & 0 & 0 & \dots & 0 & b_r \end{pmatrix}
+$$
+
+con l'elemento $b_r \neq 0$. Tradotta di nuovo nel linguaggio algebrico
+dell'equazione omogenea ai coefficienti, figurerebbe come:
+
+$$
+0 = b_r
+$$
+
+Un'equazione palesemente impossibile, il cui destino decreta l'assoluta assenza
+di soluzioni per l'intero sistema sottostante.
+
+**Soluzioni**: Alternativamente, congetturiamo ora che si palesi l'opzione
+$j_r < n + 1$. Lasciando scorrere l'indice $i$ fra $1$ ed $r$, denoteremo per
+l'equazione situata al gradino $i$:
+
+$$
+a_{i,j_i} x_{j_i} + a_{i,j_i+1} x_{j_i+1} + \dots + a_{i,n} x_n = b_i
+$$
+
+posto il pivot $a_{i,j_i} \neq 0$. Il sistema nella sua interezza assume la
+veste di:
+
+$$
+\begin{cases}
+x_{j_1} = \frac{1}{a_{1,j_1}} (b_1 - a_{1,j_1+1} x_{j_1+1} - \dots - a_{1,n} x_n) \\
+x_{j_2} = \frac{1}{a_{2,j_2}} (b_2 - a_{2,j_2+1} x_{j_2+1} - \dots - a_{2,n} x_n) \\
+\vdots \\
+x_{j_r} = \frac{1}{a_{r,j_r}} (b_r - a_{r,j_r+1} x_{j_r+1} - \dots - a_{r,n} x_n)
+\end{cases}
+$$
+
+Osservando il sistema, si nota che potremmo arbitrariamente stabilire parametri
+a piacere per le incognite $x_{j_r+1}, \dots, x_n$ e calcolarne di rimbalzo il
+valore preciso di $x_{j_r}$. Risalendo la catena per
+$x_{j_{r-1}+1}, \dots, x_{j_r-1}$ faremmo dipendere unicamente il numero
+incognito $x_{j_{r-1}}$ dai restanti appena prefissati e via così in modo
+retrogrado.
+
+Sintetizzando, una volta decisi dei generici parametri per le incognite
+rimanenti, scenderanno a cascata come conseguenza fissa le valutazioni di
+$x_{j_1}, x_{j_2}, \dots, x_{j_r}$. Verranno etichettate come **incognite
+determinate** (o dipendenti) quelle localizzate nelle medesime colonne a cui
+presiedono i pivot. Le loro compagne nel sistema risponderanno invece al nome di
+**incognite libere** (o parametri liberi).
+
+**Unicità**: Bisogna menzionare che l'approccio alla forma a scala non porta un
+risultato geometricamente fisso nello spazio numerico, e non vi è un'unica fine
+del calcolo matematico. Se però restringessimo l'ambito pretendendo
+l'obbligatorietà del valore unitario 1 per tutti i pivot scovati, approderemmo
+ad una forma a scala ridotta, quest'ultima invero matematicamente singolare ed
+unica.
+
+<Statement type="proposition">
+  Per definizione, di fronte a schemi con matrice dei coefficienti $A$ di taglia
+  $m \times n$ accoppiata in matrice completa con $b$ formato $m \times 1$, lo
+  specchio delle soluzioni finali decadrà inesorabilmente in uno di soli tre
+  tracciati per $\text{Sol}(A, b)$. Si mostrerà svuotato da risultati, abiterà
+  un solo irripetibile punto, oppure abbraccerà una vastità infinita di
+  interiezioni.
+</Statement>
+
+**Dimostrazione.** Partendo a ritroso, presumiamo verificata la consistenza di
+$\text{Sol}(A, b)$ affinché non resti l'insieme vuoto iniziale. Scoperchia due
+sentieri: in assenza cronica di incognite libere, la logica suggerisce una
+formula definita unicamente, confinando $\text{Sol}(A, b)$ nell'isolamento
+puntuale di una e una sola terna risolutiva. Palesandosi anche solo un'effimera
+incognita etichettata libera $x_i$, lo studente potrà incardinarle la libertà in
+ogni valore a piacere sull'asse misurabile, spalancando le porte dell'infinito
+alla generosa famiglia delle identità calcolabili in $\text{Sol}(A, b)$.
+$\square$
+
+### Esempio
+
+Poniamo in rassegna lo schema seguente:
+
+$$
+\begin{cases}
+x_2 + 2x_4 - 2x_7 = 0 \\
+x_3 + 6x_7 = 2 \\
+x_5 + x_7 = 0
+\end{cases}
+$$
+
+nelle sette variabili $x_1, \dots, x_7$. Si appura in scioltezza che sono
+appannaggio delle incognite determinate la triade $x_2, x_3, x_5$, relagando al
+ruolo di incognite libere lo scalpo di $x_1, x_4, x_6, x_7$. L'identikit dello
+spazio risolutivo cala pertanto a:
+
+$$
+\text{Sol}\left(
+\begin{pmatrix}
+0 & 1 & 0 & 2 & 0 & 0 & -2 & 0 \\
+0 & 0 & 1 & 0 & 0 & 0 & 6 & 2 \\
+0 & 0 & 0 & 0 & 1 & 0 & 1 & 0
+\end{pmatrix}
+\right)
+= \left\{
+\begin{pmatrix}
+t_1 \\
+-2t_2 + 2t_4 \\
+2 - 6t_4 \\
+t_2 \\
+-t_4 \\
+t_3 \\
+t_4
+\end{pmatrix}
+\;\middle|\; t_1, t_2, t_3, t_4 \in \mathbb{R}
+\right\}.
+$$
+
+A monte si è fissato in astratto il canone
+$x_1 = t_1, x_4 = t_2, x_6 = t_3, x_7 = t_4$, da cui a valle non c'è rimasto da
+svolgere che le isolate espressioni calate rispettivamente per $x_2, x_3, x_5$.

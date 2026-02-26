@@ -5,7 +5,6 @@ import { NextResponse } from "next/server";
 const WRITE_DIR = join(process.cwd(), "content", "write");
 const WRITE_DISABLED_MESSAGE = "Write API is disabled in production.";
 
-export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 function isWriteEnabled() {
