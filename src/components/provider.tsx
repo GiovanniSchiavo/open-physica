@@ -7,7 +7,8 @@ import { usePathname } from "next/navigation";
 import { useMemo } from "react";
 import type { ReactNode } from "react";
 import { i18n } from "@/lib/i18n";
-import { resolveSectionTagFromPath, sectionTags } from "@/lib/search-tags";
+import { resolveSectionTagFromPath } from "@/lib/search-tags";
+import { sectionTags, sectionTagSet } from "@/lib/source";
 import type { TagItem } from "fumadocs-ui/contexts/search";
 
 const { provider } = defineI18nUI(i18n, {
@@ -38,7 +39,7 @@ export function Provider({
 }) {
   const pathname = usePathname();
   const defaultTag = useMemo(
-    () => resolveSectionTagFromPath(pathname, lang),
+    () => resolveSectionTagFromPath(pathname, lang, sectionTagSet),
     [lang, pathname],
   );
 

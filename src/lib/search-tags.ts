@@ -1,10 +1,3 @@
-import type { TagItem } from "fumadocs-ui/contexts/search";
-import docsMeta from "../../content/docs/meta.json";
-
-const allSectionTags = (docsMeta.pages ?? []).filter(
-  (page): page is string => typeof page === "string" && page.length > 0,
-);
-
 export function toDisplayName(value: string) {
   return value
     .split("-")
@@ -15,17 +8,10 @@ export function toDisplayName(value: string) {
     .join(" ");
 }
 
-export const sectionTagValues = allSectionTags;
-export const sectionTagSet = new Set(sectionTagValues);
-
-export const sectionTags: TagItem[] = sectionTagValues.map((value) => ({
-  value,
-  name: toDisplayName(value),
-}));
-
 export function resolveSectionTagFromPath(
   pathname: string | null,
   lang: string,
+  sectionTagSet: Set<string>,
 ) {
   if (!pathname) return undefined;
 

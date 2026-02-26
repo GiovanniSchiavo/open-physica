@@ -129,17 +129,37 @@ export const source = loader({
   ],
 });
 
-import { sectionTagValues, toDisplayName } from "@/lib/search-tags";
+import { toDisplayName } from "@/lib/search-tags";
 import type { TagItem } from "fumadocs-ui/contexts/search";
 import { getPageTreeRoots } from "fumadocs-core/page-tree";
 
+// Derive the list of root section folders from the default page tree.
+// This replaces the old direct import of content/docs/meta.json.
+function getRootFolderIds(lang: string): string[] {
+  const tree = source.pageTree[lang];
+  if (!tree) return [];
+  const prefix = `${lang}:`;
+  return getPageTreeRoots(tree)
+    .filter((r) => "type" in r && r.type === "folder")
+    .map((r) => (r.$id ?? "").replace(prefix, ""))
+    .filter(Boolean);
+}
+
+/** Tag values (folder slugs) derived from default-locale page tree */
+export const sectionTagValues: string[] = getRootFolderIds("it");
+export const sectionTagSet: Set<string> = new Set(sectionTagValues);
+
+/** English-only fallback tags (display name = capitalized slug) */
+export const sectionTags: TagItem[] = sectionTagValues.map((value) => ({
+  value,
+  name: toDisplayName(value),
+}));
+
+/** Localized tags reading the title from the page tree root folders */
 export function getLocalizedSectionTags(lang: string): TagItem[] {
   const tree = source.pageTree[lang];
   if (!tree) {
-    return sectionTagValues.map((value) => ({
-      value,
-      name: toDisplayName(value),
-    }));
+    return sectionTags;
   }
 
   const roots = getPageTreeRoots(tree);

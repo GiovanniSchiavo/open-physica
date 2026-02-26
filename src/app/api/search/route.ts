@@ -1,5 +1,4 @@
-import { source } from "@/lib/source";
-import { sectionTagSet } from "@/lib/search-tags";
+import { source, sectionTagSet } from "@/lib/source";
 import type { StructuredData } from "fumadocs-core/mdx-plugins/remark-structure";
 import { createFromSource } from "fumadocs-core/search/server";
 
