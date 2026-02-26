@@ -129,34 +129,27 @@ export const source = loader({
   ],
 });
 
-import fs from "fs";
-import path from "path";
 import { sectionTagValues, toDisplayName } from "@/lib/search-tags";
 import type { TagItem } from "fumadocs-ui/contexts/search";
+import { getPageTreeRoots } from "fumadocs-core/page-tree";
 
 export function getLocalizedSectionTags(lang: string): TagItem[] {
+  const tree = source.pageTree[lang];
+  if (!tree) {
+    return sectionTagValues.map((value) => ({
+      value,
+      name: toDisplayName(value),
+    }));
+  }
+
+  const roots = getPageTreeRoots(tree);
+
   return sectionTagValues.map((value) => {
-    let name = toDisplayName(value);
-
-    try {
-      const courseDir = path.join(process.cwd(), "content", "docs", value);
-      const localizedMetaPath = path.join(courseDir, `meta.${lang}.json`);
-      const defaultMetaPath = path.join(courseDir, "meta.json");
-
-      if (fs.existsSync(localizedMetaPath)) {
-        const meta = JSON.parse(fs.readFileSync(localizedMetaPath, "utf-8"));
-        if (meta.title) name = meta.title;
-      } else if (fs.existsSync(defaultMetaPath)) {
-        const meta = JSON.parse(fs.readFileSync(defaultMetaPath, "utf-8"));
-        if (meta.title) name = meta.title;
-      }
-    } catch (e) {
-      // Ignore
-    }
+    const rootNode = roots.find((r) => r.$id === `${lang}:${value}`);
 
     return {
       value,
-      name,
+      name: (rootNode?.name as string) ?? toDisplayName(value),
     };
   });
 }
